@@ -26,7 +26,7 @@ Cards of vocabulary vol.2
 
 1. [以前](https://github.com/note103/Carvo)とほぼ同じですが、まず任意の場所にディレクトリを置いて中に入り、
 ```
-$ cd Carvo
+$ cd Carvo2
 ```
 
 1. ターミナルで`carvo.pl`を実行します。
