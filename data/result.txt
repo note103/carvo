@@ -10,3 +10,9 @@ Total score:
 	0	errors
 2014-08-27 01:13:01
 ---
+Total score:
+	3	times
+	3	hits
+	0	errors
+2014-08-27 01:27:54
+---
