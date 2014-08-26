@@ -7,7 +7,7 @@ package Carvo {
     our ($point, $miss) = (0, 0);
     our $total = $point + $miss;
     our ($times, $hits, $errors) = qw(times hits errors);
-    my ($qa, $sort, $lang, $num, $words, $english, $key, $limit, $mix_switch);
+    my ($sort, $lang, $num, $words, $english, $key, $limit, $mix_switch);
     my $port = 0;
     sub tutor {
         ($english, $sort, $lang) = @_;
@@ -34,10 +34,10 @@ package Carvo {
         my $msg_limit = "You can choose a number from 1-$limit.";
         my $msg_toobig = "Too big! $msg_limit";
         print "$msg2\n$msg_limit\n";
-        my $voice = sub {
+        sub voice {
             while (my $in2 = <>) {
                 if ($in2 =~ /^($enter)$/) {
-                    $qa->('a');
+                    qa('a');
                     print "\n$msg3\n";
                     last;
                 } else {
@@ -59,12 +59,12 @@ package Carvo {
                         $total = $point + $miss;
                         plural($total, $point, $miss);
                         print "\nGood!!\n";
-                        $qa->('a');
+                        qa('a');
                         print "\nYou tried $total $times. $point $hits and $miss $errors.\n$msg3\n";
                         last;
                     } elsif ($regexp =~ /$match/) {
                         print "\nSoso...\n";
-                        $qa->('a');
+                        qa('a');
                         print "\nLet's try again!\n";
                     } else {
                         $miss++;
@@ -72,7 +72,7 @@ package Carvo {
                     }
                 }
             }
-        };
+        }
         while (my $in = <>) {
             if ($in =~ /^(q)$/) {
                 $total = $point + $miss;
@@ -86,31 +86,31 @@ package Carvo {
                 if ($in > $limit) {
                     print "\n$msg_toobig\nThis is random select.\n";
                     random();
-                    $voice->();
+                    voice();
                 } else {
-                    $qa->('q');
-                    $voice->();
+                    qa('q');
+                    voice();
                 }
             } elsif ($in =~ /^(n|\n)$/) {
                 if ($port == $limit) {
                     print "\nYou exceeded the maximum. Return to the beggining.\n\n";
                     $num = 1;
                     $port = $num;
-                    $qa->('q');
-                    $voice->();
+                    qa('q');
+                    voice();
                 } else {
                     $num = $port+1;
                     $port = $num;
-                    $qa->('q');
-                    $voice->();
+                    qa('q');
+                    voice();
                 }
             } elsif ($in =~ /^(r)$/) {
                 random();
-                $voice->();
+                voice();
             } elsif ($in =~ /^(s)$/) {
                 $num = $port;
-                $qa->('q');
-                $voice->();
+                qa('q');
+                voice();
             } elsif ($in =~ /^(\w+)$/) {
                 $key = $1;
                 if (exists($english{$key})) {
@@ -133,13 +133,13 @@ package Carvo {
             } elsif ($in =~ /^([\W\D]+)$/) {
                 print "\nPlease input a correct one.\nThis is random select.\n";
                 random();
-                $voice->();
+                voice();
             } else {
                 print "\nPlease input a correct one.\n";
             }
         }
     }
-    $qa = sub {
+    sub qa {
         my $qa_switch = shift;
         if ($qa_switch eq 'q') {
             $key = $words->[$num];
@@ -179,7 +179,7 @@ package Carvo {
                 print "$key($num): $english->{$key}\n";
             }
         }
-    };
+    }
     sub mix {
         if ($mix_switch eq 'mix') {
             my $mix = int(1 + rand 2);
@@ -193,7 +193,7 @@ package Carvo {
     sub random {
         $num = int(rand($limit+1));
         $port = $num;
-        $qa->('q');
+        qa('q');
     }
     sub plural {
         ($times, $hits, $errors) = @_;
