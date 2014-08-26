@@ -54,7 +54,7 @@ package Carvo {
                             $regexp = $english->{$key};
                         }
                     }
-                    if ($regexp =~ /$match/) {
+                    if ($regexp =~ /^$match$/) {
                         $point++;
                         $total = $point + $miss;
                         plural($total, $point, $miss);
@@ -62,6 +62,10 @@ package Carvo {
                         $qa->('a');
                         print "\nYou tried $total $times. $point $hits and $miss $errors.\n$msg3\n";
                         last;
+                    } elsif ($regexp =~ /$match/) {
+                        print "\nSoso...\n";
+                        $qa->('a');
+                        print "\nLet's try again!\n";
                     } else {
                         $miss++;
                         print "\nNG! Again!\n";
