@@ -3,6 +3,7 @@ use strict;
 use warnings;
 use lib 'lib';
 use Carvo;
+use Time::Piece;
 
 my $msg = "Select a number of courses\n
 1: ja->en / random (default)
@@ -14,9 +15,14 @@ my $msg = "Select a number of courses\n
 q: exit";
 
 print "$msg\n";
+my $result;
+my $timestamp = localtime;
+
 while (my $in = <>) {
     if ($in =~ /^(q)$/) {
-        print "Total score:\n\t$Carvo::total\t$Carvo::times\n\t$Carvo::point\t$Carvo::hits\n\t$Carvo::miss\t$Carvo::errors\n";
+        print $result = "Total score:\n\t$Carvo::total\t$Carvo::times\n\t$Carvo::point\t$Carvo::hits\n\t$Carvo::miss\t$Carvo::errors\n";
+        print $timestamp->datetime(T=>' ')."\n";
+        result();
         last;
     } elsif ($in =~ /^(1|\n)$/) {
         Carvo::tutor(Words::english(), 'random', 'ja2en');
@@ -36,4 +42,10 @@ while (my $in = <>) {
     print "$msg\n";
 }
 
-
+sub result {
+    open my $fh, '>>', 'data/result.txt' or die $!;
+    print $fh "$result";
+    print $fh $timestamp->datetime(T=>' ')."\n";
+    print $fh "---\n";
+    close $fh;
+}
