@@ -65,22 +65,19 @@ $ perl carvo.pl
 ## TODO
 
 - 退出時に出てくる得点結果をテキストファイル等に自動的に書き出せるようにしたい
-- スマホから実行できるようにしたい（モバイルアプリ化）
 - [以前のTODO](https://github.com/note103/Carvo/blob/master/README.md#todo)
 
 ## DONE
 
 - Carvo2 公開 2014/08/25 20:01
 - ランダム設定のときに日英混在で出てくるようにしたい - done!
-- ブラウザで実行できるようにしたい（Webアプリ化） - abort
 - どの階層にいても`qq`で終了するようにしたい - abort
 - [以前の完了項目](https://github.com/note103/Carvo/blob/master/README.md#done)
 
 ## ライセンス
+Copyright (C) Hiroaki Kadomatsu.
 
-This library is free software;
-
-you can redistribute it and/or modify it under the same terms as Perl itself.
+This library is free software; you can redistribute it and/or modify it under the same terms as Perl itself.
 
 ## 作者
 
