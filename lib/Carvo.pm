@@ -35,32 +35,37 @@ package Carvo {
         my $msg_toobig = "Too big! $msg_limit";
         print "$msg2\n$msg_limit\n";
         my $voice = sub {
-            my $match;
-            if ($lang eq 'ja2en') {
-                $match = $key;
-            } elsif ($lang eq 'en2ja') {
-                if (ref $english->{$key}) {
-                    $match = $english->{$key}[0];
-                } else {
-                    $match = $english->{$key};
-                }
-            }
             while (my $in2 = <>) {
                 if ($in2 =~ /^($enter)$/) {
                     $qa->('a');
                     print "\n$msg3\n";
                     last;
-                } elsif ($in2 =~ /^$match$/) {
-                    $point++;
-                    $total = $point + $miss;
-                    plural($total, $point, $miss);
-                    print "\nGood!!\n";
-                    $qa->('a');
-                    print "\nYou tried $total $times. $point $hits and $miss $errors.\n$msg3\n";
-                    last;
                 } else {
-                    $miss++;
-                    print "\nNG! Again!\n";
+                    my $regexp = chomp $in2;
+                    my $match;
+                    if ($lang eq 'ja2en') {
+                        $match = "\^$key\$";
+                        $regexp = $in2;
+                    } elsif ($lang eq 'en2ja') {
+                        $match = $in2;
+                        if (ref $english->{$key}) {
+                            $regexp = $english->{$key}[0];
+                        } else {
+                            $regexp = $english->{$key};
+                        }
+                    }
+                    if ($regexp =~ /$match/) {
+                        $point++;
+                        $total = $point + $miss;
+                        plural($total, $point, $miss);
+                        print "\nGood!!\n";
+                        $qa->('a');
+                        print "\nYou tried $total $times. $point $hits and $miss $errors.\n$msg3\n";
+                        last;
+                    } else {
+                        $miss++;
+                        print "\nNG! Again!\n";
+                    }
                 }
             }
         };
