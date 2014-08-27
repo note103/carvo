@@ -1,22 +1,12 @@
-aid: を援助する|助ける
-extinguish: を消す|全滅させる
-fascinate: を魅了する
-guess: を推測する
-substantial: しっかりとした|相当な
+express: を表現する
+handle: を処理する|を扱う
+obscure: 人目につかない
+synthesis: 合成|総合
+vacant: 空いている
 
 Total score:
-	0	times
-	0	hits
+	1	time
+	1	hit
 	0	errors
-2014-08-27 11:19:43
----
-bankrupt: を破産させる
-fascinate: を魅了する
-separate: を分ける
-
-Total score:
-	0	times
-	0	hits
-	0	errors
-2014-08-27 11:23:01
+2014-08-27 12:48:44
 ---
