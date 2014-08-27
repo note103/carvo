@@ -1,0 +1,22 @@
+aid: を援助する|助ける
+extinguish: を消す|全滅させる
+fascinate: を魅了する
+guess: を推測する
+substantial: しっかりとした|相当な
+
+Total score:
+	0	times
+	0	hits
+	0	errors
+2014-08-27 11:19:43
+---
+bankrupt: を破産させる
+fascinate: を魅了する
+separate: を分ける
+
+Total score:
+	0	times
+	0	hits
+	0	errors
+2014-08-27 11:23:01
+---

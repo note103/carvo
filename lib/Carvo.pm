@@ -7,6 +7,7 @@ package Carvo {
     our ($point, $miss) = (0, 0);
     our $total = $point + $miss;
     our ($times, $hits, $errors) = qw(times hits errors);
+    our @logs;
     my ($sort, $lang, $num, $words, $english, $key, $limit, $mix_switch);
     my $port = 0;
     sub tutor {
@@ -140,6 +141,7 @@ package Carvo {
         }
     }
     sub qa {
+        my $ans;
         my $qa_switch = shift;
         if ($qa_switch eq 'q') {
             $key = $words->[$num];
@@ -165,7 +167,8 @@ package Carvo {
                 print "$key($num): $english->{$key}[0]\n";
                 for my $sentence (keys %{$english->{$key}[1]}) {
                     $ex_num++;
-                    print "\nex$ex_num.\t$sentence\n\t$english->{$key}[1]{$sentence}\n";
+                    print $ans = "\nex$ex_num.\t$sentence\n\t$english->{$key}[1]{$sentence}\n";
+                    push @logs, $ans;
                 }
             }
         } else {
@@ -176,7 +179,8 @@ package Carvo {
                     print "$english->{$key}\n";
                 }
             } elsif ($qa_switch eq 'a') {
-                print "$key($num): $english->{$key}\n";
+                print $ans = "$key($num): $english->{$key}\n";
+                push @logs, $ans;
             }
         }
     };

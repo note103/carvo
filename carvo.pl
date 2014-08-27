@@ -15,13 +15,17 @@ my $msg = "Select a number of courses\n
 q: exit";
 
 print "$msg\n";
+my $logs = \@Carvo::logs;
+my $log;
 my $result;
 my $timestamp = localtime;
 
 while (my $in = <>) {
     if ($in =~ /^(q)$/) {
-        print $result = "Total score:\n\t$Carvo::total\t$Carvo::times\n\t$Carvo::point\t$Carvo::hits\n\t$Carvo::miss\t$Carvo::errors\n";
+        print "Total score:\n";
+        print $result = "\t$Carvo::total\t$Carvo::times\n\t$Carvo::point\t$Carvo::hits\n\t$Carvo::miss\t$Carvo::errors\n";
         print $timestamp->datetime(T=>' ')."\n";
+        logs();
         result();
         last;
     } elsif ($in =~ /^(1|\n)$/) {
@@ -42,10 +46,25 @@ while (my $in = <>) {
     print "$msg\n";
 }
 
-sub result {
-    open my $fh, '>>', 'data/result.txt' or die $!;
-    print $fh "$result";
+sub logs {
+    my @tidy;
+    for my $tidy (@$logs) {
+        if ($tidy =~ /(.+)\(\d+\)(.+)/) {
+            push @tidy, "$1$2\n";
+        }
+    }
+    my %unique = map {$_ => 1} @tidy;
+    my @words = sort keys %unique;
+    open my $fh, '>>', 'data/logs.txt' or die $!;
+    print $fh @words;
+    print $fh "\nTotal score:\n".$result;
     print $fh $timestamp->datetime(T=>' ')."\n";
     print $fh "---\n";
+    close $fh;
+}
+sub result {
+    open my $fh, '>>', 'data/result.txt' or die $!;
+    print $fh $timestamp->datetime(T=>' ')."\n";
+    print $fh $result."\n";
     close $fh;
 }
