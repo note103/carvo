@@ -29,17 +29,17 @@ while (my $in = <>) {
         result();
         last;
     } elsif ($in =~ /^(1|\n)$/) {
-        Carvo::tutor(Words::english(), 'random', 'ja2en');
+        Carvo::main(Words::english(), 'random', 'ja2en');
     } elsif ($in =~ /^(2)$/) {
-        Carvo::tutor(Words::english(), 'order', 'ja2en');
+        Carvo::main(Words::english(), 'order', 'ja2en');
     } elsif ($in =~ /^(3)$/) {
-        Carvo::tutor(Words::english(), 'random', 'en2ja');
+        Carvo::main(Words::english(), 'random', 'en2ja');
     } elsif ($in =~ /^(4)$/) {
-        Carvo::tutor(Words::english(), 'order', 'en2ja');
+        Carvo::main(Words::english(), 'order', 'en2ja');
     } elsif ($in =~ /^(5)$/) {
-        Carvo::tutor(Words::english(), 'random', 'mix');
+        Carvo::main(Words::english(), 'random', 'mix');
     } elsif ($in =~ /^(6)$/) {
-        Carvo::tutor(Words::english(), 'order', 'mix');
+        Carvo::main(Words::english(), 'order', 'mix');
     } else {
         print "Please input a correct one.\n";
     }
@@ -55,16 +55,34 @@ sub logs {
     }
     my %unique = map {$_ => 1} @tidy;
     my @words = sort keys %unique;
-    open my $fh, '>>', 'data/logs.txt' or die $!;
-    print $fh @words;
-    print $fh "\nTotal score:\n".$result;
-    print $fh $timestamp->datetime(T=>' ')."\n";
-    print $fh "---\n";
-    close $fh;
+
+    my @tmp;
+    open my $fh_in, '<', 'data/logs.txt' or die $!;
+    for (<$fh_in>) {
+        push @tmp, $_;
+    }
+    close $fh_in;
+
+    open my $fh_out, '>', 'data/logs.txt' or die $!;
+    print $fh_out @words;
+    print $fh_out "\nTotal score:\n".$result;
+    print $fh_out $timestamp->datetime(T=>' ')."\n";
+    print $fh_out "---\n";
+    print $fh_out @tmp;
+    close $fh_out;
 }
+
 sub result {
-    open my $fh, '>>', 'data/result.txt' or die $!;
-    print $fh $timestamp->datetime(T=>' ')."\n";
-    print $fh $result."\n";
-    close $fh;
+    my @tmp;
+    open my $fh_in, '<', 'data/result.txt' or die $!;
+    for (<$fh_in>) {
+        push @tmp, $_;
+    }
+    close $fh_in;
+
+    open my $fh_out, '>', 'data/result.txt' or die $!;
+    print $fh_out $timestamp->datetime(T=>' ')."\n";
+    print $fh_out $result."\n";
+    print $fh_out @tmp;
+    close $fh_out;
 }

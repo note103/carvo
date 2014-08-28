@@ -10,7 +10,7 @@ package Carvo {
     our @logs;
     my ($sort, $lang, $num, $words, $english, $key, $limit, $mix_switch);
     my $port = 0;
-    sub tutor {
+    sub main {
         ($english, $sort, $lang) = @_;
         my %english = %$english;
         my @words;
@@ -29,44 +29,42 @@ package Carvo {
         my $enter = '\n';
         my $count = @words;
         $limit = $count - 1;
-        my $msg1 = 'Input (a number|r[andom]|q[uit]).';
-        my $msg2 = 'Input (a number|r[andom]|enter[next]|q[uit]).';
-        my $msg3 = 'Input (a number|r[andom]|s[ame]|enter[next]|q[uit]).';
+        my $msg_first = 'Input (a number|j[ump]|enter[next]|q[uit]).';
+        my $msg_usual = 'Input (a number|j[ump]|s[ame]|enter[next]|q[uit]).';
         my $msg_limit = "You can choose a number from 1-$limit.";
-        my $msg_toobig = "Too big! $msg_limit";
-        print "$msg2\n$msg_limit\n";
-        my $voice = sub {
-            while (my $in2 = <>) {
-                if ($in2 =~ /^($enter)$/) {
+        print "$msg_first\n$msg_limit\n";
+        my $input = sub {
+            while (my $in_ans = <>) {
+                if ($in_ans =~ /^($enter)$/) {
                     qa('a');
-                    print "\n$msg3\n";
+                    print "\n$msg_usual\n";
                     last;
                 } else {
-                    my $regexp = chomp $in2;
+                    my $regexp = chomp $in_ans;
                     my $match;
                     if ($lang eq 'ja2en') {
-                        $match = "\^$key\$";
-                        $regexp = $in2;
+                        $match = "$key";
+                        $regexp = $in_ans;
                     } elsif ($lang eq 'en2ja') {
-                        $match = $in2;
+                        $match = $in_ans;
                         if (ref $english->{$key}) {
                             $regexp = $english->{$key}[0];
                         } else {
                             $regexp = $english->{$key};
                         }
                     }
-                    if ($regexp =~ /^$match$/) {
+                    if ($regexp =~ /($match)/) {
                         $point++;
                         $total = $point + $miss;
                         plural($total, $point, $miss);
-                        print "\nGood!!\n";
+                        if ($regexp =~ /^($match)$/) {
+                            print "\nGood!!\n";
+                        } else {
+                            print "\nOK!\n";
+                        }
                         qa('a');
-                        print "\nYou tried $total $times. $point $hits and $miss $errors.\n$msg3\n";
+                        print "\nYou tried $total $times. $point $hits and $miss $errors.\n$msg_usual\n";
                         last;
-                    } elsif ($regexp =~ /$match/) {
-                        print "\nSoso...\n";
-                        qa('a');
-                        print "\nLet's try again!\n";
                     } else {
                         $miss++;
                         print "\nNG! Again!\n";
@@ -74,45 +72,45 @@ package Carvo {
                 }
             }
         };
-        while (my $in = <>) {
-            if ($in =~ /^(q)$/) {
+        while (my $in_way = <>) {
+            if ($in_way =~ /^(q)$/) {
                 $total = $point + $miss;
                 $port = 0;
                 last;
-            } elsif ($in =~ /^0$/) {
+            } elsif ($in_way =~ /^0$/) {
                 print "\n$msg_limit\n";
-            } elsif ($in =~ /^(\d+)$/) {
+            } elsif ($in_way =~ /^(\d+)$/) {
                 $num = $1;
                 $port = $num;
-                if ($in > $limit) {
-                    print "\n$msg_toobig\nThis is random select.\n";
-                    random();
-                    $voice->();
+                if ($in_way > $limit) {
+                    print "\nToo big! $msg_limit\nThis is random select.\n";
+                    jump();
+                    $input->();
                 } else {
                     qa('q');
-                    $voice->();
+                    $input->();
                 }
-            } elsif ($in =~ /^(n|\n)$/) {
+            } elsif ($in_way =~ /^(n|\n)$/) {
                 if ($port == $limit) {
                     print "\nYou exceeded the maximum. Return to the beggining.\n\n";
                     $num = 1;
                     $port = $num;
                     qa('q');
-                    $voice->();
+                    $input->();
                 } else {
                     $num = $port+1;
                     $port = $num;
                     qa('q');
-                    $voice->();
+                    $input->();
                 }
-            } elsif ($in =~ /^(r)$/) {
-                random();
-                $voice->();
-            } elsif ($in =~ /^(s)$/) {
+            } elsif ($in_way =~ /^(j)$/) {
+                jump();
+                $input->();
+            } elsif ($in_way =~ /^(s)$/) {
                 $num = $port;
                 qa('q');
-                $voice->();
-            } elsif ($in =~ /^(\w+)$/) {
+                $input->();
+            } elsif ($in_way =~ /^(\w+)$/) {
                 $key = $1;
                 if (exists($english{$key})) {
                     my $num_get = num_get($key, @words);
@@ -127,14 +125,14 @@ package Carvo {
                             }
                         }
                     }
-                    print "\nHere is $key($num_get)\n$msg2\n";
+                    print "\nHere is $key($num_get)\n$msg_first\n";
                 } else {
-                    print "\nHere is not '$key'.\n$msg3\n";
+                    print "\nHere is not '$key'.\n$msg_usual\n";
                 }
-            } elsif ($in =~ /^([\W\D]+)$/) {
+            } elsif ($in_way =~ /^([\W\D]+)$/) {
                 print "\nPlease input a correct one.\nThis is random select.\n";
-                random();
-                $voice->();
+                jump();
+                $input->();
             } else {
                 print "\nPlease input a correct one.\n";
             }
@@ -194,7 +192,7 @@ package Carvo {
             }
         }
     }
-    sub random {
+    sub jump {
         $num = int(rand($limit+1));
         $port = $num;
         qa('q');
