@@ -1,3 +1,31 @@
+abandon: を捨てる
+abide: に従う|我慢する|住む
+ability: 能力
+scope: 範囲
+
+Total score:
+	5	times
+	5	hits
+	0	errors
+2014-08-28 13:13:10
+---
+declare: を宣言する
+
+Total score:
+	1	time
+	1	hit
+	0	errors
+2014-08-28 13:12:17
+---
+cope: 上手く処理する
+recommend: を勧める
+
+Total score:
+	1	time
+	1	hit
+	0	errors
+2014-08-28 10:44:54
+---
 express: を表現する
 handle: を処理する|を扱う
 obscure: 人目につかない
@@ -9,13 +37,4 @@ Total score:
 	1	hit
 	0	errors
 2014-08-27 12:48:44
----
-cope: 上手く処理する
-recommend: を勧める
-
-Total score:
-	1	time
-	1	hit
-	0	errors
-2014-08-28 10:44:54
 ---
