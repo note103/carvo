@@ -10,3 +10,12 @@ Total score:
 	0	errors
 2014-08-27 12:48:44
 ---
+cope: 上手く処理する
+recommend: を勧める
+
+Total score:
+	1	time
+	1	hit
+	0	errors
+2014-08-28 10:44:54
+---
