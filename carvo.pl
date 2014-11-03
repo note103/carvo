@@ -6,12 +6,8 @@ use Carvo;
 use Time::Piece;
 
 my $msg = "Select a number of courses\n
-1: ja->en / random (default)
-2: ja->en / order
-3: en->ja / random
-4: en->ja / order
-5: mix / random
-6: mix / order
+r: random (default)
+o: order
 q: exit";
 
 print "$msg\n";
@@ -22,24 +18,15 @@ my $timestamp = localtime;
 
 while (my $in = <>) {
     if ($in =~ /^(q)$/) {
-        print "Total score:\n";
+        print "\nTotal score:\n";
         print $result = "$Carvo::total\t$Carvo::times\n$Carvo::point\t$Carvo::hits\n$Carvo::miss\t$Carvo::errors\n";
-        print $timestamp->datetime(T=>' ')."\n";
         logs();
         result();
         last;
-    } elsif ($in =~ /^(1|\n)$/) {
-        Carvo::main(Words::english(), 'random', 'ja2en');
-    } elsif ($in =~ /^(2)$/) {
-        Carvo::main(Words::english(), 'order', 'ja2en');
-    } elsif ($in =~ /^(3)$/) {
-        Carvo::main(Words::english(), 'random', 'en2ja');
-    } elsif ($in =~ /^(4)$/) {
-        Carvo::main(Words::english(), 'order', 'en2ja');
-    } elsif ($in =~ /^(5)$/) {
-        Carvo::main(Words::english(), 'random', 'mix');
-    } elsif ($in =~ /^(6)$/) {
-        Carvo::main(Words::english(), 'order', 'mix');
+    } elsif ($in =~ /^(r|\n)$/) {
+        Carvo::main(Words::english(), 'random');
+    } elsif ($in =~ /^(o)$/) {
+        Carvo::main(Words::english(), 'order');
     } else {
         print "Please input a correct one.\n";
     }

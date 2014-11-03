@@ -8,29 +8,23 @@ package Carvo {
     our $total = $point + $miss;
     our ($times, $hits, $errors) = qw(times hits errors);
     our @logs;
-    my ($sort, $lang, $num, $words, $english, $key, $limit, $mix_switch);
+   my ($mode, $num, $words, $english, $key, $limit);
     my $port = 0;
     sub main {
-        ($english, $sort, $lang) = @_;
+        ($english, $mode) = @_;
         my %english = %$english;
         my @words;
-        if ($sort eq 'order') {
+        if ($mode eq 'order') {
             @words = sort (keys %english);
-        } elsif ($sort eq 'random') {
+        } elsif ($mode eq 'random') {
             @words = keys %english;
-        }
-        if ($lang eq 'mix') {
-            $mix_switch = 'mix';
-            mix();
-        } else {
-            $mix_switch = '';
         }
         $words = \@words;
         my $enter = '\n';
         my $count = @words;
         $limit = $count - 1;
-        my $msg_first = 'Input (a number|j[ump]|enter[next]|q[uit]).';
-        my $msg_usual = 'Input (a number|j[ump]|s[ame]|enter[next]|q[uit]).';
+        my $msg_first = 'Input (number|enter(next)|j[ump]|q[uit]).';
+        my $msg_usual = 'Input (number|enter(next)|j[ump]|s[ame]|q[uit]).';
         my $msg_limit = "You can choose a number from 1-$limit.";
         print "$msg_first\n$msg_limit\n";
         my $input = sub {
@@ -42,17 +36,8 @@ package Carvo {
                 } else {
                     my $regexp = chomp $in_ans;
                     my $match;
-                    if ($lang eq 'ja2en') {
-                        $match = "$key";
-                        $regexp = $in_ans;
-                    } elsif ($lang eq 'en2ja') {
-                        $match = $in_ans;
-                        if (ref $english->{$key}) {
-                            $regexp = $english->{$key}[0];
-                        } else {
-                            $regexp = $english->{$key};
-                        }
-                    }
+                    $match = "$key";
+                    $regexp = $in_ans;
                     if ($regexp =~ /($match)/) {
                         $point++;
                         $total = $point + $miss;
@@ -144,22 +129,13 @@ package Carvo {
         if ($qa_switch eq 'q') {
             $key = $words->[$num];
         }
-        mix();
         if (ref $english->{$key}) {
             my $ex_num = 0;
             if ($qa_switch eq 'q') {
-                if ($lang eq 'en2ja') {
-                    print "$key\n";
-                    for my $sentence (keys %{$english->{$key}[1]}) {
-                        $ex_num++;
-                        print "ex$ex_num.\t$sentence\n";
-                    }
-                } elsif ($lang eq 'ja2en') {
-                    print "$english->{$key}[0]\n";
-                    for my $sentence (keys %{$english->{$key}[1]}) {
-                        $ex_num++;
-                        print "ex$ex_num.\t$english->{$key}[1]{$sentence}\n";
-                    }
+                print "$english->{$key}[0]\n";
+                for my $sentence (keys %{$english->{$key}[1]}) {
+                    $ex_num++;
+                    print "ex$ex_num.\t$english->{$key}[1]{$sentence}\n";
                 }
             } elsif ($qa_switch eq 'a') {
                 print "$key($num): $english->{$key}[0]\n";
@@ -171,27 +147,13 @@ package Carvo {
             }
         } else {
             if ($qa_switch eq 'q') {
-                if ($lang eq 'en2ja') {
-                    print "$key\n";
-                } elsif ($lang eq 'ja2en') {
-                    print "$english->{$key}\n";
-                }
+                print "$english->{$key}\n";
             } elsif ($qa_switch eq 'a') {
                 print $ans = "$key($num): $english->{$key}\n";
                 push @logs, $ans;
             }
         }
     };
-    sub mix {
-        if ($mix_switch eq 'mix') {
-            my $mix = int(1 + rand 2);
-            if ($mix == 1) {
-                $lang = 'ja2en';
-            } elsif ($mix == 2) {
-                $lang = 'en2ja';
-            }
-        }
-    }
     sub jump {
         $num = int(rand($limit+1));
         $port = $num;
