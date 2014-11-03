@@ -23,7 +23,7 @@ my $timestamp = localtime;
 while (my $in = <>) {
     if ($in =~ /^(q)$/) {
         print "Total score:\n";
-        print $result = "\t$Carvo::total\t$Carvo::times\n\t$Carvo::point\t$Carvo::hits\n\t$Carvo::miss\t$Carvo::errors\n";
+        print $result = "$Carvo::total\t$Carvo::times\n$Carvo::point\t$Carvo::hits\n$Carvo::miss\t$Carvo::errors\n";
         print $timestamp->datetime(T=>' ')."\n";
         logs();
         result();
@@ -64,9 +64,9 @@ sub logs {
     close $fh_in;
 
     open my $fh_out, '>', 'data/logs.txt' or die $!;
-    print $fh_out @words;
-    print $fh_out "\nTotal score:\n".$result;
     print $fh_out $timestamp->datetime(T=>' ')."\n";
+    print $fh_out $result."\n";
+    print $fh_out @words;
     print $fh_out "---\n";
     print $fh_out @tmp;
     close $fh_out;
