@@ -12,7 +12,7 @@ package Generator {
         our $num_port;
 
         my $dir = 'cards';
-        opendir(my $dh, $dir) || die "can't opendir $dir: $!";
+        opendir(my $dh, $dir) or die "can't opendir $dir: $!";
         for $file (readdir $dh) {
             if ($file =~ /^$num\D*.*(.json)/) {
                 $cards = "cards/$file";
@@ -21,7 +21,7 @@ package Generator {
         }
         closedir $dh;
 
-        open $fh, '<', $cards || die "can't open $cards: $!";
+        open $fh, '<', $cards or die "can't open $cards: $!";
         my @tmp = <$fh>;
         my $json_text = decode_json("@tmp");
         close $fh;
