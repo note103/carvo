@@ -40,6 +40,9 @@ while (my $in = <>) {
         print $result = "$Carvo::total\t$Carvo::times\n$Carvo::point\t$Carvo::hits\n$Carvo::miss\t$Carvo::errors\n";
         logs();
         result();
+        if ($Carvo::voice_sw eq 'on') {
+            print `say Bye!`;
+        }
         last;
     } elsif ($in =~ /^(\n)$/) {
         Carvo::main(Generator::switch('1'));

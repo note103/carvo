@@ -8,6 +8,7 @@ package Carvo {
     our ($point, $miss) = (0, 0);
     our $total = $point + $miss;
     our ($times, $hits, $errors) = qw/times hits errors/;
+    our $voice_sw = 'off';
     our @logs;
     my ($words, $english, $key, $limit);
     my (@words, @voice);
@@ -15,7 +16,6 @@ package Carvo {
     my $title = 'title';
     my $end = 'end';
     my $voice = 'say';
-    my $voice_sw = 'off';
     my $voice_in = 1;
     my %english;
     my ($port, $num) = (0, 0);
