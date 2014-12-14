@@ -1,154 +1,31 @@
-2014-10-25 19:02:19
-0	times
-0	hits
-0	errors
-
+2014-12-14 13:24:08
+9	times
+2	hits
+7	errors
 ---
-2014-09-17 12:01:17
-1	time
+They took military action, with dangerous consequences for the region's peace.: 彼らは武力を行使し, その地域の平和に危険をもたらす結果となった。
+a concatenation of events [causes]: 一連の事件[原因]
+be smitten with a desire to do*
+be smitten with a desire to do: 非常に〜したい
+concatenation*
+concatenation: 連鎖|連結|(事件などの)つながり|連続
+consequence*
+consequence: (主に悪い)結果|結末|成り行き|影響
+have serious [unintended] consequences: 深刻な[予期せぬ]結果をもたらす
+leap*
+leap: 前進
+notoriety*
+notoriety: 悪評|悪名の高い人
+sophomore*
+sophomore: (4年制の大学高校の)2年生|(就職活動などが)2年目の人
+vet*
+vet: （志願者|文書|計画など）を詳しく調べる|審査する
+
+2014-12-14 11:31:33
+2	times
 1	hit
-0	errors
-
+1	error
 ---
-2014-09-17 10:40:32
-1	times
-0	hits
-1	errors
-
-acrual: 実際の
----
-2014-09-16 20:23:50
-0	times
-0	hits
-0	errors
-
-alter: を変える
-corrupt: を堕落させる|を買収する|堕落する
-disabled: 障害のある
-guess: を推測する
-immediate: 即座の
-riot: 暴動
-statistics: 統計|統計学
----
-2014-09-16 20:22:59
-0	times
-0	hits
-0	errors
-arrange: の段取りをつける|を取り決める
-bilingual: 2言語を使う
-celebrate: を祝う
-criminal: 犯罪者|犯人
-deal: 対処する
-dispose: を処分する
-enormous: 巨大な|莫大な
-furnish: に備え付ける
-presume: と推定する|前提とする
-scare: を怯えさせる
-stimulate: を刺激する
-suck: 吸う
-thought: 思考
-wary: 用心深い
----
-2014-09-16 20:22:09
-0	times
-0	hits
-0	errors
-crowd: 群衆
-fail: 失敗する
-roar: うなる|ほえる
-savage: 獰猛な
-surgeon: 外科医
----
-2014-09-16 20:20:33
-	0	times
-	0	hits
-	0	errors
-differ: 異なる
-isolate: を孤立させる
-passion: 情熱
-tremble: 震える|揺れ動く
----
-2014-09-16 20:19:14
-Total score:
-	0	times
-	0	hits
-	0	errors
-add: を加える
-render: をある状態にする|与える
-urge: に促す
-wicked: 邪悪な
----
-
-Total score:
-	7	times
-	6	hits
-	1	error
-2014-09-16 20:17:36
-brain: 脳
-declare: を宣言する
-passenger: 乗客|旅客
-primary: 最も重要な
-quantity: 量
-shade: 陰
----
-allege: を主張する
-alter: を変える
-arrange: の段取りをつける|を取り決める
-conventional: 従来の|月並な
-destroy: を破壊する
-devote: ささげる
-exclaim: 叫ぶ
-fail: 失敗する
-faint: かすかな
-fit: に合う
-hatch: を孵化させる
-potential: 潜在的な
-thrust: を押し付ける|押す
-transfer: を移す
-
-Total score:
-	22	times
-	13	hits
-	9	errors
-2014-09-16 18:36:47
----
-abandon: を捨てる
-abide: に従う|我慢する|住む
-ability: 能力
-scope: 範囲
-
-Total score:
-	5	times
-	5	hits
-	0	errors
-2014-08-28 13:13:10
----
-declare: を宣言する
-
-Total score:
-	1	time
-	1	hit
-	0	errors
-2014-08-28 13:12:17
----
-cope: 上手く処理する
-recommend: を勧める
-
-Total score:
-	1	time
-	1	hit
-	0	errors
-2014-08-28 10:44:54
----
-express: を表現する
-handle: を処理する|を扱う
-obscure: 人目につかない
-synthesis: 合成|総合
-vacant: 空いている
-
-Total score:
-	1	time
-	1	hit
-	0	errors
-2014-08-27 12:48:44
----
+direction: 方向
+vocabulary*
+vocabulary: 語彙

@@ -3,19 +3,37 @@ use strict;
 use warnings;
 use lib 'lib';
 use Carvo;
+use Carvo::Generator;
 use Time::Piece;
+use 5.012;
+use open ":utf8";
 
-my $msg = "Select a number of courses\n
-r: random (default)
-o: order
-q: exit";
+my $dir = 'cards';
+my $num_last;
+my @files;
+opendir(my $dirh, $dir) || die "can't opendir $dir: $!";
+for my $file (readdir $dirh) {
+    if ($file =~ /^(\d+)_(.*)(.json)/) {
+        push @files, "$1: $2";
+        $num_last = $1;
+    }
+}
+closedir $dirh;
 
-print "$msg\n";
+say "\nWelcome!\nPlease select a number of courses.\n";
+sub msg {
+    for (@files) {
+    say $_;
+    }
+    say "q: exit\n";
+}
+
+msg();
 my $logs = \@Carvo::logs;
 my $log;
 my $result;
-my $timestamp = localtime;
 
+my $msg_correct = "Please input a number or 'q'.\n";
 while (my $in = <>) {
     if ($in =~ /^(q)$/) {
         print "\nTotal score:\n";
@@ -23,14 +41,17 @@ while (my $in = <>) {
         logs();
         result();
         last;
-    } elsif ($in =~ /^(r|\n)$/) {
-        Carvo::main(Words::english(), 'random');
-    } elsif ($in =~ /^(o)$/) {
-        Carvo::main(Words::english(), 'order');
+    } elsif ($in =~ /^(\n)$/) {
+        Carvo::main(Generator::switch('1'));
+    } elsif ($in =~ /\d/ && $in > $num_last) {
+        say "Too big! ".$msg_correct;
+    } elsif ($in =~ /^(\d)$/) {
+        my $num = $1;
+        Carvo::main(Generator::switch($num));
     } else {
-        print "Please input a correct one.\n";
+        say $msg_correct;
     }
-    print "$msg\n";
+    msg();
 }
 
 sub logs {
@@ -38,6 +59,10 @@ sub logs {
     for my $tidy (@$logs) {
         if ($tidy =~ /(.+)\(\d+\)(.+)/) {
             push @tidy, "$1$2\n";
+        } elsif ($tidy =~ s/\d+\. //) {
+            push @tidy, $tidy;
+        } else {
+            push @tidy, $tidy;
         }
     }
     my %unique = map {$_ => 1} @tidy;
@@ -51,10 +76,11 @@ sub logs {
     close $fh_in;
 
     open my $fh_out, '>', 'data/logs.txt' or die $!;
-    print $fh_out $timestamp->datetime(T=>' ')."\n";
-    print $fh_out $result."\n";
-    print $fh_out @words;
+    print $fh_out localtime->datetime(T=>' ')."\n";
+    print $fh_out $result;
     print $fh_out "---\n";
+    print $fh_out @words;
+    print $fh_out "\n";
     print $fh_out @tmp;
     close $fh_out;
 }
@@ -68,7 +94,7 @@ sub result {
     close $fh_in;
 
     open my $fh_out, '>', 'data/result.txt' or die $!;
-    print $fh_out $timestamp->datetime(T=>' ')."\n";
+    print $fh_out localtime->datetime(T=>' ')."\n";
     print $fh_out $result."\n";
     print $fh_out @tmp;
     close $fh_out;
