@@ -26,12 +26,15 @@ package Carvo {
         mode();
         my $enter = '\n';
         $limit = @words;
-        my $msg_first = 'Input (num|enter|r|o|j|q).';
-        my $msg_usual = 'Input (num|enter|r|o|j|s|q).';
+        my $msg_first = 'Input (num|enter|r|o|j|v|q).';
+        my $msg_usual = 'Input (num|enter|r|o|j|v|s|q).';
         my $msg_limit = "You can choose a number from 1-$limit.";
         my $msg_random = "This is random select.";
         if (exists ($english{$title})) {
             print "Welcome to the \"".$english{$title}."\"!\n";
+            if ($voice_sw eq 'on') {
+                print `say Welcome to the $english{$title}`;
+            }
         }
         print "$msg_limit\n$msg_first\n";
         my $input = sub {
