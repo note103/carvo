@@ -21,7 +21,7 @@ package Generator {
         }
         closedir $dh;
 
-        open $fh, '<', $cards || die "can't opendir $dir: $!";
+        open $fh, '<', $cards || die "can't open $cards: $!";
         my @tmp = <$fh>;
         my $json_text = decode_json("@tmp");
         close $fh;
