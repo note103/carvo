@@ -1,3 +1,53 @@
+2015-01-10 01:00:27
+18	times
+17	hits
+1	error
+---
+- Can you explain what you mean more clearly?: あなたの言いたいことをもっとはっきり説明してくれませんか？
+- He has a reputation for violence.: 彼は暴力をふるうといううわさだ。
+- He was charged with accepting bribes.: 彼は賄賂を受け取ったことで告発された。
+- It's kind of embarrassing to see him now.: 今彼に会うのはちょっと恥ずかしい。
+- Let me introduce myself.: 自己紹介をさせてください。
+- Paul thoroughly deserves credit for his skills as a musician.: ポールはミュージシャンとしての技術では称賛に十分値する。
+- Smoking is frequently cited as a (major) cause of lung cancer.: 喫煙はよく肺癌の（主な）原因に挙げられる。
+- Sue got the award, and she deserves it.: スーが受賞したが, それは当然のことだ。
+- The dog followed the man to the store.: その犬は男性の後について店に行った。
+- They took military action, with dangerous consequences for the region's peace.: 彼らは武力を行使し, その地域の平和に危険をもたらす結果となった。
+- We deserve a break now.: そろそろ休憩にしましょう。
+- What is [was] the most embarrassing thing that has happend to you?: これまでの体験で一番恥ずかしかったことは何ですか（何でしたか）？
+- You shouldn't depend too much on other people.: あなたは他人に頼りすぎるべきではない。
+- a remarkable [great] achievement: 目を見張る[偉大な]業績
+- a sense [level] of achievement: 達成感[度]
+- academic [educational, student] achievement: 学業成績
+- as a reward for good behavior: お行儀のよかったごほうびに
+- be braced for A: A（事）への備えができている
+- brace oneself to do: 〜する覚悟を決める
+- celebrate one's achievements in science [filmmaking]: 科学分野[映画制作]における業績を祝う
+- churn milk into butter: ミルクをかき回してバターを作る
+- crush the rock into [to] powder: 石を砕いて粉にする
+- deserve to be done: 〜されるに値する
+- expect a financial reward: 金銭的見返りを期待する
+- have serious [unintended] consequences: 深刻な[予期せぬ]結果をもたらす
+- the achievement of common goals: 共通の目標の成就
+- with heavy sarcasm: 明らかに皮肉を込めて
+accept: 〜を受け取る
+achievement: 業績|功績|成果|偉業|手柄
+brace*
+brace: 〜に対して覚悟する|備える
+churn: 〜を撹乳機でかき回す
+cite: 〜を引用する|引き合いに出す
+consequence: (主に悪い)結果|結末|成り行き|影響
+crush: 〈人物などが〉〈物〉を押しつぶす|〈石など〉を(押し)砕く|粉砕する
+depend: （〜に）頼る
+deserve: 〜に値する|ふさわしい
+embarrassing: 恥ずかしい|不愉快に感じさせる|困惑させるような
+explain: 〜を説明する
+follow: 〜の後についていく
+introduce: 〜を（〜に）紹介する
+reputation: 評判|世評|うわさ
+reward: （功労善事世話などに対する）ほうび|報酬|報奨|報い
+sarcasm: 皮肉（の言葉）|嫌味|当てこすり
+
 2015-01-10 00:39:27
 7	times
 6	hits
