@@ -1,32 +1,201 @@
 {
     "title" : "bookA",
     "mean" : [
-       "を意味する",
+       "〜を意味する",
        {
-          "Money means everything to him." : "彼には金はなにより大事なものだ",
-          "What does this word mean in Japanese?" : "この単語は日本語でどういう意味ですか",
-          "You don't mean to say so!" : "まさか！（ご冗談でしょう）"
+          "What does this word mean in Japanese?" : "この単語は日本語でどういう意味ですか？"
        }
     ],
-    "develop" : "を発達させる",
-    "lead" : "を導く",
-    "include" : "を含む",
-    "fill" : "を満たす",
-    "continue" : "続く",
-    "depend" : "頼る",
-    "create" : "を創造する",
-    "describe" : "の特徴を述べる",
-    "claim" : "を主張する",
-    "expect" : "を予期する",
-    "improve" : "向上させる|を改善する",
-    "appear" : "のように見える",
-    "offer" : "を提供する",
-    "deal" : "対処する",
-    "follow" : "の後についていく",
-    "exist" : "存在する",
-    "approach" : "に近づく",
-    "fail" : "失敗する",
-    "decide" : "を決定する",
-    "express" : "を表現する",
-    "end" : "最後"
+    "develop" : [
+    "〜を発達（発展）させる",
+        {
+            "Reading books can develop your mind." : "本を読むことであなたの知性を発達させることができる。"
+        }
+    ],
+    "lead" : [
+        "〜を（〜へ）導く",
+        {
+            "She will lead you to the campus." : "彼女があなたをキャンパスまで案内してくれるだろう。"
+        }
+    ],
+    "include" : [
+        "〜を含む",
+        {
+            "The price of the hotel includes dinner and breakfast." : "そのホテルの料金は夕食と朝食を含んでいる。"
+        }
+    ],
+    "fill" : [
+        "（容器・場所など）を（〜で）満たす",
+        {
+            "Her heart was filled with happiness." : "彼女の心は幸せで満たされていた。"
+        }
+    ],
+    "continue" : [
+        "続く",
+        {
+            "The rain will continue throughout the day." : "雨は一日中続くだろう。"
+        }
+    ],
+    "depend" : [
+        "（〜に）頼る",
+        {
+            "You shouldn't depend too much on other people." : "あなたは他人に頼りすぎるべきではない。"
+        }
+    ],
+    "create" : [
+        "〜を創造する",
+        {
+            "That designer created her own brand of clothing." : "あのデザイナーは彼女自身のブランドを作った。"
+        }
+    ],
+    "describe" : [
+        "〜の特徴を述べる",
+        {
+            "Could you describe the man you saw last night." : "あなたが昨夜見た男性の特徴を説明してくださいますか。"
+        }
+    ],
+    "claim" : [
+        "〜を主張する",
+        {
+            "She claimed a blood relationship with him." : "彼女は彼との血縁関係を主張した。"
+        }
+    ],
+    "expect" : [
+        "〜を予期する",
+        {
+            "I expect snow today." : "私は今日は雪になると予想している。"
+        }
+    ],
+    "improve" : [
+        "〜を改善する",
+        {
+            "I want to improve my English." : "私は自分の英語を上達させたい。"
+        }
+    ],
+    "appear" : [
+        "〜のように見える",
+        {
+            "Gary appeared very upset." : "ゲーリーはとても気が動転しているように見えた。"
+        }
+    ],
+    "offer" : [
+        "〜を（〜に）提供する",
+        {
+            "They offered technological assistance to the developing country." : "彼らはその発展途上国に技術援助を提供した。"
+        }
+    ],
+    "deal" : [
+        "（問題などに）対処する",
+        {
+            "You have to deal with this matter soon." : "あなたはすぐにこの問題に対処しなければならない。"
+        }
+    ],
+    "follow" : [
+        "〜の後についていく",
+        {
+            "The dog followed the man to the store." : "その犬は男性の後について店に行った。"
+        }
+    ],
+    "exist" : [
+        "存在する",
+        {
+            "Many people believe that God exists." : "多くの人々が神は存在すると信じている。"
+        }
+    ],
+    "approach" : [
+        "〜に近づく",
+        {
+            "The noise gets louder as you approach the factory." : "工場に近づくにつれて、騒音はうるさくなってくる。"
+        }
+    ],
+    "fail" : [
+        "（〜に）失敗する",
+        {
+            "My uncle failed in his venture." : "私のおじは投機的事業に失敗した。"
+        }
+    ],
+    "decide" : [
+        "〜を決定する",
+        {
+            "Please decide which one you want." : "どちらが欲しいか決めてください。"
+        }
+    ],
+    "express" : [
+        "（思想・感情など）を表現する",
+        {
+            "The artist drew pictures to express his ideas." : "その芸術家は、自分の思想を表現するために絵を描いた。"
+        }
+    ],
+    "discuss" : [
+        "〜を論ずる",
+        {
+            "Let's discuss what we can do if an earthquake hits this city." : "もし地震がこの都市を襲ったら私たちに何ができるか、議論しよう。"
+        }
+    ],
+    "fit" : [
+        "（大きさ・形などが）〜に合う",
+        {
+            "The dress fits her perfectly." : "そのドレスは彼女に完璧に合っている。"
+        }
+    ],
+    "imagine" : [
+        "〜を想像する",
+        {
+            "I can't imagine life on Mars." : "火星での生活なんて想像できない。"
+        }
+    ],
+    "agree" : [
+        "（人と）意見が一致する",
+        {
+            "He didn't agree with his parents." : "彼は両親と意見が一致しなかった。"
+        }
+    ],
+    "explain" : [
+        "〜を説明する",
+        {
+            "Can you explain what you mean more clearly?" : "あなたの言いたいことをもっとはっきり説明してくれませんか？"
+        }
+    ],
+    "suggest" : [
+        "〜を提案する",
+        {
+            "I suggest taking the bus instead of the train." : "電車の代わりにバスに乗ることを提案します。"
+        }
+    ],
+    "introduce" : [
+        "〜を（〜に）紹介する",
+        {
+            "Let me introduce myself." : "自己紹介をさせてください。"
+        }
+    ],
+    "direct" : [
+        "（注意など）を（〜に）向ける",
+        {
+            "The audience directed their attention to his speech." : "聴衆は彼の演説に注意を向けた。"
+        }
+    ],
+    "allow" : [
+        "〜を許す",
+        {
+            "Taking pictures is not allowed in this area." : "この場所では写真撮影は許されていない。"
+        }
+    ],
+    "guess" : [
+        "〜を推測する",
+        {
+            "I guessed the true reason for her absense." : "私は彼女の欠席の本当の理由を推察した。"
+        }
+    ],
+    "accept" : [
+        "〜を受け取る",
+        {
+            "He was charged with accepting bribes." : "彼は賄賂を受け取ったことで告発された。"
+        }
+    ],
+    "doubt" : [
+        "〜を疑う",
+        {
+            "Although she seems honest, I doubt her." : "彼女は正直そうに見えるが、私は彼女を疑っている。"
+        }
+    ]
 }
