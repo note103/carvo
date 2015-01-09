@@ -41,14 +41,14 @@ while (my $in = <>) {
         logs();
         result();
         if ($Carvo::voice_sw eq 'on') {
-            print `say Bye!`;
+            print `$Carvo::voice Bye!`;
         }
         last;
     } elsif ($in =~ /^(\n)$/) {
         Carvo::main(Generator::switch('1'));
-    } elsif ($in =~ /\d/ && $in > $num_last) {
+    } elsif ($in =~ /(\d+)/ && $in > $num_last) {
         say "Too big! ".$msg_correct;
-    } elsif ($in =~ /^(\d)$/) {
+    } elsif ($in =~ /^(\d+)$/) {
         my $num = $1;
         Carvo::main(Generator::switch($num));
     } else {
