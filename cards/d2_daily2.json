@@ -1,0 +1,450 @@
+{
+    "title" : "daily2",
+    "convince" : [
+        "〈人に〉〔…を〕確信させる，納得させる.",
+        {
+            "He tried to convince me of his innocence." : "彼は自分の無罪を私に納得させようと努めた",
+            "He tried to convince me that he was innocent." : "彼は自分が無罪であることを私に納得させようと努めた",
+            "We convinced her to go with us." : "彼女に同伴するように説得した."
+        }
+    ],
+    "tendency" : [
+        "｟否定的に｠ «…への/…する» 傾向, 風潮; (人の)性癖, くせ «toward(s), to/to do»",
+        {
+            "show a strong [natural] tendency toward nationalism" : "国家主義への強い[自然な]傾向を示す",
+            "There is a tendency (for politicians) to blame others." : "(政治家には)他人を責める風潮がある",
+            "his tendency to become angry" : "彼の怒りやすい性癖"
+        }
+    ],
+    "artifact" : "(特に史的価値のある)人工[加工]物, 工芸品 〘武器用具など〙; 遺産, 所産.",
+    "harbor" : [
+        "(長期間ひそかに)〈悪意疑いなど〉を心に抱く; 〈場所が〉〈生物〉のすみかとなる.; …をかくまう; …に隠れ場所を与える.",
+        {
+            "harbor a grudge against the man" : "その男に恨みを抱く."
+        }
+    ],
+    "cosmos" : [
+        "(秩序と調和の表われとしての)宇宙, コスモス.",
+        {
+            "He is regarded as the origin of the cosmos or as the cosmos itself." : "宇宙の根源の神であり、宇宙そのものであるともされる。",
+            "GLASS PANE FOR HERMETIC STRUCTURE TO BE USED IN THE COSMOS OR ENVIRONMENT OF EXTREME REGION" : "宇宙あるいは極領域の環境で使用される密閉構造物用窓ガラス"
+        }
+    ],
+    "cultivate" : [
+        "〈土地を〉耕す，耕作する.〈作物を〉栽培する.〈魚・カキなどを〉養殖する.〈細菌を〉培養する.",
+        {
+            "cultivate a field" : "畑を耕す.",
+            "cultivate tomatoes" : "トマトを栽培する.",
+            "They did not have the techniques to cultivate mushrooms." : "彼らにはキノコを栽培する技術がありませんでした。",
+            "I want to cultivate their minds with my illustrated book." : "私は私の絵本で彼らの心を豊かにしたい。",
+            "There was not much land to cultivate in the village." : "その村には耕作できる土地は少なかった",
+            "He urged the need to cultivate [foster, develop] a patriotic spirit among the young." : "彼は青年の愛国心を培う必要を説いた",
+            "What kinds of vegetables do they grow [raise, cultivate] in this district?" : "当地ではどんな野菜を作りますか."
+        }
+    ],
+    "deadpan" : [
+        "〈顔・人など〉(特に冗談を言う時も)無表情な[に], ポーカーフェースの[で]",
+        {
+            "deadpan humor" : "無表情のユーモア",
+            "she told the joke deadpan" : "彼女はジョークを無表情に言った",
+            "United States comedian and actor in silent films noted for his acrobatic skills and deadpan face (1895-1966)" : "米国のコメディアン、サイレント映画の俳優で、そのアクロバット技術とまじめな顔で知られる（1895年−1966年）"
+        }
+    ],
+
+    "declare" : [
+        "〈…を〉宣言する，布告する，公表する.",
+        {
+            "declare independence [a cease‐fire]" : "独立[停戦]を宣言する.",
+            "declare war on [against] a nation" : "ある国に対して戦争を布告する.",
+            "He was declared guilty [a failure]." : "彼は有罪[失敗者]だと宣告された.",
+            "I declare William Jones elected." : "ウィリアムジョーンズが当選だと宣言します."
+        }
+    ],
+    "decline" : [
+        "(ていねいに)辞退する，断わる. 傾く，下を向く; 〈夕日などが〉傾く.  〈地位・勢力などが〉衰える，堕落する，退歩する，減退する; 〈物価などが〉下落する.",
+        {
+            "She declined with thanks." : "彼女は体よく断わった.",
+            "The valley declines gently to a fertile plain." : "その谷は肥沃(ひよく)な平野へなだらかに続いている.",
+            "Great nations have risen and declined." : "大国は興亡を経てきた.",
+            "Demand for [The price of] this software has declined." : "このソフトウェアの需要[価格]が低下した."
+        }
+    ],
+    "defeat" : [
+        "〈敵・相手を〉破る，負かす;〈計画・希望などを〉挫折(ざせつ)させる，くつがえす; 〈人を〉くじく.",
+        {
+            "defeat one's opponent" : "相手を打ち負かす.",
+            "defeat a person's hopes" : "人の希望をくじく.",
+            "He felt sore about the defeat." : "彼はその敗北を悔やしがった.",
+            "Victory or defeat is all a matter of chance." : "勝つも負けるも時の運だ.",
+            "What a humiliating defeat!" : "だらしない負け方をしたものだ."
+        }
+    ],
+    "defy" : [
+        "〈年長者・政府・命令などを〉ものともしない，無視する，侮る; 〈…に〉(公然と)反抗する.; 〈人に〉〈…を〉やれるものならやってみろと言う[挑む].; 〈物事が〉〈…に向かって〉努力しても至らない，〈…を〉受けつけない.",
+        {
+            "defy one's superiors [the Government]" : "目上の人[政府]に反抗する.",
+            "I defy you to explain this." : "この説明が君にできるものか 《できるものならやってみろ》.",
+            "It defies description [criticism]." : "それは筆舌に尽くしがたい[批評の余地がない]."
+        }
+    ],
+    "discriminate" : [
+        "〔…と…とを〕区別する，識別[弁別]する.; 〔…に対して〕分け隔てをする，差別待遇する 〔against〕.; 〔…を〕えこひいきする 〔in favor of〕.",
+        {
+            "discriminate between reality and ideals" : "現実と理想とを識別する.",
+            "discriminate against women employees" : "女性従業員を差別待遇する.",
+            "He always discriminates in favor of his friends." : "彼はいつも友人をえこひいきする."
+        }
+    ],
+    "deprecate" : [
+        "〈…を〉非難する.; 〈…に〉反対を唱える.; 〈…を〉軽視する.",
+        {
+            "We deprecate war." : "戦争はいやだ",
+            "We deprecate any more wars." : "戦争はもうまっぴらだ",
+            "The teacher should not deprecate his student's efforts" : "教師は学生の努力を非難するべきでない",
+            "There are no plans to deprecate it, but it's rarely useful" : "この関数を撤廃する予定はありませんが、役に立つことはほとんどありません",
+            "RMS has decided to deprecate the LGPL, and thus now terms it the 'Lesser General Public License'." : "RMSはLGPLという用語を使わないと決定し、現在ではこれを「劣等一般公衆利用許諾契約」と名付けている。"
+        }
+    ],
+    "substantial" : [
+        "しっかりとした|相当な",
+        {
+            "Is your personal time substantial?" : "あなたの個人的な時間は充実していますか。",
+            "We were regaled with a substantial dinner." : "私たちはたっぷりの夕食を大いにごちそうになった。",
+            "This book is very substantial and is well worth reading." : "この本は内容が充実していて読みごたえがある.",
+            "The court judged substantial similarity between the two articles." : "裁判所は二つの商品の間に実質的類似性を認めた。",
+            "I think we were able to have a substantial discussion for the first time in a while because of the facilitator’s thorough preparations and coordination." : "進行役の周到な準備と取りまとめのお陰で、久々に内容のある議論ができたと思う。",
+            "A substantial pay reduction has caused workers' moral decline which is remarkable." : "実質的な減収の影響で従業員の労働意欲の低下が目立っています。",
+            "If one is to save up the chicken feed every day, it will amount to a very substantial sum in a year." : "毎日、小銭を貯めることになれば、一年すると相当の額になるだろう。",
+            "The project is well-planned and interesting, but its immediate impact on the bottom line is not considered substantial." : "そのプロジェクトはよく計画されていて興味深いが、当面の利益には大した結果をもたらさないと見られている。"
+        }
+    ],
+    "vet" : [
+        "（志願者|文書|計画など）を詳しく調べる|審査する;獣医; 〈動物を〉診療する; 〈人・ものを〉綿密に調べる，点検する.",
+        {
+            "I took my pet to see the vet." : "私は獣医にペットを連れて会いに行きました。",
+            "But you'd be the best vet of all" : "でもあなたが全員のなかで最高の獣医になることでしょう",
+            "I had plans to have my cat vaccinated, so I took her to the vet." : "猫に予防接種を受けさせる予定だったので病院へ行きました。",
+            "Most of the classes are no different from those at vet schools in other countries." : "授業の大部分は他国の獣医科大学のものとまったく変わりません。",
+            "Someone should vet this report before it goes out" : "提出する前に、誰かがこのレポートを調べるべきだ",
+            "We should not depreciate the value of regular exercise." : "規則的な運動の価値を見くびってはならない.",
+            "A car begins to depreciate from the moment it is bought." : "自動車は買い手に渡った瞬間から価値が下がり始める.",
+            "In foreign currency markets the euro continued to depreciate from August onwards, while investors bought the yen as safe assets sending the currency further appreciating (Figure 1-1-2-5)." : "また、為替市場では8月以降ユーロ安が進む一方、安全資産とされる円が買われて円高が進んだ（第1-1-2-5図）。",
+            "Della would have let her hair hang out the window some day to dry just to depreciate Her Majesty's jewels and gifts." : "ある日、デラが窓の外にぬれた髪を垂らして乾かそうとしたら、それだけで、女王様の宝石や宝物は色あせてしまったことでしょう。"
+        }
+    ],
+    "despite" : [
+        "…にもかかわらず 悪意，恨み; 無礼; 無視.",
+        {
+            "He's very strong despite his age." : "彼は老齢にもかかわらず大変丈夫だ.",
+            "Thank you for your time despite your busy schedule." : "今回はお忙しい中、お時間頂きありがとうございます",
+            "Despite that, I chose study abroad." : "それにも関わらず、私は海外留学を選んだ。",
+            "He went despite my warning." : "私の忠告にも関わらず、彼は行ってしまった。",
+            "Thank you for coming all the way here despite being so busy." : "お忙しいのにわざわざ来ていただき有り難う。"
+        }
+    ],
+    "destination" : [
+        "(旅行などの)目的地, 到達地, 行き先; (仕事などの)到達点; (手紙などの)あて先, 届け先; 最終目標, 目的",
+        {
+            "the train's destination" : "列車の行き先",
+            "a vacation [holiday] destination" : "休暇を過ごすために行く所",
+            "arrive at [get to, reach] one's destination" : "目的地に着く"
+        }
+    ],
+    "devoid" : [
+        "〖be ～ of A〗〈人物などが〉A〈性質など〉を欠いている, 持っていない.",
+        {
+            "He is devoid of humor." : "彼はユーモアがない。",
+            "We all thought she was devoid of sense." : "彼女には分別がない、と私達はみんな思った。",
+            "He was devoid of human feeling." : "彼は人間としての感情を欠いていた。",
+            "He is devoid of human feeling." : "彼には人間的な感情がまったくかけている。",
+            "We all thought she was devoid of sense." : "彼女には、分別がない、と私たちは思った。",
+            "The man was devoid of such human feelings as sympathy." : "その男には同情心といった人間的感情はなかった。"
+        }
+    ],
+    "resettle" : [
+        " 【別の場所に】〈人〉を再び定住させる «in» ; …に再び植民する",
+        {
+            "The immigrants had to resettle" : "移民者は再定住しなければならなかった",
+            "To resettle frame synchronism in a short time when the bit slippage of data is generated and frame synchronism is slipped off when an intrinsic time slot is formed in a frame and data are transmitted by constituting a multi- frame to the time slot." : "フレーム内に固有のタイムスロットを設け、このタイムスロットにマルチフレームを構成することによりデータ伝送する場合、データのビットずれが発生してフレーム同期が外れた際に、フレーム同期の再確立を短時間で行えるようにする。"
+        }
+    ],
+    "disclaim" : [
+        "〈責任関与など〉を否認[否定]する.; 〈要求など〉を拒否する.; …に対する権利を放棄する.",
+        {
+            "Patentee may disclaim anything included in patent by mistake." : "特許権者は錯誤により特許に含まれた事柄を部分放棄することができる。",
+            "The owner of a trade mark may disclaim any right to the exclusive use of any part of the trade mark." : "商標の所有者は，商標の如何なる部分に関する排他的使用権も放棄することができる。",
+            "Konoe's negotiation plan was to disclaim all the territories overseas, the Ryukyu Islands, the Ogasawara Islands (Bonin Islands) and the Kuril Islands, and to offer officers and soldiers of the Japanese Army as a labor force." : "近衛の交渉案は、全ての海外の領土、琉球諸島、小笠原諸島、千島を放棄し、労働力として日本軍将兵を提供するものだった。",
+            "In case of the death of an original patentee or of his having assigned the patent, a like right to disclaim vests in his legal representatives, any of whom may exercise it." : "原特許権者が死亡した場合又は原特許権者が当該特許権を譲渡した場合は，権利の部分放棄をする同様の権利がその法律上の代表者に与えられ，如何なる法律上の代表者もこれを行使することができる。"
+        }
+    ],
+    "duplicate" : [
+        "〈物〉の複製を作る, …を複写する;〈既に行ったこと〉を(不必要に)繰り返す; 複製, 複写, 写し, そっくり同じもの",
+        {
+            "in duplicate" : "(正副)2通からなる"
+        }
+    ],
+    "distinct" : [
+        "別個の, 独特な; « …と» まったく異なった «from»; 〈物形輪郭などが〉 (知覚的に)鮮明な, 明瞭（めいりよう）な, 明確な",
+        {
+            "two distinct types [categories]" : "2つの別のタイプ[範疇（はんちゅう）]",
+            "Their culture is quite distinct from ours." : "彼らの文化は私たちのとはまったく異なる",
+            "a distinct sound [voice]" : "鮮明な音[声]",
+            "a distinct smell" : "強いにおい",
+            "a distinct impression" : "はっきりした印象",
+            "a distinct advantage" : "明らかな利点",
+            "There was a distinct possibility that he was a spy." : "彼がスパイであるはっきりした可能性があった"
+        }
+    ],
+    "distinguish" : [
+        "〈人が〉〈複数の人物事〉を識別する;｟書｠〖通例canを伴って〗〈人が〉〈形音においなど〉をはっきりと認める, 感知する",
+        {
+            "Dogs are not able to distinguish colors." : "イヌは色を識別することができない",
+            "distinguish sheep from goats" : "ヒツジとヤギを区別する",
+            "We could not distinguish the car before us owing to the thick fog." : "濃い霧で前の車を認識できなかった",
+            "Ed distinguished himself as a surgeon." : "エドは外科医として有名になった"
+        }
+    ],
+    "elderly" : [
+        "年配の, 初老の",
+        {
+            "an elderly couple" : "老夫婦"
+        }
+    ],
+    "explain" : [
+        "〈人本などが〉(B〈人〉に)A〈事〉を説明する; (A〈人〉に)…ということを[…かを]説明する;〈人が〉【人に】(正当化しようと)〈事〉の釈明[弁明]をする, …の理由を説明する",
+        {
+            "explain the situation" : "状況を説明する",
+            "a book explaining the laws of motion and gravity" : "運動と重力の法則を説明した本",
+            "He explained (to me) that his wife was sick in bed." : "彼は, 奥さんが病気で寝ていると(私に)説明した",
+            "It is hard to explain exactly why [how] I did it." : "私がなぜ[どうやって]それをやったかを正確に説明するのは難しい",
+            "explain one's behavior" : "自分のふるまいの正当性を説明する",
+            "He explained that he had got a bit drunk." : "彼は少し酔ってしまったのだと釈明した",
+            "These phenomena can be explained by physics." : "これらの現象は物理学で説明がつく",
+            "Oh, okay, that explains it." : "ああ, なるほど, それでわかった",
+            "I explained to him about Zen." : "私は彼に禅について説明した",
+            "Let me explain a little." : "少し私に釈明させてください"
+        }
+    ],
+    "facial" : [
+        "顔の, 顔面の; 顔に用いる, 顔用の; (マッサージクリームなどを用いた)美顔術, 顔の手入れ",
+        {
+            "a facial expression" : "顔の表情",
+            "facial cream" : "美顔用化粧クリーム",
+            "have a facial" : "美顔マッサージをしてもらう."
+        }
+    ],
+    "riddance" : [
+        "厄介払い",
+        {
+            "make clean riddance of…" : "…を一掃する",
+            "Good riddance!" : "いい厄介払いだ",
+            "It is a final riddance." : "厄介の払い納めだ"
+        }
+    ],
+    "riddle" : [
+        "なぞなぞ|判じ物",
+        {
+            "Riddle me a riddle, what's this?" : "なぞなぞなあに",
+            "ask a person a riddle ＝ put a riddle to a person" : "人になぞをかける",
+            "solve [find out, guess] a riddle" : "なぞを解く"
+        }
+    ],
+    "skeptical" : [
+        "疑い深い|懐疑的な|宗教を疑う|無神論の|懐疑論[主義]の|懐疑派の.",
+        {
+            "a skeptical person" : "懐疑的な人",
+            "a skeptical expression" : "疑ぐるような表情",
+            "He's skeptical about everything." : "彼は何事にも懐疑的だ"
+        }
+    ],
+    "malady" : [
+        "(社会組織の)深刻な問題, 弊害",
+        {
+            "a fatal malady" : "不治の病",
+            "an incurable malady" : "不治の疾患",
+            "a social malady" : "社会の弊害.",
+            "an eye malady, called ablation of retina" : "網膜剥離という症状"
+        }
+    ],
+    "atrocity" : [
+        "残虐[残酷]さ, 凶悪性, 極悪さ",
+        {
+            "Atrocity paintings" : "無惨絵",
+            "to commit an outrage―commit an atrocity" : "無法なことをする",
+            "Everybody felt indignant at German atrocity." : "皆ドイツの暴戻を憤慨した",
+            "He has perpetrated an atrocity." : "とんでもないことをしでかした"
+        }
+    ],
+    "arouse" : [
+        "刺激する",
+        {
+            "arouse suspicion" : "疑惑を招く.",
+            "arouse [cause] much controversy" : "大いに物議をかもす.",
+            "That would arouse bitterness [cause needless offense]." : "そう言っては角が立つ.",
+            "Don't arouse him from his sleep!" : "彼を眠りからさますな。"
+        }
+    ],
+    "banter" : [
+        "からかい|ひやかし",
+        {
+            "light banter" : "軽い冗談",
+            "frivolous banter" : "取るに足らないからかい",
+            "to banter in a loud voice excessively" : "大声でからかい過ぎる"
+        }
+    ],
+    "configuration" : [
+        "設定",
+        {
+            "configuration of the system" : "システムの構造",
+            "the configuration of mountains and hills as part of a landscape" : "山と丘",
+            "Decision of absolute configuration" : "絶対配置の決定",
+            "the configuration of the earth's surface" : "地表の形状, 地形."
+        }
+    ],
+    "constancy" : [
+        "不変(性), 安定; 忠誠(心), 忠節; 貞節",
+        {
+            "Rosemary is emblematic of constancy." : "ローズマリーは貞節を象徴する.",
+            "constancy of tone or pitch or inflection" : "音色、調子、また屈折の一定さ",
+            "the constancy or integrity of a person's later years" : "人の晩年においての節操",
+            "early mariners relied on the constancy of the trade winds" : "昔の船員は、貿易風の不変性に頼った"
+        }
+    ],
+    "birthright" : [
+        "生得権|(特に長子の)相続権",
+        {
+            "inwardness is what an Englishman quite simply has, painlessly, as a birthright" : "内向性は英国人が通常、生まれもって単純に持つものである",
+            "Esau sold his birthright to Jacob for a mess of pottage" : "エサウは、一時的な利益のために、彼の生得権をヤコブに売った",
+            "free public education is the birthright of every American child" : "無料の公共教育はすべてのアメリカの子供の生まれ持っての権利である"
+        }
+    ],
+    "circumstance" : [
+        "事情|情勢|境遇",
+        {
+            "without circumstance" : "儀式ばらずに.",
+            "a lucky circumstance" : "幸運な事柄.",
+            "a special circumstance" : "特別な事情",
+            "From this kind of circumstance" : "このような背景から",
+            "of a benefit, a circumstance of its decreasing" : "利益が減ること"
+        }
+    ],
+    "coherent" : [
+        "明瞭|統一性がある|首尾一貫した",
+        {
+            "coherent thoughts" : "まとまっていること",
+            "into a coherent whole" : "首尾一貫した全体へ",
+            "a coherent explanation" : "理路整然とした説明.",
+            "of talk, to be more coherent than usual" : "話のつじつまがうまく合いすぎて,かえって不審である",
+            "to have a voice heard in a distant coherent" : "(声を)遠くまで聞こえるようにさせる"
+        }
+    ],
+    "defer" : [
+        "〈決定支払いなど〉を引き延ばす|延期する; 延びる，ぐずぐずする.",
+        {
+            "I will defer this matter." : "この件は保留にします。",
+            "to defer import duties" : "輸入関税を猶予する",
+            "to defer a decision" : " 決定を留保する",
+            "We will defer the decision." : "私たちはその決定を見送る。"
+        }
+    ],
+    "desecrate" : [
+        "〜の神聖を汚す|〜を冒涜する|〈神聖なもの〉を邪道に用いる",
+        {
+            "to desecrate a mountain" : "山霊をけがす",
+            "desecrate a cemetery" : "墓地を冒涜する",
+            "profaning or tending to desecrate" : "不浄または神を冒涜する傾向の",
+            "This law is going to desecrate a law." : "この法律は、法の神聖を汚すことになる"
+        }
+    ],
+    "despite" : [
+        "にもかかわらず",
+        {
+            "despite the cost" : "何が何でも",
+            "despite one's effort" : "いくら頑張っても",
+            "Despite making a good achievement." : "いい成績を残したにもかかわらず。",
+            "to endeavor despite repeated failures" : "何度失敗しても屈せず努力する",
+            "Despite his riches, he's not contented." : "富があっても、彼は満足していない。",
+            "Thank you for today despite your busyness." : "本日はお忙しい中ありがとうございます。"
+        }
+    ],
+    "disparate" : [
+        "(物が質や種類において)まったく異なる|本質的に相違する(要素からなる)|異種の",
+        {
+            "disparate ideas" : "異種の考え",
+            "a disparate aggregate of creeds and songs and prayers" : "信条と歌と祈りの異種の集合",
+            "Hypertext databases are particularly useful for organizing large amounts of disparate information, but they are not designed for numerical analysis." : "ハイパーテキスト・データベースは大量の異種情報を整理するのには特に有用であるが、数値解析用に設計されたものではない。",
+            "Being born of different mothers and disparate in age, there were seeds of conflict growing between Shigemori and Munemori from the beginning." : "母が異なり年齢も離れていたため、当初から重盛と宗盛の間には対立の芽が内包されていた。",
+            "The system is particularly effectively applicable to disparate types of remotely situated databases." : "本システムは特に、遠隔地に存在する異種のタイプのデータベースに特に有効に適用することが出来る。"
+        }
+    ],
+    "epistolary" : [
+        "書簡の|書簡風の",
+        {
+            "an epistolary style" : "書簡文体.",
+            "an epistolary novel" : "書簡体小説.",
+            "an essay written in an epistolary manner" : "手紙の文体で書かれる文章",
+            "a literary style written in the first person called" : "書簡体独白小説という,一人称の書簡形式による小説"
+        }
+    ],
+    "fictitious" : [
+        "虚偽の, うその; 架空の",
+        {
+            "Some people confuse intangible assets with fictitious assets." : "無形資産と架空資産は混同されることがある。",
+            "This is a true account, and not a fictitious narrative." : "これは事実談であって作り話ではない",
+            "She smiles to conceal her tears―keeps up a fictitious gaily." : "彼女はうわべで笑って腹の中で泣いている",
+            "a fictitious detective in stories by A. Conan Doyle" : "A・コナン・ドイルの小説に登場する架空の探偵",
+            "a fictitious transaction" : "空取引",
+            "a fictitious address" : "架空住所"
+        }
+    ],
+    "frenzied" : [
+        "熱狂的な",
+        {
+            "in a frenzied rage" : "激怒して",
+            "become frenzied" : "逆上する",
+            "an unnaturally frenzied or distraught woman" : "異常に狂乱し取り乱した女性",
+            "being frenzied" : "気が違ったように乱暴するさま",
+            "a frenzied style of dance performed in Noh, called 'midare'" : "乱れという,能の舞い方",
+            "a person who becomes frenzied when drunk" : "酒に酔うと荒れ狂う人",
+            "A frenzied feasting tells of the beginning." : "熱狂の宴が始まりを告げる。",
+            "in Noh, musical accompaniment played during the frenzied dances called 'midare'" : "能において,乱れの舞の時に奏する囃子",
+            "of a person, to get into a frenzied and excited state" : "感情がはげしくもえあがるさま",
+            "As he slurped the red blood, he heard frenzied screams." : "赤い血をすすりながら狂暴な叫び声を上げている。",
+            "the prosecutor's frenzied denunciation of the accused" : "検察官は起訴された容疑者の告発を逆上させた"
+        }
+    ],
+    "indefatigable" : [
+        "疲れを知らない|根気のよい|不屈の",
+        {
+            "He has indefatigable perseverance―dogged perseverance." : "彼は気根が強い",
+            "He is an indefatigable striver." : "彼は疲れ知らずの働き者だ。",
+            "He worked with unremitting efforts―with untiring zeal―with indefatigable attention―with dogged perseverance." : "惓まずたゆまず勉強した",
+            "with indefatigable energy" : "疲れを知らぬエネルギーを持って",
+            "an indefatigable advocate of equal rights" : "平等権における不屈の支持者",
+            "His indefatigable spirit carried him over these obstacles." : "彼はその不屈の精神でこれらの障害を乗り越えた"
+        }
+    ],
+    "indubitably" : [
+        "疑う余地のない|確かな|明瞭な",
+        {
+            "it was immediately and indubitably apparent that I had interrupted a scene of lovers" : "私が恋人たちの様子を邪魔したのは、一瞬で、間違いなく明らかだった"
+        }
+    ],
+    "leap" : [
+        "前進",
+        {
+            "There has been a big leap in sales." : " 売り上げが飛躍的に伸びた.",
+            "I want to leap into the future." : "未来に向かって飛躍したいと考えています。",
+            "What was it that made that company take such a leap forward?" : "その会社が躍進できたきっかけは何ですか。",
+            "The teacher showed me how to leap over a vaulting horse." : "先生は跳び箱の飛び方を示してくれた。",
+            "Experience has educated me to look before I leap." : "経験で私は「転ばぬ先の杖」を学んだ.",
+            "He gathered himself for a leap." : "彼は跳び上がろうとしてぐっと体を縮めた.",
+            "Quitting my office job was a leap in the dark." : "清水の舞台から飛び降りたつもりで脱サラした。",
+            "There is a leap of logic in what he says." : "彼の言うことには理論の飛躍がありすぎる。",
+            "That's one small step for man, one giant leap for mankind." : "これは人間にとっては小さな一歩だが人類にとっては大きな飛躍だ。",
+            "Men leap over where the hedge is lowest." : "人は一番低い垣根を越える",
+            "One must draw back in order to leap better." : "よく飛ぶためには、まず後ろへ引け"
+        }
+    ],
+    "end" : "end"
+}

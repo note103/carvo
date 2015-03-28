@@ -1,3 +1,19 @@
+2015-03-28 16:32:54
+4	times
+2	hits
+2	errors
+---
+- She smiles to conceal her tears―keeps up a fictitious gaily.: 彼女はうわべで笑って腹の中で泣いている
+- Some people confuse intangible assets with fictitious assets.: 無形資産と架空資産は混同されることがある。
+- This is a true account, and not a fictitious narrative.: これは事実談であって作り話ではない
+- a fictitious address: 架空住所
+- a fictitious detective in stories by A. Conan Doyle: A・コナン・ドイルの小説に登場する架空の探偵
+- a fictitious transaction: 空取引
+- it was immediately and indubitably apparent that I had interrupted a scene of lovers: 私が恋人たちの様子を邪魔したのは、一瞬で、間違いなく明らかだった
+fictitious: 虚偽の, うその; 架空の
+indubitably*
+indubitably: 疑う余地のない|確かな|明瞭な
+
 2015-03-28 16:24:36
 10	times
 8	hits

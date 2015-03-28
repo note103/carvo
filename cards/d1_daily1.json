@@ -1,0 +1,405 @@
+{
+    "title" : "daily1",
+    "insane" : [
+        "まったくばかばかしい|無茶な",
+        {
+            "go insane" : "発狂する",
+            "drive A insane" : "Aを（次第に）不愉快にさせる|怒らせる"
+        }
+    ],
+    "brace" : [
+        "〜に対して覚悟する|備える",
+        {
+            "brace oneself to do" : "〜する覚悟を決める",
+            "be braced for A" : "A（事）への備えができている"
+        }
+    ],
+    "sarcasm" : [
+        "皮肉（の言葉）|嫌味|当てこすり",
+        {
+            "with heavy sarcasm" : "明らかに皮肉を込めて"
+        }
+    ],
+    "embarrassing" : [
+        "恥ずかしい|不愉快に感じさせる|困惑させるような",
+        {
+            "It's kind of embarrassing to see him now." : "今彼に会うのはちょっと恥ずかしい。",
+            "What is [was] the most embarrassing thing that has happend to you?" : "これまでの体験で一番恥ずかしかったことは何ですか（何でしたか）？"
+        }
+    ],
+    "cite" : [
+        "〜を引用する|引き合いに出す",
+        {
+            "Smoking is frequently cited as a (major) cause of lung cancer." : "喫煙はよく肺癌の（主な）原因に挙げられる。"
+        }
+    ],
+    "smite" : [
+        "〜を強くたたく|強打する",
+        {
+            "be smitten by" : " 〜に心を奪われる|参る",
+            "be smitten down by" : "さいなまれる",
+            "be smitten with a desire to do" : "非常に〜したい"
+        }
+    ],
+    "churn" : [
+        "〜を撹乳機でかき回す",
+        {
+            "churn milk into butter" : "ミルクをかき回してバターを作る"
+        }
+    ],
+    "estimate" : [
+        "〈価値大きさ量など〉を «…と» 見積もる, 概算する, 推定する",
+        {
+            "He estimated the total cost at 100 million yen." : "彼は総費用を1億円と見積もった",
+            "The police have estimated that 15,000 tourists get lost in London every day." : "警察はロンドンで毎日1万5千人の観光客が道に迷っていると見積もった",
+            "It is estimated that 25% of plant species will become extinct by 2020." : "見積もりでは, 2020年までには植物種の25%が絶滅するだろう",
+            "Damage was estimated to be more than 300 million dollars." : "損害は3億ドル以上と推定された"
+        }
+    ],
+    "crass" : [
+        "鈍感な|無神経な|はなはだしい|実にひどい（無知愚かさ無神経など）",
+        {
+            "one's crass ignorance of literature" : "文学に対するひどい無知"
+        }
+    ],
+    "crush" : [
+        "〈人物などが〉〈物〉を押しつぶす|〈石など〉を(押し)砕く|粉砕する",
+        {
+            "crush the rock into [to] powder" : "石を砕いて粉にする"
+        }
+    ],
+    "concatenation" : [
+        "連鎖|連結|(事件などの)つながり|連続",
+        {
+            "a concatenation of events [causes]" : "一連の事件[原因]"
+        }
+    ],
+    "consequence" : [
+        "(主に悪い)結果|結末|成り行き|影響",
+        {
+            "have serious [unintended] consequences" : "深刻な[予期せぬ]結果をもたらす",
+            "They took military action, with dangerous consequences for the region's peace." : "彼らは武力を行使し, その地域の平和に危険をもたらす結果となった。"
+        }
+    ],
+    "isolate" : [
+        "〈国組織など〉を孤立させる|離す",
+        {
+            "isolate Iraq economically" : "イラクを経済的に孤立させる"
+        }
+    ],
+    "deserve" : [
+        "〜に値する|ふさわしい",
+        {
+            "deserve to be done" : "〜されるに値する",
+            "Sue got the award, and she deserves it." : "スーが受賞したが, それは当然のことだ。",
+            "Paul thoroughly deserves credit for his skills as a musician." : "ポールはミュージシャンとしての技術では称賛に十分値する。",
+            "We deserve a break now." : "そろそろ休憩にしましょう。"
+        }
+    ],
+    "completion" : [
+        "完成|完了|終了|成就|達成",
+        {
+            "on [upon] completion of A" : "Aが完成するときに",
+            "be nearing completion" : "完成間近である",
+            "the completion date" : "完成[終了]日",
+            "The building is due for completion in spring." : "そのビルは春に落成の予定だ。"
+        }
+    ],
+    "reward" : [
+        "（功労善事世話などに対する）ほうび|報酬|報奨|報い",
+        {
+            "as a reward for good behavior" : "お行儀のよかったごほうびに",
+            "expect a financial reward" : "金銭的見返りを期待する"
+        }
+    ],
+    "reputation" : [
+        "評判|世評|うわさ",
+        {
+            "He has a reputation for violence." : "彼は暴力をふるうといううわさだ。"
+        }
+    ],
+    "bonkers" : [
+        "精神的に不安定で|ばかな|熱狂して|いらいらして",
+        {
+            "drive A bonkers" : "A〈人など〉を悩ます|いらいらさせる",
+            "go bonkers" : "気が狂う|熱狂する|夢中になる"
+        }
+    ],
+    "abortion" : [
+        "妊娠中絶(手術)|(人工)流産|堕胎(手術); (計画行動の)失敗|挫折（ざせつ）; 未熟児|(器官の)発育不全|奇形",
+        {
+            "have [get] an abortion" : "中絶する[中絶手術を受ける]",
+            "参考" : "(自然)流産(miscarriage)"
+        }
+    ],
+    "acclaim" : [
+        "【業績質などのために】〈人物〉を歓呼して迎える|賞賛する|〈人物〉を宣伝する|認める; (人業績に対する)賞賛",
+        {
+            "acclaim him (as) king [leader]" : "歓呼して彼を王[指導者]に迎える",
+            "Jill has been acclaimed for her role in her latest movie." : "ジルは最新作映画で演じた役が絶賛された。",
+            "It was acclaimed (as) a timeless work of art." : "それは永遠の芸術作品とたたえられた。",
+            "win critical [international, wide] acclaim" : "批評家の[国内外の, 幅広い]賞賛を得る"
+        }
+    ],
+    "accomplish" : [
+        "〈人が〉〈仕事目標など〉を成し遂げる|達成する;〈旅など〉を終える|〈年齢など〉に達する",
+        {
+            "Try hard to accomplish the goal." : "目標達成のため努力しなさい",
+            "Mission accomplished." : "任務完了"
+        }
+    ],
+    "achievement" : [
+        "業績|功績|成果|偉業|手柄",
+        {
+            "a remarkable [great] achievement" : "目を見張る[偉大な]業績",
+            "celebrate one's achievements in science [filmmaking]" : "科学分野[映画制作]における業績を祝う",
+            "a sense [level] of achievement" : "達成感[度]",
+            "the achievement of common goals" : "共通の目標の成就",
+            "academic [educational, student] achievement" : "学業成績"
+        }
+    ],
+    "aisle" : [
+        "(スーパーマーケット倉庫などの)通路|(乗り物映画館などの座席間の)通路",
+        {
+            "Where is the canned fruit? / It's in aisle 5." : "「フルーツの缶詰はどこにありますか」「5番通路です」",
+            "an aisle seat" : "通路側の席",
+            "参考" : "「窓側の席」は a window seat"
+        }
+    ],
+    "annoy" : [
+        "〈人行動などが〉〈人など〉を (一時的に)悩ます|困らせる|いらいらさせる|むっとさせる; 〈人など〉を (執拗（しつよう）に)攻撃する|たびたび困らせる; やっかいである|悩みの種である",
+        {
+            "He is always making fun of us and that really annoys me." : "彼はいつも私たちのことをばかにして、腹が立つったらありゃしない。",
+            "Does it annoy you when people comment on your appearance?" : "容姿のことでとやかく言われるとうんざりしませんか？"
+        }
+    ],
+    "apparently" : [
+        "(確証はないが)たぶん, どうも…らしい; (実際はさておき)外見上は, 見たところ, どう見ても; (思っていたことと違い)実は",
+        {
+            "Apparently, George is angry about the incident." : "聞いたところではジョージはその出来事について腹を立てているようだ。",
+            "He didn't come to the party, apparently, because of his wife's illness." : "彼はパーティに来なかったが, どうも奥さんの病気のせいらしい.",
+            "an apparently healthy baby" : "いかにも健康そうな赤ちゃん",
+            "He is apparently disappointed." : "彼はがっかりした様子だ.",
+            "Ken looks about 20, but apparently he's still 14." : "ケンは20歳くらいに見えるが, 実のところまだ14歳だ."
+        }
+    ],
+    "argue" : [
+        "〈人が〉(A〈人〉と)(Bのことで)論争する|言い争う, 口論する; 〈人が〉 (理由を挙げて)(Aに賛成[反対]の)主張をする, 論を述べる; 〈人などが〉 (理由を挙げて)〈主張事など〉を論じる, 議論する; 〈人が〉 (理由を挙げて)…だと主張する, 論じる|…と主張する; ｟主に英｠〈人が〉 «…するように/…しないように» 〈人〉を説得する; 〈事などが〉…を立証する|…ということを立証する",
+        {
+            "argue about who is the best player" : "だれが最高の選手か論争する",
+            "argue with other students about human rights" : "ほかの生徒と人権について意見を戦わせる",
+            "Don't argue (with me), OK?" : "つべこべ言うんじゃない, わかったな",
+            "We have never argued since we got married." : "私たちは結婚してから口げんかをしたことがない",
+            "argue for [against] the government's economic measures" : "政府の経済政策に賛成[反対]を唱える",
+            "as I argue in my recent book" : "私の近著で論じているように",
+            "The local shopkeepers argue that the big supermarket is hurting their businesses." : "地元の店主たちはその大型店は商売に悪影響を与えていると主張している",
+            "It could [can] be argued that his decision was wrong." : "彼の決断は間違っていたといえる",
+            "argue the point" : "論争する, あげつらう",
+            "argue the case for mercy killing" : "安楽死を支持する主張を展開する",
+            "I argued Terry into helping me with my homework [out of drinking]." : "私は宿題を手伝ってくれるように[飲酒をしないように]テリーを説得した",
+            "This tradition argues that education is necessary for all of us." : "この伝統は教育が万民に必要であることを示している"
+        }
+    ],
+    "assert" : [
+        "〈正当性など〉を断言する, 強く主張する; 明言する; 言い張る; 〈権力など〉を行使する; 〈人が〉自己主張する, 毅然（きぜん）とふるまう, でしゃばる; 〈思想などが〉影響する; 効力を発する",
+        {
+            "He continues to assert his innocence [that he is innocent]." : "彼は無実であることを主張し続けている",
+            "assert one's authority" : "権力を行使する",
+            "His weakness for cards began to assert itself." : "彼がトランプは苦手だということが次第にはっきりしてきた."
+        }
+    ],
+    "awkward" : [
+        "〈瞬間沈黙などが〉きまりの悪い, 気まずい; 〈行動人などが〉落ち着かない;〈人動作などが〉不器用な, ぎこちない, ぶざまな",
+        {
+            "We feel awkward when we're not speaking." : "話をしていない時は気まずい",
+            "It is awkward to leave early without a reason." : "わけもなく早く帰るのはきまりが悪い",
+            "an awkward silence [smile]" : "ばつの悪い沈黙[ほほえみ]",
+            "Don't worry if you're awkward at dancing." : "踊りが下手でも心配しなくていいよ",
+            "I'm awkward with chopsticks." : "私は箸使いがうまくない",
+            "The problem put me in an awkward position." : "その問題のおかげで困った事態に陥った",
+            "an awkward question" : "やっかいな質問",
+            "The bag is too heavy and awkward to carry." : "そのかばんは重くて扱いにくい",
+            "arrive at an awkward time" : "都合の悪い時に到着する",
+            "an awkward customer" : "やっかいな人[代物]",
+            "the awkward age" : "思春期 (ぎこちない年ごろ)"
+        }
+    ],
+    "beg" : [
+        "〈人が〉A〈許可など〉を懇願する, お願いする, 請う",
+        {
+            "I beg a favor of you." : "お願いしたいことがあります",
+            "beg his forgiveness" : "彼の許しを願う",
+            "beg her for mercy [mercy from her]" : "彼女の慈悲を請う",
+            "Please let me know, I beg [I'm begging] you." : "お願い,教えて, この通りお願いする[してるんだ]から",
+            "She begged him to help [that he (｟主に英｠should) help] her." : "彼女は彼に助けて欲しいと懇願した",
+            "I beg you to stay." : "どうかここにいてちょうだい",
+            "“Just one more,” he begged." : "「もう1つだけ」と彼はせがんだ",
+            "We beg to inform you …" : "謹んで…の旨申し上げます"
+        }
+    ],
+    "beside" : [
+        "…のそばに, …の近くに; …に比べると; …とは無関係で, 〈要点など〉をはずれて",
+        {
+            "stand [sit] right beside me" : "私のすぐそばに立つ[座る]",
+            "place a radio beside the bed" : "ベッドの脇にラジオを置く",
+            "Beside yours, my share seems small." : "あなたの取り分に比べると私のは少ないようだ",
+            "Your answer is beside the point [mark]." : "君の答えは的はずれだ",
+            "be beside oneself with rage" : "怒りのあまり逆上して."
+        }
+    ],
+    "bother" : [
+        "〈人物事が〉〈人〉を悩ませる, 困らせる; A〈人〉が…ということで[…するときに]困る; A〈人〉が…することを苦にする",
+        {
+            "Small mistakes don't bother me." : "小さな間違いは気にならない",
+            "It really bothers me that John is always late for class." : "ジョンが授業に遅刻してばかりで本当に困ってしまう",
+            "It didn't bother me to get up early." : "早起きは平気だった",
+            "Would it bother you if I smoked?" : "タバコを吸ってもかまいませんか",
+            "Don't bother me with trifles." : "ささいなことでわずらわさないでくれ",
+            "My wife keeps bothering me to go to a doctor." : "妻が医者に行けといってうるさい",
+            "I'm sorry to bother you, but …" : "お手数をおかけしてすみませんが…"
+        }
+    ],
+    "brew" : [
+        "〈ビールなど〉を醸造する, 作る;〈茶コーヒーなど〉を煎じる, いれる;〈悪い状況などが〉発生しつつある, 起ころうとしている",
+        {
+            "brew up a pot of tea" : "ポット1杯のお茶をいれる",
+            "There's trouble brewing between them." : "彼らの間にもめごとが起こりかけている",
+            "a good brew" : "よい出来のビール",
+            "a fresh brew of coffee" : "いれ立てのコーヒー"
+        }
+    ],
+    "calm" : [
+        "〈人心態度などが〉落ち着いた, 冷静な; 〈社会情勢などが〉平穏な",
+        {
+            "a calm mind [voice]" : "落ち着いた心[声]",
+            "The town [His response] was calm." : "その町[彼の返答]は穏やかだった"
+        }
+    ],
+    "chick" : [
+        "(ニワトリの)ひな, ひよこ; (一般に)ひな鳥; (特に魅力的な)若い女[娘]",
+        {
+            "参考" : "主に男性が用いるが, 不快に感じる女性もいる",
+            "俗愛称" : "子供, ガキ."
+        }
+    ],
+    "monitor" : [
+        "〈状況など〉を監視する, 監督する, 観察する; …を追跡する; …を測定する",
+        {
+            "Her blood pressure increased, so she was closely monitored." : "血圧が上がり, 彼女は慎重なチェック体制の元におかれた"
+        }
+    ],
+    "application" : [
+        "(書面による)志願, 申請; 応用, 利用; 利用法",
+        {
+            "make [submit] an application for admission" : "入学の申し込み[申請]をする",
+            "the application of scientific technology to medical treatment" : "科学技術の医療への応用",
+            "computer applications in music" : "音楽におけるコンピュータのさまざまな利用法"
+        }
+    ],
+    "distinction" : [
+        "区別, 相違, 差異; 差別, 分け隔て",
+        {
+            "make [draw] a distinction between discipline and punishment" : "しつけと罰の区別を付ける",
+            "a big [clear, crucial, subtle] distinction" : "大きな[はっきりした, 決定的な, 微妙な]違い",
+            "a distinction without a difference" : "名ばかりの区別"
+        }
+    ],
+    "overwhelmed" : [
+        "〈強烈な感情出来事が〉〈人〉を呆然（ぼうぜん）とさせる;〈人〉を圧倒する, 大いに驚かす, 困惑させる; (力で)〈相手〉を打ち負かす, (徹底的に)やっつける; 〈地域〉を支配する",
+        {
+            "I was overwhelmed by guilt." : "私は罪の意識で胸がいっぱいだった",
+            "Meg was overwhelmed with joy." : "メグはうれしくてたまらなかった",
+            "Don't overwhelm John with sympathy." : "同情しすぎてジョンを困惑させないように.",
+            "Our army is being overwhelmed by the enemy." : "我が軍は敵に圧倒されている."
+        }
+    ],
+    "debt" : [
+        "借金, 借り, 負債, 債務",
+        {
+            "a debt of $100" : "百ドルの借金",
+            "pay off [clear, repay] a debt" : "借金を返済する"
+        }
+    ],
+    "collateral" : [
+        "担保(物件); 傍系親族; 付随する, 副次[二次]的な; 並行した, 相並ぶ; 見返りの",
+        {
+            "use [put up] one's house as collateral" : "家を担保にする[出す]"
+        }
+    ],
+    "component" : [
+        "(物などを構成する) (構成)要素, 部品, 部分",
+        {
+            "an important component of the program" : "そのプログラムの重要な構成要素"
+        }
+    ],
+    "concede" : [
+        "〈人が〉…を (事実だと)(しぶしぶ)認める, 承認する",
+        {
+            "The tobacco company conceded that smoking causes lung cancer." : "タバコ会社は喫煙が肺癌（がん）の原因になることを認めた",
+            "Mark conceded, \"I broke the window.\"" : "「僕が窓を割りました」とマークは認めた",
+            "The committee members conceded their divisions of opinions." : "委員会の委員は意見が分かれていることを認めた",
+            "I concede you the point." : "その点は君の言い分を認めるよ"
+        }
+    ],
+    "consistency" : [
+        "(言動思想などの)一貫性, 一致; (物質の)かたさ; (液体混合物などの)粘度, 濃度, 滑らかさ",
+        {
+            "対義語: inconsistency" : "(antonym)"
+        }
+    ],
+    "consumption" : [
+        "(時間エネルギーなどの)消費, 消耗, 使い果たすこと; 肺結核",
+        {
+            "reduce [increase] electricity [energy] consumption" : "電気[エネルギー]消費(量)を減らす[増やす]",
+            "alcohol consumption" : "アルコール摂取",
+            "These meats are considered safe for human consumption." : "これらの肉は人間が食べても安全であると考えられている",
+            "a measure to boost consumption" : "大衆消費拡大策",
+            "対義語 : production" : "(antonym)"
+       }
+    ],
+    "coincide" : [
+        "…と同時(期)に起こる",
+        {
+            "That day coincided with my boyfriend's return from Canada." : "その日はボーイフレンドがカナダから帰ってくる日と(偶然にも)一緒だった."
+        }
+    ],
+    "wreck" : [
+        "〈計画好機など〉を台無しにする, だめにする; 〈建物乗り物など〉を大破させる, 解体する",
+        {
+            "John's heavy drinking wrecked his marriage." : "ジョンは酒の飲み過ぎで結婚生活をめちゃくちゃにした",
+            "a car completely wrecked in an accident" : "事故でめちゃくちゃに壊れた車.",
+            "The ship was wrecked off the coast." : "その船は沖で難破した."
+        }
+    ],
+    "irrelevant" : [
+        "重要でない, 意味をなさない; 的はずれな",
+        {
+            "Alan Greenspan is not a hero. Alan Greenspan is not a villain. Alan Greenspan is irrelevant." : "https://facebook.com/notes/joseph-e-stiglitz/bruce-greenwald-the-shadow-joe-stiglitz-on-interest-rates-and-monetary-policy/692222450791460"
+        }
+    ],
+    "extract" : [
+        "〈物〉を取り除く; 〜を引き抜く, 抜き出す",
+        {
+            "I had my tooth extracted [｟よりくだけて｠pulled out]." : "私は抜歯してもらった",
+            "extract the cork from a bottle" : "びんからコルク栓を抜き取る"
+        }
+    ],
+    "actually" : [
+        "実際に，現に",
+        {
+            "He looks stern, but actually he's very kind." : "彼は厳しそうに見えるが実際はとても親切だ.",
+            "Actually, I didn't see her do it." : "実のところ私は彼女がそれをするのを見ていません.",
+            "He actually refused!" : "彼は本当に拒絶したのです."
+        }
+    ],
+    "contract" : [
+        "契約，約定; 請負.",
+        {
+            "(a) breach of contract" : "契約違反, 違約.",
+            "a contract to build a house" : "家の建築契約.",
+            "sign [draw up] a contract" : "契約書に署名する[を作成する].",
+            "a marriage contract" : "婚約."
+        }
+    ],
+    "end" : "end"
+}
