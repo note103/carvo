@@ -74,7 +74,7 @@ while (my $in = <>) {
                 for $file (readdir $dh) {
                     if ($file =~ /^$num.*(.json)/) {
                         $cards = "cards/$file";
-                        print `open $cards cards/parse.pl cards/word.pl`;
+                        print `open $cards apps/parse.pl apps/word.pl`;
                     }
                 }
                 closedir $dh;
