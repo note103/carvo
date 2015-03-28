@@ -1,3 +1,32 @@
+2015-03-28 16:24:36
+10	times
+8	hits
+2	errors
+---
+- Apparently, George is angry about the incident.: 聞いたところではジョージはその出来事について腹を立てているようだ。
+- Could you describe the man you saw last night.: あなたが昨夜見た男性の特徴を説明してくださいますか。
+- He didn't agree with his parents.: 彼は両親と意見が一致しなかった。
+- He didn't come to the party, apparently, because of his wife's illness.: 彼はパーティに来なかったが, どうも奥さんの病気のせいらしい.
+- He is apparently disappointed.: 彼はがっかりした様子だ.
+- Ken looks about 20, but apparently he's still 14.: ケンは20歳くらいに見えるが, 実のところまだ14歳だ.
+- Many people believe that God exists.: 多くの人々が神は存在すると信じている。
+- The building is due for completion in spring.: そのビルは春に落成の予定だ。
+- The price of the hotel includes dinner and breakfast.: そのホテルの料金は夕食と朝食を含んでいる。
+- What does this word mean in Japanese?: この単語は日本語でどういう意味ですか？
+- an apparently healthy baby: いかにも健康そうな赤ちゃん
+- be nearing completion: 完成間近である
+- on [upon] completion of A: Aが完成するときに
+- the completion date: 完成[終了]日
+agree: （人と）意見が一致する
+apparently: (確証はないが)たぶん, どうも…らしい; (実際はさておき)外見上は, 見たところ, どう見ても; (思っていたことと違い)実は
+completion*
+completion: 完成|完了|終了|成就|達成
+describe: 〜の特徴を述べる
+exist: 存在する
+include*
+include: 〜を含む
+mean: 〜を意味する
+
 2015-01-10 01:00:27
 18	times
 17	hits
