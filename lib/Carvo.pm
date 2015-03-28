@@ -38,7 +38,8 @@ package Carvo {
                 print "Welcome to the \"".$english->{$title}[0]."\"\n";
                 $value = $english->{$title}[0];
                 value();
-                print `$voice Welcome to the $value`;
+                print `$voice $value`;
+                #print `$voice Welcome to the $value`;
                 for (keys %{$english->{$title}[1]}) {
                     print $_."\n".$english->{$title}[1]{$_}."\n\n";
                 }
@@ -46,7 +47,8 @@ package Carvo {
                 print "Welcome to the \"".$english->{$title}."\"!\n";
                 $value = $english->{$title};
                 value();
-                print `$voice Welcome to the $value`;
+                print `$voice $value`;
+                #print `$voice Welcome to the $value`;
             }
 
         }
@@ -190,15 +192,12 @@ package Carvo {
             print `$voice You turned on fail list mode`;
             $fail_sw = 'on';
             if (@fail == 0) {
-                print "Here is no date.\n";
+                print "Here is no data.\n";
                 $fail_sw = 'off';
             } else {
                 my %unique = map {$_ => 1} @fail;
                 @fail_out = keys %unique;
                 chomp @fail_out;
-                for (@fail_out) {
-                    print "$_\n";
-                }
                 @words = @fail_out;
                 $limit = @words;
                 $words = \@words;
@@ -244,9 +243,9 @@ package Carvo {
     }
 
     sub voice {
-        print "You can turn on/off the switch. (Y/n)\n";
+        print "You can change voice setting. (on/off)\n";
         while (my $voice_sw_in = <>) {
-            if ($voice_sw_in =~ /^(\n|y)$/) {
+            if ($voice_sw_in =~ /^(\n|on)$/) {
                 $voice_sw = 'on';
                 print "Select a number.\n";
                 print `$voice select a number`;
@@ -278,7 +277,7 @@ package Carvo {
                     }
                 }
                 last;
-            } elsif ($voice_sw_in =~ /^n$/) {
+            } elsif ($voice_sw_in =~ /^off$/) {
                 $voice_sw = 'off';
                 last;
             } else {

@@ -9,14 +9,12 @@ package Generator {
     sub switch {
         use JSON;
         my $num = shift;
-        our $num_port;
 
         my $dir = 'cards';
         opendir(my $dh, $dir) or die "can't opendir $dir: $!";
         for $file (readdir $dh) {
             if ($file =~ /^$num\D*.*(.json)/) {
                 $cards = "cards/$file";
-                $num_port = $num;
             }
         }
         closedir $dh;

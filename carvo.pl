@@ -13,19 +13,26 @@ my $num_last;
 my @files;
 opendir(my $dirh, $dir) || die "can't opendir $dir: $!";
 for my $file (readdir $dirh) {
-    if ($file =~ /^(\d+)_(.*)(.json)/) {
+    if ($file =~ /^(.+)_(.*)(.json)/) {
         push @files, "$1: $2";
         $num_last = $1;
     }
 }
 closedir $dirh;
 
-say "\nWelcome!\nPlease select a number of courses.\n";
+my $msg_first = "\nWelcome!\nPlease select a number of courses.\n";
+say $msg_first;
 sub msg {
     for (@files) {
-    say $_;
+        say $_;
     }
     say "q: exit\n";
+}
+sub msg_edit {
+    for (@files) {
+        say "\t$_";
+    }
+    say "\tq: exit\n";
 }
 
 msg();
@@ -46,9 +53,41 @@ while (my $in = <>) {
         last;
     } elsif ($in =~ /^(\n)$/) {
         Carvo::main(Generator::switch('1'));
-    } elsif ($in =~ /(\d+)/ && $in > $num_last) {
-        say "Too big! ".$msg_correct;
-    } elsif ($in =~ /^(\d+)$/) {
+    } elsif ($in =~ /^(r|result)$/) {
+        print `open data/result*`;
+    } elsif ($in =~ /^(l|logs)$/) {
+        print `open data/logs*`;
+    } elsif ($in =~ /^(e|edit)$/) {
+        say 'Select a file.';
+        msg_edit();
+        while (my $edit = <>) {
+            if ($edit =~ /^(.+|\n)$/) {
+                my $num;
+                if ($1 =~ /\n/) {
+                    $num = 1;
+                } else {
+                    $num = $1;
+                }
+                my ($file, $cards);
+                my $dir = 'cards';
+                opendir(my $dh, $dir) or die "can't opendir $dir: $!";
+                for $file (readdir $dh) {
+                    if ($file =~ /^$num.*(.json)/) {
+                        $cards = "cards/$file";
+                        print `open $cards cards/parse.pl cards/word.pl`;
+                    }
+                }
+                closedir $dh;
+                say 'Select a file.';
+                msg_edit();
+            } elsif ($edit =~ /^(q)$/) {
+                say $msg_first;
+                last;
+            } else {
+                say $msg_correct;
+            }
+        }
+    } elsif ($in =~ /^(.+)$/) {
         my $num = $1;
         Carvo::main(Generator::switch($num));
     } else {
