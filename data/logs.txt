@@ -1,0 +1,41 @@
+2015-03-29 20:06:28
+6	times
+4	hits
+2	errors
+---
+- Beside yours, my share seems small.: あなたの取り分に比べると私のは少ないようだ
+- Does it annoy you when people comment on your appearance?: 容姿のことでとやかく言われるとうんざりしませんか？
+- He is always making fun of us and that really annoys me.: 彼はいつも私たちのことをばかにして、腹が立つったらありゃしない。
+- The building is due for completion in spring.: そのビルは春に落成の予定だ。
+- Your answer is beside the point [mark].: 君の答えは的はずれだ
+- be beside oneself with rage: 怒りのあまり逆上して.
+- be nearing completion: 完成間近である
+- drive A bonkers: A〈人など〉を悩ます|いらいらさせる
+- go bonkers: 気が狂う|熱狂する|夢中になる
+- on [upon] completion of A: Aが完成するときに
+- place a radio beside the bed: ベッドの脇にラジオを置く
+- stand [sit] right beside me: 私のすぐそばに立つ[座る]
+- the completion date: 完成[終了]日
+annoy*
+annoy: 〈人行動などが〉〈人など〉を (一時的に)悩ます|困らせる|いらいらさせる|むっとさせる; 〈人など〉を (執拗（しつよう）に)攻撃する|たびたび困らせる; やっかいである|悩みの種である
+beside: …のそばに, …の近くに; …に比べると; …とは無関係で, 〈要点など〉をはずれて
+bonkers*
+bonkers: 精神的に不安定で|ばかな|熱狂して|いらいらして
+completion: 完成|完了|終了|成就|達成
+
+2015-03-28 16:32:54
+4	times
+2	hits
+2	errors
+---
+- She smiles to conceal her tears―keeps up a fictitious gaily.: 彼女はうわべで笑って腹の中で泣いている
+- Some people confuse intangible assets with fictitious assets.: 無形資産と架空資産は混同されることがある。
+- This is a true account, and not a fictitious narrative.: これは事実談であって作り話ではない
+- a fictitious address: 架空住所
+- a fictitious detective in stories by A. Conan Doyle: A・コナン・ドイルの小説に登場する架空の探偵
+- a fictitious transaction: 空取引
+- it was immediately and indubitably apparent that I had interrupted a scene of lovers: 私が恋人たちの様子を邪魔したのは、一瞬で、間違いなく明らかだった
+fictitious: 虚偽の, うその; 架空の
+indubitably*
+indubitably: 疑う余地のない|確かな|明瞭な
+
