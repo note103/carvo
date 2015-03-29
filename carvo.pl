@@ -51,8 +51,6 @@ while (my $in = <>) {
             print `$Carvo::voice Bye!`;
         }
         last;
-    } elsif ($in =~ /^(\n)$/) {
-        Carvo::main(Generator::switch('1'));
     } elsif ($in =~ /^(r|result)$/) {
         print `open data/result*`;
     } elsif ($in =~ /^(l|logs)$/) {
