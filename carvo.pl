@@ -8,7 +8,7 @@ use Time::Piece;
 use 5.012;
 use open ":utf8";
 
-my $dir = 'cards';
+my $dir = 'card';
 my $num_last;
 my @files;
 opendir(my $dirh, $dir) || die "can't opendir $dir: $!";
@@ -69,12 +69,12 @@ while (my $in = <>) {
                     $num = $1;
                 }
                 my ($file, $cards);
-                my $dir = 'cards';
+                my $dir = 'card';
                 opendir(my $dh, $dir) or die "can't opendir $dir: $!";
                 for $file (readdir $dh) {
                     if ($file =~ /^$num.*(.json)/) {
-                        $cards = "cards/$file";
-                        print `open $cards apps/parse.pl apps/word.pl`;
+                        $cards = "card/$file";
+                        print `open $cards app/parse.pl app/word.pl`;
                     }
                 }
                 closedir $dh;

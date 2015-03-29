@@ -10,11 +10,11 @@ package Generator {
         use JSON;
         my $num = shift;
 
-        my $dir = 'cards';
+        my $dir = 'card';
         opendir(my $dh, $dir) or die "can't opendir $dir: $!";
         for $file (readdir $dh) {
             if ($file =~ /^$num\D*.*(.json)/) {
-                $cards = "cards/$file";
+                $cards = "card/$file";
             }
         }
         closedir $dh;
