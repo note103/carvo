@@ -85,9 +85,6 @@ while (my $in = <>) {
                 say $msg_correct;
             }
         }
-    } elsif ($in =~ /^(.+)$/) {
-        my $num = $1;
-        Carvo::main(Generator::switch($num));
     } else {
         say $msg_correct;
     }
