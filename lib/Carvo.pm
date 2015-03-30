@@ -23,7 +23,8 @@ package Carvo {
     my %english;
     my ($num, $port, $port_back) = (0, 0, 0);
     my $msg_correct = "Please input a correct one.";
-    my $escape;
+    my $escape_title;
+    my $escape_end;
     sub main {
         $english = shift;
         %english = %$english;
@@ -34,12 +35,17 @@ package Carvo {
         my $msg_usual = 'Input (num|enter|r|o|j|v|l|s|q).';
         my $msg_limit = "You can choose a number from 1-";
         my $msg_random = "This is random select.";
+
+        # Create escape key
+        my @escape;
         for (@words) {
             if ($_ ne $title && $_ ne $end) {
-                $escape = $_;
-                last;
+                push @escape, $_;
             }
         }
+        $escape_title = $escape[0];
+        $escape_end = $escape[-1];
+
         if (exists ($english{$title})) {
             if (ref $english{$title} eq "ARRAY") {
                 print "Welcome to the \"".$english->{$title}[0]."\"\n";
@@ -294,8 +300,10 @@ package Carvo {
         my $ans;
         my $qa_switch = shift;
         $key = $words->[$num-1];
-        if ($key eq $title || $key eq $end) {
-            $key = $escape;
+        if ($key eq $title) {
+            $key = $escape_title;
+        } elsif ($key eq $end) {
+            $key = $escape_end;
         }
         my $sentence;
         if (ref $english->{$key} eq "ARRAY") {
