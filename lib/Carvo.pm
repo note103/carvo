@@ -314,8 +314,9 @@ package Carvo {
                         push @logs, $ans;
                         push @voice_tmp, $sentence;
                     }
-                } elsif (ref $english->{$key} eq "ARRAY") {
-                    print my $array_values = "$english->{$key}[1]\n";
+                } elsif (ref $english->{$key}[1] eq "ARRAY") {
+                    my $array_values;
+                    print $array_values = "$english->{$key}[1]\n";
                     push @logs, $array_values;
                     push @voice_tmp, $array_values;
                 }
