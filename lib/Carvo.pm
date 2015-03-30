@@ -23,6 +23,7 @@ package Carvo {
     my %english;
     my ($num, $port, $port_back) = (0, 0, 0);
     my $msg_correct = "Please input a correct one.";
+    my $escape;
     sub main {
         $english = shift;
         %english = %$english;
@@ -33,13 +34,18 @@ package Carvo {
         my $msg_usual = 'Input (num|enter|r|o|j|v|l|s|q).';
         my $msg_limit = "You can choose a number from 1-";
         my $msg_random = "This is random select.";
+        for (@words) {
+            if ($_ ne $title && $_ ne $end) {
+                $escape = $_;
+                last;
+            }
+        }
         if (exists ($english{$title})) {
             if (ref $english{$title} eq "ARRAY") {
                 print "Welcome to the \"".$english->{$title}[0]."\"\n";
                 $value = $english->{$title}[0];
                 value();
                 print `$voice $value`;
-                #print `$voice Welcome to the $value`;
                 for (keys %{$english->{$title}[1]}) {
                     print $_."\n".$english->{$title}[1]{$_}."\n\n";
                 }
@@ -48,7 +54,6 @@ package Carvo {
                 $value = $english->{$title};
                 value();
                 print `$voice $value`;
-                #print `$voice Welcome to the $value`;
             }
 
         }
@@ -289,10 +294,8 @@ package Carvo {
         my $ans;
         my $qa_switch = shift;
         $key = $words->[$num-1];
-        if ($key eq $title) {
-            $key = $words->[-1];
-        } elsif ($key eq $end) {
-            $key = $words->[0];
+        if ($key eq $title || $key eq $end) {
+            $key = $escape;
         }
         my $sentence;
         if (ref $english->{$key} eq "ARRAY") {

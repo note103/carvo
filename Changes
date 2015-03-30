@@ -3,6 +3,7 @@ v0.3.1 - 30 March 2015
   * card選択時に数字以外を指定できるように
     - d1とかt3とか
   * card作成等につかうスクリプトをcardディレクトリからappディレクトリに分離
+  * title, endをskipするように
 
 v0.3.0 - 7 January 2015
   Features:
