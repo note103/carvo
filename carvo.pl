@@ -9,13 +9,11 @@ use 5.012;
 use open ":utf8";
 
 my $dir = 'card';
-my $num_last;
 my @files;
 opendir(my $dirh, $dir) || die "can't opendir $dir: $!";
 for my $file (readdir $dirh) {
     if ($file =~ /^(.+)_(.*)(.json)/) {
         push @files, "$1: $2";
-        $num_last = $1;
     }
 }
 closedir $dirh;
@@ -41,6 +39,7 @@ my $log;
 my $result;
 
 my $msg_correct = "Please input a number or 'q'.\n";
+my ($file, $cards, $tag);
 while (my $in = <>) {
     if ($in =~ /^(q)$/) {
         print "\nTotal score:\n";
@@ -59,18 +58,12 @@ while (my $in = <>) {
         say 'Select a file.';
         msg_edit();
         while (my $edit = <>) {
-            if ($edit =~ /^(.+|\n)$/) {
-                my $num;
-                if ($1 =~ /\n/) {
-                    $num = 1;
-                } else {
-                    $num = $1;
-                }
-                my ($file, $cards);
+            if ($edit =~ /^(.+)$/) {
+                $tag = $1;
                 my $dir = 'card';
                 opendir(my $dh, $dir) or die "can't opendir $dir: $!";
                 for $file (readdir $dh) {
-                    if ($file =~ /^$num.*(.json)/) {
+                    if ($file =~ /^$tag\_.*(.json)/) {
                         $cards = "card/$file";
                         print `open $cards app/parse.pl app/word.pl`;
                     }
@@ -86,8 +79,16 @@ while (my $in = <>) {
             }
         }
     } elsif ($in =~ /^(.+)$/) {
-        my $num = $1;
-        Carvo::main(Generator::switch($num));
+        $tag = $1;
+        my $dir = 'card';
+        opendir(my $dh, $dir) or die "can't opendir $dir: $!";
+        for $file (readdir $dh) {
+            if ($file =~ /^$tag\_.*(.json)/) {
+                Carvo::main(Generator::switch($tag));
+            }
+        }
+        closedir $dh;
+        say $msg_correct;
     } else {
         say $msg_correct;
     }
