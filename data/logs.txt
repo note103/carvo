@@ -1,3 +1,103 @@
+2015-04-15 16:48:54
+10	times
+9	hits
+1	error
+---
+- Don't overwhelm John with sympathy.: 同情しすぎてジョンを困惑させないように.
+- I beg a favor of you.: お願いしたいことがあります
+- I beg you to stay.: どうかここにいてちょうだい
+- I was overwhelmed by guilt.: 私は罪の意識で胸がいっぱいだった
+- It's kind of embarrassing to see him now.: 今彼に会うのはちょっと恥ずかしい。
+- Meg was overwhelmed with joy.: メグはうれしくてたまらなかった
+- Our army is being overwhelmed by the enemy.: 我が軍は敵に圧倒されている.
+- Please let me know, I beg [I'm begging] you.: お願い,教えて, この通りお願いする[してるんだ]から
+- She begged him to help [that he (｟主に英｠should) help] her.: 彼女は彼に助けて欲しいと懇願した
+- Smoking is frequently cited as a (major) cause of lung cancer.: 喫煙はよく肺癌の（主な）原因に挙げられる。
+- They took military action, with dangerous consequences for the region's peace.: 彼らは武力を行使し, その地域の平和に危険をもたらす結果となった。
+- We beg to inform you …: 謹んで…の旨申し上げます
+- What is [was] the most embarrassing thing that has happend to you?: これまでの体験で一番恥ずかしかったことは何ですか（何でしたか）？
+- Where is the canned fruit? / It's in aisle 5.: 「フルーツの缶詰はどこにありますか」「5番通路です」
+- an aisle seat: 通路側の席
+- as a reward for good behavior: お行儀のよかったごほうびに
+- be smitten by:  〜に心を奪われる|参る
+- be smitten down by: さいなまれる
+- be smitten with a desire to do: 非常に〜したい
+- beg her for mercy [mercy from her]: 彼女の慈悲を請う
+- beg his forgiveness: 彼の許しを願う
+- expect a financial reward: 金銭的見返りを期待する
+- have serious [unintended] consequences: 深刻な[予期せぬ]結果をもたらす
+- “Just one more,” he begged.: 「もう1つだけ」と彼はせがんだ
+- 参考: 「窓側の席」は a window seat
+aisle: (スーパーマーケット倉庫などの)通路|(乗り物映画館などの座席間の)通路
+beg: 〈人が〉A〈許可など〉を懇願する, お願いする, 請う
+cite: 〜を引用する|引き合いに出す
+consequence*
+consequence: (主に悪い)結果|結末|成り行き|影響
+embarrassing: 恥ずかしい|不愉快に感じさせる|困惑させるような
+overwhelmed: 〈強烈な感情出来事が〉〈人〉を呆然（ぼうぜん）とさせる;〈人〉を圧倒する, 大いに驚かす, 困惑させる; (力で)〈相手〉を打ち負かす, (徹底的に)やっつける; 〈地域〉を支配する
+reward: （功労善事世話などに対する）ほうび|報酬|報奨|報い
+smite: 〜を強くたたく|強打する
+
+2015-04-15 16:47:24
+20	times
+16	hits
+4	errors
+---
+- Does it annoy you when people comment on your appearance?: 容姿のことでとやかく言われるとうんざりしませんか？
+- He always discriminates in favor of his friends.: 彼はいつも友人をえこひいきする.
+- He is always making fun of us and that really annoys me.: 彼はいつも私たちのことをばかにして、腹が立つったらありゃしない。
+- He was declared guilty [a failure].: 彼は有罪[失敗者]だと宣告された.
+- I declare William Jones elected.: ウィリアムジョーンズが当選だと宣言します.
+- It was acclaimed (as) a timeless work of art.: それは永遠の芸術作品とたたえられた。
+- It's kind of embarrassing to see him now.: 今彼に会うのはちょっと恥ずかしい。
+- Jill has been acclaimed for her role in her latest movie.: ジルは最新作映画で演じた役が絶賛された。
+- Rosemary is emblematic of constancy.: ローズマリーは貞節を象徴する.
+- Smoking is frequently cited as a (major) cause of lung cancer.: 喫煙はよく肺癌の（主な）原因に挙げられる。
+- The town [His response] was calm.: その町[彼の返答]は穏やかだった
+- Their culture is quite distinct from ours.: 彼らの文化は私たちのとはまったく異なる
+- There was a distinct possibility that he was a spy.: 彼がスパイであるはっきりした可能性があった
+- What is [was] the most embarrassing thing that has happend to you?: これまでの体験で一番恥ずかしかったことは何ですか（何でしたか）？
+- a calm mind [voice]: 落ち着いた心[声]
+- a distinct advantage: 明らかな利点
+- a distinct impression: はっきりした印象
+- a distinct smell: 強いにおい
+- a distinct sound [voice]: 鮮明な音[声]
+- a remarkable [great] achievement: 目を見張る[偉大な]業績
+- a sense [level] of achievement: 達成感[度]
+- academic [educational, student] achievement: 学業成績
+- acclaim him (as) king [leader]: 歓呼して彼を王[指導者]に迎える
+- as a reward for good behavior: お行儀のよかったごほうびに
+- celebrate one's achievements in science [filmmaking]: 科学分野[映画制作]における業績を祝う
+- computer applications in music: 音楽におけるコンピュータのさまざまな利用法
+- constancy of tone or pitch or inflection: 音色、調子、また屈折の一定さ
+- declare independence [a cease‐fire]: 独立[停戦]を宣言する.
+- declare war on [against] a nation: ある国に対して戦争を布告する.
+- discriminate against women employees: 女性従業員を差別待遇する.
+- discriminate between reality and ideals: 現実と理想とを識別する.
+- early mariners relied on the constancy of the trade winds: 昔の船員は、貿易風の不変性に頼った
+- expect a financial reward: 金銭的見返りを期待する
+- make [submit] an application for admission: 入学の申し込み[申請]をする
+- the achievement of common goals: 共通の目標の成就
+- the application of scientific technology to medical treatment: 科学技術の医療への応用
+- the constancy or integrity of a person's later years: 人の晩年においての節操
+- two distinct types [categories]: 2つの別のタイプ[範疇（はんちゅう）]
+- win critical [international, wide] acclaim: 批評家の[国内外の, 幅広い]賞賛を得る
+acclaim: 【業績質などのために】〈人物〉を歓呼して迎える|賞賛する|〈人物〉を宣伝する|認める; (人業績に対する)賞賛
+achievement: 業績|功績|成果|偉業|手柄
+annoy: 〈人行動などが〉〈人など〉を (一時的に)悩ます|困らせる|いらいらさせる|むっとさせる; 〈人など〉を (執拗（しつよう）に)攻撃する|たびたび困らせる; やっかいである|悩みの種である
+application: (書面による)志願, 申請; 応用, 利用; 利用法
+calm: 〈人心態度などが〉落ち着いた, 冷静な; 〈社会情勢などが〉平穏な
+cite: 〜を引用する|引き合いに出す
+constancy*
+constancy: 不変(性), 安定; 忠誠(心), 忠節; 貞節
+declare: 〈…を〉宣言する，布告する，公表する.
+discriminate*
+discriminate: 〔…と…とを〕区別する，識別[弁別]する.; 〔…に対して〕分け隔てをする，差別待遇する 〔against〕.; 〔…を〕えこひいきする 〔in favor of〕.
+distinct*
+distinct: 別個の, 独特な; « …と» まったく異なった «from»; 〈物形輪郭などが〉 (知覚的に)鮮明な, 明瞭（めいりよう）な, 明確な
+embarrassing: 恥ずかしい|不愉快に感じさせる|困惑させるような
+reward: （功労善事世話などに対する）ほうび|報酬|報奨|報い
+
 2015-04-15 16:36:52
 16	times
 13	hits
