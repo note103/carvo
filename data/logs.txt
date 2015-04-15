@@ -1,3 +1,40 @@
+2015-04-15 16:36:52
+16	times
+13	hits
+3	errors
+---
+- Actually, I didn't see her do it.: 実のところ私は彼女がそれをするのを見ていません.
+- Can you explain what you mean more clearly?: あなたの言いたいことをもっとはっきり説明してくれませんか？
+- Gary appeared very upset.: ゲーリーはとても気が動転しているように見えた。
+- He actually refused!: 彼は本当に拒絶したのです.
+- He looks stern, but actually he's very kind.: 彼は厳しそうに見えるが実際はとても親切だ.
+- That designer created her own brand of clothing.: あのデザイナーは彼女自身のブランドを作った。
+- The building is due for completion in spring.: そのビルは春に落成の予定だ。
+- The noise gets louder as you approach the factory.: 工場に近づくにつれて、騒音はうるさくなってくる。
+- The price of the hotel includes dinner and breakfast.: そのホテルの料金は夕食と朝食を含んでいる。
+- be braced for A: A（事）への備えができている
+- be nearing completion: 完成間近である
+- brace oneself to do: 〜する覚悟を決める
+- computer applications in music: 音楽におけるコンピュータのさまざまな利用法
+- drive A insane: Aを（次第に）不愉快にさせる|怒らせる
+- go insane: 発狂する
+- make [submit] an application for admission: 入学の申し込み[申請]をする
+- on [upon] completion of A: Aが完成するときに
+- the application of scientific technology to medical treatment: 科学技術の医療への応用
+- the completion date: 完成[終了]日
+actually: 実際に，現に
+appear*
+appear: 〜のように見える
+application: (書面による)志願, 申請; 応用, 利用; 利用法
+approach: 〜に近づく
+brace: 〜に対して覚悟する|備える
+completion: 完成|完了|終了|成就|達成
+create*
+create: 〜を創造する
+explain: 〜を説明する
+include: 〜を含む
+insane: まったくばかばかしい|無茶な
+
 2015-03-29 20:06:28
 6	times
 4	hits
