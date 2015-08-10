@@ -2,6 +2,7 @@
 use strict;
 use warnings;
 use utf8;
+use Carvo::Save;
 binmode(STDOUT, ":utf8");
 
 package Carvo {
@@ -11,7 +12,8 @@ package Carvo {
     our $voice_sw = 'on';
     our $voice = 'say';
     our @logs;
-    my ($value, $words, $english, $key, $limit, $fail);
+    my $substr = 3;
+    my ($value, $words, $english, $key, $limit, $fail, $custom);
     my (@words, @voice, @fail, @fail_out);
     my $mode = 'random';
     my $title = 'title';
@@ -31,8 +33,8 @@ package Carvo {
         mode();
         my $enter = '\n';
         $limit = @words;
-        my $msg_first = 'Input (num|enter|r|o|j|v|l|q).';
-        my $msg_usual = 'Input (num|enter|r|o|j|v|l|s|q).';
+        my $msg_first = 'Input (num|enter|r|o|j|v|l|n|q).';
+        my $msg_usual = 'Input (num|enter|r|o|j|v|l|n|s|q).';
         my $msg_limit = "You can choose a number from 1-";
         my $msg_random = "This is random select.";
 
@@ -80,6 +82,7 @@ package Carvo {
                     my $match;
                     $match = "$key";
                     $regexp = $in_ans;
+                    $match =~ s/\?$/\\?/;
                     if ($regexp =~ /^($match)$/) {
                         $point++;
                         $total = $point + $miss;
@@ -118,7 +121,7 @@ package Carvo {
                     qa('q');
                     $input->();
                 }
-            } elsif ($in_way =~ /^(n|\n|[^\W\D]+)$/) {
+            } elsif ($in_way =~ /^(\n|[^\W\D]+)$/) {
                 if ($port == $limit) {
                     print "You exceeded the maximum. Return to the beggining.\n\n";
                     $num = 1;
@@ -143,6 +146,17 @@ package Carvo {
                 print 'You turned on long voice version.';
                 print `$voice You turned on long voice version.`;
                 print "\n$msg_usual\n";
+            } elsif ($in_way =~ /^(n)$/) {
+                print "Input a number.\n";
+                while (my $in_num = <>) {
+                    if ($in_num =~ /^\d+$/) {
+                        $substr = $in_num;
+                        print "$msg_usual\n";
+                        last;
+                    } else {
+                        print $msg_correct."\n";
+                    }
+                }
             } elsif ($in_way =~ /^(l)$/) {
                 list();
                 print "\n$msg_limit".$limit."\n$msg_usual\n";
@@ -151,8 +165,47 @@ package Carvo {
                 print "\n$msg_limit".$limit."\n$msg_usual\n";
             } elsif ($in_way =~ /^(b)$/) {
                 back();
-                #list();
                 print "\n$msg_limit".$limit."\n$msg_usual\n";
+            } elsif ($in_way =~ /^(custom|cl)$/) {
+                my $dir = 'data/save/custom';
+                opendir(my $dirh, $dir) || die "can't opendir $dir: $!";
+                for my $file (readdir $dirh) {
+                    unless ($file =~ /^\..*/) {
+                        print $file."\n";
+                    }
+                }
+                closedir $dirh;
+                print "\n$msg_usual\n";
+            } elsif ($in_way =~ /^(csv|customsave)$/) {
+                print "Input a name of file.\n";
+                chomp($custom = <>);
+                Save::customsave($num, $words, $english, $custom);
+                print "You saved $custom.\n";
+                print "\n$msg_usual\n";
+            } elsif ($in_way =~ /^(crv|customrev)$/) {
+                Save::buffer($num, $words, $english);
+                print "Input a name of file.\n";
+                chomp($custom = <>);
+                ($num, $words, $english, $custom) = Save::customrev($custom);
+                $port = $num;
+                qa('q');
+                $input->();
+            } elsif ($in_way =~ /^(revival|rev|rv)$/) {
+                Save::buffer($num, $words, $english);
+                print "Num is $num\n";
+                ($num, $words, $english) = Save::revival();
+                $port = $num;
+                qa('q');
+                $input->();
+            } elsif ($in_way =~ /^(unrevival|unrev|urv)$/) {
+                ($num, $words, $english) = Save::unrev();
+                $port = $num;
+                qa('q');
+                $input->();
+            } elsif ($in_way =~ /^(save|sv)$/) {
+                Save::save($num, $words, $english);
+                print "$num/$limit\n";
+                print "\n$msg_usual\n";
             } elsif ($in_way =~ /^(r)$/) {
                 $mode = 'random';
                 mode();
@@ -300,6 +353,7 @@ package Carvo {
         my $ans;
         my $qa_switch = shift;
         $key = $words->[$num-1];
+        $key =~ s/(.+)(\n)*$/$1/;
         if ($key eq $title) {
             $key = $escape_title;
         } elsif ($key eq $end) {
@@ -307,9 +361,10 @@ package Carvo {
         }
         my $sentence;
         if (ref $english->{$key} eq "ARRAY") {
+            $ans = substr($key, 0, $substr);
             my @voice_tmp = ();
             if ($qa_switch eq 'q') {
-                print "$english->{$key}[0]\n";
+                print "$ans: $english->{$key}[0]\n";
                 if (ref $english->{$key}[1] eq "HASH") {
                     for $sentence (sort keys %{$english->{$key}[1]}) {
                         print "- $english->{$key}[1]{$sentence}\n";
@@ -345,8 +400,9 @@ package Carvo {
                 }
             }
         } else {
+            $ans = substr($key, 0, $substr);
             if ($qa_switch eq 'q') {
-                print "$english->{$key}\n";
+                print "$ans: $english->{$key}\n";
             } elsif ($qa_switch eq 'a') {
                 print $ans = "$key($num): $english->{$key}\n";
                 push @logs, $ans;
