@@ -166,30 +166,6 @@ package Carvo {
             } elsif ($in_way =~ /^(b)$/) {
                 back();
                 print "\n$msg_limit".$limit."\n$msg_usual\n";
-            } elsif ($in_way =~ /^(custom|cl)$/) {
-                my $dir = 'data/save/custom';
-                opendir(my $dirh, $dir) || die "can't opendir $dir: $!";
-                for my $file (readdir $dirh) {
-                    unless ($file =~ /^\..*/) {
-                        print $file."\n";
-                    }
-                }
-                closedir $dirh;
-                print "\n$msg_usual\n";
-            } elsif ($in_way =~ /^(csv|customsave)$/) {
-                print "Input a name of file.\n";
-                chomp($custom = <>);
-                Save::customsave($num, $words, $english, $custom);
-                print "You saved $custom.\n";
-                print "\n$msg_usual\n";
-            } elsif ($in_way =~ /^(crv|customrev)$/) {
-                Save::buffer($num, $words, $english);
-                print "Input a name of file.\n";
-                chomp($custom = <>);
-                ($num, $words, $english, $custom) = Save::customrev($custom);
-                $port = $num;
-                qa('q');
-                $input->();
             } elsif ($in_way =~ /^(revival|rev|rv)$/) {
                 Save::buffer($num, $words, $english);
                 print "Num is $num\n";
