@@ -66,6 +66,60 @@ package Save {
         close $fh_in_hash;
         return ($num, $words, $english);
     }
+    sub customsave {
+        ($num, $words, $english, $custom) = @_;
+        my $path = "data/save/custom/$custom";
+        my $file1 = "num.txt";
+        my $file2 = "words.txt";
+        my $file3 = "save.txt";
+        unless(-e $path){
+           mkdir($path);
+           open my $fh, ">", "$path/$file1" or die $!;
+           open $fh, ">", "$path/$file2" or die $!;
+           open $fh, ">", "$path/$file3" or die $!;
+           close $fh;
+        }
+        my $path_num = "data/save/custom/$custom/num.txt";
+        open my $fh_out_num, '>', $path_num or die $!;
+        print $fh_out_num $num;
+        close $fh_out_num;
+        my $path_arr = "data/save/custom/$custom/words.txt";
+        open my $fh_out_arr, '>', $path_arr or die $!;
+        my @tidy;
+        for (@$words) { push @tidy, $_."\n"; }
+        for (@tidy) { $_ =~ s/\n\n/\n/; }
+        for (@tidy) { print $fh_out_arr $_; }
+        close $fh_out_arr;
+        my $path_hash = "data/save/custom/$custom/save.txt";
+        open my $fh_out_hash, '>', $path_hash or die $!;
+        print $fh_out_hash encode_json($english)."\n";
+        close $fh_out_hash;
+    }
+    sub customrm {
+        use File::Path 'rmtree';
+        ($custom) = shift;
+        my $path = "data/save/custom/$custom";
+        rmtree($path);
+    }
+    sub customrev {
+        ($custom) = shift;
+        my $path_num = "data/save/custom/$custom/num.txt";
+        open my $fh_in_num, '<', $path_num or die $!;
+        $num = <$fh_in_num>;
+        close $fh_in_num;
+        my $path_arr = "data/save/custom/$custom/words.txt";
+        open my $fh_in_arr, '<', $path_arr or die $!;
+        my @words = <$fh_in_arr>;
+        for (@words) { $_ =~ s/^\n//; }
+        $words = \@words;
+        close $fh_in_arr;
+        my $path_hash = "data/save/custom/$custom/save.txt";
+        open my $fh_in_hash, '<', $path_hash or die $!;
+        my @tmp = <$fh_in_hash>;
+        $english = decode_json("@tmp");
+        close $fh_in_hash;
+        return ($num, $words, $english);
+    }
 }
 1;
 

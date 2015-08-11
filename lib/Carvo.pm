@@ -3,6 +3,7 @@ use strict;
 use warnings;
 use utf8;
 use Carvo::Save;
+#use File::Path 'rmtree';
 binmode(STDOUT, ":utf8");
 
 package Carvo {
@@ -166,9 +167,90 @@ package Carvo {
             } elsif ($in_way =~ /^(b)$/) {
                 back();
                 print "\n$msg_limit".$limit."\n$msg_usual\n";
+            } elsif ($in_way =~ /^(custom|cl)$/) {
+                print "---\n";
+                my $dir = 'data/save/custom';
+                mkdir($dir);
+                opendir(my $dirh, $dir) || die "can't opendir $dir: $!";
+                for my $file (readdir $dirh) {
+                    unless ($file =~ /^\..*/) {
+                        print $file."\n";
+                    }
+                }
+                closedir $dirh;
+                print "\n$msg_usual\n";
+            } elsif ($in_way =~ /^(crm)$/) {
+                print "---\n";
+                my $dir = 'data/save/custom';
+                my @files;
+                opendir(my $dirh, $dir) || die "can't opendir $dir: $!";
+                for my $file (readdir $dirh) {
+                    unless ($file =~ /^\..*/) {
+                        print $file."\n";
+                        push @files, $file;
+                    }
+                }
+                closedir $dirh;
+                print "\nInput a name of file.\n";
+                chomp($custom = <>);
+                Save::customrm($custom);
+                print "\nYou removed $custom.\n";
+                print "---\n";
+                opendir($dirh, $dir) || die "can't opendir $dir: $!";
+                for my $file (readdir $dirh) {
+                    unless ($file =~ /^\..*/) {
+                        print $file."\n";
+                        push @files, $file;
+                    }
+                }
+                closedir $dirh;
+                print "\n$msg_usual\n";
+            } elsif ($in_way =~ /^(csv|customsave)$/) {
+                print "---\n";
+                my $dir = 'data/save/custom';
+                my @files;
+                opendir(my $dirh, $dir) || die "can't opendir $dir: $!";
+                for my $file (readdir $dirh) {
+                    unless ($file =~ /^\..*/) {
+                        print $file."\n";
+                        push @files, $file;
+                    }
+                }
+                closedir $dirh;
+                print "\nInput a name of file.\n";
+                chomp($custom = <>);
+                Save::customsave($num, $words, $english, $custom);
+                print "You saved $custom.\n";
+                print "\n$msg_usual\n";
+            } elsif ($in_way =~ /^(crv|customrev)$/) {
+                Save::buffer($num, $words, $english);
+                print "---\n";
+                my $dir = 'data/save/custom';
+                my @files;
+                opendir(my $dirh, $dir) || die "can't opendir $dir: $!";
+                for my $file (readdir $dirh) {
+                    unless ($file =~ /^\..*/) {
+                        print $file."\n";
+                        push @files, $file;
+                    }
+                }
+                closedir $dirh;
+                Save::buffer($num, $words, $english);
+                print "\nInput a name of file.\n";
+                chomp($custom = <>);
+                for my $filter (@files) {
+                    if ($filter eq $custom) {
+                        ($num, $words, $english, $custom) = Save::customrev($custom);
+                        $port = $num;
+                        qa('q');
+                        $input->();
+                        last;
+                    }
+                }
+                print $msg_correct."\n";
+                print "\n$msg_usual\n";
             } elsif ($in_way =~ /^(revival|rev|rv)$/) {
                 Save::buffer($num, $words, $english);
-                print "Num is $num\n";
                 ($num, $words, $english) = Save::revival();
                 $port = $num;
                 qa('q');
