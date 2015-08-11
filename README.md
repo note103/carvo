@@ -1,10 +1,11 @@
-Carvo2
+Carvo
 =====
 
-Cards of vocabulary vol.2
+Cards of vocabulary
 
 ## 説明
 
+- 旧版は別レポジトリへ移動しました。 -> [click!](https://github.com/note103/Carvo-Oldie)
 - 英単語学習を用途に作成したツール [Carvo](https://github.com/note103/Carvo) の第2弾です。
 - 日本語が出てきたらそれに対応する英語を打ち込みます。
 
@@ -16,7 +17,7 @@ Cards of vocabulary vol.2
 
 1. 任意の場所にディレクトリを置いて中に入り、
 ```
-$ cd Carvo2
+$ cd Carvo
 ```
 
 1. ターミナルで`carvo.pl`を実行します。
