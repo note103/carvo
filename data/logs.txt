@@ -1,3 +1,44 @@
+2015-08-13 23:47:19
+31	times
+30	hits
+1	error
+---
+- It was acclaimed (as) a timeless work of art.: それは永遠の芸術作品とたたえられた。
+- Jill has been acclaimed for her role in her latest movie.: ジルは最新作映画で演じた役が絶賛された。
+- Paul thoroughly deserves credit for his skills as a musician.: ポールはミュージシャンとしての技術では称賛に十分値する。
+- Sue got the award, and she deserves it.: スーが受賞したが, それは当然のことだ。
+- We deserve a break now.: そろそろ休憩にしましょう。
+- acclaim him (as) king [leader]: 歓呼して彼を王[指導者]に迎える
+- be braced for A: A（事）への備えができている
+- brace oneself to do: 〜する覚悟を決める
+- crush the rock into [to] powder: 石を砕いて粉にする
+- deserve to be done: 〜されるに値する
+- one's crass ignorance of literature: 文学に対するひどい無知
+- win critical [international, wide] acclaim: 批評家の[国内外の, 幅広い]賞賛を得る
+accept: 〜を受け取る
+acclaim: 【業績質などのために】〈人物〉を歓呼して迎える|賞賛する|〈人物〉を宣伝する|認める; (人業績に対する)賞賛
+agree: （人と）意見が一致する
+allow: 〜を許す
+brace: 〜に対して覚悟する|備える
+continue: 続く
+crass: 鈍感な|無神経な|はなはだしい|実にひどい（無知愚かさ無神経など）
+crush: 〈人物などが〉〈物〉を押しつぶす|〈石など〉を(押し)砕く|粉砕する
+deal: （問題などに）対処する
+decide: 〜を決定する
+depend: （〜に）頼る
+describe: 〜の特徴を述べる
+deserve: 〜に値する|ふさわしい
+direct: （注意など）を（〜に）向ける
+discuss: 〜を論ずる
+exist: 存在する
+express*
+express: （思想・感情など）を表現する
+fail: （〜に）失敗する
+fit: （大きさ・形などが）〜に合う
+guess: 〜を推測する
+improve: 〜を改善する
+lead: 〜を（〜へ）導く
+
 2015-04-15 16:48:54
 10	times
 9	hits
