@@ -3,7 +3,6 @@ use strict;
 use warnings;
 use utf8;
 use Carvo::Save;
-#use File::Path 'rmtree';
 binmode(STDOUT, ":utf8");
 
 package Carvo {
@@ -20,6 +19,7 @@ package Carvo {
     my $title = 'title';
     my $escape_sw = 'off';
     my $escape_default_sw = 'on';
+    my $log_check = 'on';
     my $fail_sw = 'off';
     my $end = 'end';
     my $voice_in = 1;
@@ -72,7 +72,12 @@ package Carvo {
                 if ($in_ans =~ /^($enter)$/) {
                     $escape_sw = 'on';
                     $miss++;
-                    push @logs, $key."*\n";
+                    $log_check = 'off';
+                    if (ref $english->{$key} eq "ARRAY") {
+                        push @logs, "*$key: $english->{$key}[0]\n";
+                    } else {
+                        push @logs, "*$key: $english->{$key}\n";
+                    }
                     push @fail, $key."\n";
                     qa('a');
                     print "\n$msg_usual\n";
@@ -86,6 +91,7 @@ package Carvo {
                     $match =~ s/\?$/\\?/;
                     if ($regexp =~ /^($match)$/) {
                         $point++;
+                        $log_check = 'on';
                         $total = $point + $miss;
                         plural($total, $point, $miss);
                         print "\nGood!!\n";
@@ -95,7 +101,12 @@ package Carvo {
                     } else {
                         $escape_sw = 'on';
                         $miss++;
-                        push @logs, $key."*\n";
+                        $log_check = 'off';
+                        if (ref $english->{$key} eq "ARRAY") {
+                            push @logs, "*$key: $english->{$key}[0]\n";
+                        } else {
+                            push @logs, "*$key: $english->{$key}\n";
+                        }
                         push @fail, $key."\n";
                         print "\nNG! Again!\n";
                     }
@@ -431,17 +442,23 @@ package Carvo {
                 }
             } elsif ($qa_switch eq 'a') {
                 print $ans = "$key($num): $english->{$key}[0]\n";
-                push @logs, $ans;
+                if ($log_check eq 'on') {
+                    push @logs, $ans;
+                }
                 if (ref $english->{$key}[1] eq "HASH") {
                     for my $sentence (sort keys %{$english->{$key}[1]}) {
                         print $ans = "- $sentence: $english->{$key}[1]{$sentence}\n";
-                        push @logs, $ans;
+                        if ($log_check eq 'on') {
+                            push @logs, $ans;
+                        }
                         push @voice_tmp, $sentence;
                     }
                 } elsif (ref $english->{$key}[1] eq "ARRAY") {
                     my $array_values;
                     print $array_values = "$english->{$key}[1]\n";
+                if ($log_check eq 'on') {
                     push @logs, $array_values;
+                }
                     push @voice_tmp, $array_values;
                 }
                 if ($voice_sw eq 'on') {
@@ -463,7 +480,9 @@ package Carvo {
                 print "$ans: $english->{$key}\n";
             } elsif ($qa_switch eq 'a') {
                 print $ans = "$key($num): $english->{$key}\n";
+            if ($log_check eq 'on') {
                 push @logs, $ans;
+            }
                 if ($voice_sw eq 'on') {
                     $value = $key;
                     value();
