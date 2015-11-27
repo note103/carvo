@@ -1,4 +1,3 @@
-#!/usr/bin/env perl
 use strict;
 use warnings;
 use utf8;
@@ -24,9 +23,7 @@ package Carvo {
     my $voice_in = 1;
     my ($num, $port, $port_back) = (0, 0, 0);
     my $msg_correct = "Please input a correct one.";
-    my $result;
-    #my $result = "$total\t$times\n$point\t$hits\n$miss\t$errors\n";
-    my ($value, $words, $english, $key, $limit, $fail, $custom, $escape_title, $escape_end); 
+    my ($value, $words, $english, $key, $limit, $fail, $custom, $escape_title, $escape_end, $result);
     my (@words, @voice, @fail, @fail_out);
     my %english;
     sub main {
@@ -263,6 +260,7 @@ Command:
         lo  --long	例文を読み上げる（カードに例文がある場合）
         sh  --short	例文を読み上げない（デフォルト）
     その他:
+        x＋数字   	ヒントの文字数を設定（例: x2）
         f   --fail	誤答リストへ移動
         b   --back	通常リストへ戻る
         sv  --save	最後に回答した語句（番号）をセーブ
