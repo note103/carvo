@@ -11,3 +11,222 @@ guess: 〜を推測する
 imagine: 〜を想像する
 lead: 〜を（〜へ）導く
 
+2015-08-13 23:47:19
+31	times
+30	hits
+1	error
+---
+- It was acclaimed (as) a timeless work of art.: それは永遠の芸術作品とたたえられた。
+- Jill has been acclaimed for her role in her latest movie.: ジルは最新作映画で演じた役が絶賛された。
+- Paul thoroughly deserves credit for his skills as a musician.: ポールはミュージシャンとしての技術では称賛に十分値する。
+- Sue got the award, and she deserves it.: スーが受賞したが, それは当然のことだ。
+- We deserve a break now.: そろそろ休憩にしましょう。
+- acclaim him (as) king [leader]: 歓呼して彼を王[指導者]に迎える
+- be braced for A: A（事）への備えができている
+- brace oneself to do: 〜する覚悟を決める
+- crush the rock into [to] powder: 石を砕いて粉にする
+- deserve to be done: 〜されるに値する
+- one's crass ignorance of literature: 文学に対するひどい無知
+- win critical [international, wide] acclaim: 批評家の[国内外の, 幅広い]賞賛を得る
+accept: 〜を受け取る
+acclaim: 【業績質などのために】〈人物〉を歓呼して迎える|賞賛する|〈人物〉を宣伝する|認める; (人業績に対する)賞賛
+agree: （人と）意見が一致する
+allow: 〜を許す
+brace: 〜に対して覚悟する|備える
+continue: 続く
+crass: 鈍感な|無神経な|はなはだしい|実にひどい（無知愚かさ無神経など）
+crush: 〈人物などが〉〈物〉を押しつぶす|〈石など〉を(押し)砕く|粉砕する
+deal: （問題などに）対処する
+decide: 〜を決定する
+depend: （〜に）頼る
+describe: 〜の特徴を述べる
+deserve: 〜に値する|ふさわしい
+direct: （注意など）を（〜に）向ける
+discuss: 〜を論ずる
+exist: 存在する
+express*
+express: （思想・感情など）を表現する
+fail: （〜に）失敗する
+fit: （大きさ・形などが）〜に合う
+guess: 〜を推測する
+improve: 〜を改善する
+lead: 〜を（〜へ）導く
+
+2015-04-15 16:48:54
+10	times
+9	hits
+1	error
+---
+- Don't overwhelm John with sympathy.: 同情しすぎてジョンを困惑させないように.
+- I beg a favor of you.: お願いしたいことがあります
+- I beg you to stay.: どうかここにいてちょうだい
+- I was overwhelmed by guilt.: 私は罪の意識で胸がいっぱいだった
+- It's kind of embarrassing to see him now.: 今彼に会うのはちょっと恥ずかしい。
+- Meg was overwhelmed with joy.: メグはうれしくてたまらなかった
+- Our army is being overwhelmed by the enemy.: 我が軍は敵に圧倒されている.
+- Please let me know, I beg [I'm begging] you.: お願い,教えて, この通りお願いする[してるんだ]から
+- She begged him to help [that he (｟主に英｠should) help] her.: 彼女は彼に助けて欲しいと懇願した
+- Smoking is frequently cited as a (major) cause of lung cancer.: 喫煙はよく肺癌の（主な）原因に挙げられる。
+- They took military action, with dangerous consequences for the region's peace.: 彼らは武力を行使し, その地域の平和に危険をもたらす結果となった。
+- We beg to inform you …: 謹んで…の旨申し上げます
+- What is [was] the most embarrassing thing that has happend to you?: これまでの体験で一番恥ずかしかったことは何ですか（何でしたか）？
+- Where is the canned fruit? / It's in aisle 5.: 「フルーツの缶詰はどこにありますか」「5番通路です」
+- an aisle seat: 通路側の席
+- as a reward for good behavior: お行儀のよかったごほうびに
+- be smitten by:  〜に心を奪われる|参る
+- be smitten down by: さいなまれる
+- be smitten with a desire to do: 非常に〜したい
+- beg her for mercy [mercy from her]: 彼女の慈悲を請う
+- beg his forgiveness: 彼の許しを願う
+- expect a financial reward: 金銭的見返りを期待する
+- have serious [unintended] consequences: 深刻な[予期せぬ]結果をもたらす
+- “Just one more,” he begged.: 「もう1つだけ」と彼はせがんだ
+- 参考: 「窓側の席」は a window seat
+aisle: (スーパーマーケット倉庫などの)通路|(乗り物映画館などの座席間の)通路
+beg: 〈人が〉A〈許可など〉を懇願する, お願いする, 請う
+cite: 〜を引用する|引き合いに出す
+consequence*
+consequence: (主に悪い)結果|結末|成り行き|影響
+embarrassing: 恥ずかしい|不愉快に感じさせる|困惑させるような
+overwhelmed: 〈強烈な感情出来事が〉〈人〉を呆然（ぼうぜん）とさせる;〈人〉を圧倒する, 大いに驚かす, 困惑させる; (力で)〈相手〉を打ち負かす, (徹底的に)やっつける; 〈地域〉を支配する
+reward: （功労善事世話などに対する）ほうび|報酬|報奨|報い
+smite: 〜を強くたたく|強打する
+
+2015-04-15 16:47:24
+20	times
+16	hits
+4	errors
+---
+- Does it annoy you when people comment on your appearance?: 容姿のことでとやかく言われるとうんざりしませんか？
+- He always discriminates in favor of his friends.: 彼はいつも友人をえこひいきする.
+- He is always making fun of us and that really annoys me.: 彼はいつも私たちのことをばかにして、腹が立つったらありゃしない。
+- He was declared guilty [a failure].: 彼は有罪[失敗者]だと宣告された.
+- I declare William Jones elected.: ウィリアムジョーンズが当選だと宣言します.
+- It was acclaimed (as) a timeless work of art.: それは永遠の芸術作品とたたえられた。
+- It's kind of embarrassing to see him now.: 今彼に会うのはちょっと恥ずかしい。
+- Jill has been acclaimed for her role in her latest movie.: ジルは最新作映画で演じた役が絶賛された。
+- Rosemary is emblematic of constancy.: ローズマリーは貞節を象徴する.
+- Smoking is frequently cited as a (major) cause of lung cancer.: 喫煙はよく肺癌の（主な）原因に挙げられる。
+- The town [His response] was calm.: その町[彼の返答]は穏やかだった
+- Their culture is quite distinct from ours.: 彼らの文化は私たちのとはまったく異なる
+- There was a distinct possibility that he was a spy.: 彼がスパイであるはっきりした可能性があった
+- What is [was] the most embarrassing thing that has happend to you?: これまでの体験で一番恥ずかしかったことは何ですか（何でしたか）？
+- a calm mind [voice]: 落ち着いた心[声]
+- a distinct advantage: 明らかな利点
+- a distinct impression: はっきりした印象
+- a distinct smell: 強いにおい
+- a distinct sound [voice]: 鮮明な音[声]
+- a remarkable [great] achievement: 目を見張る[偉大な]業績
+- a sense [level] of achievement: 達成感[度]
+- academic [educational, student] achievement: 学業成績
+- acclaim him (as) king [leader]: 歓呼して彼を王[指導者]に迎える
+- as a reward for good behavior: お行儀のよかったごほうびに
+- celebrate one's achievements in science [filmmaking]: 科学分野[映画制作]における業績を祝う
+- computer applications in music: 音楽におけるコンピュータのさまざまな利用法
+- constancy of tone or pitch or inflection: 音色、調子、また屈折の一定さ
+- declare independence [a cease‐fire]: 独立[停戦]を宣言する.
+- declare war on [against] a nation: ある国に対して戦争を布告する.
+- discriminate against women employees: 女性従業員を差別待遇する.
+- discriminate between reality and ideals: 現実と理想とを識別する.
+- early mariners relied on the constancy of the trade winds: 昔の船員は、貿易風の不変性に頼った
+- expect a financial reward: 金銭的見返りを期待する
+- make [submit] an application for admission: 入学の申し込み[申請]をする
+- the achievement of common goals: 共通の目標の成就
+- the application of scientific technology to medical treatment: 科学技術の医療への応用
+- the constancy or integrity of a person's later years: 人の晩年においての節操
+- two distinct types [categories]: 2つの別のタイプ[範疇（はんちゅう）]
+- win critical [international, wide] acclaim: 批評家の[国内外の, 幅広い]賞賛を得る
+acclaim: 【業績質などのために】〈人物〉を歓呼して迎える|賞賛する|〈人物〉を宣伝する|認める; (人業績に対する)賞賛
+achievement: 業績|功績|成果|偉業|手柄
+annoy: 〈人行動などが〉〈人など〉を (一時的に)悩ます|困らせる|いらいらさせる|むっとさせる; 〈人など〉を (執拗（しつよう）に)攻撃する|たびたび困らせる; やっかいである|悩みの種である
+application: (書面による)志願, 申請; 応用, 利用; 利用法
+calm: 〈人心態度などが〉落ち着いた, 冷静な; 〈社会情勢などが〉平穏な
+cite: 〜を引用する|引き合いに出す
+constancy*
+constancy: 不変(性), 安定; 忠誠(心), 忠節; 貞節
+declare: 〈…を〉宣言する，布告する，公表する.
+discriminate*
+discriminate: 〔…と…とを〕区別する，識別[弁別]する.; 〔…に対して〕分け隔てをする，差別待遇する 〔against〕.; 〔…を〕えこひいきする 〔in favor of〕.
+distinct*
+distinct: 別個の, 独特な; « …と» まったく異なった «from»; 〈物形輪郭などが〉 (知覚的に)鮮明な, 明瞭（めいりよう）な, 明確な
+embarrassing: 恥ずかしい|不愉快に感じさせる|困惑させるような
+reward: （功労善事世話などに対する）ほうび|報酬|報奨|報い
+
+2015-04-15 16:36:52
+16	times
+13	hits
+3	errors
+---
+- Actually, I didn't see her do it.: 実のところ私は彼女がそれをするのを見ていません.
+- Can you explain what you mean more clearly?: あなたの言いたいことをもっとはっきり説明してくれませんか？
+- Gary appeared very upset.: ゲーリーはとても気が動転しているように見えた。
+- He actually refused!: 彼は本当に拒絶したのです.
+- He looks stern, but actually he's very kind.: 彼は厳しそうに見えるが実際はとても親切だ.
+- That designer created her own brand of clothing.: あのデザイナーは彼女自身のブランドを作った。
+- The building is due for completion in spring.: そのビルは春に落成の予定だ。
+- The noise gets louder as you approach the factory.: 工場に近づくにつれて、騒音はうるさくなってくる。
+- The price of the hotel includes dinner and breakfast.: そのホテルの料金は夕食と朝食を含んでいる。
+- be braced for A: A（事）への備えができている
+- be nearing completion: 完成間近である
+- brace oneself to do: 〜する覚悟を決める
+- computer applications in music: 音楽におけるコンピュータのさまざまな利用法
+- drive A insane: Aを（次第に）不愉快にさせる|怒らせる
+- go insane: 発狂する
+- make [submit] an application for admission: 入学の申し込み[申請]をする
+- on [upon] completion of A: Aが完成するときに
+- the application of scientific technology to medical treatment: 科学技術の医療への応用
+- the completion date: 完成[終了]日
+actually: 実際に，現に
+appear*
+appear: 〜のように見える
+application: (書面による)志願, 申請; 応用, 利用; 利用法
+approach: 〜に近づく
+brace: 〜に対して覚悟する|備える
+completion: 完成|完了|終了|成就|達成
+create*
+create: 〜を創造する
+explain: 〜を説明する
+include: 〜を含む
+insane: まったくばかばかしい|無茶な
+
+2015-03-29 20:06:28
+6	times
+4	hits
+2	errors
+---
+- Beside yours, my share seems small.: あなたの取り分に比べると私のは少ないようだ
+- Does it annoy you when people comment on your appearance?: 容姿のことでとやかく言われるとうんざりしませんか？
+- He is always making fun of us and that really annoys me.: 彼はいつも私たちのことをばかにして、腹が立つったらありゃしない。
+- The building is due for completion in spring.: そのビルは春に落成の予定だ。
+- Your answer is beside the point [mark].: 君の答えは的はずれだ
+- be beside oneself with rage: 怒りのあまり逆上して.
+- be nearing completion: 完成間近である
+- drive A bonkers: A〈人など〉を悩ます|いらいらさせる
+- go bonkers: 気が狂う|熱狂する|夢中になる
+- on [upon] completion of A: Aが完成するときに
+- place a radio beside the bed: ベッドの脇にラジオを置く
+- stand [sit] right beside me: 私のすぐそばに立つ[座る]
+- the completion date: 完成[終了]日
+annoy*
+annoy: 〈人行動などが〉〈人など〉を (一時的に)悩ます|困らせる|いらいらさせる|むっとさせる; 〈人など〉を (執拗（しつよう）に)攻撃する|たびたび困らせる; やっかいである|悩みの種である
+beside: …のそばに, …の近くに; …に比べると; …とは無関係で, 〈要点など〉をはずれて
+bonkers*
+bonkers: 精神的に不安定で|ばかな|熱狂して|いらいらして
+completion: 完成|完了|終了|成就|達成
+
+2015-03-28 16:32:54
+4	times
+2	hits
+2	errors
+---
+- She smiles to conceal her tears―keeps up a fictitious gaily.: 彼女はうわべで笑って腹の中で泣いている
+- Some people confuse intangible assets with fictitious assets.: 無形資産と架空資産は混同されることがある。
+- This is a true account, and not a fictitious narrative.: これは事実談であって作り話ではない
+- a fictitious address: 架空住所
+- a fictitious detective in stories by A. Conan Doyle: A・コナン・ドイルの小説に登場する架空の探偵
+- a fictitious transaction: 空取引
+- it was immediately and indubitably apparent that I had interrupted a scene of lovers: 私が恋人たちの様子を邪魔したのは、一瞬で、間違いなく明らかだった
+fictitious: 虚偽の, うその; 架空の
+indubitably*
+indubitably: 疑う余地のない|確かな|明瞭な
+

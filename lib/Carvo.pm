@@ -1,7 +1,8 @@
 use strict;
 use warnings;
 use utf8;
-use open OUT => qw/:utf8 :std/;
+use open ':utf8';
+binmode (STDOUT, ':utf8');
 use Carvo::Save;
 
 package Carvo {

@@ -6,7 +6,6 @@ use lib 'lib';
 use Carvo;
 use Carvo::Generator;
 use Time::Piece;
-use open OUT => qw/:utf8 :std/;
 
 my $dir = 'card';
 my @files;
