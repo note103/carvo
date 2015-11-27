@@ -1,12 +1,12 @@
 #!/usr/bin/env perl
 use strict;
 use warnings;
+use 5.012;
 use lib 'lib';
 use Carvo;
 use Carvo::Generator;
 use Time::Piece;
-use 5.012;
-use open ":utf8";
+use open OUT => qw/:utf8 :std/;
 
 my $dir = 'card';
 my @files;
@@ -40,7 +40,7 @@ my $result;
 
 my $msg_correct = "Please input a number or 'q'.\n";
 my ($file, $cards, $tag);
-while (my $in = <>) {
+OUTER: while (my $in = <>) {
     if ($in =~ /^(q)$/) {
         print "\nTotal score:\n";
         print $result = "$Carvo::total\t$Carvo::times\n$Carvo::point\t$Carvo::hits\n$Carvo::miss\t$Carvo::errors\n";
@@ -58,7 +58,10 @@ while (my $in = <>) {
         say 'Select a file.';
         msg_edit();
         while (my $edit = <>) {
-            if ($edit =~ /^(.+)$/) {
+            if ($edit =~ /^(q)$/) {
+                say $msg_first;
+                last;
+            } elsif ($edit =~ /^(.+)$/) {
                 $tag = $1;
                 my $dir = 'card';
                 opendir(my $dh, $dir) or die "can't opendir $dir: $!";
@@ -66,16 +69,11 @@ while (my $in = <>) {
                     if ($file =~ /^$tag\_.*(.json)/) {
                         $cards = "card/$file";
                         print `open $cards app/parse.pl app/word.pl`;
+                        last OUTER;
                     }
                 }
-                closedir $dh;
-                say 'Select a file.';
-                msg_edit();
-            } elsif ($edit =~ /^(q)$/) {
-                say $msg_first;
-                last;
-            } else {
                 say $msg_correct;
+                closedir $dh;
             }
         }
     } elsif ($in =~ /^(.+)$/) {

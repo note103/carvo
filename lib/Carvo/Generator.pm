@@ -1,6 +1,5 @@
 use strict;
 use warnings;
-use 5.012;
 
 package Generator {
     my %convert;

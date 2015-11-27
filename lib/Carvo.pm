@@ -2,44 +2,43 @@
 use strict;
 use warnings;
 use utf8;
+use open OUT => qw/:utf8 :std/;
 use Carvo::Save;
-binmode(STDOUT, ":utf8");
 
 package Carvo {
+    use Time::Piece;
     our ($point, $miss) = (0, 0);
     our $total = $point + $miss;
     our ($times, $hits, $errors) = qw/times hits errors/;
     our $voice_sw = 'on';
     our $voice = 'say';
     our @logs;
-    my $substr = 3;
-    my ($value, $words, $english, $key, $limit, $fail, $custom);
-    my (@words, @voice, @fail, @fail_out);
+    my $extr = 3;
     my $mode = 'random';
     my $title = 'title';
     my $escape_sw = 'off';
-    my $escape_default_sw = 'on';
+    my $long_voice_sw = 'off';
     my $log_check = 'on';
     my $fail_sw = 'off';
     my $end = 'end';
     my $voice_in = 1;
-    my %english;
     my ($num, $port, $port_back) = (0, 0, 0);
     my $msg_correct = "Please input a correct one.";
-    my $escape_title;
-    my $escape_end;
+    my $result;
+    #my $result = "$total\t$times\n$point\t$hits\n$miss\t$errors\n";
+    my ($value, $words, $english, $key, $limit, $fail, $custom, $escape_title, $escape_end); 
+    my (@words, @voice, @fail, @fail_out);
+    my %english;
     sub main {
         $english = shift;
         %english = %$english;
         mode();
         my $enter = '\n';
         $limit = @words;
-        my $msg_first = 'Input (num|enter|r|o|j|v|l|n|q).';
-        my $msg_usual = 'Input (num|enter|r|o|j|v|l|n|s|q).';
+        my $msg_usual = 'Input a command or help(h|--help).';
         my $msg_limit = "You can choose a number from 1-";
         my $msg_random = "This is random select.";
 
-        # Create escape key
         my @escape;
         for (@words) {
             if ($_ ne $title && $_ ne $end) {
@@ -66,12 +65,11 @@ package Carvo {
             }
 
         }
-        print "$msg_limit".$limit."\n$msg_first\n";
+        print "$msg_limit".$limit."\n$msg_usual\n";
         my $input = sub {
             while (my $in_ans = <>) {
                 if ($in_ans =~ /^($enter)$/) {
                     $escape_sw = 'on';
-                    $miss++;
                     $log_check = 'off';
                     if (ref $english->{$key} eq "ARRAY") {
                         push @logs, "*$key: $english->{$key}[0]\n";
@@ -114,7 +112,8 @@ package Carvo {
             }
         };
         while (my $in_way = <>) {
-            if ($in_way =~ /^(q)$/) {
+            $in_way =~ s/^--(.+)/$1/;
+            if ($in_way =~ /^(q|quit)$/) {
                 $total = $point + $miss;
                 $port = 0;
                 @fail = ();
@@ -122,6 +121,16 @@ package Carvo {
                 last;
             } elsif ($in_way =~ /^0$/) {
                 print "\n$msg_limit".$limit."\n";
+            } elsif ($in_way =~ /^(qq)$/) {
+                $total = $point + $miss;
+                print "\nTotal score:\n";
+                print $result = "$total\t$times\n$point\t$hits\n$miss\t$errors\n";
+                logs();
+                result();
+                if ($voice_sw eq 'on') {
+                    print `$voice Bye!`;
+                }
+                exit;
             } elsif ($in_way =~ /^(\d+)$/) {
                 $num = $1;
                 $port = $num;
@@ -149,124 +158,37 @@ package Carvo {
             } elsif ($in_way =~ /^(v)$/) {
                 voice();
                 print "\n$msg_usual\n";
-            } elsif ($in_way =~ /^(sh)$/) {
-                $escape_default_sw = 'on';
+            } elsif ($in_way =~ /^x(\d+)$/) {
+                $extr = $1;
+                print "You changed the figure extracted character $extr.";
+                print "\n$msg_usual\n";
+            } elsif ($in_way =~ /^(h|help)$/) {
+                help();
+                print "\n$msg_limit".$limit."\n$msg_usual\n";
+            } elsif ($in_way =~ /^(sh|short)$/) {
+                $long_voice_sw = 'off';
                 print 'You turned on short voice version.';
                 print "\n$msg_usual\n";
-            } elsif ($in_way =~ /^(lo)$/) {
-                $escape_default_sw = 'off';
+            } elsif ($in_way =~ /^(lo|long)$/) {
+                $long_voice_sw = 'on';
                 print 'You turned on long voice version.';
-                print `$voice You turned on long voice version.`;
                 print "\n$msg_usual\n";
-            } elsif ($in_way =~ /^(n)$/) {
-                print "Input a number.\n";
-                while (my $in_num = <>) {
-                    if ($in_num =~ /^\d+$/) {
-                        $substr = $in_num;
-                        print "$msg_usual\n";
-                        last;
-                    } else {
-                        print $msg_correct."\n";
-                    }
-                }
-            } elsif ($in_way =~ /^(l)$/) {
+            } elsif ($in_way =~ /^(l|list)$/) {
                 list();
                 print "\n$msg_limit".$limit."\n$msg_usual\n";
-            } elsif ($in_way =~ /^(f)$/) {
+            } elsif ($in_way =~ /^(f|fail)$/) {
                 fail();
                 print "\n$msg_limit".$limit."\n$msg_usual\n";
-            } elsif ($in_way =~ /^(b)$/) {
+            } elsif ($in_way =~ /^(b|back)$/) {
                 back();
                 print "\n$msg_limit".$limit."\n$msg_usual\n";
-            } elsif ($in_way =~ /^(custom|cl)$/) {
-                print "---\n";
-                my $dir = 'data/save/custom';
-                mkdir($dir);
-                opendir(my $dirh, $dir) || die "can't opendir $dir: $!";
-                for my $file (readdir $dirh) {
-                    unless ($file =~ /^\..*/) {
-                        print $file."\n";
-                    }
-                }
-                closedir $dirh;
-                print "\n$msg_usual\n";
-            } elsif ($in_way =~ /^(crm)$/) {
-                print "---\n";
-                my $dir = 'data/save/custom';
-                my @files;
-                opendir(my $dirh, $dir) || die "can't opendir $dir: $!";
-                for my $file (readdir $dirh) {
-                    unless ($file =~ /^\..*/) {
-                        print $file."\n";
-                        push @files, $file;
-                    }
-                }
-                closedir $dirh;
-                print "\nInput a name of file.\n";
-                chomp($custom = <>);
-                Save::customrm($custom);
-                print "\nYou removed $custom.\n";
-                print "---\n";
-                opendir($dirh, $dir) || die "can't opendir $dir: $!";
-                for my $file (readdir $dirh) {
-                    unless ($file =~ /^\..*/) {
-                        print $file."\n";
-                        push @files, $file;
-                    }
-                }
-                closedir $dirh;
-                print "\n$msg_usual\n";
-            } elsif ($in_way =~ /^(csv|customsave)$/) {
-                print "---\n";
-                my $dir = 'data/save/custom';
-                my @files;
-                opendir(my $dirh, $dir) || die "can't opendir $dir: $!";
-                for my $file (readdir $dirh) {
-                    unless ($file =~ /^\..*/) {
-                        print $file."\n";
-                        push @files, $file;
-                    }
-                }
-                closedir $dirh;
-                print "\nInput a name of file.\n";
-                chomp($custom = <>);
-                Save::customsave($num, $words, $english, $custom);
-                print "You saved $custom.\n";
-                print "\n$msg_usual\n";
-            } elsif ($in_way =~ /^(crv|customrev)$/) {
-                Save::buffer($num, $words, $english);
-                print "---\n";
-                my $dir = 'data/save/custom';
-                my @files;
-                opendir(my $dirh, $dir) || die "can't opendir $dir: $!";
-                for my $file (readdir $dirh) {
-                    unless ($file =~ /^\..*/) {
-                        print $file."\n";
-                        push @files, $file;
-                    }
-                }
-                closedir $dirh;
-                Save::buffer($num, $words, $english);
-                print "\nInput a name of file.\n";
-                chomp($custom = <>);
-                for my $filter (@files) {
-                    if ($filter eq $custom) {
-                        ($num, $words, $english, $custom) = Save::customrev($custom);
-                        $port = $num;
-                        qa('q');
-                        $input->();
-                        last;
-                    }
-                }
-                print $msg_correct."\n";
-                print "\n$msg_usual\n";
-            } elsif ($in_way =~ /^(revival|rev|rv)$/) {
+            } elsif ($in_way =~ /^(revival|rv)$/) {
                 Save::buffer($num, $words, $english);
                 ($num, $words, $english) = Save::revival();
                 $port = $num;
                 qa('q');
                 $input->();
-            } elsif ($in_way =~ /^(unrevival|unrev|urv)$/) {
+            } elsif ($in_way =~ /^(unrevival|urv)$/) {
                 ($num, $words, $english) = Save::unrev();
                 $port = $num;
                 qa('q');
@@ -275,21 +197,21 @@ package Carvo {
                 Save::save($num, $words, $english);
                 print "$num/$limit\n";
                 print "\n$msg_usual\n";
-            } elsif ($in_way =~ /^(r)$/) {
+            } elsif ($in_way =~ /^(r|random)$/) {
                 $mode = 'random';
                 mode();
                 list();
                 print "\n$msg_usual\n";
-            } elsif ($in_way =~ /^(o)$/) {
+            } elsif ($in_way =~ /^(o|order)$/) {
                 $mode = 'order';
                 mode();
                 list();
                 print "\n$msg_usual\n";
-            } elsif ($in_way =~ /^(s)$/) {
+            } elsif ($in_way =~ /^(s|same)$/) {
                 $num = $port;
                 qa('q');
                 $input->();
-            } elsif ($in_way =~ /^(j)$/) {
+            } elsif ($in_way =~ /^(j|jump)$/) {
                 jump();
                 $input->();
             } elsif ($in_way =~ /^(\w+)$/) {
@@ -297,7 +219,7 @@ package Carvo {
                 if (exists($english{$key})) {
                     my $num_get = num_get($key, @words);
                     my $num_here = $num_get + 1;
-                    print "\nHere is $key($num_here)\n$msg_first\n";
+                    print "\nHere is $key($num_here)\n$msg_usual\n";
                 } else {
                     print "\nHere is not '$key'.\n$msg_usual\n";
                 }
@@ -320,9 +242,37 @@ package Carvo {
                 }
             }
         }
+        sub help {
+            my $help = <<"EOD";
+
+Command:
+    全般:
+        h   --help	これが出てくる
+        l   --list	単語リストを表示
+        o   --order	単語リストを辞書順に構成（デフォルト）
+        r   --random	単語リストをランダムに出てくる
+        q   --quit	コース終了
+        qq  --force-quit	コース選択画面を経ずにプログラム終了
+    操作:
+        s   --same	直前の語句を繰り返す
+        j   --jump	ランダムにジャンプ
+        数字    	任意の番号へジャンプ
+        単語    	リストにその語句が含まれていれば紐付く数字と共に表示（英単語のみ）
+    読み上げ設定:
+        v   --voice	on/off切り替え
+        lo  --long	例文を読み上げる（カードに例文がある場合）
+        sh  --short	例文を読み上げない（デフォルト）
+    その他:
+        f   --fail	誤答リストへ移動
+        b   --back	通常リストへ戻る
+        sv  --save	最後に回答した語句（番号）をセーブ
+        rv  --revival	セーブした語句へ復帰
+        urv --unrevival	セーブした語句へ復帰する前の場所へ復帰
+EOD
+            print $help."\n";
+        }
         sub fail {
             print "You turned on fail list mode.\n";
-            print `$voice You turned on fail list mode`;
             $fail_sw = 'on';
             if (@fail == 0) {
                 print "Here is no data.\n";
@@ -341,7 +291,6 @@ package Carvo {
         }
         sub back {
             print "You turned back to normal mode.\n";
-            print `$voice You turned back to normal mode`;
             $fail_sw = 'off';
             @words = keys %english;
             $limit = @words;
@@ -388,6 +337,8 @@ package Carvo {
                     print $voice_count.". ".$_."\n";
                     $voice_count++;
                 }
+                print "Enter: Default type\n";
+
                 while ($voice_in = <>) {
                     chomp($voice_in);
                     if ($voice_in =~ /\D/) {
@@ -398,7 +349,7 @@ package Carvo {
                         print "Too big! $msg_correct\n";
                     } elsif ($voice_in =~ /^$/) {
                         $voice = "say";
-                        print "You selected default type.\n";
+                        print "You selected Default type.\n";
                         print `$voice hi`;
                         last;
                     } else {
@@ -430,7 +381,7 @@ package Carvo {
         }
         my $sentence;
         if (ref $english->{$key} eq "ARRAY") {
-            $ans = substr($key, 0, $substr);
+            $ans = substr($key, 0, $extr);
             my @voice_tmp = ();
             if ($qa_switch eq 'q') {
                 print "$ans: $english->{$key}[0]\n";
@@ -465,7 +416,7 @@ package Carvo {
                     $value = $key;
                     value();
                     print `$voice $value`;
-                    unless ($escape_sw eq 'on' || $escape_default_sw eq 'on') {
+                    if ($long_voice_sw eq 'on') {
                         for (@voice_tmp) {
                             $value = $_;
                             value();
@@ -475,7 +426,7 @@ package Carvo {
                 }
             }
         } else {
-            $ans = substr($key, 0, $substr);
+            $ans = substr($key, 0, $extr);
             if ($qa_switch eq 'q') {
                 print "$ans: $english->{$key}\n";
             } elsif ($qa_switch eq 'a') {
@@ -518,7 +469,47 @@ package Carvo {
             $errors = 'error';
         }
     }
+    sub logs {
+        my @tidy;
+        for my $tidy (@logs) {
+            if ($tidy =~ /(.+)\(\d+\)(.+)/) {
+                push @tidy, "$1$2\n";
+            } elsif ($tidy =~ s/\d+\. //) {
+                push @tidy, $tidy;
+            } else {
+                push @tidy, $tidy;
+            }
+        }
+        my %unique = map {$_ => 1} @tidy;
+        my @words = sort keys %unique;
+        my @tmp;
+        open my $fh_in, '<', 'data/logs.txt' or die $!;
+        for (<$fh_in>) {
+            push @tmp, $_;
+        }
+        close $fh_in;
+        open my $fh_out, '>', 'data/logs.txt' or die $!;
+        print $fh_out localtime->datetime(T=>' ')."\n";
+        print $fh_out $result;
+        print $fh_out "---\n";
+        print $fh_out @words;
+        print $fh_out "\n";
+        print $fh_out @tmp;
+        close $fh_out;
+    }
+    sub result {
+        my @tmp;
+        open my $fh_in, '<', 'data/result.txt' or die $!;
+        for (<$fh_in>) {
+            push @tmp, $_;
+        }
+        close $fh_in;
+        open my $fh_out, '>', 'data/result.txt' or die $!;
+        print $fh_out localtime->datetime(T=>' ')."\n";
+        print $fh_out $result."\n";
+        print $fh_out @tmp;
+        close $fh_out;
+    }
 }
-
 
 1;
