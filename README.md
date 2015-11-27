@@ -40,7 +40,7 @@ $ perl carvo.pl
     h   --help	これが出てくる
     l   --list	単語リストを表示
     o   --order	単語リストを辞書順に構成（デフォルト）
-    r   --random	単語リストをランダムに出てくる
+    r   --random	単語リストをランダムに構成
     q   --quit	コース終了
     qq  --force-quit	コース選択画面を経ずにプログラム終了
 操作:
