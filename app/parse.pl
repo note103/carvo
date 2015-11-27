@@ -7,12 +7,13 @@ my $s8 = $s4.$s4;
 my @line;
 for my $str (<DATA>) {
     $str =~ s/"/\\"/g;
-    if ($str =~ s/^$s4(.+): (.+)/$s8"$1" : "$2",/g) {
+    if ($str =~ /^#.*/) {
+    } elsif ($str =~ s/^(.+): (.+)/$s4"=$1" : "$2"/g) {
+    } elsif ($str =~ s/^(.+)\t(.+)/$s4"=$1" : "$2"/g) {
+    } elsif ($str =~ s/^$s4(.+): (.+)/$s8"$1" : "$2",/g) {
+    } elsif ($str =~ s/^$s4(.+): (.+)/$s8"$1" : "$2",/g) {
     } elsif ($str =~ s/^>$s4(.+): (.+)/$s8">$1" : "$2",/g) {
     } elsif ($str =~ s/^<$s4(.+): (.+)/$s8"<$1" : "$2",/g) {
-    } elsif ($str =~ s/^=(.+): (.+)/$s4"=$1" : "$2"/g) {
-    } elsif ($str =~ s/^(.+)\t(.+)/$s4"=$1" : "$2"/g) {
-    } elsif ($str =~ s/^(.+): (.+)/$s4"$1" : "$2",/g) {
     }
     push @line, $str;
 }
@@ -30,5 +31,7 @@ for my $str2 (@line) {
     }
 }
 __DATA__
-=I'm sad.: 私は悲しいです。
-=I'm fine.: 私は元気です。
+I'm sad.: 私は悲しいです。
+I'm fine.: 私は元気です。
+nanny: 子守の女性
+nevertheless: それでもやはり
