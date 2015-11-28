@@ -3,9 +3,10 @@ use strict;
 use warnings;
 use 5.012;
 use lib 'lib';
+use open ':utf8';
+use Time::Piece;
 use Carvo;
 use Carvo::Generator;
-use Time::Piece;
 
 my $dir = 'card';
 my @files;
