@@ -2,9 +2,9 @@
 use strict;
 use warnings;
 use 5.012;
-use lib 'lib';
-use open ':utf8';
 use Time::Piece;
+use open ':utf8';
+use lib 'lib';
 use Carvo;
 use Carvo::Generator;
 
