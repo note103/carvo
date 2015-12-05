@@ -2,7 +2,7 @@ use strict;
 use warnings;
 use utf8;
 use open ':utf8';
-binmode (STDOUT, ':utf8');
+binmode STDOUT, ':utf8';
 use Carvo::Save;
 
 package Carvo {
@@ -24,7 +24,7 @@ package Carvo {
     my $voice_in = 1;
     my ($num, $port, $port_back) = (0, 0, 0);
     my $msg_correct = "Please input a correct one.";
-    my ($value, $words, $english, $key, $limit, $fail, $custom, $escape_title, $escape_end, $result);
+    my ($value, $words, $english, $key, $limit, $fail, $custom, $escape_title, $escape_end, $result, $title_card, $english_buf, $title_rv_card);
     my (@words, @voice, @fail, @fail_out);
     my %english;
     sub main {
@@ -33,9 +33,10 @@ package Carvo {
         mode();
         my $enter = '\n';
         $limit = @words;
-        my $msg_usual = 'Input a command or help(h|--help).';
+        my $msg_usual = 'Enter or input a command or check help(h).';
         my $msg_limit = "You can choose a number from 1-";
         my $msg_random = "This is random select.";
+        my $msg_move_card = "If you need to restart that, push 'q' and move there.";
 
         my @escape;
         for (@words) {
@@ -49,6 +50,7 @@ package Carvo {
         if (exists ($english{$title})) {
             if (ref $english{$title} eq "ARRAY") {
                 print "Welcome to the \"".$english->{$title}[0]."\"\n";
+                $title_card = $english->{$title}[0];
                 $value = $english->{$title}[0];
                 value();
                 print `$voice $value`;
@@ -57,6 +59,7 @@ package Carvo {
                 }
             } else {
                 print "Welcome to the \"".$english->{$title}."\"!\n";
+                $title_card = $english->{$title};
                 $value = $english->{$title};
                 value();
                 print `$voice $value`;
@@ -181,16 +184,30 @@ package Carvo {
                 back();
                 print "\n$msg_limit".$limit."\n$msg_usual\n";
             } elsif ($in_way =~ /^(revival|rv)$/) {
-                Save::buffer($num, $words, $english);
-                ($num, $words, $english) = Save::revival();
-                $port = $num;
-                qa('q');
-                $input->();
+                (undef, undef, $english_buf) = Save::revival();
+                $title_rv_card = $english_buf->{$title};
+                if ($title_rv_card eq $title_card) {
+                    Save::buffer($num, $words, $english);
+                    ($num, $words, $english) = Save::revival();
+                    $port = $num;
+                    qa('q');
+                    $input->();
+                } else {
+                    print "\nSaved card is '$title_rv_card'. But current card is '$title_card'.\n$msg_move_card\n";
+                    print "\n$msg_correct\n";
+                }
             } elsif ($in_way =~ /^(unrevival|urv)$/) {
-                ($num, $words, $english) = Save::unrev();
-                $port = $num;
-                qa('q');
-                $input->();
+                (undef, undef, $english_buf) = Save::unrev();
+                $title_rv_card = $english_buf->{$title};
+                if ($title_rv_card eq $title_card) {
+                    ($num, $words, $english) = Save::unrev();
+                    $port = $num;
+                    qa('q');
+                    $input->();
+                } else {
+                    print "\nSaved card is '$title_rv_card'. But current card is '$title_card'.\n$msg_move_card\n";
+                    print "\n$msg_correct\n";
+                }
             } elsif ($in_way =~ /^(save|sv)$/) {
                 Save::save($num, $words, $english);
                 print "$num/$limit\n";
