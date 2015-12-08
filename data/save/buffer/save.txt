@@ -1,1 +1,33 @@
-{"guess":"〜を推測する","fill":"（容器・場所など）を（〜で）満たす","allow":"〜を許す","follow":"〜の後についていく","lead":"〜を（〜へ）導く","fail":"（〜に）失敗する","appear":"〜のように見える","imagine":"〜を想像する","doubt":"〜を疑う","title":"sample1","fit":"（大きさ・形などが）〜に合う","create":"〜を創造する","claim":"〜を主張する","explain":"〜を説明する","decide":"〜を決定する","accept":"〜を受け取る","depend":"（〜に）頼る","agree":"（人と）意見が一致する","improve":"〜を改善する","suggest":"〜を提案する","deal":"（問題などに）対処する","offer":"〜を（〜に）提供する","exist":"存在する","continue":"続く","express":"（思想・感情など）を表現する","expect":"〜を予期する","describe":"〜の特徴を述べる","include":"〜を含む","discuss":"〜を論ずる","direct":"（注意など）を（〜に）向ける","introduce":"〜を（〜に）紹介する","approach":"〜に近づく"}
+---
+accept: 〜を受け取る
+agree: （人と）意見が一致する
+allow: 〜を許す
+appear: 〜のように見える
+approach: 〜に近づく
+claim: 〜を主張する
+continue: 続く
+create: 〜を創造する
+deal: （問題などに）対処する
+decide: 〜を決定する
+depend: （〜に）頼る
+describe: 〜の特徴を述べる
+direct: （注意など）を（〜に）向ける
+discuss: 〜を論ずる
+doubt: 〜を疑う
+exist: 存在する
+expect: 〜を予期する
+explain: 〜を説明する
+express: （思想・感情など）を表現する
+fail: （〜に）失敗する
+fill: （容器・場所など）を（〜で）満たす
+fit: （大きさ・形などが）〜に合う
+follow: 〜の後についていく
+guess: 〜を推測する
+imagine: 〜を想像する
+improve: 〜を改善する
+include: 〜を含む
+introduce: 〜を（〜に）紹介する
+lead: 〜を（〜へ）導く
+offer: 〜を（〜に）提供する
+suggest: 〜を提案する
+title: sample1
