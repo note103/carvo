@@ -186,11 +186,11 @@ package Carvo {
                 back();
                 print "\n$msg_limit".$limit."\n$msg_usual\n";
             } elsif ($in_way =~ /^(revival|rv)$/) {
-                (undef, undef, $english_buf) = Save::revival();
+                (undef, undef, $english_buf) = Save::main('rv');
                 $title_rv_card = $english_buf->{$title};
                 if ($title_rv_card eq $title_card) {
-                    Save::buffer($num, $words, $english);
-                    ($num, $words, $english) = Save::revival();
+                    Save::main('bf', $num, $words, $english);
+                    ($num, $words, $english) = Save::main('rv');
                     $port = $num;
                     qa('q');
                     $input->();
@@ -199,10 +199,10 @@ package Carvo {
                     print "\n$msg_correct\n";
                 }
             } elsif ($in_way =~ /^(unrevival|urv)$/) {
-                (undef, undef, $english_buf) = Save::unrev();
+                (undef, undef, $english_buf) = Save::main('urv');
                 $title_rv_card = $english_buf->{$title};
                 if ($title_rv_card eq $title_card) {
-                    ($num, $words, $english) = Save::unrev();
+                    ($num, $words, $english) = Save::main('urv');
                     $port = $num;
                     qa('q');
                     $input->();
@@ -211,7 +211,7 @@ package Carvo {
                     print "\n$msg_correct\n";
                 }
             } elsif ($in_way =~ /^(save|sv)$/) {
-                Save::save($num, $words, $english);
+                Save::main('sv', $num, $words, $english);
                 print "$num/$limit\n";
                 print "\n$msg_usual\n";
             } elsif ($in_way =~ /^(r|random)$/) {
