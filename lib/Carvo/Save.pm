@@ -2,10 +2,11 @@ use strict;
 use warnings;
 
 package Save {
-    use JSON;
+    use YAML;
     use Carp qw/croak/;
     use Encode;
     use open ':utf8';
+    binmode STDOUT, ':utf8';
 
     my ($num, $words, $english);
     sub save {
@@ -22,9 +23,8 @@ package Save {
         close $fh_out_arr;
 
         open my $fh_out_hash, '>', 'data/save/main/save.txt' or croak("Can't open file.");
-        my $json = encode_json($english);
-        $json = decode('utf8', $json);
-        print $fh_out_hash $json;
+        my $yaml = YAML::Dump($english);
+        print $fh_out_hash $yaml;
         close $fh_out_hash;
     }
     sub buffer {
@@ -41,9 +41,8 @@ package Save {
         close $fh_out_arr;
 
         open my $fh_out_hash, '>', 'data/save/buffer/save.txt' or croak("Can't open file.");
-        my $json = encode_json($english);
-        $json = decode('utf8', $json);
-        print $fh_out_hash $json;
+        my $yaml = YAML::Dump($english);
+        print $fh_out_hash $yaml;
         close $fh_out_hash;
     }
     sub revival {
@@ -59,7 +58,7 @@ package Save {
 
         open my $fh_in_hash, '<', 'data/save/main/save.txt' or croak("Can't open file.");
         my $english = do {local $/; <$fh_in_hash>};
-        $english = decode_json(encode('utf8', $english));
+        $english = YAML::Load($english);
         close $fh_in_hash;
         return ($num, $words, $english);
     }
@@ -76,7 +75,7 @@ package Save {
 
         open my $fh_in_hash, '<', 'data/save/buffer/save.txt' or croak("Can't open file.");
         my $english = do {local $/; <$fh_in_hash>};
-        $english = decode_json(encode('utf8', $english));
+        $english = YAML::Load($english);
         close $fh_in_hash;
         return ($num, $words, $english);
     }

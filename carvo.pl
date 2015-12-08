@@ -2,17 +2,17 @@
 use strict;
 use warnings;
 use 5.012;
-use Time::Piece;
-use open ':utf8';
 use lib 'lib';
 use Carvo;
 use Carvo::Generator;
+use Time::Piece;
+use open ':utf8';
 
 my $dir = 'card';
 my @files;
 opendir(my $dirh, $dir) || die "can't opendir $dir: $!";
 for my $file (readdir $dirh) {
-    if ($file =~ /^(.+)_(.*)(.json)/) {
+    if ($file =~ /^(.+)_(.*)(.yml)/) {
         push @files, "$1: $2";
     }
 }
@@ -66,7 +66,7 @@ OUTER: while (my $in = <>) {
                 my $dir = 'card';
                 opendir(my $dh, $dir) or die "can't opendir $dir: $!";
                 for $file (readdir $dh) {
-                    if ($file =~ /^$tag\_.*(.json)/) {
+                    if ($file =~ /^$tag\_.*(.yml)/) {
                         $cards = "card/$file";
                         print `open $cards app/parse.pl app/word.pl`;
                         last OUTER;
@@ -81,7 +81,7 @@ OUTER: while (my $in = <>) {
         my $dir = 'card';
         opendir(my $dh, $dir) or die "can't opendir $dir: $!";
         for $file (readdir $dh) {
-            if ($file =~ /^$tag\_.*(.json)/) {
+            if ($file =~ /^$tag\_.*(.yml)/) {
                 Carvo::main(Generator::switch($tag));
             }
         }

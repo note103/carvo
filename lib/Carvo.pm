@@ -7,26 +7,28 @@ use Carvo::Save;
 
 package Carvo {
     use Time::Piece;
+    our @logs;
     our ($point, $miss) = (0, 0);
     our $total = $point + $miss;
-    our ($times, $hits, $errors) = qw/times hits errors/;
     our $voice_sw = 'on';
+    our ($times, $hits, $errors) = qw/times hits errors/;
     our $voice = 'say';
-    our @logs;
+    my %english;
+    my (@words, @voice, @fail, @fail_out);
+    my ($value, $words, $english, $key, $limit, $fail, $custom, $result, $english_buf);
+    my ($escape_title, $escape_end);
+    my ($title_card, $title_rv_card);
+    my $voice_in = 1;
     my $extr = 3;
-    my $mode = 'random';
-    my $title = 'title';
+    my ($num, $port, $port_back) = (0, 0, 0);
     my $escape_sw = 'off';
     my $long_voice_sw = 'off';
-    my $log_check = 'on';
     my $fail_sw = 'off';
+    my $log_check = 'on';
+    my $mode = 'random';
+    my $title = 'title';
     my $end = 'end';
-    my $voice_in = 1;
-    my ($num, $port, $port_back) = (0, 0, 0);
     my $msg_correct = "Please input a correct one.";
-    my ($value, $words, $english, $key, $limit, $fail, $custom, $escape_title, $escape_end, $result, $title_card, $english_buf, $title_rv_card);
-    my (@words, @voice, @fail, @fail_out);
-    my %english;
     sub main {
         $english = shift;
         %english = %$english;
