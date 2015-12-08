@@ -8,77 +8,62 @@ package Save {
     use open ':utf8';
     binmode STDOUT, ':utf8';
 
-    my ($num, $words, $english);
-    sub save {
-        ($num, $words, $english) = @_;
-        open my $fh_out_num, '>', 'data/save/main/num.txt' or croak("Can't open file.");
+    my ($name, $num, $words, $kv, $mb);
+    my ($file_num, $file_words, $file_kv);
+
+    sub main {
+        ($name, $num, $words, $kv) = @_;
+        if ($name eq 'sv') {
+            save_buffer($num, $words, $kv, 'main');
+        } elsif ($name eq 'bf') {
+            save_buffer($num, $words, $kv, 'buffer');
+        } elsif ($name eq 'rv') {
+            rv_urv($num, $words, $kv, 'main');
+        } elsif ($name eq 'urv') {
+            rv_urv($num, $words, $kv, 'buffer');
+        }
+    }
+    sub save_buffer {
+        ($num, $words, $kv, $mb) = @_;
+        $file_num = "data/save/$mb/num.txt";
+        open my $fh_out_num, '>', $file_num or croak("Can't open file.");
         print $fh_out_num $num;
         close $fh_out_num;
 
-        open my $fh_out_arr, '>', 'data/save/main/words.txt' or croak("Can't open file.");
+        $file_words = "data/save/$mb/words.txt";
+        open my $fh_out_words, '>', $file_words or croak("Can't open file.");
         my @tidy;
         for (@$words) { push @tidy, $_."\n"; }
         for (@tidy) { $_ =~ s/\n\n/\n/; }
-        for (@tidy) { print $fh_out_arr $_; }
-        close $fh_out_arr;
+        for (@tidy) { print $fh_out_words $_; }
+        close $fh_out_words;
 
-        open my $fh_out_hash, '>', 'data/save/main/save.txt' or croak("Can't open file.");
-        my $yaml = YAML::Dump($english);
-        print $fh_out_hash $yaml;
-        close $fh_out_hash;
+        $file_kv = "data/save/$mb/save.txt";
+        open my $fh_out_kv, '>', $file_kv or croak("Can't open file.");
+        my $yaml = YAML::Dump($kv);
+        print $fh_out_kv $yaml;
+        close $fh_out_kv;
     }
-    sub buffer {
-        ($num, $words, $english) = @_;
-        open my $fh_out_num, '>', 'data/save/buffer/num.txt' or croak("Can't open file.");
-        print $fh_out_num $num;
-        close $fh_out_num;
-
-        open my $fh_out_arr, '>', 'data/save/buffer/words.txt' or croak("Can't open file.");
-        my @tidy;
-        for (@$words) { push @tidy, $_."\n"; }
-        for (@tidy) { $_ =~ s/\n\n/\n/; }
-        for (@tidy) { print $fh_out_arr $_; }
-        close $fh_out_arr;
-
-        open my $fh_out_hash, '>', 'data/save/buffer/save.txt' or croak("Can't open file.");
-        my $yaml = YAML::Dump($english);
-        print $fh_out_hash $yaml;
-        close $fh_out_hash;
-    }
-    sub revival {
-        open my $fh_in_num, '<', 'data/save/main/num.txt' or croak("Can't open file.");
+    sub rv_urv {
+        ($num, $words, $kv, $mb) = @_;
+        $file_num = "data/save/$mb/num.txt";
+        open my $fh_in_num, '<', $file_num or croak("Can't open file.");
         $num = <$fh_in_num>;
         close $fh_in_num;
 
-        open my $fh_in_arr, '<', 'data/save/main/words.txt' or croak("Can't open file.");
-        my @words = <$fh_in_arr>;
+        $file_words = "data/save/$mb/words.txt";
+        open my $fh_in_words, '<', $file_words or croak("Can't open file.");
+        my @words = <$fh_in_words>;
         for (@words) { $_ =~ s/^\n//;}
         $words = \@words;
-        close $fh_in_arr;
+        close $fh_in_words;
 
-        open my $fh_in_hash, '<', 'data/save/main/save.txt' or croak("Can't open file.");
-        my $english = do {local $/; <$fh_in_hash>};
-        $english = YAML::Load($english);
-        close $fh_in_hash;
-        return ($num, $words, $english);
-    }
-    sub unrev {
-        open my $fh_in_num, '<', 'data/save/buffer/num.txt' or croak("Can't open file.");
-        $num = <$fh_in_num>;
-        close $fh_in_num;
-
-        open my $fh_in_arr, '<', 'data/save/buffer/words.txt' or croak("Can't open file.");
-        my @words = <$fh_in_arr>;
-        for (@words) { $_ =~ s/^\n//;}
-        $words = \@words;
-        close $fh_in_arr;
-
-        open my $fh_in_hash, '<', 'data/save/buffer/save.txt' or croak("Can't open file.");
-        my $english = do {local $/; <$fh_in_hash>};
-        $english = YAML::Load($english);
-        close $fh_in_hash;
-        return ($num, $words, $english);
+        $file_kv = "data/save/$mb/save.txt";
+        open my $fh_in_kv, '<', $file_kv or croak("Can't open file.");
+        my $kv = do {local $/; <$fh_in_kv>};
+        $kv = YAML::Load($kv);
+        close $fh_in_kv;
+        return ($num, $words, $kv);
     }
 }
 1;
-
