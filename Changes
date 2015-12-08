@@ -1,3 +1,13 @@
+v0.4.0 - 8 December 2015
+  Features:
+  * 単語カードのファイル形式をJSONからYAMLへ変更
+
+v0.3.4 - 5 December 2015
+  Modifies:
+  * セーブ機能修正
+    - 復帰（revival）、再復帰（unrevival）の際にセーブを登録した時と異なるカードに居た場合、ハッシュにJSONから読み込んだデータが崩れたので修正
+    - Save.pm のコードを整理
+
 v0.3.3 - 27 November 2015
   Features:
   * ヘルプ機能追加
