@@ -2,17 +2,18 @@ use strict;
 use warnings;
 
 package Save {
+    use JSON;
     use YAML;
     use Carp qw/croak/;
     use Encode;
     use open ':utf8';
     binmode STDOUT, ':utf8';
 
-    my ($name, $num, $words, $kv, $mb);
+    my ($name, $num, $words, $kv, $mb, $fmt);
     my ($file_num, $file_words, $file_kv);
 
     sub main {
-        ($name, $num, $words, $kv) = @_;
+        ($name, $num, $words, $kv, $fmt) = @_;
         if ($name eq 'sv') {
             save_buffer($num, $words, $kv, 'main');
         } elsif ($name eq 'bf') {
@@ -40,8 +41,13 @@ package Save {
 
         $file_kv = "data/save/$mb/save.txt";
         open my $fh_out_kv, '>', $file_kv or croak("Can't open file.");
-        my $yaml = YAML::Dump($kv);
-        print $fh_out_kv $yaml;
+        if ($fmt eq 'yml') {
+            my $yaml = YAML::Dump($kv);
+            print $fh_out_kv $yaml;
+        } else {
+            my $json = decode('utf8', encode_json($kv));
+            print $fh_out_kv $json;
+        }
         close $fh_out_kv;
     }
     sub rv_urv {
@@ -61,7 +67,11 @@ package Save {
         $file_kv = "data/save/$mb/save.txt";
         open my $fh_in_kv, '<', $file_kv or croak("Can't open file.");
         my $kv = do {local $/; <$fh_in_kv>};
-        $kv = YAML::Load($kv);
+        if ($kv =~ /^\{/) {
+            $kv = decode_json(encode('utf8', $kv));
+        } else {
+            $kv = YAML::Load($kv);
+        }
         close $fh_in_kv;
         return ($num, $words, $kv);
     }

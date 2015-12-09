@@ -2,24 +2,32 @@ use strict;
 use warnings;
 
 package Generator {
-    my %convert;
-    my ($fh, $file, $convert, $cards);
     sub switch {
         use YAML;
         use JSON;
-        my $head = shift;
+        my %convert;
+        my ($fh, $file, $cards);
+        my ($head, $fmt) = @_;
 
         my $dir = 'card';
-        opendir(my $dh, $dir) or die "can't opendir $dir: $!";
+        opendir(my $dh, $dir) or die "Can't opendir $dir: $!";
         for $file (readdir $dh) {
-            if ($file =~ /^$head\D*.*(.yml)/) {
+            if ($file =~ /^$head\D*.*$fmt$/) {
                 $cards = "card/$file";
             }
         }
         closedir $dh;
 
-        my $conv = YAML::LoadFile($cards);
-        return $conv;
+        my $conv;
+        if ($fmt eq 'yml') {
+            $conv = YAML::LoadFile($cards);
+        } else {
+            open my $fh, '<', $cards or die "Can't open $cards: $!";
+            my $json = do {local $/; <$fh>};
+            $conv = decode_json($json);
+            close $fh;
+        }
+        return ($conv, $fmt);
     }
 }
 1;

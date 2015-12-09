@@ -15,7 +15,7 @@ package Carvo {
     our $voice = 'say';
     my %english;
     my (@words, @voice, @fail, @fail_out);
-    my ($value, $words, $english, $key, $limit, $fail, $custom, $result, $english_buf);
+    my ($value, $words, $english, $key, $limit, $fail, $custom, $result, $english_buf, $fmt);
     my ($escape_title, $escape_end);
     my ($title_card, $title_rv_card);
     my $voice_in = 1;
@@ -30,7 +30,7 @@ package Carvo {
     my $end = 'end';
     my $msg_correct = "Please input a correct one.";
     sub main {
-        $english = shift;
+        ($english, $fmt) = @_;
         %english = %$english;
         mode();
         my $enter = '\n';
@@ -189,7 +189,7 @@ package Carvo {
                 (undef, undef, $english_buf) = Save::main('rv');
                 $title_rv_card = $english_buf->{$title};
                 if ($title_rv_card eq $title_card) {
-                    Save::main('bf', $num, $words, $english);
+                    Save::main('bf', $num, $words, $english, $fmt);
                     ($num, $words, $english) = Save::main('rv');
                     $port = $num;
                     qa('q');
@@ -211,7 +211,7 @@ package Carvo {
                     print "\n$msg_correct\n";
                 }
             } elsif ($in_way =~ /^(save|sv)$/) {
-                Save::main('sv', $num, $words, $english);
+                Save::main('sv', $num, $words, $english, $fmt);
                 print "$num/$limit\n";
                 print "\n$msg_usual\n";
             } elsif ($in_way =~ /^(r|random)$/) {

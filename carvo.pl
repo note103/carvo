@@ -5,14 +5,15 @@ use 5.012;
 use lib 'lib';
 use Carvo;
 use Carvo::Generator;
+use Carvo::Save;
 use Time::Piece;
 use open ':utf8';
 
 my $dir = 'card';
 my @files;
-opendir(my $dirh, $dir) || die "can't opendir $dir: $!";
-for my $file (readdir $dirh) {
-    if ($file =~ /^(.+)_(.*)(.yml)/) {
+opendir(my $dirh, $dir) or die "Can't opendir $dir: $!";
+for my $file_name (readdir $dirh) {
+    if ($file_name =~ /^(.+)_(.*).(yml|json)$/) {
         push @files, "$1: $2";
     }
 }
@@ -64,9 +65,9 @@ OUTER: while (my $in = <>) {
             } elsif ($edit =~ /^(.+)$/) {
                 $tag = $1;
                 my $dir = 'card';
-                opendir(my $dh, $dir) or die "can't opendir $dir: $!";
+                opendir(my $dh, $dir) or die "Can't opendir $dir: $!";
                 for $file (readdir $dh) {
-                    if ($file =~ /^$tag\_.*(.yml)/) {
+                    if ($file =~ /^$tag\_.*.(yml|json)$/) {
                         $cards = "card/$file";
                         print `open $cards app/parse.pl app/word.pl`;
                         last OUTER;
@@ -79,10 +80,11 @@ OUTER: while (my $in = <>) {
     } elsif ($in =~ /^(.+)$/) {
         $tag = $1;
         my $dir = 'card';
-        opendir(my $dh, $dir) or die "can't opendir $dir: $!";
+        opendir(my $dh, $dir) or die "Can't opendir $dir: $!";
         for $file (readdir $dh) {
-            if ($file =~ /^$tag\_.*(.yml)/) {
-                Carvo::main(Generator::switch($tag));
+            if ($file =~ /^$tag\_.*.(yml|json)$/) {
+                my $format = $1;
+                Carvo::main(Generator::switch($tag, $format));
             }
         }
         closedir $dh;
