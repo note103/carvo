@@ -10,7 +10,9 @@ Cards of vocabulary
 
 ## DEMO
 
-![](https://dl.dropboxusercontent.com/u/7779513/carvo/2016-01-20-00-27.gif)
+![](https://dl.dropboxusercontent.com/u/7779513/carvo/2016-01-20_en.gif)
+
+![](https://dl.dropboxusercontent.com/u/7779513/carvo/2016-01-20_bk.gif)
 
 https://www.youtube.com/watch?v=Xvao6oK8L0M
 
