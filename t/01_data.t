@@ -3,7 +3,6 @@ use Test::More 0.98;
 use lib '../lib';
 use Carvo;
 use Setup::Data;
-use Setup::Generator;
 
 my $data = {
     total => 0,
