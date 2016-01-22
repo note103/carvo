@@ -1,4 +1,5 @@
 [![Build Status](https://travis-ci.org/note103/Carvo.svg?branch=master)](https://travis-ci.org/note103/Carvo)
+[![Coverage Status](https://coveralls.io/repos/github/note103/Carvo/badge.svg?branch=master)](https://coveralls.io/github/note103/Carvo?branch=master)
 
 Carvo
 =====
