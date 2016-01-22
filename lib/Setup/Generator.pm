@@ -1,5 +1,5 @@
 package Generator {
-    use 5.12.0;
+    use v5.12;
     use warnings;
     use Carp;
 
