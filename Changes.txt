@@ -1,3 +1,10 @@
+v0.5.0 - 19 January 2016
+  Modifies:
+  * モジュール構成を変更
+
+  Features:
+  * 既存の英単語・簿記の他、スピーチ（長文読み上げ）コースを追加
+
 v0.4.5 - 20 December 2015
   Features:
   * Carvo（英語用）とCarvo-bk（簿記用）を統合
