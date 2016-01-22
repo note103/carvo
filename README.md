@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/note103/Carvo.svg?branch=master)](https://travis-ci.org/note103/Carvo)
+
 Carvo
 =====
 
