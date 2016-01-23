@@ -5,8 +5,28 @@ use Carvo;
 use Carvo::Util;
 use Carp;
 
-subtest "result" => sub {
+subtest "jump" => sub {
+    # sample
+    my $attr = {
+        num => 10,
+        limit => 100,
+        num_buffer  => 0,
+    };
+    my %expect = %$attr;
 
+    # got
+    $attr = Util::jump($attr);
+    my $got_num = $attr->{num};
+
+    # expect
+    my $expect_num = $expect{num};
+
+    diag 'got_num: '.$got_num;
+    diag 'expect_num: '.$expect_num;
+    isnt $got_num, $expect_num, 'check-jump';
+};
+
+subtest "result" => sub {
     # sample
     my $attr = {
         total => 3,
@@ -15,15 +35,15 @@ subtest "result" => sub {
     };
     my $data = {};
 
-    ## got
+    # got
     my $got = Util::result($attr, $data);
 
-    ## expect
+    # expect
     my $expect
         = "\nYou tried $attr->{total} times. $attr->{point} hits and $attr->{miss} errors.\n";
 
-    diag 'got: '.$got;
-    diag 'expect: '.$expect;
+    diag 'got_result: '.$got;
+    diag 'expect_result: '.$expect;
     is $got, $expect, 'check-result';
 };
 
