@@ -14,7 +14,6 @@ package Exit {
             = "$attr->{total}\ttimes\n$attr->{point}\thits\n$attr->{miss}\terrors\n";
 
         my $log_record = logs($data, $result);
-        result($result);
 
         say "\nRecord:";
         print @$log_record;
