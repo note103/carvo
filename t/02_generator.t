@@ -10,42 +10,6 @@ my ($dict,         $fmt,           $file, $lesson);
 my ($got_dict,     $got_fmt,       $got_card_name);
 my $expect_dict;
 
-sub expect {
-    ($lesson, $fmt, $card_head_in, $card_dir, $card_name) = @_;
-
-    opendir(my $dh, $card_dir) or die $!;
-    for $file (readdir $dh) {
-        if ($file =~ /\.$fmt$/) {
-            $card = "$card_dir/" . "$file";
-        }
-        elsif ($file =~ /^$card_head_in\D*.*txt$/) {
-            $card_filename = "$card_dir/" . "$file";
-        }
-    }
-    closedir $dh;
-
-    if ($fmt eq 'yml') {
-    }
-    else {
-        open my $fh, '<', $card or croak("Can't open file.");
-        my $json = do { local $/; <$fh> };
-        $dict = decode_json(encode('utf8', $json));
-        close $fh;
-    }
-
-    open my $fh, '<', $card_filename or croak("Can't open file.");
-    my @card_names = <$fh>;
-    close $fh;
-    my %set_dict;
-    for (@card_names) {
-        chomp;
-        $set_dict{$_} = $dict->{$_};
-    }
-    my $set_dict = \%set_dict;
-
-    return ($set_dict, $fmt, $card_name);
-}
-
 subtest "yml" => sub {
     use YAML;
 
@@ -67,7 +31,6 @@ subtest "yml" => sub {
     my $tmp_dict = YAML::LoadFile($card);
 
     $card_filename = "$card_dir/".$card_head_in.'_'."$card_name.txt";
-    #diag $card_filename;
 
     open my $fh, '<', $card_filename or croak("Can't open file.");
     my @card_names = <$fh>;
@@ -83,7 +46,7 @@ subtest "yml" => sub {
     #diag explain $got_dict;
     #diag explain $expect_dict;
     diag 'got: ' . $got_dict->{absurdly};
-    diag 'got: ' . $expect_dict->{absurdly};
+    diag 'expect: ' . $expect_dict->{absurdly};
 };
 
 subtest "json" => sub {
@@ -112,7 +75,6 @@ subtest "json" => sub {
     close $fh;
 
     $card_filename = "$card_dir/".$card_head_in.'_'."$card_name.txt";
-    #diag $card_filename;
 
     open $fh, '<', $card_filename or croak("Can't open file.");
     my @card_names = <$fh>;
@@ -128,7 +90,7 @@ subtest "json" => sub {
     #diag explain $got_dict;
     #diag explain $expect_dict;
     diag 'got: ' . $got_dict->{'01'};
-    diag 'got: ' . $expect_dict->{'01'};
+    diag 'expect: ' . $expect_dict->{'01'};
 };
 
 done_testing;
