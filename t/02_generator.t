@@ -13,7 +13,7 @@ my $expect_dict;
 subtest "yml" => sub {
     use YAML;
 
-    # test-sample
+    # sample
     $lesson       = 'e';
     $fmt          = 'yml';
     $card_head_in = 'fs';
@@ -42,11 +42,9 @@ subtest "yml" => sub {
     }
     $expect_dict = \%set_dict;
 
-    is $got_dict->{absurdly}, $expect_dict->{absurdly}, 'dict_yml';
-    #diag explain $got_dict;
-    #diag explain $expect_dict;
     diag 'got: ' . $got_dict->{absurdly};
     diag 'expect: ' . $expect_dict->{absurdly};
+    is $got_dict->{absurdly}, $expect_dict->{absurdly}, 'dict_yml';
 };
 
 subtest "json" => sub {
@@ -54,7 +52,7 @@ subtest "json" => sub {
     use JSON;
     use open qw/:utf8 :std/;
 
-    # test-sample
+    # sample
     $lesson       = 'p';
     $fmt          = 'json';
     $card_head_in = 't';
@@ -86,11 +84,9 @@ subtest "json" => sub {
     }
     $expect_dict = \%set_dict;
 
-    is $got_dict->{'01'}, $expect_dict->{'01'}, 'dict_json';
-    #diag explain $got_dict;
-    #diag explain $expect_dict;
     diag 'got: ' . $got_dict->{'01'};
     diag 'expect: ' . $expect_dict->{'01'};
+    is $got_dict->{'01'}, $expect_dict->{'01'}, 'dict_json';
 };
 
 done_testing;
