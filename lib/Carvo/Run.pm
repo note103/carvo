@@ -77,7 +77,7 @@ package Run {
                 print "$msg_usual\n";
             }
             elsif ($selected_command =~ /^(h|help)$/) {
-                Util::help();
+                say Util::help();
                 print "\n$msg_limit" . $attr->{limit} . "\n";
                 print "$msg_usual\n";
             }

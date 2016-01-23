@@ -34,7 +34,8 @@ package Util {
         open my $fh_help, '<', 'src/help.txt' or croak("Can't open file");
         my $help = do { local $/; <$fh_help> };
         close $fh_help;
-        say $help;
+
+        return $help;
     }
 
     sub list {
