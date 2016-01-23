@@ -61,8 +61,8 @@ subtest "order" => sub {
     @word         = keys %{ $data->{dict} };
     my $expect_random = \@word;
 
-    diag 'got_order: ' . $got_order->[0];
-    diag 'expect_order: ' . $expect_order->[0];
+    diag 'got_random: ' . $got_random->[0];
+    diag 'expect_random: ' . $expect_random->[0];
     is $got_random->[0], $expect_random->[0], 'check-order';
 };
 
