@@ -7,7 +7,16 @@ use Carp;
 my ($card_head_in, $card_filename, $card, $card_name, $card_dir, $course_dir, $lists);
 my ($dict, $fmt, $file, $lesson, $attr, $data);
 
-subtest "course" => sub {
+subtest "stdin" => sub {
+    my $inputs = "001\n";
+    open my $in, '<', \$inputs;
+    local *STDIN = $in;
+    my $expect = "001";
+    is Carvo::course(), $expect;
+    close $in;
+};
+
+subtest "read-course" => sub {
     #got
     my $got_list_course = Carvo::read_data('course', $attr);
     my $expect_list_course;
@@ -27,7 +36,7 @@ subtest "course" => sub {
     is_deeply $got_list_course, $expect_list_course, 'read_course';
 };
 
-subtest "card" => sub {
+subtest "read-card" => sub {
     # sample
     $attr->{card_dir} = 'src/lesson/e_word';
 
@@ -57,28 +66,3 @@ subtest "card" => sub {
 };
 
 done_testing;
-__END__
-sub dict {
-    $lesson       = 'e';
-    $fmt          = 'yml';
-    $card_head_in = 'fs';
-    $card_dir     = 'src/lesson/e_word';
-    $card_name    = 'fast-and-slow';
-
-    $card = "$card_dir/" . 'dict.yml';
-    my $tmp_dict = YAML::LoadFile($card);
-
-    $card_filename = "$card_dir/" . $card_head_in . '_' . "$card_name.txt";
-
-    open my $fh, '<', $card_filename or croak("Can't open file.");
-    my @card_names = <$fh>;
-    close $fh;
-    my %set_dict;
-    for (@card_names) {
-        chomp;
-        $set_dict{$_} = $tmp_dict->{$_};
-    }
-    $dict = \%set_dict;
-    return $dict;
-}
-

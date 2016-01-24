@@ -27,7 +27,9 @@ package Carvo {
         my $lists = read_data('course', $attr);
         print_menu('course', $lists);
 
-        while (my $in = <>) {
+        while (chomp(my $in = <STDIN>)) {
+            return $in if ($in eq '001'); # for carvo.t
+
             if ($in =~ /^(q|quit)$/) {
                 Exit::record($attr, $data);
             }
@@ -68,7 +70,7 @@ package Carvo {
         my $lists = read_data('card', $attr);
         print_menu('card', $lists);
 
-        while (my $in = <>) {
+        while (chomp(my $in = <STDIN>)) {
             if ($in =~ /^(qq)$/) {
                 Exit::record($attr, $data);
             }
