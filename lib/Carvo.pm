@@ -13,6 +13,8 @@ package Carvo {
     use Carvo::Run;
     use Carvo::Run::Exit;
     use Carvo::Run::Save;
+    use Read;
+    use Menu;
 
     my $data_dir   = 'src';
     my $course_dir = "$data_dir/lesson";
@@ -24,11 +26,10 @@ package Carvo {
         $data->{fail} = [];
         $Run::quit = '' if (!$Run::quit);
 
-        my $lists = read_data('course', $attr);
-        print_menu('course', $lists);
+        my $lists = Read::read_data('course', $attr);
+        Menu::print_menu('course', $lists);
 
-        while (chomp(my $in = <STDIN>)) {
-            return $in if ($in eq '001'); # for carvo.t
+        while (my $in = <STDIN>) {
 
             if ($in =~ /^(q|quit)$/) {
                 Exit::record($attr, $data);
@@ -58,7 +59,7 @@ package Carvo {
                     last;
                 }
             }
-            print_menu('course', $lists);
+            Menu::print_menu('course', $lists);
         }
     }
 
@@ -67,10 +68,10 @@ package Carvo {
 
         $data = Util::logs($data) unless (!$data);
 
-        my $lists = read_data('card', $attr);
-        print_menu('card', $lists);
+        my $lists = Read::read_data('card', $attr);
+        Menu::print_menu('card', $lists);
 
-        while (chomp(my $in = <STDIN>)) {
+        while (my $in = <STDIN>) {
             if ($in =~ /^(qq)$/) {
                 Exit::record($attr, $data);
             }
@@ -82,7 +83,7 @@ package Carvo {
             }
             elsif ($in =~ /^(.+)$/) {
                 $attr->{selected_card_head} = $1;
-                read_data('card', $attr);
+                Read::read_data('card', $attr);
                 for (keys %{ $attr->{cards} }) {
                     if ($attr->{selected_card_head} eq $_) {
                         $attr->{card_name} = $attr->{cards}->{ $attr->{selected_card_head} };
@@ -128,84 +129,84 @@ package Carvo {
                     }
                 }
             }
-            print_menu('card', $lists);
+            Menu::print_menu('card', $lists);
         }
     }
 
-    sub read_data {
-        my ($grade, $attr) = @_;
-
-        my $lists;
-
-        if ($grade eq 'course') {
-            $lists->{course_list} = [];
-
-            opendir(my $dirh, $course_dir)
-                or croak("Can't opendir $course_dir: $!");
-            for my $course_filename (readdir $dirh) {
-                if ($course_filename =~ /^(\w+)_(\w+)$/) {
-                    ($attr->{course_head}, $attr->{course_name}) = ($1, $2);
-                    $attr->{courses}->{ $attr->{course_head} } = $attr->{course_name};
-                    push @{ $lists->{course_list} }, "$attr->{course_head}: $attr->{course_name}";
-                }
-            }
-            closedir $dirh;
-        }
-        elsif ($grade eq 'card') {
-            $lists->{card_list} = [];
-
-            opendir(my $dirh, $attr->{card_dir})
-                or croak("Can't open file: $!");
-            for my $card_filename (readdir $dirh) {
-                if ($card_filename =~ /^((.+)_(.*)\.txt)$/) {
-                    ($attr->{card_head}, $attr->{card_name}) = ($2, $3);
-                    $card_filename = $1;
-                    $attr->{cards}->{ $attr->{card_head} } = $attr->{card_name};
-                    push @{ $lists->{card_list} }, "$attr->{card_head}: $attr->{card_name}";
-                }
-                elsif ($card_filename =~ /\.(yml|json)$/) {
-                    $attr->{fmt} = $1;
-                }
-            }
-            closedir $dirh;
-        }
-        return $lists;
-    }
-
-    sub print_menu {
-        my ($grade, $lists) = @_;
-
-        my @command_course = ('r: result', 'l: log');
-        my @command_card   = ('e: edit',   'q: exit');
-
-        my $msg_selectcard   = "Please select a card.\n";
-        my $msg_selectcourse = "Please select a course.\n";
-
-        if ($grade eq 'course') {
-            say $msg_selectcourse;
-
-            say "$grade: ";
-            for (@{ $lists->{course_list} }) { say "\t$_"; }
-
-            say 'command:';
-            for (@command_course) { say "\t$_"; }
-        }
-        elsif ($grade =~ /card/) {
-            say $msg_selectcard;
-
-            if ($grade eq 'card') {
-                say "$grade: ";
-                for (@{ $lists->{card_list} }) { say "\t$_"; }
-                say 'command:';
-                for (@command_card) { say "\t$_"; }
-            }
-            elsif ($grade eq 'edit') {
-                say "\t$grade: ";
-                for (@{ $lists->{card_list} }) { say "\t\t$_"; }
-                say "\t\tq: exit\n";
-            }
-        }
-    }
+    #    sub Read::read_data {
+    #        my ($grade, $attr) = @_;
+    #
+    #        my $lists;
+    #
+    #        if ($grade eq 'course') {
+    #            $lists->{course_list} = [];
+    #
+    #            opendir(my $dirh, $course_dir)
+    #                or croak("Can't opendir $course_dir: $!");
+    #            for my $course_filename (readdir $dirh) {
+    #                if ($course_filename =~ /^(\w+)_(\w+)$/) {
+    #                    ($attr->{course_head}, $attr->{course_name}) = ($1, $2);
+    #                    $attr->{courses}->{ $attr->{course_head} } = $attr->{course_name};
+    #                    push @{ $lists->{course_list} }, "$attr->{course_head}: $attr->{course_name}";
+    #                }
+    #            }
+    #            closedir $dirh;
+    #        }
+    #        elsif ($grade eq 'card') {
+    #            $lists->{card_list} = [];
+    #
+    #            opendir(my $dirh, $attr->{card_dir})
+    #                or croak("Can't open file: $!");
+    #            for my $card_filename (readdir $dirh) {
+    #                if ($card_filename =~ /^((.+)_(.*)\.txt)$/) {
+    #                    ($attr->{card_head}, $attr->{card_name}) = ($2, $3);
+    #                    $card_filename = $1;
+    #                    $attr->{cards}->{ $attr->{card_head} } = $attr->{card_name};
+    #                    push @{ $lists->{card_list} }, "$attr->{card_head}: $attr->{card_name}";
+    #                }
+    #                elsif ($card_filename =~ /\.(yml|json)$/) {
+    #                    $attr->{fmt} = $1;
+    #                }
+    #            }
+    #            closedir $dirh;
+    #        }
+    #        return $lists;
+    #    }
+    #
+    #    sub Menu::print_menu {
+    #        my ($grade, $lists) = @_;
+    #
+    #        my @command_course = ('r: result', 'l: log');
+    #        my @command_card   = ('e: edit',   'q: exit');
+    #
+    #        my $msg_selectcard   = "Please select a card.\n";
+    #        my $msg_selectcourse = "Please select a course.\n";
+    #
+    #        if ($grade eq 'course') {
+    #            say $msg_selectcourse;
+    #
+    #            say "$grade: ";
+    #            for (@{ $lists->{course_list} }) { say "\t$_"; }
+    #
+    #            say 'command:';
+    #            for (@command_course) { say "\t$_"; }
+    #        }
+    #        elsif ($grade =~ /card/) {
+    #            say $msg_selectcard;
+    #
+    #            if ($grade eq 'card') {
+    #                say "$grade: ";
+    #                for (@{ $lists->{card_list} }) { say "\t$_"; }
+    #                say 'command:';
+    #                for (@command_card) { say "\t$_"; }
+    #            }
+    #            elsif ($grade eq 'edit') {
+    #                say "\t$grade: ";
+    #                for (@{ $lists->{card_list} }) { say "\t\t$_"; }
+    #                say "\t\tq: exit\n";
+    #            }
+    #        }
+    #    }
 }
 
 1;
