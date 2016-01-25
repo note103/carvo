@@ -20,7 +20,7 @@ package Exit {
 
         say "\nScore:";
         print $result;
-        #print `$attr->{voice} Bye!`;
+        print `$attr->{voice} Bye!`;
 
         exit;
     }
