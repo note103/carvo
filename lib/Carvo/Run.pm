@@ -24,7 +24,7 @@ package Run {
         my $clean = $attr->{card_name};
         $clean = Util::clean($clean);
 
-        print `$attr->{voice} $clean`;
+        print `$attr->{voice} $clean` if $attr->{voice_ch} eq 'on';
         print "$msg_limit" . $attr->{limit} . "\n$msg_usual\n";
 
         while (my $selected_command = <>) {
@@ -93,6 +93,10 @@ package Run {
             elsif ($selected_command =~ /^(os|order-swap)$/) {
                 $attr->{order} = Util::order_swap($attr->{order});
                 $data->{words} = Util::order($attr, $data);
+                print "\n$msg_usual\n";
+            }
+            elsif ($selected_command =~ /^(vc|voice-ch)$/) {
+                $attr->{voice_ch} = Util::voice_ch($attr->{voice_ch});
                 print "\n$msg_usual\n";
             }
             elsif ($selected_command =~ /^(vs|voice-swap)$/) {

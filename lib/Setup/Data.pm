@@ -15,6 +15,7 @@ package Data {
 
             voice      => 'say',
             voice_swap => 'key',
+            voice_ch => 'off',
 
             extr       => 3,
             log_record => 'on',

@@ -139,6 +139,21 @@ package Util {
         return $order_swap;
     }
 
+    sub voice_ch {
+        my $voice_ch = shift;
+
+        if ($voice_ch eq 'off') {
+            $voice_ch = 'on';
+            print "You turned to voice mode.\n";
+        }
+        else {
+            $voice_ch = 'off';
+            print "You turned to silent mode.\n";
+        }
+
+        return $voice_ch;
+    }
+
     sub voice_swap {
         my $voice_swap = shift;
 

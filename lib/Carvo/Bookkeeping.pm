@@ -60,7 +60,7 @@ package Bookkeeping {
                     $attr->{point}++;
                     $attr->{total} = $attr->{point} + $attr->{miss};
                     print "\nGood!!\n";
-                    print `$attr->{voice} $good[$rand]`;
+                    print `$attr->{voice} $good[$rand]` if $attr->{voice_ch} eq 'on';
                     $data->{log} = $class->repl('a', $attr, $data);
                     print $data->{result} = Util::result($attr, $data);
                     print "$msg_option\n";
@@ -78,7 +78,7 @@ package Bookkeeping {
                     }
                     push @{ $data->{fail} }, $key . "\n";
                     print "\nNG! Again!\n";
-                    print `$attr->{voice} $ng[$rand]`;
+                    print `$attr->{voice} $ng[$rand]` if $attr->{voice_ch} eq 'on';
                 }
             }
         }

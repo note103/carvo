@@ -68,7 +68,7 @@ package Speech {
                 }
                 $clean = $key;
                 $clean = Util::clean($clean);
-                print `$attr->{voice} $clean`;
+                print `$attr->{voice} $clean` if $attr->{voice_ch} eq 'on';
             }
         }
         else {
@@ -86,7 +86,7 @@ package Speech {
                     $clean = $data->{dict}->{$key};
                 }
                 $clean = Util::clean($clean);
-                print `$attr->{voice} $clean`;
+                print `$attr->{voice} $clean` if $attr->{voice_ch} eq 'on';
             }
         }
         return $data->{log};
