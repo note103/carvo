@@ -6,14 +6,13 @@ package Read {
     use Carp;
     use Path::Tiny;
 
-    my $data_dir   = 'src';
-    my $course_dir = "$data_dir/lesson";
-
     sub read_data {
-        my ($grade, $attr) = @_;
+        my ($stage, $attr) = @_;
+        my $data_dir   = 'src';
+        my $course_dir = "$data_dir/lesson";
         my $lists;
 
-        if ($grade eq 'course') {
+        if ($stage eq 'course') {
             $lists->{course_list} = [];
             my $course_iter = path($course_dir)->iterator;
             while (my $course_filename = $course_iter->()) {
@@ -24,7 +23,7 @@ package Read {
                 }
             }
         }
-        elsif ($grade eq 'card') {
+        elsif ($stage eq 'card') {
             $lists->{card_list} = [];
             my $card_iter = path($attr->{card_dir})->iterator;
             while (my $path = $card_iter->()) {
