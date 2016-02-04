@@ -24,13 +24,13 @@ package Save {
 
         mkpath($save_path);
         $file_num = "$save_path/num.txt";
-        open my $fh_print_num, '>', $file_num or croak("Can't open file: $!");
+        open my $fh_print_num, '>', $file_num or croak("Can't open saving num file: $!");
         print $fh_print_num $attr->{num};
         close $fh_print_num;
 
         $file_words = "$save_path/words.txt";
         open my $fh_print_words, '>', $file_words
-            or croak("Can't open file: $!");
+            or croak("Can't open saving words file: $!");
         my @tidy;
         for (@{ $data->{words} }) { push @tidy, $_ . "\n"; }
         for (@tidy)               { $_ =~ s/\n\n/\n/; }
@@ -39,7 +39,7 @@ package Save {
 
         $file_fail = "$save_path/fail.txt";
         open my $fh_print_fail, '>', $file_fail
-            or croak("Can't open file: $!");
+            or croak("Can't open saving fail file: $!");
         my @tidy_fail;
         for (@{ $data->{fail} }) { push @tidy_fail, $_ . "\n"; }
         for (@tidy_fail)         { $_ =~ s/\n\n/\n/; }
@@ -48,7 +48,7 @@ package Save {
 
         $file_dict = "$save_path/save.txt";
         open my $fh_print_dict, '>', $file_dict
-            or croak("Can't open file: $!");
+            or croak("Can't open saving dict file: $!");
         if ($attr->{fmt} eq 'yml') {
             my $yaml = YAML::Dump($data->{dict});
             print $fh_print_dict $yaml;
@@ -60,7 +60,7 @@ package Save {
 
         $file_cardname = "$save_path/cardname.txt";
         open my $fh_print_cardname, '>', $file_cardname
-            or croak("Can't open file: $!");
+            or croak("Can't open saving cardname file: $!");
         print $fh_print_cardname $attr->{card_name};
         close $fh_print_cardname;
         close $fh_print_dict;
@@ -82,13 +82,13 @@ package Save {
 
                 $file_num = "$save_path/num.txt";
                 open my $fh_read_num, '<', $file_num
-                    or croak("Can't open file1: $!");
+                    or croak("Can't open saved num file: $!");
                 $read_num = <$fh_read_num>;
                 close $fh_read_num;
 
                 $file_words = "$save_path/words.txt";
                 open my $fh_read_words, '<', $file_words
-                    or croak("Can't open file3: $!");
+                    or croak("Can't open saved words file: $!");
                 my @words = <$fh_read_words>;
                 close $fh_read_words;
 
@@ -99,7 +99,7 @@ package Save {
 
                 $file_cardname = "$save_path/cardname.txt";
                 open my $fh_read_cardname, '<', $file_cardname
-                    or croak("Can't open file2: $!");
+                    or croak("Can't open saved cardname file: $!");
                 $read_cardname = <$fh_read_cardname>;
                 close $fh_read_cardname;
 
@@ -157,13 +157,13 @@ package Save {
 
                 $file_num = "$save_path/num.txt";
                 open my $fh_read_num, '<', $file_num
-                    or croak("Can't open file1: $!");
+                    or croak("Can't open saved num file for revert: $!");
                 $attr->{num} = <$fh_read_num>;
                 close $fh_read_num;
 
                 $file_words = "$save_path/words.txt";
                 open my $fh_read_words, '<', $file_words
-                    or croak("Can't open file3: $!");
+                    or croak("Can't open saved words file for revert: $!");
                 my @words = <$fh_read_words>;
                 close $fh_read_words;
 
@@ -174,7 +174,7 @@ package Save {
 
                 $file_fail = "$save_path/fail.txt";
                 open my $fh_read_fail, '<', $file_fail
-                    or croak("Can't open file3: $!");
+                    or croak("Can't open saved fail file for revert: $!");
                 my @fail = <$fh_read_fail>;
                 close $fh_read_fail;
 
@@ -183,7 +183,7 @@ package Save {
 
                 my $file_dict = "$save_path/save.txt";
                 open my $fh_read_dict, '<', $file_dict
-                    or croak("Can't open file: $!");
+                    or croak("Can't open saved dict file for revert: $!");
                 $data->{dict} = do { local $/; <$fh_read_dict> };
                 if ($data->{dict} =~ /^\{/) {
                     $data->{dict}
