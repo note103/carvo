@@ -139,7 +139,8 @@ package Save {
             my ($file_num, $file_words, $file_cardname);
 
             for (@matched_dir) {
-                say $_ . " -> $save->{$_}->{card_name}[0]: $save->{$_}->{num}[0]/$save->{$_}->{limit}[0]";
+                say $_
+                    . " -> $save->{$_}->{card_name}[0]: $save->{$_}->{num}[0]/$save->{$_}->{limit}[0]";
             }
             say "\nSelect unique query.";
             return ($attr, $data, 'off');
@@ -147,7 +148,8 @@ package Save {
         elsif (scalar(@matched_dir) == 1) {
 
             if ($attr->{card_name} ne $save->{ $matched_dir[0] }->{card_name}[0]) {
-                say "\nSelected course is '$save->{$matched_dir[0]}->{card_name}[0]'. But current course is '$attr->{card_name}'.";
+                say
+                    "\nSelected course is '$save->{$matched_dir[0]}->{card_name}[0]'. But current course is '$attr->{card_name}'.";
                 return ($attr, $data, 'off');
             }
             else {
