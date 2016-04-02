@@ -1,0 +1,191 @@
+{
+    "astute" : [
+        "明敏な 機敏な 抜けめのない ずるい",
+        {
+            "I came off quite well in my telling of the story, in which I had the roke of clever questioner and astute psychologist." : ""
+        }
+    ],
+    "insane" : [
+        "まったくばかばかしい|無茶な",
+        {
+            "go insane" : "発狂する",
+            "drive A insane" : "Aを（次第に）不愉快にさせる|怒らせる"
+        }
+    ],
+    "brace" : [
+        "〜に対して覚悟する|備える",
+        {
+            "brace oneself to do" : "〜する覚悟を決める",
+            "be braced for A" : "A（事）への備えができている"
+        }
+    ],
+    "sarcasm" : [
+        "皮肉（の言葉）|嫌味|当てこすり",
+        {
+            "with heavy sarcasm" : "明らかに皮肉を込めて"
+        }
+    ],
+    "embarrassing" : [
+        "恥ずかしい|不愉快に感じさせる|困惑させるような",
+        {
+            "It's kind of embarrassing to see him now." : "今彼に会うのはちょっと恥ずかしい。",
+            "What is [was] the most embarrassing thing that has happend to you?" : "これまでの体験で一番恥ずかしかったことは何ですか（何でしたか）？"
+        }
+    ],
+    "cite" : [
+        "〜を引用する|引き合いに出す",
+        {
+            "Smoking is frequently cited as a (major) cause of lung cancer." : "喫煙はよく肺癌の（主な）原因に挙げられる。"
+        }
+    ],
+    "smite" : [
+        "〜を強くたたく|強打する",
+        {
+            "be smitten by" : " 〜に心を奪われる|参る",
+            "be smitten down by" : "さいなまれる",
+            "be smitten with a desire to do" : "非常に〜したい"
+        }
+    ],
+    "churn" : [
+        "〜を撹乳機でかき回す",
+        {
+            "churn milk into butter" : "ミルクをかき回してバターを作る"
+        }
+    ],
+    "estimate" : [
+        "〈価値大きさ量など〉を «…と» 見積もる, 概算する, 推定する",
+        {
+            "He estimated the total cost at 100 million yen." : "彼は総費用を1億円と見積もった",
+            "The police have estimated that 15,000 tourists get lost in London every day." : "警察はロンドンで毎日1万5千人の観光客が道に迷っていると見積もった",
+            "It is estimated that 25% of plant species will become extinct by 2020." : "見積もりでは, 2020年までには植物種の25%が絶滅するだろう",
+            "Damage was estimated to be more than 300 million dollars." : "損害は3億ドル以上と推定された"
+        }
+    ],
+    "crass" : [
+        "鈍感な|無神経な|はなはだしい|実にひどい（無知愚かさ無神経など）",
+        {
+            "one's crass ignorance of literature" : "文学に対するひどい無知"
+        }
+    ],
+    "crush" : [
+        "〈人物などが〉〈物〉を押しつぶす|〈石など〉を(押し)砕く|粉砕する",
+        {
+            "crush the rock into [to] powder" : "石を砕いて粉にする"
+        }
+    ],
+    "concatenation" : [
+        "連鎖|連結|(事件などの)つながり|連続",
+        {
+            "a concatenation of events [causes]" : "一連の事件[原因]"
+        }
+    ],
+    "consequence" : [
+        "(主に悪い)結果|結末|成り行き|影響",
+        {
+            "have serious [unintended] consequences" : "深刻な[予期せぬ]結果をもたらす",
+            "They took military action, with dangerous consequences for the region's peace." : "彼らは武力を行使し, その地域の平和に危険をもたらす結果となった。"
+        }
+    ],
+    "isolate" : [
+        "〈国組織など〉を孤立させる|離す",
+        {
+            "isolate Iraq economically" : "イラクを経済的に孤立させる"
+        }
+    ],
+    "deserve" : [
+        "〜に値する|ふさわしい",
+        {
+            "deserve to be done" : "〜されるに値する",
+            "Sue got the award, and she deserves it." : "スーが受賞したが, それは当然のことだ。",
+            "Paul thoroughly deserves credit for his skills as a musician." : "ポールはミュージシャンとしての技術では称賛に十分値する。",
+            "We deserve a break now." : "そろそろ休憩にしましょう。"
+        }
+    ],
+    "completion" : [
+        "完成|完了|終了|成就|達成",
+        {
+            "on [upon] completion of A" : "Aが完成するときに",
+            "be nearing completion" : "完成間近である",
+            "the completion date" : "完成[終了]日",
+            "The building is due for completion in spring." : "そのビルは春に落成の予定だ。"
+        }
+    ],
+    "reward" : [
+        "（功労善事世話などに対する）ほうび|報酬|報奨|報い",
+        {
+            "as a reward for good behavior" : "お行儀のよかったごほうびに",
+            "expect a financial reward" : "金銭的見返りを期待する"
+        }
+    ],
+    "reputation" : [
+        "評判|世評|うわさ",
+        {
+            "He has a reputation for violence." : "彼は暴力をふるうといううわさだ。"
+        }
+    ],
+    "bonkers" : [
+        "精神的に不安定で|ばかな|熱狂して|いらいらして",
+        {
+            "drive A bonkers" : "A〈人など〉を悩ます|いらいらさせる",
+            "go bonkers" : "気が狂う|熱狂する|夢中になる"
+        }
+    ],
+    "abortion" : [
+        "妊娠中絶(手術)|(人工)流産|堕胎(手術); (計画行動の)失敗|挫折（ざせつ）; 未熟児|(器官の)発育不全|奇形",
+        {
+            "have [get] an abortion" : "中絶する[中絶手術を受ける]",
+            "参考" : "(自然)流産(miscarriage)"
+        }
+    ],
+    "acclaim" : [
+        "【業績質などのために】〈人物〉を歓呼して迎える|賞賛する|〈人物〉を宣伝する|認める; (人業績に対する)賞賛",
+        {
+            "acclaim him (as) king [leader]" : "歓呼して彼を王[指導者]に迎える",
+            "Jill has been acclaimed for her role in her latest movie." : "ジルは最新作映画で演じた役が絶賛された。",
+            "It was acclaimed (as) a timeless work of art." : "それは永遠の芸術作品とたたえられた。",
+            "win critical [international, wide] acclaim" : "批評家の[国内外の, 幅広い]賞賛を得る"
+        }
+    ],
+    "accomplish" : [
+        "〈人が〉〈仕事目標など〉を成し遂げる|達成する;〈旅など〉を終える|〈年齢など〉に達する",
+        {
+            "Try hard to accomplish the goal." : "目標達成のため努力しなさい",
+            "Mission accomplished." : "任務完了"
+        }
+    ],
+    "achievement" : [
+        "業績|功績|成果|偉業|手柄",
+        {
+            "a remarkable [great] achievement" : "目を見張る[偉大な]業績",
+            "celebrate one's achievements in science [filmmaking]" : "科学分野[映画制作]における業績を祝う",
+            "a sense [level] of achievement" : "達成感[度]",
+            "the achievement of common goals" : "共通の目標の成就",
+            "academic [educational, student] achievement" : "学業成績"
+        }
+    ],
+    "aisle" : [
+        "(スーパーマーケット倉庫などの)通路|(乗り物映画館などの座席間の)通路",
+        {
+            "Where is the canned fruit? / It's in aisle 5." : "「フルーツの缶詰はどこにありますか」「5番通路です」",
+            "an aisle seat" : "通路側の席",
+            "参考" : "「窓側の席」は a window seat"
+        }
+    ],
+    "annoy" : [
+        "〈人行動などが〉〈人など〉を (一時的に)悩ます|困らせる|いらいらさせる|むっとさせる; 〈人など〉を (執拗（しつよう）に)攻撃する|たびたび困らせる; やっかいである|悩みの種である",
+        {
+            "He is always making fun of us and that really annoys me." : "彼はいつも私たちのことをばかにして、腹が立つったらありゃしない。",
+            "Does it annoy you when people comment on your appearance?" : "容姿のことでとやかく言われるとうんざりしませんか？"
+        }
+    ],
+    "apparently" : [
+        "(確証はないが)たぶん, どうも…らしい; (実際はさておき)外見上は, 見たところ, どう見ても; (思っていたことと違い)実は",
+        {
+            "Apparently, George is angry about the incident." : "聞いたところではジョージはその出来事について腹を立てているようだ。",
+            "He didn't come to the party, apparently, because of his wife's illness." : "彼はパーティに来なかったが, どうも奥さんの病気のせいらしい.",
+            "an apparently healthy baby" : "いかにも健康そうな赤ちゃん",
+            "He is apparently disappointed." : "彼はがっかりした様子だ.",
+            "Ken looks about 20, but apparently he's still 14." : "ケンは20歳くらいに見えるが, 実のところまだ14歳だ."
+        }
+    ]
+}
