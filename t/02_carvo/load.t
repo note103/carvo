@@ -29,7 +29,7 @@ subtest "read-course" => sub {
 
 subtest "read-card" => sub {
     # sample
-    $attr->{card_dir} = 'src/lesson/e_word';
+    $attr->{card_dir} = 'src/lesson/w_word';
 
     # got
     my $got_list_card = Selector::read_data('card', $attr);

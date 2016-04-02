@@ -8,10 +8,10 @@ use Carp;
 sub sample {
     my ($card_head_in, $card_filename, $card, $card_name, $card_dir);
     my ($dict, $fmt, $file, $lesson);
-    $lesson       = 'e';
+    $lesson       = 'w';
     $fmt          = 'yml';
     $card_head_in = 'fs';
-    $card_dir     = 'src/lesson/e_word';
+    $card_dir     = 'src/lesson/w_word';
     $card_name    = 'fast-and-slow';
 
     $card = "$card_dir/" . 'dict.yml';

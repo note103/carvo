@@ -27,7 +27,7 @@ $attr = {
 };
 
 subtest "std-io" => sub {
-    my $inputs = "e\n";
+    my $inputs = "w\n";
     open my $in, '<', \$inputs;
     local *STDIN = $in;
 
@@ -38,7 +38,7 @@ subtest "std-io" => sub {
     Carvo::course($attr, $data);
 
     like $output, qr/Please select a course./;
-    like $output, qr/e: word/;
+    like $output, qr/w: word/;
 
     close $in;
     close $out;

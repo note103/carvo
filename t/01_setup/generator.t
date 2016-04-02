@@ -15,10 +15,10 @@ subtest "yml" => sub {
     use YAML;
 
     # sample
-    $lesson       = 'e';
+    $lesson       = 'w';
     $fmt          = 'yml';
     $card_head = 'fs';
-    $card_dir     = 'src/lesson/e_word';
+    $card_dir     = 'src/lesson/w_word';
     $card_name    = 'fast-and-slow';
 
     # got
