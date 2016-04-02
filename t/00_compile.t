@@ -13,10 +13,10 @@ __DATA__
 Setup::Generator
 Setup::Data
 Carvo
-Carvo::English
-Carvo::Bookkeeping
+Printer
+Selector
+Carvo::Res
 Carvo::Run
 Carvo::Util
-Carvo::Speech
-Carvo::Run::Exit
-Carvo::Run::Save
+Carvo::Exit
+Carvo::Save

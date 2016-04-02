@@ -9,7 +9,7 @@ my ($dict, $fmt, $file, $lesson, $attr, $data);
 
 subtest "read-course" => sub {
     #got
-    my $got_list_course = Read::read_data('course', $attr);
+    my $got_list_course = Selector::read_data('course', $attr);
     my $expect_list_course;
 
     #expect
@@ -32,7 +32,7 @@ subtest "read-card" => sub {
     $attr->{card_dir} = 'src/lesson/e_word';
 
     # got
-    my $got_list_card = Read::read_data('card', $attr);
+    my $got_list_card = Selector::read_data('card', $attr);
     my $expect_list_card;
 
     # expect

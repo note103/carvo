@@ -1,10 +1,10 @@
-use 5.012;
 use strict;
+use warnings;
 use Test::More 0.98;
 use lib '../lib';
 use Carvo;
 use Setup::Generator;
-use Carp;
+use Carp 'croak';
 
 my ($card_head, $card_filename, $card, $card_name, $card_dir);
 my ($dict,         $fmt,           $file, $lesson);
@@ -54,11 +54,11 @@ subtest "json" => sub {
     use open qw/:utf8 :std/;
 
     # sample
-    $lesson       = 'p';
+    $lesson       = 's';
     $fmt          = 'json';
-    $card_head = 't';
-    $card_dir     = 'src/lesson/p_speech';
-    $card_name    = 'timcook';
+    $card_head = 's';
+    $card_dir     = 'src/lesson/s_sentence';
+    $card_name    = 'sample';
 
     # got
     ($got_dict, $got_fmt, $got_card_name)
@@ -83,9 +83,7 @@ subtest "json" => sub {
     $expect_dict = \%set_dict;
     close $fh;
 
-    diag 'got: ' . $got_dict->{'01'};
-    diag 'expect: ' . $expect_dict->{'01'};
-    is $got_dict->{'01'}, $expect_dict->{'01'}, 'dict_json';
+    is_deeply $got_dict, $expect_dict, 'dict_json';
 };
 
 done_testing;
