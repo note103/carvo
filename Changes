@@ -1,3 +1,13 @@
+v0.5.2 - 2 April 2016
+  Deprecates:
+  * Bookkeeping, Speech を削除
+    - 管理対象が大きいわりにあまり使わないため。今後必要な場合には別ツールへ分岐
+
+  Modifies:
+  * モジュール構成を変更
+    - ファイル名の改善
+  * テストの修正
+
 v0.5.0 - 19 January 2016
   Modifies:
   * モジュール構成を変更
