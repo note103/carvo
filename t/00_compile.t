@@ -1,6 +1,5 @@
 use strict;
 use Test::More;
-use lib '../lib';
 
 for (<DATA>) {
     chomp;

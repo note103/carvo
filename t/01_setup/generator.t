@@ -1,7 +1,6 @@
 use strict;
 use warnings;
 use Test::More 0.98;
-use lib '../lib';
 use Carvo;
 use Setup::Generator;
 use Carp 'croak';

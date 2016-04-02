@@ -1,6 +1,5 @@
 use strict;
 use Test::More 0.98;
-use lib '../../lib';
 use Carvo;
 use Carp;
 

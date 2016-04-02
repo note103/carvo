@@ -1,9 +1,8 @@
 use strict;
 use Test::More 0.98;
-use lib '../lib';
 use Carvo;
 use Carvo::Util;
-use Carp;
+use Carp 'croak';
 
 sub sample {
     my ($card_head_in, $card_filename, $card, $card_name, $card_dir);
