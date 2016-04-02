@@ -1,7 +1,7 @@
 Command:
     h   --help	ヘルプ一覧表示
     os  --order-swap	単語の並び順をランダム/辞書順で切り替え
-    vs  --voice-swap	読み上げ設定のon/off切り替え
+    vc  --voice-change	読み上げ設定のon/off切り替え
     x＋数字   	ヒントの文字数を設定（例: x2）
     l   --list	単語リストを表示
     数字    	任意の問題番号へジャンプ
