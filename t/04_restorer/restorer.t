@@ -1,6 +1,6 @@
 use strict;
 use Test::More 0.98;
-use Carvo::Save;
+use Carvo::Restorer;
 use Carp 'croak';
 use Time::Piece;
 use Path::Tiny;
@@ -24,8 +24,8 @@ my $data = {
 
 subtest "save-rv" => sub {
 
-    Save::save($attr, $data);
-    my ($got_attr, $got_data) = Save::rv($attr, $data);
+    Restorer::save($attr, $data);
+    my ($got_attr, $got_data) = Restorer::rv($attr, $data);
 
     path($save_path)->remove_tree;
 
@@ -36,7 +36,7 @@ subtest "save-rv" => sub {
 
 subtest "read-only" => sub {
 
-    my $got_save = Save::ro;
+    my $got_save = Restorer::ro;
 
     my $expect_save;
     my $files = path($dir_name)->iterator;

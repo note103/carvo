@@ -10,9 +10,9 @@ package Carvo {
     use Setup::Generator;
     use Carvo::Res;
     use Carvo::Util;
-    use Carvo::Run;
+    use Carvo::Command;
     use Carvo::Exit;
-    use Carvo::Save;
+    use Carvo::Restorer;
     use Selector;
     use Printer;
 
@@ -24,7 +24,7 @@ package Carvo {
 
         $data = Util::logs($data) unless (!$data);
         $data->{fail} = [];
-        $Run::quit = '' if (!$Run::quit);
+        $Command::quit = '' if (!$Command::quit);
 
         my $lists = Selector::read_data('course', $attr);
         Printer::print_menu('course', $lists);
@@ -104,7 +104,7 @@ package Carvo {
                             if ($attr->{speech} eq 'on');
                         say '';
                         Res->set($attr, $data);
-                        Carvo::course($attr, $data) if ($Run::quit eq 'qq');
+                        Carvo::course($attr, $data) if ($Command::quit eq 'qq');
                     }
                 }
             }

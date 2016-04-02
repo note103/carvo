@@ -10,7 +10,7 @@ package Res {
     sub set {
         my $class = shift;
         ($attr, $data) = @_;
-        Run::run($class, $attr, $data);
+        Command::run($class, $attr, $data);
     }
 
     sub proc {

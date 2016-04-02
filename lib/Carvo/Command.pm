@@ -1,4 +1,4 @@
-package Run {
+package Command {
     use strict;
     use warnings;
     use feature 'say';
@@ -105,15 +105,15 @@ package Run {
             }
             elsif ($selected_command =~ /^(sv|save|ro|read-only|rv|revert)$/) {
                 if ($selected_command =~ /^(sv|save)$/) {
-                    Save::save($attr, $data);
+                    Restorer::save($attr, $data);
                     print "$attr->{num}/$attr->{limit}\n";
                 }
                 elsif ($selected_command =~ /^(ro|read-only)$/) {
-                    my $save = Save::ro();
+                    my $save = Restorer::ro();
                     for (@{ $save->{saved_info} }) { say $_; }
                 }
                 elsif ($selected_command =~ /^(rv|revert)$/) {
-                    my $save = Save::ro();
+                    my $save = Restorer::ro();
                     for (@{ $save->{saved_info} }) { say $_; }
 
                     my $resp;
@@ -121,7 +121,7 @@ package Run {
 
                     chomp($attr->{selected_revert} = <STDIN>);
 
-                    ($attr, $data, $resp) = Save::rv($attr, $data);
+                    ($attr, $data, $resp) = Restorer::rv($attr, $data);
 
                     if ($resp eq 'on') {
                         say "You back to \"$attr->{card_name}\". ($attr->{num}/$attr->{limit})\n";

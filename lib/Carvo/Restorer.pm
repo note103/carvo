@@ -1,4 +1,4 @@
-package Save {
+package Restorer {
     use strict;
     use warnings;
     use feature 'say';
