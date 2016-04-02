@@ -1,20 +1,20 @@
 package Carvo {
-    use 5.12.0;
+    use strict;
     use warnings;
+    use feature 'say';
     use open ':utf8';
+
     use Time::Piece;
-    use Carp;
+    use Carp 'croak';
 
     use Setup::Generator;
-    use Carvo::English;
-    use Carvo::Speech;
-    use Carvo::Bookkeeping;
+    use Carvo::Res;
     use Carvo::Util;
     use Carvo::Run;
-    use Carvo::Run::Exit;
-    use Carvo::Run::Save;
-    use Read;
-    use Menu;
+    use Carvo::Exit;
+    use Carvo::Save;
+    use Selector;
+    use Printer;
 
     my $data_dir   = 'src';
     my $course_dir = "$data_dir/lesson";
@@ -26,8 +26,8 @@ package Carvo {
         $data->{fail} = [];
         $Run::quit = '' if (!$Run::quit);
 
-        my $lists = Read::read_data('course', $attr);
-        Menu::print_menu('course', $lists);
+        my $lists = Selector::read_data('course', $attr);
+        Printer::print_menu('course', $lists);
 
         while (my $in = <STDIN>) {
 
@@ -59,7 +59,7 @@ package Carvo {
                     last;
                 }
             }
-            Menu::print_menu('course', $lists);
+            Printer::print_menu('course', $lists);
         }
     }
 
@@ -68,8 +68,8 @@ package Carvo {
 
         $data = Util::logs($data) unless (!$data);
 
-        my $lists = Read::read_data('card', $attr);
-        Menu::print_menu('card', $lists);
+        my $lists = Selector::read_data('card', $attr);
+        Printer::print_menu('card', $lists);
 
         while (my $in = <STDIN>) {
             if ($in =~ /^(qq)$/) {
@@ -83,7 +83,7 @@ package Carvo {
             }
             elsif ($in =~ /^(.+)$/) {
                 $attr->{selected_card_head} = $1;
-                Read::read_data('card', $attr);
+                Selector::read_data('card', $attr);
                 for (keys %{ $attr->{cards} }) {
                     if ($attr->{selected_card_head} eq $_) {
                         $attr->{card_name} = $attr->{cards}->{ $attr->{selected_card_head} };
@@ -94,42 +94,21 @@ package Carvo {
                         );
 
                         $attr->{fail_sw} = 'off' if ($attr->{fail_sw} eq 'on');
-
-                        if ($attr->{selected_course_head} eq 'p') {
-
-                            $attr->{voice_swap} = 'value' if ($attr->{voice_swap} eq 'key');
-                            $attr->{order}      = 'order' if ($attr->{order} eq 'random');
-                            $data->{words} = Util::order($attr, $data)
-                                if ($attr->{order} eq 'random');
-                            $attr->{speech} = 'on' if ($attr->{speech} eq 'off');
-
-                            Speech->set($attr, $data);
-
-                        }
-                        else {
-
-                            $attr->{voice_swap} = Util::voice_swap($attr->{voice_swap})
-                                if ($attr->{voice_swap} eq 'value');
-                            $attr->{order} = Util::order_swap($attr->{order})
-                                if ($attr->{order} eq 'order');
-                            $data->{words} = Util::order($attr, $data)
-                                if ($attr->{order} eq 'order');
-                            $attr->{speech} = 'off'
-                                if ($attr->{speech} eq 'on');
-                            say '';
-
-                            if ($attr->{selected_course_head} eq 'b') {
-                                Bookkeeping->set($attr, $data);
-                            }
-                            else {
-                                English->set($attr, $data);
-                            }
-                        }
+                        $attr->{voice_swap} = Util::voice_swap($attr->{voice_swap})
+                            if ($attr->{voice_swap} eq 'value');
+                        $attr->{order} = Util::order_swap($attr->{order})
+                            if ($attr->{order} eq 'order');
+                        $data->{words} = Util::order($attr, $data)
+                            if ($attr->{order} eq 'order');
+                        $attr->{speech} = 'off'
+                            if ($attr->{speech} eq 'on');
+                        say '';
+                        Res->set($attr, $data);
                         Carvo::course($attr, $data) if ($Run::quit eq 'qq');
                     }
                 }
             }
-            Menu::print_menu('card', $lists);
+            Printer::print_menu('card', $lists);
         }
     }
 }

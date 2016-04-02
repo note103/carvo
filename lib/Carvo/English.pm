@@ -1,6 +1,7 @@
-package English {
-    use 5.12.0;
+package Res {
+    use strict;
     use warnings;
+    use feature 'say';
     use utf8;
 
     my ($attr, $data, $key, $clean);

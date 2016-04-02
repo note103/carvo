@@ -1,27 +1,27 @@
 package Generator {
-    use 5.12.0;
+    use strict;
     use warnings;
-    use Carp;
+    use Carp 'croak';
 
     sub switch {
-        use YAML;
+        use YAML::XS;
         use JSON;
         use Encode;
         use open qw/:utf8 :std/;
-        use Path::Tiny;
 
         my ($fh, $dict, $card);
         my ($lesson, $fmt, $card_head, $card_dir, $card_name) = @_;
 
-        my $card_iter = path($card_dir)->iterator;
-        while (my $file = $card_iter->()) {
+        opendir (my $card_iter, $card_dir) or croak("Cant opendir $card_dir.");
+        for my $file (readdir $card_iter) {
             if ($file =~ /\.$fmt$/) {
-                $dict = $file;
+                $dict = $card_dir.'/'.$file;
             }
             elsif ($file =~ /$card_head\_.+\.txt$/) {
-                $card = $file;
+                $card = $card_dir.'/'.$file;
             }
         }
+        closedir $card_iter;
 
         if ($fmt eq 'yml') {
             $dict = YAML::LoadFile($dict);
@@ -33,7 +33,7 @@ package Generator {
             close $fh;
         }
 
-        open $fh, '<', $card or croak("Can't open card file.");
+        open $fh, '<', $card or croak("Can't open $card file.");
         my %set_dict;
         for (<$fh>) {
             chomp;
@@ -45,4 +45,5 @@ package Generator {
         return ($set_dict, $fmt, $card_name);
     }
 }
+
 1;

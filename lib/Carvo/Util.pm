@@ -106,7 +106,7 @@ package Util {
 
     sub jump {
         my ($attr) = @_;
-        $attr->{num}      = int(rand($attr->{limit} + 1));
+        $attr->{num}        = int(rand($attr->{limit} + 1));
         $attr->{num_buffer} = $attr->{num};
         return ($attr);
     }
@@ -197,11 +197,11 @@ package Util {
             my %unique = map { $_ => 1 } @fail;
             my @fail_words = keys %unique;
             chomp @fail_words;
-            @words            = @fail_words;
-            $attr->{limit}    = @words;
-            $data->{words}    = \@words;
+            @words              = @fail_words;
+            $attr->{limit}      = @words;
+            $data->{words}      = \@words;
             $attr->{num_normal} = $attr->{num_buffer};
-            $attr->{num}      = 1;
+            $attr->{num}        = 1;
             $attr->{num_buffer} = $attr->{num};
         }
 
@@ -214,9 +214,9 @@ package Util {
         print "You turned back to normal mode.\n";
         $attr->{fail_sw} = 'off';
         my @words = @{ $data->{words_back} };
-        $attr->{limit}    = @words;
-        $data->{words}    = \@words;
-        $attr->{num}      = $attr->{num_normal};
+        $attr->{limit}      = @words;
+        $data->{words}      = \@words;
+        $attr->{num}        = $attr->{num_normal};
         $attr->{num_buffer} = $attr->{num};
 
         return ($attr, $data);

@@ -1,18 +1,11 @@
-package Menu {
-    use 5.12.0;
+package Printer {
+    use strict;
     use warnings;
+    use feature 'say';
     use open ':utf8';
-    use Time::Piece;
-    use Carp;
 
-    use Setup::Generator;
-    use Carvo::English;
-    use Carvo::Speech;
-    use Carvo::Bookkeeping;
-    use Carvo::Util;
-    use Carvo::Run;
-    use Carvo::Run::Exit;
-    use Carvo::Run::Save;
+    use Time::Piece;
+    use Carp 'croak';
 
     my $data_dir   = 'src';
     my $course_dir = "$data_dir/lesson";

@@ -1,10 +1,10 @@
-package Read {
-    use 5.12.0;
+package Selector {
+    use strict;
     use warnings;
     use open ':utf8';
     use Time::Piece;
-    use Carp;
-    use Path::Tiny;
+    use Carp 'croak';
+    use File::Slurp 'read_dir';
 
     sub read_data {
         my ($stage, $attr) = @_;
@@ -14,8 +14,10 @@ package Read {
 
         if ($stage eq 'course') {
             $lists->{course_list} = [];
-            my $course_iter = path($course_dir)->iterator;
-            while (my $course_filename = $course_iter->()) {
+
+            my @course_iter = read_dir($course_dir);
+            for (@course_iter) {
+                my $course_filename = $course_dir.'/'.$_;
                 if ($course_filename =~ /[^(\.DS)](\w+)_(\w+)$/) {
                     ($attr->{course_head}, $attr->{course_name}) = ($1, $2);
                     $attr->{courses}->{ $attr->{course_head} } = $attr->{course_name};
@@ -25,9 +27,9 @@ package Read {
         }
         elsif ($stage eq 'card') {
             $lists->{card_list} = [];
-            my $card_iter = path($attr->{card_dir})->iterator;
-            while (my $path = $card_iter->()) {
-                my $card_filename = $path->basename;
+
+            my @course_iter = read_dir($attr->{card_dir});
+            for my $card_filename (@course_iter) {
                 if ($card_filename =~ /^(\w+)_(.*)\.txt$/) {
                     ($attr->{card_head}, $attr->{card_name}) = ($1, $2);
                     $attr->{cards}->{ $attr->{card_head} } = $attr->{card_name};

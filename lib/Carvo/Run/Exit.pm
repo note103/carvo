@@ -1,17 +1,18 @@
 package Exit {
-    use 5.12.0;
+    use strict;
     use warnings;
-    use Time::Piece;
-    use Carp 'croak';
+    use feature 'say';
+
     use open ':utf8';
+    use Carp 'croak';
+    use Time::Piece;
 
     my $result;
 
     sub record {
         my ($attr, $data) = @_;
 
-        $result
-            = "$attr->{total}\ttimes\n$attr->{point}\thits\n$attr->{miss}\terrors\n";
+        $result = "$attr->{total}\ttimes\n$attr->{point}\thits\n$attr->{miss}\terrors\n";
 
         my $log_record = logs($data, $result);
 

@@ -1,18 +1,22 @@
 package Save {
-    use 5.12.0;
+    use strict;
     use warnings;
-    use Encode;
+    use feature 'say';
+
     use open ':utf8';
     binmode STDOUT, ':utf8';
+    use Encode;
     use JSON;
     use YAML;
-    use Carp qw/croak/;
+
+    use Carp 'croak';
     use Time::Piece;
+    use File::Slurp qw/read_dir read_file/;
+    use File::Path 'mkpath';
 
     my $dir_name = 'src/save';
 
     sub save {
-        use File::Path;
 
         my ($attr, $data) = @_;
         my ($file_num, $file_words, $file_dict, $file_cardname, $file_fail);
@@ -23,6 +27,7 @@ package Save {
         my $save_path = "$dir_name/$datetime";
 
         mkpath($save_path);
+
         $file_num = "$save_path/num.txt";
         open my $fh_print_num, '>', $file_num or croak("Can't open saving num file: $!");
         print $fh_print_num $attr->{num};
@@ -64,44 +69,36 @@ package Save {
         print $fh_print_cardname $attr->{card_name};
         close $fh_print_cardname;
         close $fh_print_dict;
+
+        return ($attr, $data);
     }
 
     sub ro {
 
         my $save;
-        opendir(my $dirh, $dir_name) or croak("Can't open file: $!");
-
-        for my $saved_datetime (readdir $dirh) {
-            if ($saved_datetime =~ /^\./) {
-                next;
-            }
-            else {
+        my @dirh = read_dir($dir_name);
+        for my $saved_datetime (@dirh) {
+            if ($saved_datetime =~ /(\d[\d-]+\d)$/) {
+                $saved_datetime = $1;
                 my $save_path = $dir_name . '/' . $saved_datetime;
-                my ($read_num, $read_words, $read_cardname, $read_limit);
+
                 my ($file_num, $file_words, $file_cardname);
+                my ($read_num, $read_words, $read_cardname, $read_limit);
 
                 $file_num = "$save_path/num.txt";
-                open my $fh_read_num, '<', $file_num
-                    or croak("Can't open saved num file: $!");
-                $read_num = <$fh_read_num>;
-                close $fh_read_num;
+                $read_num = read_file($file_num);
 
                 $file_words = "$save_path/words.txt";
-                open my $fh_read_words, '<', $file_words
-                    or croak("Can't open saved words file: $!");
-                my @words = <$fh_read_words>;
-                close $fh_read_words;
+                my $fh_read_words = read_file($file_words);
 
+                my @words = split /\n/, $fh_read_words;
                 $read_limit = @words;
 
                 for (@words) { chomp; $saved_datetime =~ s/^\n//; }
                 $read_words = \@words;
 
                 $file_cardname = "$save_path/cardname.txt";
-                open my $fh_read_cardname, '<', $file_cardname
-                    or croak("Can't open saved cardname file: $!");
-                $read_cardname = <$fh_read_cardname>;
-                close $fh_read_cardname;
+                $read_cardname = read_file($file_cardname);
 
                 push @{ $save->{saved_info} },
                     $saved_datetime . " -> $read_cardname: $read_num/$read_limit";
@@ -112,7 +109,6 @@ package Save {
 
             }
         }
-        closedir $dirh;
 
         return $save;
     }
