@@ -29,10 +29,6 @@ subtest "save-rv" => sub {
 
     path($save_path)->remove_tree;
 
-    use DDP {deparse => 1};
-    p $got_attr;
-    p $attr;
-
     is_deeply $got_attr, $attr, 'save_attr';
     is_deeply $got_data, $data, 'save_data';
 
