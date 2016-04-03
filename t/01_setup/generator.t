@@ -11,13 +11,13 @@ my ($got_dict,     $got_fmt,       $got_card_name);
 my $expect_dict;
 
 subtest "yml" => sub {
-    use YAML;
+    use YAML::XS;
 
     # sample
     $lesson       = 'w';
     $fmt          = 'yml';
     $card_head = 'fs';
-    $card_dir     = 'src/lesson/w_word';
+    $card_dir     = 'src/lesson';
     $card_name    = 'fast-and-slow';
 
     # got
@@ -47,17 +47,20 @@ subtest "yml" => sub {
 };
 
 
+done_testing;
+
+__END__
 subtest "json" => sub {
     use Encode;
     use JSON;
     use open qw/:utf8 :std/;
 
     # sample
-    $lesson       = 's';
+    $lesson       = 'p';
     $fmt          = 'json';
-    $card_head = 's';
-    $card_dir     = 'src/lesson/s_sentence';
-    $card_name    = 'sample';
+    $card_head = 't';
+    $card_dir     = 'src/lesson/p_speech';
+    $card_name    = 'timcook';
 
     # got
     ($got_dict, $got_fmt, $got_card_name)
@@ -67,12 +70,14 @@ subtest "json" => sub {
     is $got_card_name, $card_name, 'card_name_json';
 
     $dict = "$card_dir/" . 'dict.json';
-    open my $fh, '<', $dict or croak("Can't open JSON dict file.");
+    open my $fh, '<', $dict or croak("Can't open JSON $dict file.");
     my $json = do { local $/; <$fh> };
     my $tmp_dict = decode_json(encode('utf8', $json));
     close $fh;
 
     $card = "$card_dir/".$card_head.'_'."$card_name.txt";
+    use feature 'say';
+    say $card;
     open $fh, '<', $card or croak("Can't open JSON card file.");
     my %set_dict;
     for (<$fh>) {
@@ -84,6 +89,3 @@ subtest "json" => sub {
 
     is_deeply $got_dict, $expect_dict, 'dict_json';
 };
-
-done_testing;
-

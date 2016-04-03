@@ -15,7 +15,6 @@ $attr = {
     num_normal => 0,
     
     voice      => 'say',
-    voice_swap => 'key',
     
     extr       => 3,
     log_record => 'on',
@@ -34,10 +33,10 @@ subtest "std-io" => sub {
     open my $out, '>', \$output;
     local *STDOUT = $out;
 
-    Carvo::course($attr, $data);
+    Carvo::card($attr, $data);
 
-    like $output, qr/Please select a course./;
-    like $output, qr/w: word/;
+    like $output, qr/Please select a card./;
+    like $output, qr/da: daily/;
 
     close $in;
     close $out;

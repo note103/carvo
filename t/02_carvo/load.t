@@ -6,32 +6,12 @@ use Carp;
 my ($card_head_in, $card_filename, $card, $card_name, $card_dir, $course_dir, $lists);
 my ($dict, $fmt, $file, $lesson, $attr, $data);
 
-subtest "read-course" => sub {
-    #got
-    my $got_list_course = Selector::read_data('course', $attr);
-    my $expect_list_course;
-
-    #expect
-    $course_dir = "src/lesson";
-    opendir(my $dirh, $course_dir)
-        or croak("Can't opendir $course_dir: $!");
-    for my $course_filename (readdir $dirh) {
-        if ($course_filename =~ /^(\w+)_(\w+)$/) {
-            ($attr->{course_head}, $attr->{course_name}) = ($1, $2);
-            $attr->{courses}->{ $attr->{course_head} } = $attr->{course_name};
-            push @{ $expect_list_course->{course_list} }, "$attr->{course_head}: $attr->{course_name}";
-        }
-    }
-    closedir $dirh;
-    is_deeply $got_list_course, $expect_list_course, 'read_course';
-};
-
-subtest "read-card" => sub {
+subtest "read_card" => sub {
     # sample
-    $attr->{card_dir} = 'src/lesson/w_word';
+    $attr->{card_dir} = 'src/lesson';
 
     # got
-    my $got_list_card = Selector::read_data('card', $attr);
+    my $got_list_card = Selector::read($attr);
     my $expect_list_card;
 
     # expect

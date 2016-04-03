@@ -1,15 +1,12 @@
 use strict;
 use Test::More 0.98;
-use Carvo::Restorer;
 use Carp 'croak';
 use Time::Piece;
 use Path::Tiny;
+use Carvo::Restorer;
 
 my $datetime = localtime->datetime(T => '-');
 $datetime =~ s/(\d{4}-\d{2}-\d{2}-\d{2}):(\d{2}):(\d{2})/$1-$2-$3/;
-
-my $dir_name = 'src/save';
-my $save_path = "$dir_name/$datetime";
 
 my $attr = {
     'num' => 2,
@@ -22,16 +19,18 @@ my $data = {
     'fail' => [qw/abroad acclaim accomplish/],
 };
 
-subtest "save-rv" => sub {
+my $dir_name = 'src/save';
+my $save_path = "$dir_name/$datetime";
+
+subtest "restorer" => sub {
 
     Restorer::save($attr, $data);
-    my ($got_attr, $got_data) = Restorer::rv($attr, $data);
+    my ($got_attr, $got_data) = Restorer::rs($attr, $data);
 
     path($save_path)->remove_tree;
 
     is_deeply $got_attr, $attr, 'save_attr';
     is_deeply $got_data, $data, 'save_data';
-
 };
 
 subtest "read-only" => sub {

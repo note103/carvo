@@ -7,10 +7,9 @@ use Carp 'croak';
 sub sample {
     my ($card_head_in, $card_filename, $card, $card_name, $card_dir);
     my ($dict, $fmt, $file, $lesson);
-    $lesson       = 'w';
     $fmt          = 'yml';
     $card_head_in = 'fs';
-    $card_dir     = 'src/lesson/w_word';
+    $card_dir     = 'src/lesson';
     $card_name    = 'fast-and-slow';
 
     $card = "$card_dir/" . 'dict.yml';
@@ -18,7 +17,7 @@ sub sample {
 
     $card_filename = "$card_dir/" . $card_head_in . '_' . "$card_name.txt";
 
-    open my $fh, '<', $card_filename or croak("Can't open file.");
+    open my $fh, '<', $card_filename or croak("Can't open file $card_filename.");
     my @card_names = <$fh>;
     close $fh;
     my %set_dict;
