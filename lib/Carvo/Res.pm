@@ -96,8 +96,7 @@ package Res {
                         push @{ $data->{log} }, $ans if ($attr->{log_record} eq 'on');
                     }
                 }
-                $clean = $key;
-                $clean = Util::clean($clean);
+                $clean = Util::clean($key);
                 print `$attr->{voice} $clean` if $attr->{voice_ch} eq 'on';
             }
         }
@@ -109,13 +108,7 @@ package Res {
             elsif ($qa_switch eq 'a') {
                 print $ans = "$key($attr->{num}): $data->{dict}->{$key}\n";
                 push @{ $data->{log} }, $ans if ($attr->{log_record} eq 'on');
-                if ($attr->{voice_swap} eq 'key') {
-                    $clean = $key;
-                }
-                else {
-                    $clean = $data->{dict}->{$key};
-                }
-                $clean = Util::clean($clean);
+                $clean = Util::clean($key);
                 print `$attr->{voice} $clean` if $attr->{voice_ch} eq 'on';
             }
         }

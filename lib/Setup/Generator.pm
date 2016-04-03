@@ -1,24 +1,25 @@
 package Generator {
     use strict;
     use warnings;
+    use feature 'say';
+
+    use open qw/:utf8 :std/;
     use Carp 'croak';
+    use YAML;
+    use JSON;
+    use Encode;
 
     sub switch {
-        use YAML::XS;
-        use JSON;
-        use Encode;
-        use open qw/:utf8 :std/;
-
         my ($fh, $dict, $card);
         my ($lesson, $fmt, $card_head, $card_dir, $card_name) = @_;
 
-        opendir (my $card_iter, $card_dir) or croak("Cant opendir $card_dir.");
+        opendir(my $card_iter, $card_dir) or croak("Can't opendir $card_dir.");
         for my $file (readdir $card_iter) {
             if ($file =~ /\.$fmt$/) {
-                $dict = $card_dir.'/'.$file;
+                $dict = $card_dir . '/' . $file;
             }
             elsif ($file =~ /$card_head\_.+\.txt$/) {
-                $card = $card_dir.'/'.$file;
+                $card = $card_dir . '/' . $file;
             }
         }
         closedir $card_iter;
@@ -26,7 +27,7 @@ package Generator {
         if ($fmt eq 'yml') {
             $dict = YAML::LoadFile($dict);
         }
-        else {
+        elsif ($fmt eq 'json') {
             open my $fh, '<', $dict or croak("Can't open JSON file.");
             my $json = do { local $/; <$fh> };
             $dict = decode_json(encode('utf8', $json));

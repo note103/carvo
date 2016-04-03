@@ -1,6 +1,7 @@
 package Data {
-    use 5.12.0;
+    use strict;
     use warnings;
+    use feature 'say';
     use lib 'lib';
 
     sub init {
@@ -14,14 +15,12 @@ package Data {
             num_normal => 0,
 
             voice      => 'say',
-            voice_swap => 'key',
             voice_ch => 'off',
 
             extr       => 3,
             log_record => 'on',
             order      => 'random',
             fail_sw    => 'off',
-            speech     => 'off',
             quit     => '',
         );
         return \%attr;

@@ -17,7 +17,6 @@ package Restorer {
     my $dir_name = 'src/save';
 
     sub save {
-
         my ($attr, $data) = @_;
         my ($file_num, $file_words, $file_dict, $file_cardname, $file_fail);
 
@@ -74,7 +73,6 @@ package Restorer {
     }
 
     sub ro {
-
         my $save;
         my @dirh = read_dir($dir_name);
         for my $saved_datetime (@dirh) {
@@ -106,14 +104,13 @@ package Restorer {
                 push @{ $save->{$saved_datetime}->{card_name} }, $read_cardname;
                 push @{ $save->{$saved_datetime}->{num} },       $read_num;
                 push @{ $save->{$saved_datetime}->{limit} },     $read_limit;
-
             }
         }
 
         return $save;
     }
 
-    sub rv {
+    sub rs {
         my ($attr, $data) = @_;
 
         my $save = ro();
@@ -122,7 +119,7 @@ package Restorer {
         my @saved_datetime = @{ $save->{saved_datetime} };
 
         while (my $saved_datetime = <@saved_datetime>) {
-            if ($saved_datetime =~ /$attr->{selected_revert}\z/) {
+            if ($saved_datetime =~ /$attr->{selected_restore}\z/) {
                 push @matched_dir, $saved_datetime;
             }
         }

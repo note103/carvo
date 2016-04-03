@@ -2,6 +2,7 @@ package Command {
     use strict;
     use warnings;
     use feature 'say';
+
     use utf8;
     use open ':utf8';
     binmode STDOUT, ':utf8';
@@ -90,20 +91,16 @@ package Command {
                 $class->repl('q', $attr, $data);
                 ($attr, $data) = $class->proc($attr, $data);
             }
-            elsif ($selected_command =~ /^(os|order-swap)$/) {
+            elsif ($selected_command =~ /^(o|order-swap)$/) {
                 $attr->{order} = Util::order_swap($attr->{order});
                 $data->{words} = Util::order($attr, $data);
                 print "\n$msg{usual}\n";
             }
-            elsif ($selected_command =~ /^(vc|voice-change)$/) {
+            elsif ($selected_command =~ /^(v|voice-change)$/) {
                 $attr->{voice_ch} = Util::voice_ch($attr->{voice_ch});
                 print "\n$msg{usual}\n";
             }
-            elsif ($selected_command =~ /^(vs|voice-swap)$/) {
-                $attr->{voice_swap} = Util::voice_swap($attr->{voice_swap});
-                print "\n$msg{usual}\n";
-            }
-            elsif ($selected_command =~ /^(sv|save|ro|read-only|rv|revert)$/) {
+            elsif ($selected_command =~ /^(sv|save|ro|read-only|rs|restore)$/) {
                 if ($selected_command =~ /^(sv|save)$/) {
                     Restorer::save($attr, $data);
                     print "$attr->{num}/$attr->{limit}\n";
@@ -112,16 +109,16 @@ package Command {
                     my $save = Restorer::ro();
                     for (@{ $save->{saved_info} }) { say $_; }
                 }
-                elsif ($selected_command =~ /^(rv|revert)$/) {
+                elsif ($selected_command =~ /^(rs|restore)$/) {
                     my $save = Restorer::ro();
                     for (@{ $save->{saved_info} }) { say $_; }
 
                     my $resp;
                     say "\nInput a saved date-time.\n";
 
-                    chomp($attr->{selected_revert} = <STDIN>);
+                    chomp($attr->{selected_restore} = <STDIN>);
 
-                    ($attr, $data, $resp) = Restorer::rv($attr, $data);
+                    ($attr, $data, $resp) = Restorer::rs($attr, $data);
 
                     if ($resp eq 'on') {
                         say "You back to \"$attr->{card_name}\". ($attr->{num}/$attr->{limit})\n";

@@ -1,9 +1,11 @@
 package Util {
-    use 5.12.0;
+    use strict;
     use warnings;
-    use utf8;
-    use open ':utf8';
+    use feature 'say';
+
     binmode STDOUT, ':utf8';
+    use open ':utf8';
+    use utf8;
 
     sub result {
         my ($attr, $data) = @_;
@@ -42,49 +44,22 @@ package Util {
         my ($data, $attr) = @_;
 
         my @list;
-        if ($attr->{speech} eq 'on') {
-            my @arr;
-            if ($attr->{fail_sw} eq 'off') {
-                for (sort keys %{ $data->{dict} }) {
-                    push @arr, ${ $data->{dict} }{$_};
-                }
+        if ($attr->{fail_sw} eq 'off') {
+            for (sort keys %{ $data->{dict} }) {
+                push @list, $_;
             }
-            elsif ($attr->{fail_sw} eq 'on') {
-                my %unique = map { $_ => 1 } @{ $data->{words} };
-                for (sort keys %unique) {
-                    chomp;
-                    push @arr, $_;
-                }
-            }
-            for (@arr) {
-                my $l = length($_);
-                my $s = substr($_, 0, 70);
-                my $d = '...';
-                $d = '' if ($l < 70);
-                push @list, "($l): $s $d";
-            }
-            say '';
-            my $i = 1;
-            for (@list) { print "$i $_\n"; $i++; }
         }
-        else {
-            if ($attr->{fail_sw} eq 'off') {
-                for (sort keys %{ $data->{dict} }) {
-                    push @list, $_;
-                }
+        elsif ($attr->{fail_sw} eq 'on') {
+            my %unique = map { $_ => 1 } @{ $data->{words} };
+            for (sort keys %unique) {
+                chomp;
+                push @list, $_;
             }
-            elsif ($attr->{fail_sw} eq 'on') {
-                my %unique = map { $_ => 1 } @{ $data->{words} };
-                for (sort keys %unique) {
-                    chomp;
-                    push @list, $_;
-                }
-            }
-            for (@list) {
-                my $num_get = num_get($_, \@{ $data->{words} });
-                my $num_tmp = $num_get + 1;
-                print "$_: $num_tmp\n";
-            }
+        }
+        for (@list) {
+            my $num_get = num_get($_, \@{ $data->{words} });
+            my $num_tmp = $num_get + 1;
+            print "$_: $num_tmp\n";
         }
     }
 
@@ -152,19 +127,6 @@ package Util {
         }
 
         return $voice_ch;
-    }
-
-    sub voice_swap {
-        my $voice_swap = shift;
-
-        if ($voice_swap eq 'key') {
-            $voice_swap = 'value';
-        }
-        else {
-            $voice_swap = 'key';
-        }
-
-        return $voice_swap;
     }
 
     sub clean {
