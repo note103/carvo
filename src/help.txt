@@ -1,16 +1,15 @@
 Command:
     h   --help	ヘルプ一覧表示
-    os  --order-swap	単語の並び順をランダム/辞書順で切り替え
-    vc  --voice-change	読み上げ設定のon/off切り替え
-    x＋数字   	ヒントの文字数を設定（例: x2）
-    l   --list	単語リストを表示
-    数字    	任意の問題番号へジャンプ
-    s   --same	直前の設問を再表示
-    f   --fail	誤答リストへ移動
     b   --back	通常リストへ戻る
-    sv  --save	最後に回答した語句（番号）をセーブ
-    ro  --read-only	セーブした語句へ復帰
-    rv  --revert	セーブした語句へ復帰
+    f   --fail	誤答リストへ移動
+    l   --list	単語リストを表示
+    o   --order-swap	単語の並び順をランダム/辞書順で切り替え
     q   --quit	進行中のレッスンを終了
     qq  	2段階一斉終了
-    qqq 	3段階一斉終了
+    ro  --read-only	セーブした語句へ復帰
+    rs  --restore	セーブした語句へ復帰
+    s   --same	直前の設問を再表示
+    sv  --save	最後に回答した語句（番号）をセーブ
+    v   --voice-change	読み上げ設定のon/off切り替え
+    x＋数字   	ヒントの文字数を設定（例: x2）
+    数字    	任意の問題番号へジャンプ
