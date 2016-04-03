@@ -116,7 +116,7 @@ subtest "help" => sub {
     my $got = Util::help();
 
     # expect
-    open my $fh_help, '<', 'src/help.txt' or die $!;
+    open my $fh_help, '<', 'doc/carvo.txt' or die $!;
     my $expect = do { local $/; <$fh_help> };
     close $fh_help;
 
