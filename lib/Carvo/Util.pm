@@ -33,7 +33,7 @@ package Util {
     sub help {
         use Carp 'croak';
 
-        open my $fh_help, '<', 'src/help.txt' or croak("Can't open file");
+        open my $fh_help, '<', 'doc/carvo.txt' or croak("Can't open file");
         my $help = do { local $/; <$fh_help> };
         close $fh_help;
 
