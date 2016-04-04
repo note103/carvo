@@ -46,6 +46,7 @@ package Res {
                     print "\nGood!!\n";
                     $data->{log} = $class->repl('a', $attr, $data);
                     print $data->{result} = Util::result($attr, $data);
+                    print "$msg_usual\n";
                     last;
                 }
                 else {

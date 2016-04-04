@@ -118,17 +118,23 @@ package Restorer {
         my @matched_dir;
         my @saved_datetime = @{ $save->{saved_datetime} };
 
+        if ($attr->{selected_restore} eq '') {
+            say "Canceled.";
+            return ($attr, $data, 'off');
+        }
+
         while (my $saved_datetime = <@saved_datetime>) {
             if ($saved_datetime =~ /$attr->{selected_restore}\z/) {
                 push @matched_dir, $saved_datetime;
             }
         }
+        my $matched_count = scalar(@matched_dir);
 
-        if (scalar(@matched_dir) == 0) {
+        if ($matched_count == 0) {
             say "\nNo such data.";
             return ($attr, $data, 'off');
         }
-        elsif (scalar(@matched_dir) >= 2) {
+        elsif ($matched_count >= 2) {
             my ($file_num, $file_words, $file_cardname);
 
             for (@matched_dir) {
@@ -136,7 +142,8 @@ package Restorer {
                     . " -> $save->{$_}->{card_name}[0]: $save->{$_}->{num}[0]/$save->{$_}->{limit}[0]";
             }
             say "\nSelect unique query.";
-            return ($attr, $data, 'off');
+            chomp($attr->{selected_restore} = <STDIN>);
+            rs($attr, $data);
         }
         elsif (scalar(@matched_dir) == 1) {
 

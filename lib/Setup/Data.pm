@@ -2,7 +2,6 @@ package Data {
     use strict;
     use warnings;
     use feature 'say';
-    use lib 'lib';
 
     sub init {
         my %attr = (

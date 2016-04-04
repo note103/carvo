@@ -28,14 +28,11 @@ package Carvo {
             if ($in =~ /^(q+|quit)$/) {
                 Exit::record($attr, $data);
             }
-            elsif ($in =~ /^(e|edit)$/) {
-                print `open $course_dir`;
-            }
             elsif ($in =~ /^(r|result)$/) {
-                print `open $data_dir/log/result*`;
+                system "vi $data_dir/log/result.txt";
             }
             elsif ($in =~ /^(l|log)$/) {
-                print `open $data_dir/log/log*`;
+                system "vi $data_dir/log/log.txt";
             }
             elsif ($in =~ /^(.+)$/) {
                 $attr->{selected_card_head} = $1;

@@ -9,7 +9,7 @@ package Printer {
 
     sub print {
         my $lists = shift;
-        my @command_card = ('e: edit', 'r: result', 'l: log', 'q: exit');
+        my @command_card = ('r: result', 'l: log', 'q: exit');
 
         say "Please select a card.\n";
         say "card: ";
