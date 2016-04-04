@@ -8,11 +8,11 @@ package Command {
     binmode STDOUT, ':utf8';
 
     my %msg = (
-        usual     => 'enter or input a command or check help(h).',
-        limit     => "you can choose a number from 1-",
-        random    => "this is random select.",
-        move_card => "if you need to restart that, push 'q' and move there.",
-        correct   => "please input a correct one.",
+        usual     => 'Enter or input a command or check help(h).',
+        limit     => "You can choose a number from 1-",
+        random    => "This is random select.",
+        move_card => "If you need to restart that, push 'q' and move there.",
+        correct   => "Please input a correct one.",
     );
 
     sub run {
@@ -33,11 +33,11 @@ package Command {
         while (my $selected_command = <>) {
             $selected_command = $1 if ($selected_command =~ /^--(.+)$/);
 
-            if ($selected_command =~ /^(q{1,3}|quit)$/) {
+            if ($selected_command =~ /^(q{1,2}|quit)$/) {
                 our $quit = $1;
                 $attr->{total}      = $attr->{point} + $attr->{miss};
                 $attr->{num_buffer} = 0;
-                if ($quit eq 'qqq') {
+                if ($quit eq 'qq') {
                     $data = Util::logs($data);
                     Exit::record($attr, $data);
                 }
@@ -72,16 +72,6 @@ package Command {
                     ($attr, $data) = $class->proc($attr, $data);
                 }
             }
-            elsif ($selected_command =~ /^x(\d+)$/) {
-                $attr->{extr} = $1;
-                print "You changed the figure extracted character $attr->{extr}.\n";
-                print "$msg{usual}\n";
-            }
-            elsif ($selected_command =~ /^(h|help)$/) {
-                say Util::help();
-                print "\n$msg{limit}" . $attr->{limit} . "\n";
-                print "$msg{usual}\n";
-            }
             elsif ($selected_command =~ /^(l|list)$/) {
                 Util::list($data, $attr);
                 print "\n$msg{limit}" . $attr->{limit} . "\n$msg{usual}\n";
@@ -90,11 +80,6 @@ package Command {
                 $attr->{num} = $attr->{num_buffer};
                 $class->repl('q', $attr, $data);
                 ($attr, $data) = $class->proc($attr, $data);
-            }
-            elsif ($selected_command =~ /^(o|order-swap)$/) {
-                $attr->{order} = Util::order_swap($attr->{order});
-                $data->{words} = Util::order($attr, $data);
-                print "\n$msg{usual}\n";
             }
             elsif ($selected_command =~ /^(v|voice-change)$/) {
                 $attr->{voice_ch} = Util::voice_ch($attr->{voice_ch});
@@ -108,6 +93,7 @@ package Command {
                 elsif ($selected_command =~ /^(ro|read-only)$/) {
                     my $save = Restorer::ro();
                     for (@{ $save->{saved_info} }) { say $_; }
+                    print "\n$msg{limit}" . $attr->{limit} . "\n$msg{usual}\n";
                 }
                 elsif ($selected_command =~ /^(rs|restore)$/) {
                     my $save = Restorer::ro();
@@ -125,9 +111,10 @@ package Command {
                         $attr->{num_buffer} = $attr->{num};
                         $class->repl('q', $attr, $data);
                         ($attr, $data) = $class->proc($attr, $data);
+                    } elsif ($resp eq 'off') {
+                        print "\n$msg{limit}" . $attr->{limit} . "\n$msg{usual}\n";
                     }
                 }
-                print "\n$msg{usual}\n";
             }
             elsif ($selected_command =~ /^(f|fail)$/) {
                 ($attr, $data) = Util::fail($attr, $data);
@@ -136,6 +123,11 @@ package Command {
             elsif ($selected_command =~ /^(b|back)$/) {
                 ($attr, $data) = Util::back($attr, $data);
                 print "\n$msg{limit}" . $attr->{limit} . "\n$msg{usual}\n";
+            }
+            elsif ($selected_command =~ /^(h|help)$/) {
+                say Util::help();
+                print "\n$msg{limit}" . $attr->{limit} . "\n";
+                print "$msg{usual}\n";
             }
             else {
                 print "\n$msg{correct}\n";
