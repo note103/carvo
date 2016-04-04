@@ -6,7 +6,6 @@ package Restorer {
     use open ':utf8';
     binmode STDOUT, ':utf8';
     use Encode;
-    use JSON;
     use YAML;
 
     use Carp 'croak';
@@ -53,14 +52,8 @@ package Restorer {
         $file_dict = "$save_path/save.txt";
         open my $fh_print_dict, '>', $file_dict
             or croak("Can't open saving dict file: $!");
-        if ($attr->{fmt} eq 'yml') {
-            my $yaml = YAML::Dump($data->{dict});
-            print $fh_print_dict $yaml;
-        }
-        else {
-            my $json = decode('utf8', encode_json($data->{dict}));
-            print $fh_print_dict $json;
-        }
+        my $yaml = YAML::Dump($data->{dict});
+        print $fh_print_dict $yaml;
 
         $file_cardname = "$save_path/cardname.txt";
         open my $fh_print_cardname, '>', $file_cardname
@@ -81,7 +74,7 @@ package Restorer {
                 my $save_path = $dir_name . '/' . $saved_datetime;
 
                 my ($file_num, $file_words, $file_cardname);
-                my ($read_num, $read_words, $read_cardname, $read_limit);
+                my ($read_num, $read_cardname, $read_limit);
 
                 $file_num = "$save_path/num.txt";
                 $read_num = read_file($file_num);
@@ -91,9 +84,6 @@ package Restorer {
 
                 my @words = split /\n/, $fh_read_words;
                 $read_limit = @words;
-
-                for (@words) { chomp; $saved_datetime =~ s/^\n//; }
-                $read_words = \@words;
 
                 $file_cardname = "$save_path/cardname.txt";
                 $read_cardname = read_file($file_cardname);
@@ -106,7 +96,6 @@ package Restorer {
                 push @{ $save->{$saved_datetime}->{limit} },     $read_limit;
             }
         }
-
         return $save;
     }
 
@@ -187,13 +176,7 @@ package Restorer {
                 open my $fh_read_dict, '<', $file_dict
                     or croak("Can't open saved dict file for revert: $!");
                 $data->{dict} = do { local $/; <$fh_read_dict> };
-                if ($data->{dict} =~ /^\{/) {
-                    $data->{dict}
-                        = decode_json(encode('utf8', $data->{dict}));
-                }
-                else {
-                    $data->{dict} = YAML::Load($data->{dict});
-                }
+                $data->{dict} = YAML::Load($data->{dict});
                 close $fh_read_dict;
 
                 return ($attr, $data, 'on');

@@ -21,7 +21,7 @@ package Selector {
                 $attr->{cards}->{ $attr->{card_head} } = $attr->{card_name};
                 push @{ $lists->{card_list} }, "$attr->{card_head}: $attr->{card_name}";
             }
-            elsif ($card_filename =~ /\.(yml|json)$/) {
+            elsif ($card_filename =~ /\.(yml)$/) {
                 $attr->{fmt} = $1;
             }
         }

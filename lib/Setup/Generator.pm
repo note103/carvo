@@ -6,7 +6,6 @@ package Generator {
     use open qw/:utf8 :std/;
     use Carp 'croak';
     use YAML;
-    use JSON;
     use Encode;
 
     sub switch {
@@ -24,15 +23,7 @@ package Generator {
         }
         closedir $card_iter;
 
-        if ($fmt eq 'yml') {
-            $dict = YAML::LoadFile($dict);
-        }
-        elsif ($fmt eq 'json') {
-            open my $fh, '<', $dict or croak("Can't open JSON file.");
-            my $json = do { local $/; <$fh> };
-            $dict = decode_json(encode('utf8', $json));
-            close $fh;
-        }
+        $dict = YAML::LoadFile($dict);
 
         open $fh, '<', $card or croak("Can't open $card file.");
         my %set_dict;

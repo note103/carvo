@@ -24,17 +24,6 @@ my $data = {
 my $dir_name = 'src/save';
 my $save_path = "$dir_name/$datetime";
 
-subtest "restorer" => sub {
-
-    Restorer::save($attr, $data);
-    my ($got_attr, $got_data) = Restorer::rs($attr, $data);
-
-    path($save_path)->remove_tree;
-
-    is_deeply $got_attr, $attr, 'save_attr';
-    is_deeply $got_data, $data, 'save_data';
-};
-
 subtest "read-only" => sub {
 
     my $got_save = Restorer::ro;
@@ -49,6 +38,17 @@ subtest "read-only" => sub {
 
     is_deeply $got_save->{saved_datetime}, $expect_save, 'save_read_only';
 
+};
+
+subtest "restorer" => sub {
+
+    Restorer::save($attr, $data);
+    my ($got_attr, $got_data) = Restorer::rs($attr, $data);
+
+    path($save_path)->remove_tree;
+
+    is_deeply $got_attr, $attr, 'save_attr';
+    is_deeply $got_data, $data, 'save_data';
 };
 
 done_testing;
