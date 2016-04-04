@@ -1,9 +1,9 @@
 use strict;
-use warnings;
 use Test::More 0.98;
+use Carp 'croak';
+
 use Carvo;
 use Setup::Generator;
-use Carp 'croak';
 
 my ($card_head, $card_filename, $card, $card_name, $card_dir);
 my ($dict,         $fmt,           $file, $lesson);

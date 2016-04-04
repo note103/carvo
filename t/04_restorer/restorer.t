@@ -1,8 +1,10 @@
 use strict;
 use Test::More 0.98;
+
 use Carp 'croak';
-use Time::Piece;
 use Path::Tiny;
+use Time::Piece;
+
 use Carvo::Restorer;
 
 my $datetime = localtime->datetime(T => '-');

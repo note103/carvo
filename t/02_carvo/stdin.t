@@ -1,7 +1,8 @@
 use strict;
 use Test::More 0.98;
+use Carp 'croak';
+
 use Carvo;
-use Carp;
 
 my ($card_head_in, $card_filename, $card, $card_name, $card_dir, $course_dir, $lists);
 my ($dict, $fmt, $file, $lesson, $attr, $data);
