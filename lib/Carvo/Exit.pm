@@ -6,15 +6,15 @@ package Exit {
     use open ':utf8';
     use Carp 'croak';
     use Time::Piece;
-
-    my $result;
+    use File::Slurp;
 
     sub record {
         my ($attr, $data) = @_;
 
-        $result = "$attr->{total}\ttimes\n$attr->{point}\thits\n$attr->{miss}\terrors\n";
+        my $result = "$attr->{total}\ttimes\n$attr->{point}\thits\n$attr->{miss}\terrors\n";
 
         my $log_record = logs($data, $result);
+        my $result_record = result($attr);
 
         say "\nRecord:";
         print @$log_record;
@@ -47,15 +47,15 @@ package Exit {
         my @log_record = sort keys %unique;
 
         my @log_buffer;
-        my $log_filepath = $data_dir . '/log.txt';
+        my $log_file = $data_dir . '/log.txt';
 
-        open my $fh_in, '<', $log_filepath or croak("Can't open file.");
+        open my $fh_in, '<', $log_file or croak("Can't open file.");
         for (<$fh_in>) {
             push @log_buffer, $_;
         }
         close $fh_in;
 
-        open my $fh_out, '>', $log_filepath or croak("Can't open file.");
+        open my $fh_out, '>', $log_file or croak("Can't open file.");
         say $fh_out localtime->datetime(T => ' ');
         print $fh_out $result;
         say $fh_out '---';
@@ -67,22 +67,44 @@ package Exit {
     }
 
     sub result {
-        $result = shift;
-        my @result_buffer;
-        my $result_filepath = $data_dir . '/result.txt';
+        my $attr = shift;
 
-        open my $fh_in, '<', $result_filepath or croak("Can't open file.");
-        for (<$fh_in>) {
-            push @result_buffer, $_;
+        my $t = $attr->{total};
+        my $h = $attr->{point};
+        my $e = $attr->{miss};
+
+        my $result_file = $data_dir . '/result.txt';
+
+        my $read_past_result = read_file($result_file);
+        my @result_buffer = split /\n/, $read_past_result;
+
+        my $today= localtime->date;
+        my $fday = qr/\d{4}-\d{2}-\d{2}/;
+        my $day = '';
+
+        push @result_buffer, "$today\ttimes: 00\thits: 00\terrors: 00" unless (@result_buffer);
+
+        for my $merge (@result_buffer) {
+            if ($merge =~ /^($fday)\ttimes: (\d+)\thits: (\d+)\terrors: (\d+)$/) {
+                $day = $1;
+                if ($day eq $today) {
+                    $t += $2; $h += $3; $e += $4;
+                    $t =~ s/^(\d)$/0$1/; $h =~ s/^(\d)$/0$1/; $e =~ s/^(\d)$/0$1/;
+                    $merge = "$day\ttimes: $t\thits: $h\terrors: $e";
+                    last;
+                } else {
+                    $t =~ s/^(\d)$/0$1/; $h =~ s/^(\d)$/0$1/; $e =~ s/^(\d)$/0$1/;
+                    unshift @result_buffer, "$today\ttimes: $t\thits: $h\terrors: $e";
+                    last;
+                }
+            }
         }
-        close $fh_in;
 
-        open my $fh_out, '>', $result_filepath or croak("Can't open file.");
-        say $fh_out localtime->datetime(T => ' ');
-        say $fh_out $result;
-        say $fh_out @result_buffer;
-        say '';
-        close $fh_out;
+        my @result;
+        for (@result_buffer) {
+            push @result, "$_\n";
+        }
+        write_file($result_file, @result);
     }
 }
 

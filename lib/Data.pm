@@ -21,6 +21,11 @@ package Data {
             order      => 'random',
             fail_sw    => 'off',
             quit     => '',
+
+            rw     => 'r',
+            ans_num     => '',
+            lesson => 'src/lesson',
+            lesson_root => 'src/lesson',
         );
         return \%attr;
     }

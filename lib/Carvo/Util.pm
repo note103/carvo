@@ -7,6 +7,23 @@ package Util {
     use open ':utf8';
     use utf8;
 
+    sub rw {
+        my $attr = shift;
+
+        if ($attr->{bookkeeping} eq 'on') {
+            $attr->{rw} = 'r';
+            say 'Cannot turn on w mode. Because you are in bookkeeping area.';
+        } else {
+            if ($attr->{rw} eq 'r') {
+                $attr->{rw} = 'w';
+            } else {
+                $attr->{rw} = 'r';
+            }
+        }
+
+        return $attr;
+    }
+
     sub result {
         my ($attr, $data) = @_;
 
@@ -56,11 +73,15 @@ package Util {
                 push @list, $_;
             }
         }
+        my @list_out;
         for (@list) {
             my $num_get = num_get($_, \@{ $data->{words} });
             my $num_tmp = $num_get + 1;
-            print "$_: $num_tmp\n";
+            $num_tmp = "0".$num_tmp if ($num_tmp =~ /\A\d\z/);
+            push @list_out, "$num_tmp: $_\n";
         }
+        @list_out = sort @list_out;
+        return \@list_out;
     }
 
     sub num_get {
@@ -120,10 +141,12 @@ package Util {
         if ($voice_ch eq 'off') {
             $voice_ch = 'on';
             print "You turned to voice mode.\n";
+            print `say hi`;
         }
         else {
             $voice_ch = 'off';
             print "You turned to silent mode.\n";
+            print `say bye`;
         }
 
         return $voice_ch;
