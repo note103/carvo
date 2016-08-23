@@ -7,11 +7,11 @@ package Carvo {
     use Generator;
     use Reader;
     use Printer;
-    use Carvo::Res;
-    use Carvo::Util;
-    use Carvo::Command;
-    use Carvo::Exit;
-    use Carvo::Restorer;
+    use Res;
+    use Util;
+    use Command;
+    use Exit;
+    use Restorer;
 
     my $data_dir   = 'src';
 
