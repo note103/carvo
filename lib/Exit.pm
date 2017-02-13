@@ -26,7 +26,7 @@ package Exit {
         exit;
     }
 
-    my $data_dir = 'src/log';
+    my $data_dir = 'docs/log';
 
     sub logs {
         my ($data, $result) = @_;

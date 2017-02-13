@@ -3,7 +3,6 @@ package Reader {
     use warnings;
     use feature 'say';
 
-    use open ':utf8';
     use Carp 'croak';
     use File::Slurp 'read_dir';
 

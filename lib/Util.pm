@@ -3,7 +3,6 @@ package Util {
     use warnings;
     use feature 'say';
 
-    binmode STDOUT, ':utf8';
     use open ':utf8';
     use utf8;
 
@@ -50,7 +49,7 @@ package Util {
     sub help {
         use Carp 'croak';
 
-        open my $fh_help, '<', 'src/carvo.txt' or croak("Can't open file");
+        open my $fh_help, '<', 'docs/help.txt' or croak("Can't open file");
         my $help = do { local $/; <$fh_help> };
         close $fh_help;
 
@@ -77,11 +76,21 @@ package Util {
         for (@list) {
             my $num_get = num_get($_, \@{ $data->{words} });
             my $num_tmp = $num_get + 1;
-            $num_tmp = "0".$num_tmp if ($num_tmp =~ /\A\d\z/);
             push @list_out, "$num_tmp: $_\n";
         }
-        @list_out = sort @list_out;
-        return \@list_out;
+
+        my %list_out;
+        for (@list_out) {
+            if ($_ =~ /^( \d+ ): (.+)/x) {
+                $list_out{$1} = $2;
+            }
+        }
+        my @list_out_sorted;
+        for (sort { $a <=> $b } keys %list_out) {
+            push @list_out_sorted, "$_: $list_out{$_}\n";
+        }
+
+        return \@list_out_sorted;
     }
 
     sub num_get {
@@ -107,48 +116,23 @@ package Util {
         return ($attr);
     }
 
-    sub order {
-        my ($attr, $data) = @_;
-        my @words;
-
-        if ($attr->{order} eq 'order') {
-            @words = sort keys %{ $data->{dict} };
-        }
-        elsif ($attr->{order} eq 'random') {
-            @words = keys %{ $data->{dict} };
-        }
-        $data->{words} = \@words;
-
-        return $data->{words};
-    }
-
-    sub order_swap {
-        my $order_swap = shift;
-
-        if ($order_swap eq 'random') {
-            $order_swap = 'order';
-        }
-        else {
-            $order_swap = 'random';
-        }
-
-        return $order_swap;
-    }
-
     sub voice_ch {
         my $voice_ch = shift;
-
-        if ($voice_ch eq 'off') {
-            $voice_ch = 'on';
-            print "You turned to voice mode.\n";
-            print `say hi`;
+        if ($^O eq 'darwin') {
+            if ($voice_ch eq 'off') {
+                $voice_ch = 'on';
+                print "You turned to voice mode.\n";
+                print `say hi`;
+            }
+            else {
+                $voice_ch = 'off';
+                print "You turned to silent mode.\n";
+                print `say bye`;
+            }
         }
         else {
-            $voice_ch = 'off';
-            print "You turned to silent mode.\n";
-            print `say bye`;
+            say 'OS X environment is required for using voice mode.'
         }
-
         return $voice_ch;
     }
 
@@ -189,7 +173,6 @@ package Util {
             $attr->{num}        = 1;
             $attr->{num_buffer} = $attr->{num};
         }
-
         return ($attr, $data);
     }
 

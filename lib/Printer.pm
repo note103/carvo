@@ -2,11 +2,16 @@ package Printer {
     use strict;
     use warnings;
     use feature 'say';
-    use open ':utf8';
 
     sub print {
         my ( $lists, $attr ) = @_;
-        my @command_card = ('result', 'log', 'fail', 'back', 'exit');
+
+        my @command_card;
+        if ($attr->{lesson} eq $attr->{lesson_root}) {
+            @command_card = ('exit');
+        } else {
+            @command_card = ('back', 'exit');
+        }
         my $course_dir = $attr->{lesson};
         my @cards = @{ $lists->{card_list} };
 

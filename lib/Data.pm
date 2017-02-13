@@ -5,27 +5,25 @@ package Data {
 
     sub init {
         my %attr = (
-            total => 0,
-            point => 0,
+            ans_num     => '',
+            cave => 0,
+            extr       => 3,
+            fail_sw    => 'off',
+            lesson => 'src/lesson',
+            lesson_root => 'src/lesson',
+            log_record => 'on',
             miss  => 0,
-
             num      => 0,
             num_buffer => 0,
             num_normal => 0,
-
-            voice      => 'say',
-            voice_ch => 'off',
-
-            extr       => 3,
-            log_record => 'on',
-            order      => 'random',
-            fail_sw    => 'off',
+            point => 0,
             quit     => '',
-
             rw     => 'r',
-            ans_num     => '',
-            lesson => 'src/lesson',
-            lesson_root => 'src/lesson',
+            total => 0,
+            voice      => 'say',
+            voice_ch => 'on',
+            voice_able => 1,
+            sound_able => 1,
         );
         return \%attr;
     }

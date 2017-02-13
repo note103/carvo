@@ -2,22 +2,60 @@ package Carvo {
     use strict;
     use warnings;
     use feature 'say';
-    use open ':utf8';
 
-    use Generator;
-    use Reader;
-    use Printer;
-    use Res;
-    use Util;
     use Command;
+    use Data;
     use Exit;
-    use Restorer;
+    use Generator;
+    use Printer;
+    use Reader;
+    use Responder;
+    use Util;
 
-    my $data_dir   = 'src';
+    sub init {
+        my $attr = Data::init();
 
+        $attr->{voice_able} = 0 unless ($^O eq 'darwin');
+        $attr->{sound_able} = 0 unless (-d 'src/sound');
+
+        card($attr);
+    }
+
+    my $data_dir   = 'docs';
     sub card {
         my ($attr, $data) = @_;
-        # $data = Util::logs($data) unless (!$data);
+
+        $data->{fail} = [];
+
+        if ($attr->{voice_able} == 1) {
+            $attr->{cave} = 'off';
+            if ( $attr->{lesson} =~ /(bookkeeping)/) {
+                $attr->{cave_able} = 0;
+                $attr->{voice_ch} = 'off';
+                $attr->{write_able} = 0;
+                $attr->{rw} = 'r';
+            }
+            else {
+                $attr->{voice_ch} = 'on';
+                my @src = glob "$attr->{lesson}/*";
+                my $json = 0;
+                for (@src) {
+                    $json = 1 if ($_ =~ /\.json/);
+                }
+                if ( $json == 1) {
+                    $attr->{cave_able} = 1;
+                    $attr->{write_able} = 0;
+                    $attr->{rw} = 'r';
+                }
+                else {
+                    $attr->{cave_able} = 0;
+                    $attr->{write_able} = 1;
+                }
+            }
+        }
+        else {
+            $attr->{voice_ch} = 'off';
+        }
 
         my $lists = Reader::read($attr);
         $attr = Printer::print($lists, $attr);
@@ -57,12 +95,7 @@ package Carvo {
             card($attr, $data);
         }
         elsif ($in =~ /^(.+)$/) {
-            $attr->{bookkeeping} = 'off';
             $attr->{selected_card_head} = $1;
-            if ($attr->{selected_card_head} =~ /^b/) {
-                $attr->{voice_ch} = 'off';
-                $attr->{bookkeeping} = 'on';
-            }
 
             for (keys %{ $attr->{cards} }) {
                 if ($attr->{selected_card_head} eq $_) {
@@ -85,12 +118,11 @@ package Carvo {
                     );
 
                     $attr->{fail_sw} = 'off' if ($attr->{fail_sw} eq 'on');
-                    $attr->{order} = Util::order_swap($attr->{order})
-                        if ($attr->{order} eq 'order');
-                    $data->{words} = Util::order($attr, $data)
-                        if ($attr->{order} eq 'order');
+
+                    @{$data->{words}} = keys %{ $data->{dict} };
+
                     say '';
-                    Res->set($attr, $data);
+                    Responder::set($attr, $data);
                     Exit::record($attr, $data) if ($attr->{quit} eq 'qq');
                 }
             }
