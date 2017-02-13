@@ -1,3 +1,14 @@
+v0.6.0 - 13 February  2017
+  Deprecates:
+  * save, restore機能を削除
+    - ほぼ使わなかったため
+
+  Features:
+  * 虫食い機能追加
+
+  Other:
+  * test, cpanfileなど全体の整理がつくまで一旦カット
+
 v0.5.2 - 2 April 2016
   Deprecates:
   * Bookkeeping, Speech を削除

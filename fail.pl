@@ -54,11 +54,18 @@ for (@sort) {
         $out{$1}{$2} = 1;
     }
 }
+
+# say for @word; # 語句
+# say for @head; # カウント
+
 for my $head (reverse sort @head) {
     for my $word (sort {lc($a) cmp lc($b)} @word) {
+        # say "h: $head, w: $word";
         if ($out{$head}{$word}) {
+            # say $out{$head}{$word};
             say $head.$word;
-            @word = grep {$_ ne $word} @word;
+            delete $out{$head}{$word};
+            # @word = grep {$_ ne $word} @word;
             $count--;
             exit if ($count == 0);
         }

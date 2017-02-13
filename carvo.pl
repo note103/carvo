@@ -4,9 +4,7 @@ use warnings;
 use feature 'say';
 use lib 'lib';
 
-use Data;
 use Carvo;
 
-my $attr = Data::init();
+Carvo::init();
 
-Carvo::card($attr);
