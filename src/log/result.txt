@@ -1,2 +1,0 @@
-2016-08-24	times: 04	hits: 04	errors: 00
-2016-07-29	times: 01	hits: 01	errors: 00

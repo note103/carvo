@@ -1,3 +1,374 @@
+2017-02-14 02:04:23
+20	times
+16	hits
+4	errors
+---
+*habit: （個人の）癖, 習慣, 〜する傾向
+*litigate: 訴訟する
+*仕入割引: 収益
+A woman passed by me giving off a subtle scent of perfume. It reminded me of my ex-girlfriend.:
+He leaned against the pillar and gazed at the Statue of Libarty.:
+Let go of your negative outlook on life. Always maintain a positive attitude.: 悲観的な人生観を捨てて、前向きな態度を常に持ち続けよう。
+blush: （〜で）顔を赤らめる, （顔が）（〜で）赤くなる （at, for, with）（〜に）恥じる
+expect: 〜を予期する
+habit: （個人の）癖, 習慣, 〜する傾向
+improve: 向上させる, を改善する
+introduce: 〜を（〜に）紹介する
+litigate: 訴訟する
+ソフトウェア償却: 費用
+仕入割引: 収益
+支払リース料: 費用
+雑益: 収益
+
+2017-02-14 01:46:31
+8	times
+7	hits
+1	errors
+---
+*follow: 〜の後についていく
+describe: 〜の特徴を述べる
+follow: 
+follow: 〜の後についていく
+improve: 向上させる, を改善する
+precaution: 用心, 警戒
+
+2017-02-14 01:41:40
+7	times
+5	hits
+2	errors
+---
+*discuss: 〜を論ずる
+*lead: 〜を（〜へ）導く
+approach: 〜に近づく
+depend: （〜に）頼る
+discuss: 〜を論ずる
+exist: 存在する
+lead: 〜を（〜へ）導く
+
+2017-02-14 01:39:43
+3	times
+3	hits
+0	errors
+---
+claim: 〜を主張する
+lead: 〜を（〜へ）導く
+suggest: 〜を提案する
+
+2017-02-14 00:51:14
+18	times
+16	hits
+2	errors
+---
+*distributional: 配分, 配給, 散布 （of）,  【経済】（富の）分配, 【商業】（商品の）流通 （of）,  （動植物・言語・音素などの）分布（区域, 状態）,  【統計】 分布,  区分, 分類 （of）
+*venture: 冒険的事業, 投機的企業, ベンチャー 投機, 思わく, やま, （危険を伴う）冒険, 危険を冒して進む
+He leaned against the pillar and gazed at the Statue of Libarty.:
+Take it easy. I can assure you that everything will turn out fine.:
+You should be fair to everyone regardless of national origin, gender, or creed.: 生まれた国、性別、信条に関係なく、誰に対しても公平でなくてはならない。
+distributional: 配分, 配給, 散布 （of）,  【経済】（富の）分配, 【商業】（商品の）流通 （of）,  （動植物・言語・音素などの）分布（区域, 状態）,  【統計】 分布,  区分, 分類 （of）
+explain: （人本などが）（B（人）に）A（事）を説明する, （A（人）に）〜ということを（〜かを）説明する, （人が）（人に）（正当化しようと）（事）の釈明（弁明）をする, 〜の理由を説明する
+improve: 向上させる, を改善する
+jot: わずか, 少し
+venture: 冒険的事業, 投機的企業, ベンチャー 投機, 思わく, やま, （危険を伴う）冒険, 危険を冒して進む
+受取地代: 収益
+商品評価損: 費用
+貸倒引当金戻入: 収益
+通信費: 費用
+
+2017-02-14 00:45:59
+23	times
+17	hits
+6	errors
+---
+*anticipation: 予想, 予期, 見越し
+*prediction: 予言（予報）すること
+Equality is guaranteed by the Constitution.:
+We must respect the will of the individual.: 個人の意志は尊重しなければいけない。
+You should be fair to everyone regardless of national origin, gender, or creed.:
+accept: 〜を受け取る
+anticipation: 予想, 予期, 見越し
+appropriate: （金・ものなどを）（特定の目的に）当てる, 充当する （公共物などを）専有する, 私用に供する, 着服する, 盗む, （目的に合って）適当な, 適切な, ふさわしい （〜に）適切で, 適切な, ふさわしく
+available: （すぐに）利用できる, 入手できる, 得られる, 手に入る
+create: 〜を創造する
+defer: （決定支払いなど）を引き延ばす, 延期する, 延びる, ぐずぐずする
+prediction: 予言（予報）すること
+手形売却損: 費用
+支払手付金: 資産
+有価証券運用損: 費用
+貸倒引当金: 評価
+
+2017-02-14 00:41:10
+20	times
+17	hits
+3	errors
+---
+*acknowledge: 認める （手紙などを）受け取ったことを知らせる
+*reputation: 評判, 世評, うわさ
+*退職金: 費用
+A woman passed by me giving off a subtle scent of perfume. It reminded me of my ex-girlfriend.: 香水のほのかな香りを漂わせながら、一人の女性が僕の前を通り過ぎた。前の彼女のことを思い出してしまった。
+Equality is guaranteed by the Constitution.:
+Take it easy. I can assure you that everything will turn out fine.:
+accept: 〜を受け取る
+acknowledge: 認める （手紙などを）受け取ったことを知らせる
+expect: 〜を予期する
+fill: （容器・場所など）を（〜で）満たす
+reputation: 評判, 世評, うわさ
+現金過不足: 中間
+貸倒損失: 費用
+賃借料: 費用
+退職金: 費用
+
+2017-02-14 00:22:26
+2	times
+2	hits
+0	errors
+---
+decide: 〜を決定する
+lead: 〜を（〜へ）導く
+
+2017-02-14 00:20:54
+2	times
+1	hits
+1	errors
+---
+*express: （思想・感情など）を表現する
+express: （思想・感情など）を表現する
+
+2017-02-14 00:19:15
+1	times
+1	hits
+0	errors
+---
+offer: 〜を（〜に）提供する
+
+2017-02-14 00:18:09
+1	times
+1	hits
+0	errors
+---
+express: （思想・感情など）を表現する
+
+2017-02-14 00:16:34
+1	times
+1	hits
+0	errors
+---
+fit: （大きさ・形などが）〜に合う
+
+2017-02-14 00:15:32
+1	times
+1	hits
+0	errors
+---
+fill: （容器・場所など）を（〜で）満たす
+
+2017-02-14 00:14:30
+0	times
+0	hits
+0	errors
+---
+
+2017-02-14 00:12:32
+23	times
+19	hits
+4	errors
+---
+*habit: （個人の）癖, 習慣, 〜する傾向
+*ministry: （英国・日本などの大臣 （minister） が管轄する）省, 内閣, 諸大臣,
+*仕入割戻: その他
+A woman passed by me giving off a subtle scent of perfume. It reminded me of my ex-girlfriend.:
+Let go of your negative outlook on life. Always maintain a positive attitude.: 悲観的な人生観を捨てて、前向きな態度を常に持ち続けよう。
+Take it easy. I can assure you that everything will turn out fine.:
+acquire: （知識・学問などを）（努力して）得る, 学ぶ, 習得する （習慣などを）身につける,  （財産・権利などを）取得する, 獲得する,  （目標物などを）（レーダーで）捕らえる, 捕捉（ほそく）する
+brew: （ビールなど）を醸造する, 作る, （茶コーヒーなど）を煎じる, いれる, （悪い状況などが）発生しつつある, 起ころうとしている
+defer: （決定支払いなど）を引き延ばす, 延期する, 延びる, ぐずぐずする
+diagnosis: 診断
+fail: （〜に）失敗する
+habit: （個人の）癖, 習慣, 〜する傾向
+improve: 向上させる, を改善する
+ministry: （英国・日本などの大臣 （minister） が管轄する）省, 内閣, 諸大臣,
+procedure: （進行・行動の）手続き, 手順, 順序 （for）, （具体的には 【可算名詞】） 訴訟手続き, 議事手続き,
+仕入割戻: その他
+未着品: 資産
+特許権: 資産
+
+2017-02-13 19:27:49
+11	times
+10	hits
+1	errors
+---
+*We must respect the will of the individual.: 個人の意志は尊重しなければいけない。
+Let go of your negative outlook on life. Always maintain a positive attitude.: 悲観的な人生観を捨てて、前向きな態度を常に持ち続けよう。
+We must respect the will of the individual.:
+administration: 管理, 運営, 経営, 統治, 行政, 施政, 管理者側, 経営者陣, （大学などの）本部, 当局
+carbonate: 炭酸塩, 炭酸〜
+direct: （注意など）を（〜に）向ける, 直接の
+discuss: 〜を論ずる
+売上割戻引当金繰入: 費用
+短期貸付金: 資産
+
+2017-02-13 19:23:37
+6	times
+5	hits
+1	errors
+---
+*商品券: 負債
+You should be fair to everyone regardless of national origin, gender, or creed.: 生まれた国、性別、信条に関係なく、誰に対しても公平でなくてはならない。
+allow: 〜を許す
+litigate: 訴訟する
+商品券: 負債
+
+2017-02-13 19:20:13
+12	times
+10	hits
+2	errors
+---
+*approach: 〜に近づく
+*disparate: （物が質や種類において）まったく異なる, 本質的に相違する（要素からなる）, 異種の
+Equality is guaranteed by the Constitution.: 平等は憲法で守られている。
+He leaned against the pillar and gazed at the Statue of Libarty.:
+We must respect the will of the individual.:
+appear: 〜のように見える
+approach: 〜に近づく
+disparate: （物が質や種類において）まったく異なる, 本質的に相違する（要素からなる）, 異種の
+fail: （〜に）失敗する
+固定資産廃棄損: 費用
+手形借入金: 負債
+
+2017-02-13 18:52:42
+0	times
+0	hits
+0	errors
+---
+
+2017-02-13 18:49:11
+2	times
+2	hits
+0	errors
+---
+create: 〜を創造する
+lead: 〜を（〜へ）導く
+
+2017-02-13 00:36:04
+1	times
+1	hits
+0	errors
+---
+He leaned against the pillar and gazed at the Statue of Libarty.: 彼は柱に寄り掛かって、自由の女神像をじっと見つめた。
+
+2017-02-13 00:34:56
+4	times
+4	hits
+0	errors
+---
+He leaned against the pillar and gazed at the Satue of Libarty.:
+Let go of your negative outlook on life. Always maintain a positive attitude.: 悲観的な人生観を捨てて、前向きな態度を常に持ち続けよう。
+We must respect the will of the individual.: 個人の意志は尊重しなければいけない。
+発送運賃: 費用
+
+2017-02-13 00:33:50
+1	times
+1	hits
+0	errors
+---
+claim: 〜を主張する
+
+2017-02-13 00:32:26
+4	times
+4	hits
+0	errors
+---
+A woman passed by me giving off a subtle scent of perfume. It reminded me of my ex-girlfriend.: 香水のほのかな香りを漂わせながら、一人の女性が僕の前を通り過ぎた。前の彼女のことを思い出してしまった。
+exist: 存在する
+仕入: 費用
+有価証券利息: 収益
+
+2017-02-13 00:31:47
+2	times
+2	hits
+0	errors
+---
+A woman passed by me giving off a subtle scent of perfume. It reminded me of my ex-girlfriend.:
+We must respect the will of the individual.: 個人の意志は尊重しなければいけない。
+
+2017-02-13 00:31:14
+1	times
+1	hits
+0	errors
+---
+expect: 〜を予期する
+
+2017-02-13 00:18:04
+2	times
+2	hits
+0	errors
+---
+Take it easy. I can assure you that everything will turn out fine.: 気楽にいけよ。大丈夫、すべてうまくいくさ。
+continue: 続く
+
+2017-02-13 00:16:01
+0	times
+0	hits
+0	errors
+---
+
+2017-02-13 00:14:28
+0	times
+0	hits
+0	errors
+---
+
+2017-02-13 00:13:55
+0	times
+0	hits
+0	errors
+---
+
+2017-02-13 00:12:47
+2	times
+2	hits
+0	errors
+---
+chick: （ニワトリの）ひな, ひよこ, （一般に）ひな鳥, （特に魅力的な）若い女（娘）
+ソフトウェア償却: 費用
+
+2017-02-13 00:10:17
+4	times
+4	hits
+0	errors
+---
+appear: 〜のように見える
+assemble: （ある目的で）（人を）集める, 集合させる, 召集する, （ものを）集めて整理する, （機械などを）組み立てる
+collateral: 担保（物件）, 傍系親族, 付随する, 副次（二次）的な, 並行した, 相並ぶ, 見返りの
+decide: 〜を決定する
+
+2017-02-13 00:06:46
+4	times
+2	hits
+2	errors
+---
+*He leaned against the pillar and gazed at the Satue of Libarty.: 彼は柱に寄り掛かって、自由の女神像をじっと見つめた。
+He leaned against the pillar and gazed at the Satue of Libarty.: 彼は柱に寄り掛かって、自由の女神像をじっと見つめた。
+Take it easy. I can assure you that everything will turn out fine.: 気楽にいけよ。大丈夫、すべてうまくいくさ。
+
+2017-02-12 20:50:49
+3	times
+2	hits
+1	errors
+---
+*expect: 〜を予期する
+direct: （注意など）を（〜に）向ける, 直接の
+expect: 〜を予期する
+
+2017-02-12 19:11:08
+4	times
+3	hits
+1	errors
+---
+*Equality is guaranteed by the Constitution.: 平等は憲法で守られている。
+Equality is guaranteed by the Constitution.: 平等は憲法で守られている。
+We must respect the will of the individual.: 個人の意志は尊重しなければいけない。
+交際費: 費用
+
 2016-08-24 01:52:33
 4	times
 4	hits
@@ -4722,6 +5093,41 @@ reputation: 評判|世評|うわさ
 
 ---
 *reputation: 評判|世評|うわさ
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
