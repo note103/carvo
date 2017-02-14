@@ -1,7 +1,7 @@
-Carvo
+carvo
 =====
 
-Cards of vocabulary
+cards of vocabulary
 
 ## 説明
 
@@ -13,13 +13,13 @@ Cards of vocabulary
 ![](DEMO.gif)
 
 ### 音声付き動画
-- https://www.youtube.com/watch?v=jgVvJfHAvL0
+- https://youtu.be/X4pVW7ozteo
 
 ## 使い方
 
 1) 任意の場所にルートディレクトリを設置して中へ入ります。
 ```
-$ cd Carvo
+$ cd carvo
 ```
 
 2) `carvo.pl`を実行します。
@@ -31,7 +31,25 @@ $ perl carvo.pl
 
 4) コマンド群から`play`を選択すると設問が表示されます（英単語、英文、簿記仕訳科目）。
 
-5) 対応する回答を選択肢から選ぶと、正解なら`Good!`、誤答なら`NG!`という結果が表示されます。
+5) 対応する回答を選択肢から選ぶと、正答なら`Good!`、誤答なら`NG!`という結果が表示されます。
+
+### 機能
+
+`help`コマンドを選択すると機能一覧が表示されます。
+
+```
+- play	次の問題を出題
+- again	同じ問題を出題
+- quit-this-card	プレイを終了してカード選択画面へ移動
+- exit-carvo	ゲームを終了
+- question-list	カード内の単語を一覧表示＆選択した単語へ移動
+- voice-mode	音声機能のon/off（OS Xのみ）
+- cave-mode	虫食い機能のon/off（一部レッスンのみ）
+- fail-mode	誤答カードへ移動
+- read-write-mode	5肢選択モード（デフォルト）<->直接入力モードの切替え（一部レッスンのみ）
+- set-word-count	ヒントの文字数を設定（直接入力モードのみ）
+- help	ヘルプ一覧表示
+```
 
 ### 得点／記録
 
