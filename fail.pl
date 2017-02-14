@@ -11,7 +11,7 @@ my $count = 10;
 $num = $ARGV[0] if ($ARGV[0]);
 $count = $ARGV[1] if ($ARGV[1]);
 
-my $data = read_file('src/log/log.txt');
+my $data = read_file('docs/log/log.txt');
 my @data = split /\n/, $data;
 
 my $localtime = localtime->date;
