@@ -116,16 +116,18 @@ package Util {
         return ($attr);
     }
 
-    sub voice_ch {
-        my $voice_ch = shift;
+    sub sound {
+        my $attr = shift;
         if ($^O eq 'darwin') {
-            if ($voice_ch eq 'off') {
-                $voice_ch = 'on';
+            if ($attr->{voice_ch} eq 'off') {
+                $attr->{voice_ch} = 'on';
+                $attr->{sound_able} = 1;
                 print "You turned to voice mode.\n";
                 print `say hi`;
             }
             else {
-                $voice_ch = 'off';
+                $attr->{voice_ch} = 'off';
+                $attr->{sound_able} = 0;
                 print "You turned to silent mode.\n";
                 print `say bye`;
             }
@@ -133,7 +135,7 @@ package Util {
         else {
             say 'OS X environment is required for using voice mode.'
         }
-        return $voice_ch;
+        return $attr;
     }
 
     sub clean {

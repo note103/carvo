@@ -173,10 +173,10 @@ package Command {
             Responder::judge('q', $attr, $data);
         }
         elsif ($selected_command =~ /^(voice)$/) {
-            if ($attr->{write_able} == 0) {
+            if ($attr->{voice_able} == 0) {
                 say 'You cannot turn on voice mode on this lesson.';
             } else {
-                $attr->{voice_ch} = Util::voice_ch($attr->{voice_ch});
+                $attr = Util::sound($attr);
             }
         }
         elsif ($selected_command =~ /^(fail)$/) {
