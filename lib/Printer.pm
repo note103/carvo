@@ -4,64 +4,25 @@ package Printer {
     use feature 'say';
 
     sub print {
-        my ( $lists, $attr ) = @_;
+        my $attr = shift;
+        my $list = shift;
 
-        my @command_card;
-        if ($attr->{lesson} eq $attr->{lesson_root}) {
-            @command_card = ('exit');
-        } else {
-            @command_card = ('back', 'exit');
-        }
-        my $course_dir = $attr->{lesson};
-        my @cards = @{ $lists->{card_list} };
+        my @command_card = qw/exit/;
+        my $course_dir = $attr->{lesson_dir};
+        my @cards;
 
-        my %data;
-        my @num; my @head; my @word;
-        for (sort @cards) {
-            if ($_ =~ /\A(\D+)(\d+)(.+)/) {
-                push @head, $1;
-                push @num, $2;
-                push @word, $3;
-            }
-            elsif ($_ =~ /\A(\D+)(.+)/) {
-                push @head, $1;
-                push @num, 0;
-                push @word, $2;
-            }
+        for (@$list) {
+            push @cards, $_;
         }
-        my @sorted;
-        for my $head (@head) {
-            for my $num (sort {$a <=> $b} @num) {
-                for my $word (@word) {
-                    for my $card (@cards) {
-                        if ($card eq "$head$num$word") {
-                            $card =~ s/\A\w+: //;
-                            push @sorted, $card;
-                            @cards = grep {$_ ne $card} @cards;
-                        }
-                        elsif ($card eq "$head$word") {
-                            $card =~ s/\A\w+: //;
-                            push @sorted, $card;
-                            @cards = grep {$_ ne $card} @cards;
-                        }
-                    }
-                }
-            }
-        }
-        my @options = (@sorted, @command_card);
+
+        @cards = sort @cards;
+        my @options = (@cards, @command_card);
         my $options = join "\n", @options;
-        my $choose = `echo "$options" | peco | tr -d "\n"`;
 
-        $choose = 'back' if $choose eq "";
-        $attr->{choose} = '';
-
-        for (@{ $lists->{card_list} }) {
-            $choose =~ s/\(.+\)//;
-            if ($_ =~ /$choose/) {
-                $attr->{choose} = $_;
-            }
+        while (1) {
+            $attr->{choose} = `echo "$options" | peco | tr -d "\n"`;
+            last if ($attr->{choose} ne '')
         }
-        $attr->{choose} = $choose if $attr->{choose} eq '';
 
         return $attr;
     }

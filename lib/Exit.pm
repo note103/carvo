@@ -13,6 +13,8 @@ package Exit {
 
         my $result = "$attr->{total}\ttimes\n$attr->{point}\thits\n$attr->{miss}\terrors\n";
 
+        exit if ($attr->{total} + $attr->{point} + $attr->{miss} == 0);
+
         my $log_record = logs($data, $result);
         my $result_record = result($attr);
 

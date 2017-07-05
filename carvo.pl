@@ -2,9 +2,15 @@
 use strict;
 use warnings;
 use feature 'say';
-use lib 'lib';
+
+use FindBin;
+use lib "$FindBin::Bin/lib";
 
 use Carvo;
 
-Carvo::init();
 
+my $attr = Carvo::init();
+
+while (1) {
+    Carvo::card($attr);
+}

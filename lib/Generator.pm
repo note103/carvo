@@ -3,56 +3,38 @@ package Generator {
     use warnings;
     use feature 'say';
 
-    use open qw/:utf8 :std/;
+    use open IO => qw/:utf8 :std/;
     use Carp 'croak';
     use YAML;
-    use JSON;
-    use Encode;
+    use File::Slurp 'read_file';
 
     sub convert {
-        my ($fh, $dict, $card);
-        my ($fmt, $card_head, $card_dir, $card_name) = @_;
+        my ($fmt, $card_dir, $card_name) = @_;
+        my ($dict, $card);
 
         opendir(my $card_iter, $card_dir) or croak("Can't opendir $card_dir.");
         for my $file (readdir $card_iter) {
-            if ($file =~ /\.$fmt$/) {
+            if ($file =~ /\.$fmt\z/) {
                 $dict = $card_dir . '/' . $file;
             }
-            elsif ($file =~ /$card_head\_.+\.txt$/) {
+            elsif ($file =~ /$card_name\.txt\z/) {
                 $card = $card_dir . '/' . $file;
             }
         }
         closedir $card_iter;
 
-        unless ($dict) {
-            my @course_iter = glob "src/lesson/*";
-            for my $file (@course_iter) {
-                if ($file =~ /\.$fmt$/) {
-                    $dict = $file;
-                }
-            }
-        }
+        $dict = YAML::LoadFile($dict) if ($fmt eq 'yml');
 
-        if ($fmt eq 'yml') {
-            $dict = YAML::LoadFile($dict);
-        }
-        else {
-            open my $fh, '<', $dict or croak("Can't open JSON file.");
-            my $json = do { local $/; <$fh> };
-            $dict = decode_json(encode('utf8', $json));
-            close $fh;
-        }
+        my $words = read_file($card);
+        my @words = split /\n/, $words;
 
-        open $fh, '<', $card or croak("Can't open $card file.");
         my %set_dict;
-        for (<$fh>) {
-            chomp;
+        for (@words) {
             $set_dict{$_} = $dict->{$_};
         }
         my $set_dict = \%set_dict;
-        close $fh;
 
-        return ($set_dict, $fmt, $card_name);
+        return ($set_dict, $card_name);
     }
 }
 
