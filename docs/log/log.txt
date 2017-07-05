@@ -15,5 +15,3 @@ approach: 〜に近づく
 claim: 〜を主張する
 decide: 〜を決定する
 
-
-
