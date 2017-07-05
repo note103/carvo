@@ -1,5 +1,1 @@
-2017-02-14	times: 131	hits: 108	errors: 23
-2017-02-13	times: 56	hits: 50	errors: 06
-2017-02-12	times: 07	hits: 05	errors: 02
-2016-08-24	times: 04	hits: 04	errors: 00
-2016-07-29	times: 01	hits: 01	errors: 00
+2017-07-05	times: 06	hits: 05	errors: 01
