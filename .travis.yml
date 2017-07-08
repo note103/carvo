@@ -8,10 +8,10 @@ env:
   AUTHOR_TESTING: 1
 before_install:
   - cpanm --quiet --notest --skip-satisfied Devel::Cover Devel::Cover::Report::Codecov
-  - cpanm --quiet --notest --skip-satisfied --installdeps --with-recommend . || cat ~/.cpanm/build.log"
+  - cpanm --quiet --notest --skip-satisfied --installdeps --with-recommend . || cat ~/.cpanm/build.log
   - cover -delete
 after_failure:
-  - "cat ~/.cpanm/build.log"
+  - cat ~/.cpanm/build.log
 script:
   - perl Build.PL
   - ./Build build
