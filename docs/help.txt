@@ -1,4 +1,4 @@
-Command:
+Commands:
     play	次の問題を出題
     again	同じ問題を出題
     change-card	プレイを終了してカード選択画面へ移動
