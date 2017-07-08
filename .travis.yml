@@ -9,6 +9,8 @@ env:
   AUTHOR_TESTING: 1
 before_script:
   - cpanm --quiet --notest --skip-satisfied Devel::Cover Devel::Cover::Report::Codecov
+  - cpanm --quiet --notest --skip-satisfied --installdeps --with-recommend .
+  - cover -delete
 
 script:
   - perl Build.PL
