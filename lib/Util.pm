@@ -6,33 +6,22 @@ package Util {
     use open ':utf8';
     use utf8;
 
-    sub result {
-        my ($attr, $data) = @_;
-
-        $data->{result}
-            = "\nYou tried $attr->{total} times. $attr->{point} hits and $attr->{miss} errors.\n";
-
-        return $data->{result};
-    }
-
     sub logs {
         my $data = shift;
 
         $data->{log}        = [] if (!$data->{log});
         $data->{log_buffer} = [] if (!$data->{log_buffer});
 
-        @{ $data->{log_buffer} } = (@{ $data->{log_buffer} }, @{ $data->{log} });
-        my %log = map { $_ => 1 } @{ $data->{log_buffer} };
-        @{ $data->{log_buffer} } = keys %log;
+        @{$data->{log_buffer}} = (@{$data->{log_buffer}}, @{$data->{log}});
+        my %log = map {$_ => 1} @{$data->{log_buffer}};
+        @{$data->{log_buffer}} = keys %log;
         $data->{log} = $data->{log_buffer};
 
         return $data;
     }
 
     sub help {
-        use Carp 'croak';
-
-        open my $fh_help, '<', 'docs/help.txt' or croak("Can't open file");
+        open my $fh_help, '<', 'docs/help.txt' or die $!;
         my $help = do { local $/; <$fh_help> };
         close $fh_help;
 
@@ -44,12 +33,12 @@ package Util {
 
         my @list;
         if ($attr->{fail_sw} eq 'off') {
-            for (sort keys %{ $data->{dict} }) {
+            for (sort keys %{$data->{dict}}) {
                 push @list, $_;
             }
         }
         elsif ($attr->{fail_sw} eq 'on') {
-            my %unique = map { $_ => 1 } @{ $data->{words} };
+            my %unique = map { $_ => 1 } @{$data->{words}};
             for (sort keys %unique) {
                 chomp;
                 push @list, $_;
@@ -57,7 +46,7 @@ package Util {
         }
         my @list_out;
         for (@list) {
-            my $num_get = num_get($_, \@{ $data->{words} });
+            my $num_get = num_get($_, \@{$data->{words}});
             my $num_tmp = $num_get + 1;
             push @list_out, "$num_tmp: $_\n";
         }
@@ -92,14 +81,14 @@ package Util {
         return $num_get;
     }
 
-    sub jump {
+    sub random_jump {
         my ($attr) = @_;
         $attr->{num}        = int(rand($attr->{limit} + 1));
         $attr->{num_buffer} = $attr->{num};
         return ($attr);
     }
 
-    sub sound {
+    sub sound_change {
         my $attr = shift;
         if ($^O eq 'darwin') {
             if ($attr->{voice_ch} eq 'off') {
@@ -116,12 +105,12 @@ package Util {
             }
         }
         else {
-            say 'OS X environment is required for using voice mode.'
+            say 'Mac environment is required for using voice mode.'
         }
         return $attr;
     }
 
-    sub clean {
+    sub cleanup {
         my $clean = shift;
 
         $clean =~ s/[\'\;]//g;
@@ -132,14 +121,14 @@ package Util {
         return $clean;
     }
 
-    sub fail {
+    sub go_to_fail {
         my ($attr, $data) = @_;
 
         $data->{words_back} = $data->{words};
-        my @words = @{ $data->{words} };
+        my @words = @{$data->{words}};
 
         $data->{fail} = [] unless (ref $data->{fail});
-        my @fail = @{ $data->{fail} };
+        my @fail = @{$data->{fail}};
 
         $attr->{fail_sw} = 'on';
         if (@fail == 0) {
@@ -148,7 +137,7 @@ package Util {
         }
         else {
             print "You turned on fail list mode.\n";
-            my %unique = map { $_ => 1 } @fail;
+            my %unique = map {$_ => 1} @fail;
             my @fail_words = keys %unique;
             chomp @fail_words;
             @words              = @fail_words;
@@ -161,12 +150,12 @@ package Util {
         return ($attr, $data);
     }
 
-    sub back {
+    sub back_to_normal {
         my ($attr, $data) = @_;
 
         print "You turned back to normal mode.\n";
         $attr->{fail_sw} = 'off';
-        my @words = @{ $data->{words_back} };
+        my @words = @{$data->{words_back}};
         $attr->{limit}      = @words;
         $data->{words}      = \@words;
         $attr->{num}        = $attr->{num_normal};
@@ -176,6 +165,5 @@ package Util {
     }
 
 }
-
 
 1;

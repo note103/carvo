@@ -9,8 +9,12 @@ use lib "$FindBin::Bin/lib";
 use Carvo;
 
 
-my $attr = Carvo::init();
+my ($attr, $data) = Carvo::init();
 
 while (1) {
-    Carvo::card($attr);
+
+    ($attr, $data) = Carvo::select($attr, $data);
+
+    ($attr, $data) = Carvo::play($attr, $data);
+
 }

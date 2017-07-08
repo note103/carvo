@@ -3,6 +3,8 @@ package Command {
     use warnings;
     use feature 'say';
 
+    use Responder;
+
     our %msg = (
         limit     => "You can choose a number from 1-",
         random    => "This is random select.",
@@ -14,29 +16,14 @@ package Command {
     sub set {
         my ($attr, $data) = @_;
 
-        $attr->{limit} = keys %{ $data->{dict} };
+        $attr->{limit} = @{$data->{words}};
+        say "Welcome to the \"" . $attr->{choose} . "\"";
 
-        say "Welcome to the \"" . $attr->{card_name} . "\"";
-
-        my $clean = $attr->{card_name};
-        $clean = Util::clean($clean);
+        my $clean = $attr->{choose};
+        $clean = Util::cleanup($clean);
 
         print `$attr->{voice} $clean` if $attr->{voice_ch} eq 'on';
-        say "$msg{limit}" . $attr->{limit};
-
-        say '';
-        $attr = command($attr);
-
-        my $start = $attr->{command};
-        $attr->{get} = `echo "$start" | cho | tr -d "\n"`;
-
-        $attr = option($attr);
-
-        run($attr, $data);
-    }
-
-    sub command {
-        my $attr = shift;
+        say "$msg{limit}".$attr->{limit}."\n";
 
         my @command = qw/
             play
@@ -57,111 +44,89 @@ package Command {
         return $attr;
     }
 
-    sub option {
-        my $attr = shift;
-
-        $attr->{selected_command} = "\n"    if $attr->{get} eq 'play';
-        $attr->{selected_command} = "again" if $attr->{get} eq 'again';
-        $attr->{selected_command} = "change"     if $attr->{get} eq 'change-card';
-        $attr->{selected_command} = "exit"   if $attr->{get} eq 'exit';
-        $attr->{selected_command} = "list"   if $attr->{get} eq 'list';
-        $attr->{selected_command} = "fail"  if $attr->{get} eq 'fail';
-        $attr->{selected_command} = "voice" if $attr->{get} eq 'voice';
-        $attr->{selected_command} = "help"  if $attr->{get} eq 'help';
-
-        return $attr;
-    }
-
-    sub run {
+    sub distribute {
         my ($attr, $data) = @_;
-        my $selected_command = $attr->{selected_command};
 
-        $selected_command = $1 if ($selected_command =~ /\A--(.+)\z/);
+        while (1) {
 
-        if ($selected_command =~ /\A(change|exit)\z/) {
-            $attr->{quit} = $1;
-            $attr->{total}      = $attr->{point} + $attr->{miss};
-            $attr->{num_buffer} = 0;
+            my $command_print = $attr->{command};
+            my $selected_command = `echo "$command_print" | cho | tr -d "\n"`;
 
-            $data = Util::logs($data);
-            Exit::record($attr, $data) if ($attr->{quit} eq 'exit');
-            return;
-        }
-        elsif ($selected_command =~ /\A(\d+)\z/) {
-            $attr->{num}        = $1;
-            $attr->{num_buffer} = $attr->{num};
-            if ($selected_command > $attr->{limit}) {
-                say "\nToo big! $msg{limit}" . $attr->{limit} . "\n$msg{random}\n";
-                ($attr) = Util::jump($attr);
-                Responder::mark('q', $attr, $data);
+            if ($selected_command =~ /\A(change|exit)/) {
+                $attr->{quit} = $1;
+                $attr->{total}      = $attr->{point} + $attr->{miss};
+                $attr->{num_buffer} = 0;
+
+                $data = Util::logs($data);
+                Recorder::record($attr, $data) if ($attr->{quit} eq 'exit');
+
+                return ($attr, $data);
+            }
+            elsif ($selected_command eq 'list') {
+                my $list = Util::list($data, $attr);
+                my $list_print = join "", @$list;
+
+                my $list_choice = `echo "$list_print" | peco | tr -d "\n"`;
+
+                if ($list_choice =~ /\A(\d+):/) {
+                    $attr->{num}        = $1;
+                    $attr->{num_buffer} = $attr->{num};
+
+                    if ($attr->{num} > $attr->{limit}) {
+                        say "\nToo big! $msg{limit}" . $attr->{limit} . "\n$msg{random}\n";
+                        ($attr) = Util::random_jump($attr);
+                        Responder::respond('q', $attr, $data);
+                    }
+                    else {
+                        Responder::respond('q', $attr, $data);
+                    }
+                } else {
+                    say "$msg{correct}";
+                }
+            }
+            elsif ($selected_command =~ /\Aplay\z/) {
+                if ($attr->{num_buffer} == $attr->{limit}) {
+                    unless ($attr->{fail_sw} eq 'on') {
+                        say $msg{exceed};
+                    }
+                    $attr->{num}        = 1;
+                    $attr->{num_buffer} = $attr->{num};
+                    Responder::respond('q', $attr, $data);
+                }
+                else {
+                    $attr->{num}        = $attr->{num_buffer} + 1;
+                    $attr->{num_buffer} = $attr->{num};
+                    Responder::respond('q', $attr, $data);
+                }
+            }
+            elsif ($selected_command eq 'again') {
+                $attr->{num} = $attr->{num_buffer};
+                Responder::respond('q', $attr, $data);
+            }
+            elsif ($selected_command eq 'voice') {
+                if ($attr->{voice_able} == 0) {
+                    say $msg{voice};
+                } else {
+                    $attr = Util::sound_change($attr);
+                }
+            }
+            elsif ($selected_command eq 'fail') {
+                if ($attr->{fail_sw} eq 'off') {
+                    ($attr, $data) = Util::go_to_fail($attr, $data);
+                } else {
+                    ($attr, $data) = Util::back_to_normal($attr, $data);
+                }
+                say "$msg{limit}" . $attr->{limit};
+            }
+            elsif ($selected_command eq 'help') {
+                say Util::help();
+                say "$msg{limit}" . $attr->{limit};
             }
             else {
-                Responder::mark('q', $attr, $data);
-            }
-        }
-        elsif ($selected_command eq 'list') {
-            my $list_out = Util::list($data, $attr);
-            my $l = join "", @$list_out;
-            my $num = `echo "$l" | peco | tr -d "\n"`;
-            if ($num =~ /\A(\d+):/) {
-                $attr->{selected_command} = $1;
-                run($attr, $data);
-                return;
-            } else {
                 say "$msg{correct}";
             }
+            say '';
         }
-        elsif ($selected_command =~ /\A(\n|[^\W\D]+)\z/) {
-            if ($attr->{num_buffer} == $attr->{limit}) {
-                unless ($attr->{fail_sw} eq 'on') {
-                    say $msg{exceed};
-                }
-                $attr->{num}        = 1;
-                $attr->{num_buffer} = $attr->{num};
-                Responder::mark('q', $attr, $data);
-            }
-            else {
-                $attr->{num}        = $attr->{num_buffer} + 1;
-                $attr->{num_buffer} = $attr->{num};
-                Responder::mark('q', $attr, $data);
-            }
-        }
-        elsif ($selected_command eq 'again') {
-            $attr->{num} = $attr->{num_buffer};
-            Responder::mark('q', $attr, $data);
-        }
-        elsif ($selected_command eq 'voice') {
-            if ($attr->{voice_able} == 0) {
-                say $msg{voice};
-            } else {
-                $attr = Util::sound($attr);
-            }
-        }
-        elsif ($selected_command eq 'fail') {
-            if ($attr->{fail_sw} eq 'off') {
-                ($attr, $data) = Util::fail($attr, $data);
-            } else {
-                ($attr, $data) = Util::back($attr, $data);
-            }
-            say "$msg{limit}" . $attr->{limit};
-        }
-        elsif ($selected_command eq 'help') {
-            say Util::help();
-            say "$msg{limit}" . $attr->{limit};
-        }
-        else {
-            say "$msg{correct}";
-        }
-        say '';
-
-        $attr = command($attr);
-
-        my $start = $attr->{command};
-        $attr->{get} = `echo "$start" | cho | tr -d "\n"`;
-
-        $attr = option($attr);
-
-        run($attr, $data);
     }
 }
 

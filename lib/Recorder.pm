@@ -1,4 +1,4 @@
-package Exit {
+package Recorder {
     use strict;
     use warnings;
     use feature 'say';
@@ -28,8 +28,6 @@ package Exit {
         exit;
     }
 
-    my $data_dir = 'docs/log';
-
     sub logs {
         my ($data, $result) = @_;
         my @log_cleanup;
@@ -49,7 +47,8 @@ package Exit {
         my @log_record = sort keys %unique;
 
         my @log_buffer;
-        my $log_file = $data_dir . '/log.txt';
+
+        my $log_file = 'docs/log/log.txt';
 
         open my $fh_in, '<', $log_file or croak("Can't open file.");
         for (<$fh_in>) {
@@ -75,7 +74,7 @@ package Exit {
         my $h = $attr->{point};
         my $e = $attr->{miss};
 
-        my $result_file = $data_dir . '/result.txt';
+        my $result_file = 'docs/log/result.txt';
 
         my $read_past_result = read_file($result_file);
         my @result_buffer = split /\n/, $read_past_result;
@@ -109,5 +108,6 @@ package Exit {
         write_file($result_file, @result);
     }
 }
+
 
 1;

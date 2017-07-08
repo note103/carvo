@@ -13,13 +13,7 @@ package Responder {
     my $correct_component_buff;
     my $giveup = '[Give up!]';
 
-    sub set {
-        ($attr, $data) = @_;
-        $attr->{ng} = 0;
-        Command::set($attr, $data);
-    }
-
-    sub respond {
+    sub calculate {
         ($attr, $data) = @_;
 
         if ($in_ans eq $attr->{ans}) {
@@ -37,12 +31,12 @@ package Responder {
                 }
             }
 
-            $data->{log} = Responder::mark('a', $attr, $data);
-            print $data->{result} = Util::result($attr, $data);
+            $data->{log} = respond('a', $attr, $data);
+            print $data->{result} = result($attr, $data);
         }
         elsif ($in_ans eq $giveup) {
-            Responder::mark('a', $attr, $data);
-            print $data->{result} = Util::result($attr, $data);
+            respond('a', $attr, $data);
+            print $data->{result} = result($attr, $data);
         }
         else {
             $attr->{log_record} = 'off';
@@ -58,12 +52,13 @@ package Responder {
             if ($attr->{sound_able} == 1) {
                 print `afplay $attr->{sound_dir}/ng.mp3`;
             }
-            Responder::mark('q', $attr, $data);
+            respond('q', $attr, $data);
         }
+
         return ($attr, $data);
     }
 
-    sub mark {
+    sub respond {
         my ($qa_switch, $attr, $data) = @_;
 
         $key = $data->{words}->[$attr->{num} - 1];
@@ -92,7 +87,7 @@ package Responder {
                 $rand = shuffle (@select);
 
                 $option = $data->{dict}->{$data->{words}->[$attr->{num} - $rand]};
-                next if $option eq '';
+                next unless $option;
 
                 $optmaker{$option} = 1;
             }
@@ -112,17 +107,27 @@ package Responder {
             $in_ans = decode('utf8', $in_ans);
             say $in_ans;
 
-            Responder::respond($attr, $data);
+            calculate($attr, $data);
         }
         elsif ($qa_switch eq 'a') {
 
             print $ans = "$key($attr->{num}): $data->{dict}->{$key}\n";
             push @{ $data->{log} }, $ans if ($attr->{log_record} eq 'on');
 
-            $clean = Util::clean($key);
+            $clean = Util::cleanup($key);
             print `$attr->{voice} $clean` if $attr->{voice_ch} eq 'on';
         }
+
         return $data->{log};
+    }
+
+    sub result {
+        my ($attr, $data) = @_;
+
+        $data->{result}
+            = "\nYou tried $attr->{total} times. $attr->{point} hits and $attr->{miss} errors.\n";
+
+        return $data->{result};
     }
 }
 

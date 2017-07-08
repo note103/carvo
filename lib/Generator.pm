@@ -7,34 +7,37 @@ package Generator {
     use Carp 'croak';
     use YAML;
     use File::Slurp 'read_file';
+    use List::Util 'shuffle';
 
     sub convert {
-        my ($fmt, $card_dir, $card_name) = @_;
-        my ($dict, $card);
+        my ($attr, $data) = @_;
+
+        my $card_dir = $attr->{lesson_dir};
+        my $card_name = $attr->{choose};
+
+        my $dict;
+        my $card;
 
         opendir(my $card_iter, $card_dir) or croak("Can't opendir $card_dir.");
         for my $file (readdir $card_iter) {
-            if ($file =~ /\.$fmt\z/) {
-                $dict = $card_dir . '/' . $file;
+            if ($file =~ /\.yml\z/) {
+                $dict = "$card_dir/$file";
             }
             elsif ($file =~ /$card_name\.txt\z/) {
-                $card = $card_dir . '/' . $file;
+                $card = "$card_dir/$file";
             }
         }
         closedir $card_iter;
 
-        $dict = YAML::LoadFile($dict) if ($fmt eq 'yml');
+        $data->{dict} = YAML::LoadFile($dict);
 
         my $words = read_file($card);
         my @words = split /\n/, $words;
+        @words = shuffle @words;
 
-        my %set_dict;
-        for (@words) {
-            $set_dict{$_} = $dict->{$_};
-        }
-        my $set_dict = \%set_dict;
+        $data->{words} = \@words;
 
-        return ($set_dict, $card_name);
+        return $data;
     }
 }
 
