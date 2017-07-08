@@ -1,3 +1,6 @@
+[![Build Status](https://travis-ci.org/note103/Carvo.svg?branch=master)](https://travis-ci.org/note103/Carvo)
+[![codecov.io](https://codecov.io/github/note103/Carvo/coverage.svg?branch=master)](https://codecov.io/github/note103/Carvo?branch=master)
+
 carvo
 =====
 
