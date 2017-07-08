@@ -1,18 +1,14 @@
 language: perl
 sudo: false
-
 perl:
   - "5.18"
 
-env:
-  AUTHOR_TESTING: 1
-before_install:
+before_script:
   - cpanm --quiet --notest --skip-satisfied Devel::Cover Devel::Cover::Report::Codecov
-  - cpanm --quiet --notest --skip-satisfied --installdeps --with-recommend .
-  - cover -delete
 script:
   - perl Build.PL
   - ./Build build
   - cover -test
+
 after_success:
   - cover -report codecov
