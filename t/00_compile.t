@@ -10,11 +10,9 @@ done_testing;
 
 __DATA__
 Generator
-Data
 Carvo
-Printer
-Reader
+CardSetter
+Recorder
 Responder
 Command
 Util
-Exit
