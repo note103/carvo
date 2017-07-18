@@ -26,9 +26,6 @@ subtest "randome_jump" => sub {
 };
 
 subtest "help" => sub {
-    use open ':utf8';
-    binmode STDOUT, ':utf8';
-
     # got
     my $got = Util::help();
 
