@@ -2,6 +2,7 @@ package CardSetter {
     use strict;
     use warnings;
     use feature 'say';
+    use Peco;
 
     sub read_directory {
         my $attr = shift;
@@ -25,7 +26,9 @@ package CardSetter {
     }
 
     sub select_card {
-        my ($attr, $list) = @_;
+        my $attr = shift;
+        my $list = shift;
+        my $flag_test = shift // '';
 
         my @command_card = qw/exit/;
         my $course_dir = $attr->{lesson_dir};
@@ -40,7 +43,7 @@ package CardSetter {
         my $options = join "\n", @options;
 
         while (1) {
-            $attr->{choose} = `echo "$options" | peco | tr -d "\n"`;
+            $attr->{choose} = Peco::peco($options, $flag_test);
             last if ($attr->{choose} ne '')
         }
 

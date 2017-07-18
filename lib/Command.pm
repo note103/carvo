@@ -4,6 +4,7 @@ package Command {
     use feature 'say';
 
     use Responder;
+    use Peco;
 
     our %msg = (
         limit     => "You can choose a number from 1-",
@@ -45,7 +46,9 @@ package Command {
     }
 
     sub distribute {
-        my ($attr, $data) = @_;
+        my $attr = shift;
+        my $data = shift;
+        my $flag_test = shift // '';
 
         while (1) {
 
@@ -66,7 +69,7 @@ package Command {
                 my $list = Util::list($data, $attr);
                 my $list_print = join "", @$list;
 
-                my $list_choice = `echo "$list_print" | peco | tr -d "\n"`;
+                my $list_choice = Peco::peco($list_print, $flag_test);
 
                 if ($list_choice =~ /\A(\d+):/) {
                     $attr->{num}        = $1;
