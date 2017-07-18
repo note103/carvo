@@ -3,9 +3,6 @@ package Util {
     use warnings;
     use feature 'say';
 
-    use open ':utf8';
-    use utf8;
-
     sub logs {
         my $data = shift;
 
@@ -31,6 +28,7 @@ package Util {
     sub list {
         my ($data, $attr) = @_;
 
+        # failモードかnormalモードか確認
         my @list;
         if ($attr->{fail_sw} eq 'off') {
             for (sort keys %{$data->{dict}}) {
@@ -44,48 +42,54 @@ package Util {
                 push @list, $_;
             }
         }
-        my @list_out;
+
+        # 進行中のカードリストを出力用に抽出
+        my @list_for_print;
         for (@list) {
-            my $num_get = num_get($_, \@{$data->{words}});
-            my $num_tmp = $num_get + 1;
-            push @list_out, "$num_tmp: $_\n";
+            my $num_index = num_index($_, \@{$data->{words}});
+            my $num_index_tmp = $num_index + 1;
+            push @list_for_print, "$num_index_tmp: $_\n";
         }
 
-        my %list_out;
-        for (@list_out) {
-            if ($_ =~ /^( \d+ ): (.+)/x) {
-                $list_out{$1} = $2;
+        my %list_for_print;
+        for (@list_for_print) {
+            if ($_ =~ /^(\d+): (.+)/x) {
+                $list_for_print{$1} = $2;
             }
         }
-        my @list_out_sorted;
-        for (sort { $a <=> $b } keys %list_out) {
-            push @list_out_sorted, "$_: $list_out{$_}\n";
+
+        my @list_for_print_sorted;
+        for (sort { $a <=> $b } keys %list_for_print) {
+            push @list_for_print_sorted, "$_: $list_for_print{$_}\n";
         }
 
-        return \@list_out_sorted;
+        return \@list_for_print_sorted;
     }
 
-    sub num_get {
+    sub num_index {
         my ($listed_word, $words_base) = @_;
+
         my @words   = @$words_base;
-        my $num_get = 0;
+        my $num_index = 0;
 
         for (@words) {
-            if ($listed_word eq $words[$num_get]) {
-                return $num_get;
+            if ($listed_word eq $words[$num_index]) {
+                return $num_index;
             }
             else {
-                $num_get++;
+                $num_index++;
             }
         }
-        return $num_get;
+        return $num_index;
     }
 
     sub random_jump {
         my ($attr) = @_;
+
         $attr->{num}        = int(rand($attr->{limit} + 1));
         $attr->{num_buffer} = $attr->{num};
-        return ($attr);
+
+        return $attr;
     }
 
     sub sound_change {
@@ -163,7 +167,7 @@ package Util {
 
         return ($attr, $data);
     }
-
 }
+
 
 1;
