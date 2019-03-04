@@ -3,8 +3,11 @@ package Command {
     use warnings;
     use feature 'say';
 
-    use Responder;
-    use Peco;
+    use FindBin;
+    use lib "$FindBin::Bin/../../lib";
+
+    use Play::Responder;
+    use Set::Peco;
 
     our %msg = (
         limit     => "You can choose a number from 1-",

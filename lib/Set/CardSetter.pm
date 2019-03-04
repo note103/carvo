@@ -2,7 +2,11 @@ package CardSetter {
     use strict;
     use warnings;
     use feature 'say';
-    use Peco;
+
+    use FindBin;
+    use lib "$FindBin::Bin/../../lib";
+
+    use Set::Peco;
 
     sub read_directory {
         my $attr = shift;

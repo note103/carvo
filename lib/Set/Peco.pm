@@ -2,6 +2,8 @@ package Peco;
 use strict;
 use warnings;
 
+use FindBin;
+use lib "$FindBin::Bin/../lib";
 
 sub peco {
     my $path = shift;
