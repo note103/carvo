@@ -5,7 +5,7 @@ use Carp 'croak';
 use FindBin;
 use lib "$FindBin::Bin/../lib";
 
-use Generator;
+use Set::Generator;
 
 use YAML;
 use File::Slurp 'read_file';

@@ -12,10 +12,10 @@ for (<DATA>) {
 done_testing;
 
 __DATA__
-Generator
+Set::Generator
 Carvo
-CardSetter
-Recorder
-Responder
-Command
-Util
+Set::CardSetter
+Record::Recorder
+Play::Responder
+Play::Command
+Play::Util

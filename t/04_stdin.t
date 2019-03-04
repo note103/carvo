@@ -5,7 +5,7 @@ use File::Basename 'basename';
 
 use FindBin;
 use lib "$FindBin::Bin/../lib";
-use CardSetter;
+use Set::CardSetter;
 
 
 # expect
