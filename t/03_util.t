@@ -6,7 +6,7 @@ use FindBin;
 use lib "$FindBin::Bin/../lib";
 
 use Carvo;
-use Util;
+use Play::Util;
 
 subtest "randome_jump" => sub {
     # sample
@@ -33,6 +33,9 @@ subtest "help" => sub {
     open my $fh_help, '<', 'docs/help.txt' or die $!;
     my $expect = do { local $/; <$fh_help> };
     close $fh_help;
+
+    use Encode;
+    $expect = decode('utf8', $expect);
 
     is $got, $expect, 'check-help';
 };

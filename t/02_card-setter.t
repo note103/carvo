@@ -6,7 +6,7 @@ use feature 'say';
 use FindBin;
 use lib "$FindBin::Bin/../lib";
 
-use CardSetter;
+use Set::CardSetter;
 
 subtest "read_card" => sub {
     my $attr->{lesson_dir} = 'src/lesson';
