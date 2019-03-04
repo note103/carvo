@@ -22,6 +22,8 @@ package Util {
         my $help = do { local $/; <$fh_help> };
         close $fh_help;
 
+        use Encode;
+        $help = decode('utf8', $help);
         return $help;
     }
 
