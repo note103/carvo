@@ -3,17 +3,19 @@ package Carvo {
     use warnings;
     use feature 'say';
 
-    use Command;
-    use Recorder;
-    use Generator;
-    use CardSetter;
-    use Util;
+    use FindBin;
+    use lib "$FindBin::Bin/../lib";
+
+    use Set::Generator;
+    use Set::CardSetter;
+    use Play::Util;
+    use Record::Recorder;
+    use Play::Command;
 
     use JSON;
     use File::Slurp;
 
     sub init {
-
         my $json = read_file( 'config.json' ) ;
         my $attr = decode_json($json);
 
@@ -41,6 +43,7 @@ package Carvo {
         my $list = CardSetter::read_directory($attr);
         $attr = CardSetter::select_card($attr, $list);
 
+        # 終了前記録
         if ($attr->{choose} eq 'exit') {
             $data = Util::logs($data);
             Recorder::record($attr, $data);
