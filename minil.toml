@@ -1,4 +1,0 @@
-name = "carvo"
-# badges = ["travis"]
-module_maker="ModuleBuildTiny"
-
