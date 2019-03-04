@@ -9,25 +9,13 @@ package Carvo {
     use CardSetter;
     use Util;
 
+    use JSON;
+    use File::Slurp;
+
     sub init {
-        my $attr = {
-            ans_num    => '',
-            fail_sw    => 'off',
-            lesson_dir => 'src/lesson',
-            sound_dir  => 'src/sound',
-            log_record => 'on',
-            miss       => 0,
-            num        => 0,
-            num_buffer => 0,
-            num_normal => 0,
-            point      => 0,
-            quit       => '',
-            sound_able => 1,
-            total      => 0,
-            voice      => 'say',
-            voice_able => 1,
-            voice_ch   => 'on',
-        };
+
+        my $json = read_file( 'config.json' ) ;
+        my $attr = decode_json($json);
 
         # 音声設定
         $attr->{voice_able} = 0 unless ($^O eq 'darwin');
