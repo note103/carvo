@@ -51,7 +51,6 @@ package Command {
     sub distribute {
         my $attr = shift;
         my $data = shift;
-        my $flag_test = shift // '';
 
         while (1) {
 
@@ -72,7 +71,7 @@ package Command {
                 my $list = Util::list($data, $attr);
                 my $list_print = join "", @$list;
 
-                my $list_choice = Peco::peco($list_print, $flag_test);
+                my $list_choice = Peco::peco($list_print);
 
                 if ($list_choice =~ /\A(\d+):/) {
                     $attr->{num}        = $1;
