@@ -29,7 +29,7 @@ package Command {
         print `say -v $attr->{voice} $clean` if $attr->{voice_flag} == 1;
         say "$msg{limit}".$attr->{limit}."\n";
 
-        my @command = qw/
+        my @command = qw(
             play
             again
             card
