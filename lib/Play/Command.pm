@@ -6,8 +6,11 @@ package Command {
     use FindBin;
     use lib "$FindBin::Bin/../../lib";
 
-    use Play::Responder;
     use Set::Peco;
+    use Play::Responder;
+    use Play::Util;
+    use Close::Logger;
+    use Close::Closer;
 
     our %msg = (
         limit     => "You can choose a number from 1-",
@@ -61,8 +64,8 @@ package Command {
                 $attr->{total}      = $attr->{point} + $attr->{miss};
                 $attr->{num_buffer} = 0;
 
-                $data = Util::logs($data);
-                Recorder::record($attr, $data) if ($attr->{quit} eq 'exit');
+                $data = Logger::store($data);
+                Closer::record($attr, $data) if ($attr->{quit} eq 'exit');
 
                 return ($attr, $data);
             }
@@ -123,7 +126,7 @@ package Command {
                 say "$msg{limit}" . $attr->{limit};
             }
             elsif ($selected_command eq 'help') {
-                say Util::help();
+                say Carvo::help();
                 say "$msg{limit}" . $attr->{limit};
             }
             else {

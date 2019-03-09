@@ -8,9 +8,9 @@ package Carvo {
 
     use Set::Generator;
     use Set::CardSetter;
-    use Play::Util;
-    use Record::Recorder;
     use Play::Command;
+    use Close::Logger;
+    use Close::Closer;
 
     use YAML::Tiny;
 
@@ -60,8 +60,8 @@ package Carvo {
 
         # 終了前記録
         if ($attr->{choose} eq 'exit') {
-            $data = Util::logs($data);
-            Recorder::record($attr, $data);
+            $data = Logger::store($data);
+            Closer::record($attr, $data);
         }
         else {
             return ($attr, $data);
