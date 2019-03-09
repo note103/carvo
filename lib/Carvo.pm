@@ -82,6 +82,16 @@ package Carvo {
 
         return ($attr, $data);
     }
+
+    sub help {
+        open my $fh_help, '<', 'docs/help.txt' or die $!;
+        my $help = do { local $/; <$fh_help> };
+        close $fh_help;
+
+        use Encode;
+        $help = decode('utf8', $help);
+        return $help;
+    }
 }
 
 1;
