@@ -101,7 +101,7 @@ package Responder {
 
             say $ans;
 
-            $in_ans = `echo "$options" | cho | tr -d "\n"`;
+            $in_ans = qx(echo "$options" | cho | tr -d "\n");
             use Encode;
             $in_ans =~ s/\A- //;
             $in_ans = decode('utf8', $in_ans);

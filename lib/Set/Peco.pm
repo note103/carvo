@@ -8,7 +8,7 @@ use lib "$FindBin::Bin/../lib";
 sub peco {
     my $path = shift;
 
-    my $result = qx{echo "$path" | peco | tr -d "\n"};
+    my $result = qx(echo "$path" | peco | tr -d "\n");
 
     return $result;
 }
