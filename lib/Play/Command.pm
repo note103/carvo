@@ -26,7 +26,7 @@ package Command {
         my $clean = $attr->{choose};
         $clean = Util::cleanup($clean);
 
-        print `$attr->{voice} $clean` if $attr->{voice_ch} eq 'on';
+        print `say -v $attr->{voice} $clean` if $attr->{voice_flag} == 1;
         say "$msg{limit}".$attr->{limit}."\n";
 
         my @command = qw/
@@ -38,9 +38,9 @@ package Command {
             fail
             voice
             help
-        /;
+        );
 
-        if ($attr->{voice_able} == 0) {
+        if ($attr->{voice_visible} == 0) {
             @command = grep {$_ ne 'voice'} @command;
         }
         $attr->{command} = join "\n", @command;
@@ -109,10 +109,10 @@ package Command {
                 Responder::respond('q', $attr, $data);
             }
             elsif ($selected_command eq 'voice') {
-                if ($attr->{voice_able} == 0) {
+                if ($attr->{voice_visible} == 0) {
                     say $msg{voice};
                 } else {
-                    $attr = Util::sound_change($attr);
+                    $attr = Util::voice_change($attr);
                 }
             }
             elsif ($selected_command eq 'fail') {

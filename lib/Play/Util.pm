@@ -94,20 +94,27 @@ package Util {
         return $attr;
     }
 
-    sub sound_change {
+    sub voice_change {
         my $attr = shift;
         if ($^O eq 'darwin') {
-            if ($attr->{voice_ch} eq 'off') {
-                $attr->{voice_ch} = 'on';
-                $attr->{sound_able} = 1;
-                print "You turned to voice mode.\n";
-                print `say hi`;
+            $attr->{voice_previous} = $attr->{voice};
+            my $voices = join("\n", @{$attr->{voices}});
+            while (1) {
+                $attr->{voice} = Peco::peco($voices);
+                last if ($attr->{voice} ne '')
+            }
+            if ($attr->{voice} eq '---') {
+                $attr->{voice_flag} = 0;
+                $attr->{sound_flag} = 0;
+                print "You turned to silent mode.\n";
+                print `say -v $attr->{voice_previous} bye`;
             }
             else {
-                $attr->{voice_ch} = 'off';
-                $attr->{sound_able} = 0;
-                print "You turned to silent mode.\n";
-                print `say bye`;
+                $attr->{voice_flag} = 1;
+                $attr->{sound_flag} = 1;
+                $attr->{voice_previous} = $attr->{voice};
+                print "You turned to voice $attr->{voice}.\n";
+                print `say -v $attr->{voice} hi`;
             }
         }
         else {
