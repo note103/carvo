@@ -116,7 +116,7 @@ package Command {
                 }
             }
             elsif ($selected_command eq 'fail') {
-                if ($attr->{fail_sw} eq 'off') {
+                if ($attr->{fail_flag} == 0) {
                     ($attr, $data) = Util::go_to_fail($attr, $data);
                 } else {
                     ($attr, $data) = Util::back_to_normal($attr, $data);

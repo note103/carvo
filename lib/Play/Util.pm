@@ -143,10 +143,10 @@ package Util {
         $data->{fail} = [] unless (ref $data->{fail});
         my @fail = @{$data->{fail}};
 
-        $attr->{fail_sw} = 'on';
+        $attr->{fail_flag} = 1;
         if (@fail == 0) {
             print "No data yet.\n";
-            $attr->{fail_sw} = 'off';
+            $attr->{fail_flag} = 0;
         }
         else {
             print "You turned on fail list mode.\n";
@@ -167,7 +167,7 @@ package Util {
         my ($attr, $data) = @_;
 
         print "You turned back to normal mode.\n";
-        $attr->{fail_sw} = 'off';
+        $attr->{fail_flag} = 0;
         my @words = @{$data->{words_back}};
         $attr->{limit}      = @words;
         $data->{words}      = \@words;
