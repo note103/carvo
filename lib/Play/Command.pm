@@ -53,7 +53,6 @@ package Command {
         my $data = shift;
 
         while (1) {
-
             my $command_print = $attr->{command};
             my $selected_command = `echo "$command_print" | cho | tr -d "\n"`;
 
