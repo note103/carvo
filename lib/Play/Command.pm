@@ -91,7 +91,7 @@ package Command {
             }
             elsif ($selected_command =~ /\Aplay\z/) {
                 if ($attr->{num_buffer} == $attr->{limit}) {
-                    unless ($attr->{fail_sw} eq 'on') {
+                    unless ($attr->{fail_flag} == 1) {
                         say $msg{exceed};
                     }
                     $attr->{num}        = 1;

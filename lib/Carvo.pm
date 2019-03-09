@@ -23,14 +23,17 @@ package Carvo {
         my $attr = $yaml->[0];
 
         # 音声設定
-        $attr->{voice_able} = 0 unless ($^O eq 'darwin');
-        $attr->{sound_able} = 0 unless (-d 'src/sound');
+        $attr->{voice_visible} = 1;
+        $attr->{sound_flag} = 1;
 
-        if ($attr->{voice_able} == 1) {
-            $attr->{voice_ch} = 'on';
+        $attr->{voice_visible} = 0 unless ($^O eq 'darwin');
+        $attr->{sound_flag} = 0 unless (-d 'src/sound');
+
+        if ($attr->{voice_visible} == 1) {
+            $attr->{voice_flag} = 1;
         }
         else {
-            $attr->{voice_ch} = 'off';
+            $attr->{voice_flag} = 0;
         }
 
         # 誤答リスト初期化
@@ -62,7 +65,7 @@ package Carvo {
         # 辞書作成
         $data = Generator::convert($attr, $data);
 
-        $attr->{fail_sw} = 'off' if ($attr->{fail_sw} eq 'on');
+        $attr->{fail_flag} = 0 if ($attr->{fail_flag} == 1);
 
         # ゲーム開始
         $attr = Command::set($attr, $data);

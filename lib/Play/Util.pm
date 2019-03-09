@@ -32,12 +32,12 @@ package Util {
 
         # failモードかnormalモードか確認
         my @list;
-        if ($attr->{fail_sw} eq 'off') {
+        if ($attr->{fail_flag} == 0) {
             for (sort keys %{$data->{dict}}) {
                 push @list, $_;
             }
         }
-        elsif ($attr->{fail_sw} eq 'on') {
+        elsif ($attr->{fail_flag} == 1) {
             my %unique = map { $_ => 1 } @{$data->{words}};
             for (sort keys %unique) {
                 chomp;
