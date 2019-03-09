@@ -23,7 +23,7 @@ package Carvo {
         $attr->{sound_flag} = 1;
 
         $attr->{voice_visible} = 0 unless ($^O eq 'darwin');
-        $attr->{sound_flag} = 0 unless (-d 'src/sound');
+        $attr->{sound_flag} = 0 unless (-d $attr->{sound_dir});
 
         if ($attr->{voice_visible} == 1) {
             $attr->{voice_flag} = 1;
