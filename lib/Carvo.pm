@@ -12,12 +12,15 @@ package Carvo {
     use Record::Recorder;
     use Play::Command;
 
-    use JSON;
-    use File::Slurp;
+    # use JSON;
+    # use File::Slurp;
+    use YAML::Tiny;
 
     sub init {
-        my $json = read_file( 'config.json' ) ;
-        my $attr = decode_json($json);
+        # my $json = read_file( 'config.json' ) ;
+        # my $attr = decode_json($json);
+        my $yaml = YAML::Tiny->read('config.yaml');
+        my $attr = $yaml->[0];
 
         # 音声設定
         $attr->{voice_able} = 0 unless ($^O eq 'darwin');
