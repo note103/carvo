@@ -38,6 +38,17 @@ package Carvo {
 
         # 誤答リスト初期化
         my $data->{fail} = [];
+        $attr->{fail_flag} = 0,
+
+        # 挙動用数値
+        $attr->{num} = 0,
+        $attr->{num_buffer} = 0,
+        $attr->{num_normal} = 0,
+
+        # 得点用数値
+        $attr->{point} = 0,
+        $attr->{miss} = 0,
+        $attr->{total} = 0,
 
         return ($attr, $data);
     }
