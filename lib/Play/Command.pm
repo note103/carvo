@@ -32,7 +32,7 @@ package Command {
         my @command = qw/
             play
             again
-            change-card
+            card
             exit
             list
             fail
