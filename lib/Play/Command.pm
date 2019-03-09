@@ -26,21 +26,21 @@ package Command {
         my $clean = $attr->{choose};
         $clean = Util::cleanup($clean);
 
-        print `$attr->{voice} $clean` if $attr->{voice_ch} eq 'on';
+        print `say -v $attr->{voice} $clean` if $attr->{voice_flag} == 1;
         say "$msg{limit}".$attr->{limit}."\n";
 
-        my @command = qw/
+        my @command = qw(
             play
             again
-            change-card
+            card
             exit
             list
             fail
             voice
             help
-        /;
+        );
 
-        if ($attr->{voice_able} == 0) {
+        if ($attr->{voice_visible} == 0) {
             @command = grep {$_ ne 'voice'} @command;
         }
         $attr->{command} = join "\n", @command;
@@ -51,14 +51,12 @@ package Command {
     sub distribute {
         my $attr = shift;
         my $data = shift;
-        my $flag_test = shift // '';
 
         while (1) {
-
             my $command_print = $attr->{command};
             my $selected_command = `echo "$command_print" | cho | tr -d "\n"`;
 
-            if ($selected_command =~ /\A(change|exit)/) {
+            if ($selected_command =~ /\A(card|exit)/) {
                 $attr->{quit} = $1;
                 $attr->{total}      = $attr->{point} + $attr->{miss};
                 $attr->{num_buffer} = 0;
@@ -72,7 +70,7 @@ package Command {
                 my $list = Util::list($data, $attr);
                 my $list_print = join "", @$list;
 
-                my $list_choice = Peco::peco($list_print, $flag_test);
+                my $list_choice = Peco::peco($list_print);
 
                 if ($list_choice =~ /\A(\d+):/) {
                     $attr->{num}        = $1;
@@ -92,7 +90,7 @@ package Command {
             }
             elsif ($selected_command =~ /\Aplay\z/) {
                 if ($attr->{num_buffer} == $attr->{limit}) {
-                    unless ($attr->{fail_sw} eq 'on') {
+                    unless ($attr->{fail_flag} == 1) {
                         say $msg{exceed};
                     }
                     $attr->{num}        = 1;
@@ -110,14 +108,14 @@ package Command {
                 Responder::respond('q', $attr, $data);
             }
             elsif ($selected_command eq 'voice') {
-                if ($attr->{voice_able} == 0) {
+                if ($attr->{voice_visible} == 0) {
                     say $msg{voice};
                 } else {
-                    $attr = Util::sound_change($attr);
+                    $attr = Util::voice_change($attr);
                 }
             }
             elsif ($selected_command eq 'fail') {
-                if ($attr->{fail_sw} eq 'off') {
+                if ($attr->{fail_flag} == 0) {
                     ($attr, $data) = Util::go_to_fail($attr, $data);
                 } else {
                     ($attr, $data) = Util::back_to_normal($attr, $data);

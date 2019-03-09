@@ -1,0 +1,32 @@
+---
+voice_flag: 1
+lesson_dir: src/lesson
+sound_dir: src/sound
+voice: Daniel
+voices:
+ - ---
+ - Agnes
+ - Albert
+ - Alex
+ - Bahh
+ - Bells
+ - Boing
+ - Bruce
+ - Bubbles
+ - Cellos
+ - Deranged
+ - Fred
+ - Hysterical
+ - Junior
+ - Kathy
+ - Pipe
+ - Organ
+ - Princess
+ - Ralph
+ - Samantha
+ - Trinoids
+ - Vicki
+ - Victoria
+ - Whisper
+ - Zarvox
+ - Daniel

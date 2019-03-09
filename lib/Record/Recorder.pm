@@ -23,7 +23,7 @@ package Recorder {
 
         say "\nScore:";
         print $result;
-        print `$attr->{voice} Bye!` if $attr->{voice_ch} eq 'on';
+        print `say -v $attr->{voice} Bye!` if $attr->{voice_flag} == 1;
 
         exit;
     }

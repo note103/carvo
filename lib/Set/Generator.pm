@@ -5,7 +5,7 @@ package Generator {
 
     use open IO => qw/:utf8 :std/;
     use Carp 'croak';
-    use YAML;
+    use YAML::Tiny;
     use File::Slurp 'read_file';
     use List::Util 'shuffle';
 
@@ -20,7 +20,7 @@ package Generator {
 
         opendir(my $card_iter, $card_dir) or croak("Can't opendir $card_dir.");
         for my $file (readdir $card_iter) {
-            if ($file =~ /\.yml\z/) {
+            if ($file =~ /\.yaml\z/) {
                 $dict = "$card_dir/$file";
             }
             elsif ($file =~ /$card_name\.txt\z/) {
@@ -29,7 +29,8 @@ package Generator {
         }
         closedir $card_iter;
 
-        $data->{dict} = YAML::LoadFile($dict);
+        my $yaml = YAML::Tiny->read($dict);
+        $data->{dict} = $yaml->[0];
 
         my $words = read_file($card);
         my @words = split /\n/, $words;

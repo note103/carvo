@@ -32,7 +32,6 @@ package CardSetter {
     sub select_card {
         my $attr = shift;
         my $list = shift;
-        my $flag_test = shift // '';
 
         my @command_card = qw/exit/;
         my $course_dir = $attr->{lesson_dir};
@@ -47,7 +46,7 @@ package CardSetter {
         my $options = join "\n", @options;
 
         while (1) {
-            $attr->{choose} = Peco::peco($options, $flag_test);
+            $attr->{choose} = Peco::peco($options);
             last if ($attr->{choose} ne '')
         }
 

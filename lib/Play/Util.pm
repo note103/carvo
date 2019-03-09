@@ -32,12 +32,12 @@ package Util {
 
         # failモードかnormalモードか確認
         my @list;
-        if ($attr->{fail_sw} eq 'off') {
+        if ($attr->{fail_flag} == 0) {
             for (sort keys %{$data->{dict}}) {
                 push @list, $_;
             }
         }
-        elsif ($attr->{fail_sw} eq 'on') {
+        elsif ($attr->{fail_flag} == 1) {
             my %unique = map { $_ => 1 } @{$data->{words}};
             for (sort keys %unique) {
                 chomp;
@@ -94,20 +94,27 @@ package Util {
         return $attr;
     }
 
-    sub sound_change {
+    sub voice_change {
         my $attr = shift;
         if ($^O eq 'darwin') {
-            if ($attr->{voice_ch} eq 'off') {
-                $attr->{voice_ch} = 'on';
-                $attr->{sound_able} = 1;
-                print "You turned to voice mode.\n";
-                print `say hi`;
+            $attr->{voice_previous} = $attr->{voice};
+            my $voices = join("\n", @{$attr->{voices}});
+            while (1) {
+                $attr->{voice} = Peco::peco($voices);
+                last if ($attr->{voice} ne '')
+            }
+            if ($attr->{voice} eq '---') {
+                $attr->{voice_flag} = 0;
+                $attr->{sound_flag} = 0;
+                print "You turned to silent mode.\n";
+                print `say -v $attr->{voice_previous} bye`;
             }
             else {
-                $attr->{voice_ch} = 'off';
-                $attr->{sound_able} = 0;
-                print "You turned to silent mode.\n";
-                print `say bye`;
+                $attr->{voice_flag} = 1;
+                $attr->{sound_flag} = 1;
+                $attr->{voice_previous} = $attr->{voice};
+                print "You turned to voice $attr->{voice}.\n";
+                print `say -v $attr->{voice} hi`;
             }
         }
         else {
@@ -136,10 +143,10 @@ package Util {
         $data->{fail} = [] unless (ref $data->{fail});
         my @fail = @{$data->{fail}};
 
-        $attr->{fail_sw} = 'on';
+        $attr->{fail_flag} = 1;
         if (@fail == 0) {
             print "No data yet.\n";
-            $attr->{fail_sw} = 'off';
+            $attr->{fail_flag} = 0;
         }
         else {
             print "You turned on fail list mode.\n";
@@ -160,7 +167,7 @@ package Util {
         my ($attr, $data) = @_;
 
         print "You turned back to normal mode.\n";
-        $attr->{fail_sw} = 'off';
+        $attr->{fail_flag} = 0;
         my @words = @{$data->{words_back}};
         $attr->{limit}      = @words;
         $data->{words}      = \@words;

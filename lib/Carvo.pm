@@ -12,26 +12,39 @@ package Carvo {
     use Record::Recorder;
     use Play::Command;
 
-    use JSON;
-    use File::Slurp;
+    use YAML::Tiny;
 
     sub init {
-        my $json = read_file( 'config.json' ) ;
-        my $attr = decode_json($json);
+        my $yaml = YAML::Tiny->read('config.yaml');
+        my $attr = $yaml->[0];
 
         # 音声設定
-        $attr->{voice_able} = 0 unless ($^O eq 'darwin');
-        $attr->{sound_able} = 0 unless (-d 'src/sound');
+        $attr->{voice_visible} = 1;
+        $attr->{sound_flag} = 1;
 
-        if ($attr->{voice_able} == 1) {
-            $attr->{voice_ch} = 'on';
+        $attr->{voice_visible} = 0 unless ($^O eq 'darwin');
+        $attr->{sound_flag} = 0 unless (-d $attr->{sound_dir});
+
+        if ($attr->{voice_visible} == 1) {
+            $attr->{voice_flag} = 1;
         }
         else {
-            $attr->{voice_ch} = 'off';
+            $attr->{voice_flag} = 0;
         }
 
         # 誤答リスト初期化
         my $data->{fail} = [];
+        $attr->{fail_flag} = 0,
+
+        # 挙動用数値
+        $attr->{num} = 0,
+        $attr->{num_buffer} = 0,
+        $attr->{num_normal} = 0,
+
+        # 得点用数値
+        $attr->{point} = 0,
+        $attr->{miss} = 0,
+        $attr->{total} = 0,
 
         return ($attr, $data);
     }
@@ -59,7 +72,7 @@ package Carvo {
         # 辞書作成
         $data = Generator::convert($attr, $data);
 
-        $attr->{fail_sw} = 'off' if ($attr->{fail_sw} eq 'on');
+        $attr->{fail_flag} = 0 if ($attr->{fail_flag} == 1);
 
         # ゲーム開始
         $attr = Command::set($attr, $data);

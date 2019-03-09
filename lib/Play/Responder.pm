@@ -17,13 +17,13 @@ package Responder {
         ($attr, $data) = @_;
 
         if ($in_ans eq $attr->{ans}) {
-            $attr->{log_record} = 'on';
+            $attr->{log_record} = 1;
             $attr->{point}++;
             $attr->{total} = $attr->{point} + $attr->{miss};
             print "\nGood!!\n";
             $attr->{ng} = 0;
 
-            if ($attr->{sound_able} == 1) {
+            if ($attr->{sound_flag} == 1) {
                 if (( $attr->{point} % 10 ) == 0) {
                     print `afplay $attr->{sound_dir}/ok10.mp3`;
                 } elsif (( $attr->{point} % 25 ) == 0) {
@@ -39,7 +39,7 @@ package Responder {
             print $data->{result} = result($attr, $data);
         }
         else {
-            $attr->{log_record} = 'off';
+            $attr->{log_record} = 0;
             $attr->{miss}++;
             $attr->{total} = $attr->{point} + $attr->{miss};
 
@@ -49,7 +49,7 @@ package Responder {
             say "\nNG! Again!\n";
             $attr->{ng} = 1;
 
-            if ($attr->{sound_able} == 1) {
+            if ($attr->{sound_flag} == 1) {
                 print `afplay $attr->{sound_dir}/ng.mp3`;
             }
             respond('q', $attr, $data);
@@ -101,7 +101,7 @@ package Responder {
 
             say $ans;
 
-            $in_ans = `echo "$options" | cho | tr -d "\n"`;
+            $in_ans = qx(echo "$options" | cho | tr -d "\n");
             use Encode;
             $in_ans =~ s/\A- //;
             $in_ans = decode('utf8', $in_ans);
@@ -112,10 +112,10 @@ package Responder {
         elsif ($qa_switch eq 'a') {
 
             print $ans = "$key($attr->{num}): $data->{dict}->{$key}\n";
-            push @{ $data->{log} }, $ans if ($attr->{log_record} eq 'on');
+            push @{ $data->{log} }, $ans if ($attr->{log_record} == 1);
 
             $clean = Util::cleanup($key);
-            print `$attr->{voice} $clean` if $attr->{voice_ch} eq 'on';
+            print `say -v $attr->{voice} $clean` if $attr->{voice_flag} == 1;
         }
 
         return $data->{log};
