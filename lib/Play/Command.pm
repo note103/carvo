@@ -58,7 +58,7 @@ package Command {
             my $command_print = $attr->{command};
             my $selected_command = `echo "$command_print" | cho | tr -d "\n"`;
 
-            if ($selected_command =~ /\A(change|exit)/) {
+            if ($selected_command =~ /\A(card|exit)/) {
                 $attr->{quit} = $1;
                 $attr->{total}      = $attr->{point} + $attr->{miss};
                 $attr->{num_buffer} = 0;
