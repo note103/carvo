@@ -46,6 +46,8 @@ package Carvo {
         $attr->{miss} = 0,
         $attr->{total} = 0,
 
+        print `say -v $attr->{voice} hi` if $attr->{voice_flag} == 1;
+
         return ($attr, $data);
     }
 
