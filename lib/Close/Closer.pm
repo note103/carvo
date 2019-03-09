@@ -1,4 +1,4 @@
-package Recorder {
+package Closer {
     use strict;
     use warnings;
     use feature 'say';
