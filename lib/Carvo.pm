@@ -19,22 +19,12 @@ package Carvo {
         my $attr = $yaml->[0];
 
         # 音声設定
-        $attr->{voice_visible} = 1;
         $attr->{sound_flag} = 1;
+        $attr->{sound_flag} = 0 if (! -d $attr->{sound_dir});
 
-        $attr->{voice_visible} = 0 unless ($^O eq 'darwin');
-        $attr->{sound_flag} = 0 unless (-d $attr->{sound_dir});
-
-        if ($attr->{voice_visible} == 1) {
-            $attr->{voice_flag} = 1;
-        }
-        else {
-            $attr->{voice_flag} = 0;
-        }
-
-        # 誤答リスト初期化
-        my $data->{fail} = [];
-        $attr->{fail_flag} = 0,
+        $attr->{voice_visible} = 1;
+        $attr->{voice_visible} = 0 if ($^O ne 'darwin');
+        $attr->{voice_flag} = 0 if $attr->{voice_visible} == 0;
 
         # 挙動用数値
         $attr->{num} = 0,
@@ -45,6 +35,10 @@ package Carvo {
         $attr->{point} = 0,
         $attr->{miss} = 0,
         $attr->{total} = 0,
+
+        # 誤答リスト初期化
+        $attr->{fail_flag} = 0,
+        my $data->{fail} = [];
 
         print `say -v $attr->{voice} hi` if $attr->{voice_flag} == 1;
 
