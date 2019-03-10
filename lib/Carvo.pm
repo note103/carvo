@@ -71,8 +71,8 @@ package Carvo {
         $attr->{fail_flag} = 0 if ($attr->{fail_flag} == 1);
 
         # ゲーム開始
-        $attr = Command::set($attr, $data);
-        ($attr, $data) = Command::distribute($attr, $data);
+        $attr = Commander::select($attr, $data);
+        ($attr, $data) = Commander::handle($attr, $data);
 
         return ($attr, $data);
     }
