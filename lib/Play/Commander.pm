@@ -1,4 +1,4 @@
-package Command {
+package Commander {
     use strict;
     use warnings;
     use feature 'say';
@@ -20,7 +20,7 @@ package Command {
         exceed   => "You exceeded the maximum. Return to the beggining.\n",
     );
 
-    sub set {
+    sub select {
         my ($attr, $data) = @_;
 
         $attr->{limit} = @{$data->{words}};
@@ -51,7 +51,7 @@ package Command {
         return $attr;
     }
 
-    sub distribute {
+    sub handle {
         my $attr = shift;
         my $data = shift;
 
