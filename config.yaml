@@ -2,6 +2,8 @@
 voice_flag: 1
 lesson_dir: src/lesson
 sound_dir: src/sound
+log_file: docs/log/log.txt
+result_file: docs/log/result.txt
 voice: Daniel
 voices:
  - ---

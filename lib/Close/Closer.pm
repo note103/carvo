@@ -15,7 +15,7 @@ package Closer {
 
         exit if ($attr->{total} + $attr->{point} + $attr->{miss} == 0);
 
-        my $log_record = print_log($data, $result);
+        my $log_record = print_log($attr, $data, $result);
         my $result_record = write_result($attr);
 
         say "\nRecord:";
@@ -29,7 +29,7 @@ package Closer {
     }
 
     sub print_log {
-        my ($data, $result) = @_;
+        my ($attr, $data, $result) = @_;
         my @log_cleanup;
 
         for (@{ $data->{log} }) {
@@ -48,7 +48,10 @@ package Closer {
 
         my @log_buffer;
 
-        my $log_file = 'docs/log/log.txt';
+        unless (-f $attr->{log_file}) {
+            print `mkdir -p "\$(dirname $attr->{log_file})"; touch "$attr->{log_file}"`;
+        }
+        my $log_file = $attr->{log_file};
 
         open my $fh_in, '<', $log_file or croak("Can't open file.");
         for (<$fh_in>) {
@@ -74,7 +77,10 @@ package Closer {
         my $h = $attr->{point};
         my $e = $attr->{miss};
 
-        my $result_file = 'docs/log/result.txt';
+        unless (-f $attr->{result_file}) {
+            print `mkdir -p "\$(dirname $attr->{result_file})"; touch "$attr->{result_file}"`;
+        }
+        my $result_file = $attr->{result_file};
 
         my $read_past_result = read_file($result_file);
         my @result_buffer = split /\n/, $read_past_result;
