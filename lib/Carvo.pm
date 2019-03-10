@@ -8,7 +8,7 @@ package Carvo {
 
     use Set::Generator;
     use Set::CardSetter;
-    use Play::Command;
+    use Play::Commander;
     use Close::Logger;
     use Close::Closer;
 
