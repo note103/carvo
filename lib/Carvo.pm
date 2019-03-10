@@ -55,7 +55,7 @@ package Carvo {
         my ($attr, $data) = @_;
 
         # カード選択
-        my $list = CardSetter::read_directory($attr);
+        my $list = CardSetter::read_dict($attr);
         $attr = CardSetter::select_card($attr, $list);
 
         # 終了前記録
