@@ -1,4 +1,4 @@
-package Command {
+package Commander {
     use strict;
     use warnings;
     use feature 'say';
@@ -6,8 +6,11 @@ package Command {
     use FindBin;
     use lib "$FindBin::Bin/../../lib";
 
-    use Play::Responder;
     use Set::Peco;
+    use Play::Responder;
+    use Play::Util;
+    use Close::Logger;
+    use Close::Closer;
 
     our %msg = (
         limit     => "You can choose a number from 1-",
@@ -17,7 +20,7 @@ package Command {
         exceed   => "You exceeded the maximum. Return to the beggining.\n",
     );
 
-    sub set {
+    sub select {
         my ($attr, $data) = @_;
 
         $attr->{limit} = @{$data->{words}};
@@ -48,7 +51,7 @@ package Command {
         return $attr;
     }
 
-    sub distribute {
+    sub handle {
         my $attr = shift;
         my $data = shift;
 
@@ -61,8 +64,8 @@ package Command {
                 $attr->{total}      = $attr->{point} + $attr->{miss};
                 $attr->{num_buffer} = 0;
 
-                $data = Util::logs($data);
-                Recorder::record($attr, $data) if ($attr->{quit} eq 'exit');
+                $data = Logger::store($data);
+                Closer::record($attr, $data) if ($attr->{quit} eq 'exit');
 
                 return ($attr, $data);
             }
@@ -123,7 +126,7 @@ package Command {
                 say "$msg{limit}" . $attr->{limit};
             }
             elsif ($selected_command eq 'help') {
-                say Util::help();
+                say Carvo::help();
                 say "$msg{limit}" . $attr->{limit};
             }
             else {

@@ -1,4 +1,4 @@
-package Recorder {
+package Closer {
     use strict;
     use warnings;
     use feature 'say';
@@ -15,8 +15,8 @@ package Recorder {
 
         exit if ($attr->{total} + $attr->{point} + $attr->{miss} == 0);
 
-        my $log_record = logs($data, $result);
-        my $result_record = result($attr);
+        my $log_record = print_log($data, $result);
+        my $result_record = write_result($attr);
 
         say "\nRecord:";
         print @$log_record;
@@ -28,7 +28,7 @@ package Recorder {
         exit;
     }
 
-    sub logs {
+    sub print_log {
         my ($data, $result) = @_;
         my @log_cleanup;
 
@@ -67,7 +67,7 @@ package Recorder {
         return \@log_record;
     }
 
-    sub result {
+    sub write_result {
         my $attr = shift;
 
         my $t = $attr->{total};

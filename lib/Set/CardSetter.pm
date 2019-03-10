@@ -8,7 +8,7 @@ package CardSetter {
 
     use Set::Peco;
 
-    sub read_directory {
+    sub read_dict {
         my $attr = shift;
 
         my @list;
