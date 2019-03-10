@@ -10,54 +10,9 @@ package Responder {
     my $data;
     my $key;
     my $clean;
-    my $in_ans;
+    my $answer;
     my $correct_component_buff;
     my $giveup = '[Give up!]';
-
-    sub calculate {
-        ($attr, $data) = @_;
-
-        if ($in_ans eq $attr->{ans}) {
-            $attr->{log_record} = 1;
-            $attr->{point}++;
-            $attr->{total} = $attr->{point} + $attr->{miss};
-            print "\nGood!!\n";
-            $attr->{ng} = 0;
-
-            if ($attr->{sound_flag} == 1) {
-                if (( $attr->{point} % 10 ) == 0) {
-                    print `afplay $attr->{sound_dir}/ok10.mp3`;
-                } elsif (( $attr->{point} % 25 ) == 0) {
-                    print `afplay $attr->{sound_dir}/ok25.mp3`;
-                }
-            }
-
-            $data->{log} = respond('a', $attr, $data);
-            print $data->{result} = result($attr, $data);
-        }
-        elsif ($in_ans eq $giveup) {
-            respond('a', $attr, $data);
-            print $data->{result} = result($attr, $data);
-        }
-        else {
-            $attr->{log_record} = 0;
-            $attr->{miss}++;
-            $attr->{total} = $attr->{point} + $attr->{miss};
-
-            push @{ $data->{log} }, "*$key: $data->{dict}->{$key}\n";
-            push @{ $data->{fail} }, $key . "\n";
-
-            say "\nNG! Again!\n";
-            $attr->{ng} = 1;
-
-            if ($attr->{sound_flag} == 1) {
-                print `afplay $attr->{sound_dir}/ng.mp3`;
-            }
-            respond('q', $attr, $data);
-        }
-
-        return ($attr, $data);
-    }
 
     sub respond {
         my ($qa_switch, $attr, $data) = @_;
@@ -65,7 +20,7 @@ package Responder {
         $key = $data->{words}->[$attr->{num} - 1];
         $key =~ s/(.+)(\n)*$/$1/;
 
-        my $ans = $key;
+        my $question = $key;
 
         if ($qa_switch eq 'q') {
             my $limit = scalar(@{$data->{words}});
@@ -100,26 +55,71 @@ package Responder {
             @options = map {$_ = "- $_"} @options;
             $options = join "\n", @options;
 
-            say $ans;
+            say $question;
 
-            $in_ans = qx(echo "$options" | cho | tr -d "\n");
+            $answer = qx(echo "$options" | cho | tr -d "\n");
             use Encode;
-            $in_ans =~ s/\A- //;
-            $in_ans = decode('utf8', $in_ans);
-            say $in_ans;
+            $answer =~ s/\A- //;
+            $answer = decode('utf8', $answer);
+            say $answer;
 
             calculate($attr, $data);
         }
         elsif ($qa_switch eq 'a') {
 
-            print $ans = "$key($attr->{num}): $data->{dict}->{$key}\n";
-            push @{ $data->{log} }, $ans if ($attr->{log_record} == 1);
+            print $question = "$key($attr->{num}): $data->{dict}->{$key}\n";
+            push @{ $data->{log} }, $question if ($attr->{log_record} == 1);
 
             $clean = Util::cleanup($key);
             print `say -v $attr->{voice} $clean` if $attr->{voice_flag} == 1;
         }
 
         return $data->{log};
+    }
+
+    sub calculate {
+        ($attr, $data) = @_;
+
+        if ($answer eq $attr->{ans}) {
+            $attr->{log_record} = 1;
+            $attr->{point}++;
+            $attr->{total} = $attr->{point} + $attr->{miss};
+            print "\nGood!!\n";
+            $attr->{ng} = 0;
+
+            if ($attr->{sound_flag} == 1) {
+                if (( $attr->{point} % 10 ) == 0) {
+                    print `afplay $attr->{sound_dir}/ok10.mp3`;
+                } elsif (( $attr->{point} % 25 ) == 0) {
+                    print `afplay $attr->{sound_dir}/ok25.mp3`;
+                }
+            }
+
+            $data->{log} = respond('a', $attr, $data);
+            print $data->{result} = result($attr, $data);
+        }
+        elsif ($answer eq $giveup) {
+            respond('a', $attr, $data);
+            print $data->{result} = result($attr, $data);
+        }
+        else {
+            $attr->{log_record} = 0;
+            $attr->{miss}++;
+            $attr->{total} = $attr->{point} + $attr->{miss};
+
+            push @{ $data->{log} }, "*$key: $data->{dict}->{$key}\n";
+            push @{ $data->{fail} }, $key . "\n";
+
+            say "\nNG! Again!\n";
+            $attr->{ng} = 1;
+
+            if ($attr->{sound_flag} == 1) {
+                print `afplay $attr->{sound_dir}/ng.mp3`;
+            }
+            respond('q', $attr, $data);
+        }
+
+        return ($attr, $data);
     }
 
     sub result {
