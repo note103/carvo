@@ -66,9 +66,8 @@ package Responder {
             calculate($attr, $data);
         }
         elsif ($qa_switch eq 'a') {
-
             print $question = "$key($attr->{num}): $data->{dict}->{$key}\n";
-            push @{ $data->{log} }, $question if ($attr->{log_record} == 1);
+            push @{ $data->{log} }, $question if ($attr->{add_correct_list} == 1);
 
             $clean = Util::cleanup($key);
             print `say -v $attr->{voice} $clean` if $attr->{voice_flag} == 1;
@@ -81,7 +80,7 @@ package Responder {
         ($attr, $data) = @_;
 
         if ($answer eq $attr->{ans}) {
-            $attr->{log_record} = 1;
+            $attr->{add_correct_list} = 1;
             $attr->{point}++;
             $attr->{total} = $attr->{point} + $attr->{miss};
             print "\nGood!!\n";
@@ -99,11 +98,17 @@ package Responder {
             print $data->{result} = result($attr, $data);
         }
         elsif ($answer eq $giveup) {
+            $attr->{add_correct_list} = 0;
+            $attr->{miss}++;
+            $attr->{total} = $attr->{point} + $attr->{miss};
+            push @{ $data->{log} }, "*$key: $data->{dict}->{$key}\n";
+            push @{ $data->{fail} }, $key . "\n";
+            print "\n";
             respond('a', $attr, $data);
             print $data->{result} = result($attr, $data);
         }
         else {
-            $attr->{log_record} = 0;
+            $attr->{add_correct_list} = 0;
             $attr->{miss}++;
             $attr->{total} = $attr->{point} + $attr->{miss};
 
