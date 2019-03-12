@@ -7,7 +7,7 @@ use lib "$FindBin::Bin/../lib";
 
 use Set::Generator;
 
-use YAML;
+use YAML::Tiny;
 use File::Slurp 'read_file';
 
 # sample
@@ -27,8 +27,9 @@ diag 'got: ' . $data->{words}->[0];
 diag 'expect: ' . $expected_words[0];
 is_deeply $data->{words}, \@expected_words, 'words';
 
-my $dict = "$attr->{lesson_dir}/dict.yml";
-my $tmp_dict = YAML::LoadFile($dict);
+my $dict = "$attr->{lesson_dir}/dict.yaml";
+my $yaml = YAML::Tiny->read($dict);
+my $tmp_dict = $yaml->[0];
 
 my $card = "$attr->{lesson_dir}/$attr->{choose}.txt";
 

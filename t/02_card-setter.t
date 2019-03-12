@@ -12,7 +12,7 @@ subtest "read_card" => sub {
     my $attr->{lesson_dir} = 'src/lesson';
 
     # got
-    my $got_list = CardSetter::read_directory($attr);
+    my $got_list = CardSetter::read_dict($attr);
 
     # expect
     my $expect_list = [];
