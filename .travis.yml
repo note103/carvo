@@ -5,7 +5,6 @@ perl:
 
 before_script:
   - cpanm --quiet --notest --skip-satisfied Devel::Cover Devel::Cover::Report::Codecov
-  - brew install peco
 script:
   - perl Build.PL
   - ./Build build
