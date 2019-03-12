@@ -27,7 +27,7 @@ subtest "randome_jump" => sub {
 
 subtest "help" => sub {
     # got
-    my $got = Util::help();
+    my $got = Carvo::help();
 
     # expect
     open my $fh_help, '<', 'docs/help.txt' or die $!;
