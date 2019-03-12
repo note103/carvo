@@ -18,8 +18,13 @@ my $attr->{lesson_dir} = $lesson_dir;
 my @ls = glob "$lesson_dir/*";
 @ls = map {
     my $basename = basename $_ ;
-    $basename =~ s/.txt//;
-    $basename;
+    if ($basename =~ /.txt$/) {
+        $basename =~ s/.txt//;
+        $basename;
+    }
+    else {
+        ;
+    }
 } @ls;
 my $ls = join "\n", @ls;
 
@@ -27,7 +32,7 @@ my $input = "$expect\n";
 open my $stdin, '<', \$input;
 local *STDIN = *$stdin;
 
-my $got_ref = CardSetter::select_card($attr, \@ls, 't');
+my $got_ref = CardSetter::select_card($attr, \@ls);
 my $got = $got_ref->{choose};
 
 close $stdin;
