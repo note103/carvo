@@ -32,6 +32,7 @@ sub read_dict {
 sub select_card {
     my $attr = shift;
     my $list = shift;
+    my $flag = shift // '';
 
     my @command_card = qw/exit/;
     my $course_dir = $attr->{lesson_dir};
@@ -46,7 +47,7 @@ sub select_card {
     my $options = join "\n", @options;
 
     while (1) {
-        $attr->{choose} = Peco::peco($options);
+        $attr->{choose} = Peco::peco($options, $flag);
         last if ($attr->{choose} ne '')
     }
 
