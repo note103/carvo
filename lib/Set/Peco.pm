@@ -7,11 +7,11 @@ use lib "$FindBin::Bin/../lib";
 
 sub peco {
     my $path = shift;
-    my $flag = shift // '';
+    my $arg_for_test = shift // '';
 
     my $result;
 
-    if ($flag eq '') {
+    if ($arg_for_test eq '') {
         $result = qx{echo "$path" | peco | tr -d "\n"};
     }
     else {

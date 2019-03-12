@@ -32,10 +32,13 @@ my $input = "$expect\n";
 open my $stdin, '<', \$input;
 local *STDIN = *$stdin;
 
-my $got_ref = CardSetter::select_card($attr, \@ls);
+my $got_ref = CardSetter::select_card($attr, \@ls, "t");
 my $got = $got_ref->{choose};
 
 close $stdin;
+
+diag "got: " . $got;
+diag "expect: " . $expect;
 
 is $got, $expect, 'check-stdin';
 
